@@ -1,8 +1,9 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import logo from "../Images/marbiz-logo.png";
+import Container from "react-bootstrap/Container";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+
 function NavBar() {
   return (
     <>

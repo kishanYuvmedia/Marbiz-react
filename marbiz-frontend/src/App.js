@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './Components/NavBar';
 import Home from './Page/HomePage';
+
 function App() {
   return (
     <BrowserRouter>
