@@ -14,7 +14,7 @@ const CardSlider = () => {
           </Card.Text>
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
-      </Card> 
+      </Card>
     </div>
   );
 };
