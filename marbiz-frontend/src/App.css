@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 * {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -237,7 +235,7 @@
     background: rgb(255, 186, 33);
     background: linear-gradient(
       0deg,
-      rgba(0, 0, 0, 0.38) 0%,
+      rgba(0, 0, 0, 0.8) 0%,
       rgba(255, 255, 255, 0) 100%
     );
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import celeb from "../Images/celeb.png";
 
-const CelebCard = () => {
+const   CelebCard = () => {
   return (
     < >
 
@@ -23,12 +23,13 @@ const CelebCard = () => {
               <div className="media">
                 {/* <img className="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder " style={{ maxWidth: '50px' }} /> */}
                 <div className="media-body">
-                  <h6 className="my-0 fw-bold text-white d-block">Celebrity Name</h6>
+                  <h6 className="my-0 fw-bold text-2xl text-white d-block">Celebrity Name</h6>
                   <small className="text-white">Active Platform</small>
                   <div className="d-flex justify-content-start mt-2">
-                  <span class="badge text-bg-dark me-2">#New</span>
-                  <span class="badge text-bg-dark me-2">#New</span>
-                  <span class="badge text-bg-dark me-2">#New</span>
+                  <span class="bg-pink-100 text-pink-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">#New</span>
+                  <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">#New</span>
+                  <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">#New</span>
+                  
                   </div>
                   
                 </div>
