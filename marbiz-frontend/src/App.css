@@ -239,3 +239,11 @@
 }
 @media (max-width: 767px) {
 }
+
+
+.nav-btn {
+  color: white;
+}
+.nav-btn:hover {
+  color: #8A2DFC;
+}
