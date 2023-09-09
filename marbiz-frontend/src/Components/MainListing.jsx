@@ -3,12 +3,13 @@ import CelebCard from './CelebCard'
 
 const MainListing = () => {
   return (
-    <div>
-      <div className='d-grid jjustify-content-Start mt-5 mx-3' >
+    <div className='container'>
+
+      <div className='d-grid jjustify-content-Start mt-5 ' >
         <h1 className='fw-bold'>Celebrities & Influencer</h1>
         <p>Hire top Celebrities & Influencer all platforms see All</p>
 
-        <div className="row d-flex mx-3">
+        <div className="row d-flex">
           <div className="col-lg-3 col-md-12 col-sm-12 mb-4 ">
             <CelebCard />
           </div>
@@ -21,8 +22,7 @@ const MainListing = () => {
           <div className="col-lg-3 col-md-12 col-sm-12 mb-4 ">
             <CelebCard />
           </div>
-          
-        </div>
+          </div>
       </div>
 
 
@@ -32,12 +32,12 @@ const MainListing = () => {
 
 const ModalListing = () => {
   return (
-    <div>
-      <div className='d-grid justify-content-Start mt-5 mx-3' >
+    <div className='container'>
+      <div className='d-grid justify-content-Start mt-5 ' >
         <h1 className='fw-bold'>Spokesperson & Models</h1>
         <p>Hire top Spokesperson & Models all platforms see All</p>
 
-        <div className="row d-flex mx-3">
+        <div className="row d-flex ">
         <div className="col-lg-3 col-md-12 col-sm-12 mb-4 ">
             <CelebCard />
           </div>

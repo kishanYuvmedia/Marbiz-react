@@ -29,7 +29,7 @@ function NavBar() {
           <a href="brand" class="mr-5 text-lg font-semibold nav-btn   no-underline">Join As Brand</a>
           <a href="creator" class="mr-5 text-lg font-semibold nav-btn   no-underline">Join as creator</a>
 
-          <button class=" nav-btn font-semibold inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-lg text-sm px-5 py-2.5 text-center ">Login
+          <button class=" nav-btn font-semibold text-white inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-lg text-sm px-5 py-2.5 text-center ">Login
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
