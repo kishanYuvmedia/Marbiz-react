@@ -1,0 +1,98 @@
+{
+  "name": "MtBusinessProfile",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "strictObjectIDCoercion": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "companyName": {
+      "type": "string",
+      "required": true
+    },
+    "contactPerson": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "GSTNo": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string"
+    },
+    "businessEmail": {
+      "type": "string",
+      "required": true
+    },
+    "website": {
+      "type": "string"
+    },
+    "shopNo": {
+      "type": "string"
+    },
+    "businessTypeTag": {
+      "type": "array"
+    },
+    "pin": {
+      "type": "string"
+    },
+    "ownerName": {
+      "type": "string"
+    },
+    "ownerPhone": {
+      "type": "string"
+    },
+    "contactNumber": {
+      "type": "string",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date",
+      "defaultFn":"now"
+    },
+    "idProofFront":{
+      "type": "string"
+    },
+    "idProofBack":{
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getUniqueLocations": {
+      "accepts": [
+        {
+          "arg": "businessType",
+          "type": "string",
+          "required": true
+        },
+        {
+          "arg": "state",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "returns": {
+        "type": "object",
+        "arg": "response",
+        "root": true
+      },
+      "description": "",
+      "http": [
+        {
+          "path": "/getUniqueLocations",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

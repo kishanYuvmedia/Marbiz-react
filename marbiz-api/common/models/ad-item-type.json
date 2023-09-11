@@ -1,0 +1,42 @@
+{
+    "name": "AdItemType",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "mixins": {
+      "LimitToTenant": true
+    },
+    "properties": {
+      "itemType": {
+        "type": "string",
+        "required": true
+      },
+      "item": {
+        "type": "string",
+        "required": true
+      },
+      "length": {
+        "type": "number",
+        "required": true
+      },
+      "hight": {
+        "type": "number",
+        "required": true
+      },
+      "width": {
+        "type": "number",
+        "required": true
+      }, 
+      "cft": {
+        "type": "number",
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

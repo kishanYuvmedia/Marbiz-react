@@ -1,0 +1,43 @@
+{
+  "name": "MtKYC",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "referenceId": {
+      "type": "string",
+      "required": true
+    },
+    "referenceType": {
+      "type": "string",
+      "required": true
+    },
+    "kycName": {
+      "type": "string",
+      "required": true
+    },
+    "kycType": {
+      "type": "string",
+      "required": true
+    },
+    "govtDocType": {
+      "type": "string",
+      "required": true
+    },
+    "kycNumber": {
+      "type": "string"
+    },
+    "documentPath": {
+      "type": "string"
+    },
+    "isVerified": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,83 @@
+{
+    "name": "AdCostDetails",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "strictObjectIDCoercion": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "mixins": {
+      "LimitToTenant": true
+    },
+    "properties": {
+      "customerID": {
+        "type": "string",
+        "required": true
+      },
+      "transportationHhg": {
+        "type": "number",
+        "required": true
+      },
+      "transportationCar": {
+        "type": "number",
+        "required": true
+      },
+      "packing": {
+        "type": "number",
+        "required": true
+      },
+      "unpacking": {
+        "type": "number",
+        "required": true
+      },
+      "loading": {
+        "type": "number",
+        "required": true
+      },
+      "unloading": {
+        "type": "number",
+        "required": true
+      },
+      "netAmount": {
+        "type": "number",
+        "required": true
+      },
+      "gstValue": {
+        "type": "number"
+      },
+      "gstTotal": {
+        "type": "number",
+        "required": true
+      },
+      "insuranceValue": {
+        "type": "number",
+        "required": true
+      },
+      "insuranceAmt": {
+        "type": "number",
+        "required": true
+      },
+      "otherCharges": {
+        "type": "number",
+        "required": true
+      },
+      "totalAmount": {
+        "type": "number",
+        "required": true
+      },
+      "vehicleType": {
+        "type": "string"
+      }
+    },
+    "validations": [],
+    "relations": {
+      "customerDetails":{
+        "type":"belongsTo",
+        "model":"AdCustomerDetails",
+        "foreignKey":"customerID"
+      }
+    },
+    "acls": [],
+    "methods": {}
+  }
+  

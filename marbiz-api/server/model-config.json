@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongoDB",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mongoDB",
+    "public": false
+  },
+  "MtUser": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtBusinessProfile": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtSystemList": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtVehicle": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtSubscriptionPlan": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtVehicleLoad": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtRateCard": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtKYC": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtDeviceData": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtLastDeviceData": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtNotification": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtFaq": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AWSContainer": {
+    "dataSource": "awsStorage",
+    "public": true
+  },
+  "MtNeedLoad": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtHelpDesk": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtPublicList": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtModelCache": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtContactUs": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AdItemType": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AdCompanyBranch": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AdCustomerDetails": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AdCustomerItems": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AdCostDetails": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AdEmployeeDetails": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "AdGroupBranch": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtUserPlan": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "MtPaymentLog": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "TestModel": {
+    "dataSource": "mongoDB",
+    "public": true
+  }
+}

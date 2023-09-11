@@ -1,0 +1,30 @@
+{
+  "name": "MtFaq",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "moverstripType": {
+      "type": "string",
+      "required": true
+    },
+    "faqType": {
+      "type": "string",
+      "required": true
+    },
+    "faqQuestion": {
+      "type": "string",
+      "required": true
+    },
+    "faqAnswer": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

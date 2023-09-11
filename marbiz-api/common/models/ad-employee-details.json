@@ -1,0 +1,45 @@
+{
+    "name": "AdEmployeeDetails",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "mixins": {
+      "LimitToTenant": true
+    },
+    "properties": {
+      "userId": {
+        "type": "string",
+        "required": true
+      },
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "mobileNumber": {
+        "type": "string",
+        "required": true
+      },
+      "branch": {
+        "type": "string",
+        "required": true
+      },
+      "jobType": {
+        "type": "string",
+        "required": true
+      },
+      "createDate": {
+        "type": "date"
+      },
+      "status":{
+        "type":"string",
+        "default": "A"
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

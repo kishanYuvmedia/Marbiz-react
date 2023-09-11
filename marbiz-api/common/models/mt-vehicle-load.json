@@ -1,0 +1,74 @@
+{
+  "name": "MtVehicleLoad",
+  "base": "PersistedModel",
+  "strictObjectIDCoercion": true,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "vehicleType": {
+      "type": "string",
+      "required": true
+    },
+    "goodsType": {
+      "type": "string",
+      "required": true
+    },
+    "loadsType": {
+      "type": "string",
+      "required": true
+    },
+    "contactName": {
+      "type": "string",
+      "required": true
+    },
+    "contactNumber": {
+      "type": "string"
+    },
+    "pickupLocation": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "specialInstruction": {
+      "type": "string"
+    },
+    "itemWeight": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date",
+      "defaultFn":"now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getArchiveData": {
+      "accepts": [
+        {
+          "arg": "days",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "object",
+        "arg": "response",
+        "root": true
+      },
+      "description": "Get All vehicleLoad Archive Data",
+      "http": [
+        {
+          "path": "/getArchiveData",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}
