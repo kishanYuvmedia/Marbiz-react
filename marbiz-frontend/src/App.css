@@ -321,3 +321,10 @@
 .button-42:hover {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
 }
+
+.typeWriterText {
+  font-size: 60px;
+  color: white;
+  font-weight: 900;
+  line-height: 1;
+}

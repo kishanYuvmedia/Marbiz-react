@@ -1,7 +1,13 @@
 import React from "react";
 import bgImage from "../Images/influ-2.webp";
+import Typewriter from 'typewriter-effect';
+
+
 
 const HeroSection = () => {
+
+  
+
   return (
     <>
       <div
@@ -17,9 +23,23 @@ const HeroSection = () => {
         }}
       >
         <div className="flex flex-col justify-center items-center text-center px-4 py-8">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white">
-            Influencer Marketing Made Easy
-          </h2>
+          
+          <div className="flex">
+
+            
+            <Typewriter
+              options={{
+                strings: ['Influencer', 'Celebrity', "Models", "Publisher"],
+                autoStart: true,
+                loop: true,
+                wrapperClassName: 'typeWriterText',
+              }}
+            />
+
+            <div id="" className="typeWriterText text-4xl  md:text-5xl lg:text-6xl text-gray-900 dark:text-white">
+              Marketing Made Easy
+            </div>
+          </div>
           <p className="mt-4 text-lg lg:text-xl font-normal text-gray-500 dark:text-gray-400">
             Find and hire top Instagram, TikTok, YouTube, and UGC influencer to
             create unique content for your brand.
@@ -101,3 +121,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
