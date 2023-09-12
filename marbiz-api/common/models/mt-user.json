@@ -24,55 +24,37 @@
     },
     "userType": {
       "type": "string",
-      "default": "MTGPS"
+      "required": true
     },
-    "businessTypeTag": {
+    "city": {
       "type": "string"
     },
     "state": {
       "type": "string"
     },
+    "country": {
+      "type": "string",
+      "default": "IN"
+    },
     "referrald": {
       "type": "string"
     },
-    "verificationCode":{
+    "verificationCode": {
       "type": "string"
     },
-    "planExpairyDate":{
-      "type":"date"
+    "codeCreatedAt": {
+      "type": "date"
     },
-    "planMode":{
-      "type":"string"
-    },
-    "codeCreatedAt":{
-      "type":"date"
-    },
-    "status":{
-      "type":"string",
+    "status": {
+      "type": "string",
       "default": "I"
     }
   },
   "validations": [],
   "relations": {
-    "mtBusinessProfiles": {
+    "mtProfiles": {
       "type": "hasMany",
-      "model": "MtBusinessProfile",
-      "foreignKey": "mtUserId",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "mtVehicles": {
-      "type": "hasMany",
-      "model": "MtVehicle",
-      "foreignKey": "mtUserId",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "mtVehicleLoads": {
-      "type": "hasMany",
-      "model": "MtVehicleLoad",
+      "model": "MtProfile",
       "foreignKey": "mtUserId",
       "options": {
         "nestRemoting": true
@@ -89,21 +71,21 @@
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "property":"sendOTP",
+      "property": "sendOTP",
       "principalId": "$everyone",
       "permission": "ALLOW"
     },
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "property":"resetUserPassword",
+      "property": "resetUserPassword",
       "principalId": "$everyone",
       "permission": "ALLOW"
     },
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "property":"verifyOTP",
+      "property": "verifyOTP",
       "principalId": "$everyone",
       "permission": "ALLOW"
     },
@@ -116,7 +98,7 @@
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "property":"generateAccessToken",
+      "property": "generateAccessToken",
       "principalId": "$everyone",
       "permission": "ALLOW"
     }

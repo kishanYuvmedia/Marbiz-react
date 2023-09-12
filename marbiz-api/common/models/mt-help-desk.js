@@ -5,7 +5,7 @@ const {sendEmail} = require('../../utils/methods');
 const _ = require('lodash');
 module.exports = function(MtHelpDesk) {
   var MtSystemList = loopback.getModel('MtSystemList');
-  var MtBusinessProfile = loopback.getModel('MtBusinessProfile');
+  var MtProfile = loopback.getModel('MtProfile');
   var smsService = app.dataSources.smsService;
   let userBusinessProfile, systemRecord;
   MtHelpDesk.observe('after save', function(context, next) {

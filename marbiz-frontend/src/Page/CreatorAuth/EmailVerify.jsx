@@ -3,15 +3,14 @@ import "./style.css";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import { Button, Col, Form, Row } from "react-bootstrap";
-
-
+import { createMtUsers } from "../../services/api/api-service";
 export default function EmailVerify(props) {
   const [otpStatus, setotpstatus] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     password: "",
-    referralSource: "Choose...",
+    userType: "Choose...",
     checked: false,
   });
 
@@ -43,8 +42,8 @@ export default function EmailVerify(props) {
     if (!formData.password.trim()) {
       newErrors.password = "Password is required";
     }
-    if (formData.referralSource === "Choose...") {
-      newErrors.referralSource = "Please select an option";
+    if (formData.userType === "Choose...") {
+      newErrors.userType = "Please select an option";
     }
     if (!formData.checked) {
       newErrors.checked = "You must check the box";
@@ -54,28 +53,41 @@ export default function EmailVerify(props) {
     if (Object.keys(newErrors).length === 0) {
       // You can access the form data here in the formData object
       console.log("Form data submitted:", formData);
-      Swal.fire(
-        "Thank You for Registration " + formData.fullName.trim(),
-        "Check you email for verification link",
-        "success"
-      );
-      const form = document.getElementById("myForm");
-      emailjs
-        .sendForm(
-          "service_qo9nh4e", // Replace with your service ID
-          "template_xh1ijhr", // Replace with your template ID
-          form,
-          "lPidiJhuBIjxn13mLrXMo" // Replace with your user ID
-        )
-        .then(
-          (result) => {
-            console.log("Email sent successfully:", result.text);
-          },
-          (error) => {
-            console.error("Error sending email:", error.text);
-          }
-        );
-
+      const dataJson = [];
+      dataJson.push({
+        contactName: formData.fullName,
+        userType: formData.userType,
+        realm: formData.fullName,
+        username: formData.email,
+        password: formData.password,
+        email: formData.email,
+        emailVerified: true,
+      });
+      // Swal.fire(
+      //   "Thank You for Registration " + formData.fullName.trim(),
+      //   "Check you email for verification link",
+      //   "success"
+      // );
+      // const form = document.getElementById("myForm");
+      // emailjs
+      //   .sendForm(
+      //     "service_qo9nh4e", // Replace with your service ID
+      //     "template_xh1ijhr", // Replace with your template ID
+      //     form,
+      //     "lPidiJhuBIjxn13mLrXMo" // Replace with your user ID
+      //   )
+      //   .then(
+      //     (result) => {
+      //       console.log("Email sent successfully:", result.text);
+      //     },
+      //     (error) => {
+      //       console.error("Error sending email:", error.text);
+      //     }
+      //   );
+      console.log("Create new account", dataJson[0]);
+      createMtUsers(dataJson[0]).then((result) => {
+        console.log(result);
+      });
       setotpstatus(true);
     }
   };
@@ -141,21 +153,19 @@ export default function EmailVerify(props) {
                         {errors.password}
                       </Form.Control.Feedback>
                     </Form.Group>
-
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Select
-                        name="referralSource"
-                        defaultValue={formData.referralSource}
+                        name="userType"
+                        defaultValue={formData.userType}
                         onChange={handleChange}
-                        isInvalid={!!errors.referralSource}
+                        isInvalid={!!errors.userType}
                       >
-                        <option disabled>How did you hear about us?</option>
+                        <option>How did you hear about us?</option>
                         <option>Option 1</option>
-                        <option>Option 2</option>
                         {/* Add more options */}
                       </Form.Select>
                       <Form.Control.Feedback type="invalid">
-                        {errors.referralSource}
+                        {errors.userType}
                       </Form.Control.Feedback>
                     </Form.Group>
 
