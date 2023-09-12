@@ -5,7 +5,7 @@ const MainListing = () => {
   return (
     <div className='container'>
 
-      <div className='d-grid jjustify-content-Start mt-5 ' >
+      <div className='d-grid justify-content-Start mt-5 ' >
         <h1 className='fw-bold'>Celebrities & Influencer</h1>
         <p>Hire top Celebrities & Influencer all platforms see All</p>
 

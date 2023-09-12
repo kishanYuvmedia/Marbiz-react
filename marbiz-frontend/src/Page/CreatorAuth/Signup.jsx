@@ -6,7 +6,12 @@ export default function Signin() {
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");
   const [status, setstatus] = useState(false);
+
+
+
   const headlerclaim = () => {
+
+
     if (claimtext) {
       setvalue(claimtext.target.value);
       Swal.fire("Congratulations", "Claim name avilable", "success");
@@ -15,6 +20,8 @@ export default function Signin() {
       Swal.fire("Try again", "Claim name not intered", "warning");
     }
   };
+
+
   return (
     <>
       {status === false && (
@@ -27,13 +34,13 @@ export default function Signin() {
                 TikTok, YouTube, and UGC brand deals
               </p>
               <div className="username-holder">
-                <div className="username-domain">www.marbiz.com/</div>
+                <div className="username-domain ps-3">www.marbiz.com</div>
                 <div className="username-input-holder">
                   <input
                     type="text"
                     className="username-text"
                     onChange={(e) => setclaimtext(e)}
-                    placeholder="yourname"
+                    placeholder="Your Name"
                   />
                 </div>
                 <div className="username-btn" onClick={headlerclaim}>

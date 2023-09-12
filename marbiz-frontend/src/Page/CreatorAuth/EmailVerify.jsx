@@ -3,6 +3,8 @@ import "./style.css";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import { Button, Col, Form, Row } from "react-bootstrap";
+
+
 export default function EmailVerify(props) {
   const [otpStatus, setotpstatus] = useState(false);
   const [formData, setFormData] = useState({
@@ -12,6 +14,8 @@ export default function EmailVerify(props) {
     referralSource: "Choose...",
     checked: false,
   });
+
+
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -21,8 +25,11 @@ export default function EmailVerify(props) {
       [name]: fieldValue,
     });
   };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     // Validate the form
     const newErrors = {};
     if (!formData.fullName.trim()) {
@@ -72,6 +79,8 @@ export default function EmailVerify(props) {
       setotpstatus(true);
     }
   };
+
+  
   const isValidEmail = (email) => {
     // Basic email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

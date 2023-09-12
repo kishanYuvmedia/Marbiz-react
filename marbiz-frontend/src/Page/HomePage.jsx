@@ -3,7 +3,8 @@ import HeroSection from "../Components/HeroSection";
 import Featured from "../Components/Featured";
 import { MainListing, ModalListing } from "../Components/MainListing";
 import Footer from "../Components/Footer";
-import logo from "../Images/marbiz-logo.png";
+import Promotions from "../Components/Promotions";
+
 
 function HomePage() {
   return (
@@ -12,6 +13,7 @@ function HomePage() {
       <Featured />
       <MainListing />
       <ModalListing />
+      <Promotions />
       <Footer />
     </div>
   );
