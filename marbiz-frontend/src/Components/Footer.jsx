@@ -3,7 +3,7 @@ import logo from "../Images/marbiz-logo.png";
 
 const Footer = () => {
     return (
-        <footer className=''>
+        <footer className='footer'>
             <div className="container-fluid footer bg-black p-5 mt-5" style={{ borderRadius: "50px 50px 0 0" }}>
                 <div className='row justify-content-around'>
                     <div className='col-lg-2 col-md-3 col-sm-6'>

@@ -23,7 +23,7 @@ const Promotions = () => {
                     </div>
                 </div>
 
-                <div class="card ms-5 promotion-card " >
+                <div class="card ms-5 promotion-card" >
                     <div class="row g-0">
 
                         <div class="col-md-8 promotion-body">

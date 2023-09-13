@@ -17,12 +17,14 @@ const HeroSection = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundColor: "rgba(0, 0, 0, 0.3)",
+          backgroundColor: "rgba(57, 57, 57, 0.5)",
           minHeight: "700px",
-          border: "2px solid rgb(168, 85, 247)",
+          border: "2px solid #9B3C95",
+          // opacity: "0.75",
+          
         }}
       >
-        <div className="container text-center">
+        <div className="container text-center" style={{inset: "0",}}>
           <div className="d-flex justify-content-center">
 
             <Typewriter
@@ -64,13 +66,13 @@ const HeroSection = () => {
 
           <div id="cover" className="my-3">
 
-            <form method="get" action="">
+            <form method="get" action="" className="search-form">
               <div class="tb">
                 <div class="td">
-                  <input type="text" placeholder="Search" required />
+                  <input className="search-input" type="text" placeholder="Search" required />
                 </div>
                 <div class="td" id="s-cover">
-                  <button type="submit">
+                  <button className="search-button" type="submit">
                     <div id="s-circle"></div>
                     <span></span>
                   </button>
