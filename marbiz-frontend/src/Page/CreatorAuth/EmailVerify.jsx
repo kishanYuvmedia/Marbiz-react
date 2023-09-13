@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { createMtUsers } from "../../services/api/api-service";
+import { createMtUsers, getPublicList } from "../../services/api/api-service";
 export default function EmailVerify(props) {
   const [otpStatus, setotpstatus] = useState(false);
+  const [categoryList, setCategory] = useState([]);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -81,7 +82,7 @@ export default function EmailVerify(props) {
       //   );
       console.log("Create new account", dataJson[0]);
       createMtUsers(dataJson[0]).then((result) => {
-        console.log(result);
+        console.log("save", result);
       });
       setotpstatus(true);
     }
@@ -91,6 +92,11 @@ export default function EmailVerify(props) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
+  useEffect(() => {
+    getPublicList("Influencers").then((result) => {
+      setCategory(result);
+    });
+  }, []);
   return (
     <>
       <div>
@@ -153,9 +159,10 @@ export default function EmailVerify(props) {
                         onChange={handleChange}
                         isInvalid={!!errors.userType}
                       >
-                        <option>How did you hear about us?</option>
-                        <option>Option 1</option>
-                        {/* Add more options */}
+                        <option disabled>How did you hear about us?</option>
+                        {categoryList.map((list) => (
+                          <option key={list.label}>{list.label}</option>
+                        ))}
                       </Form.Select>
                       <Form.Control.Feedback type="invalid">
                         {errors.userType}

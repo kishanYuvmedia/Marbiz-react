@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import Swal from "sweetalert2";
 import EmailVerify from "./EmailVerify";
+import { checkPublicName } from "../../services/api/api-service";
 export default function Signin() {
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");
@@ -9,8 +10,16 @@ export default function Signin() {
   const headlerclaim = () => {
     if (claimtext) {
       setvalue(claimtext.target.value);
-      Swal.fire("Congratulations", "Claim name avilable", "success");
-      setstatus(true);
+      if (claimtext.target.value != null) {
+        checkPublicName(claimtext.target.value).then((result) => {
+          if (result) {
+            Swal.fire("Try again", "Claim name already taken", "warning");
+          } else {
+            Swal.fire("Congratulations", "Claim name avilable", "success");
+            setstatus(true);
+          }
+        });
+      }
     } else {
       Swal.fire("Try again", "Claim name not intered", "warning");
     }
