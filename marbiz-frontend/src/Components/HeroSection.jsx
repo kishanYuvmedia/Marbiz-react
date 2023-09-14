@@ -72,9 +72,22 @@ const HeroSection = () => {
         
 
         <div className="mt-3">
+        <a href="/">
           <span className="badge badge-primary me-2">Category 1</span>
-          <span className="badge badge-primary me-2">Category 2</span>
-          <span className="badge badge-primary me-2">Category 3</span>
+        </a>
+        <a href="/">
+          <span className="badge badge-info me-2">Category 2</span>
+        </a>
+        <a href="/">
+          <span className="badge badge-success me-2">Category 3</span>
+        </a>
+        <a href="/">
+          <span className="badge badge-danger me-2">Category 4</span>
+        </a>
+        <a href="/">
+          <span className="badge badge-warning me-2">Category 5</span>
+        </a>
+          
         </div>
       </div>
     </div>

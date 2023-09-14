@@ -7,7 +7,7 @@ function NavBar() {
   return (
     <>
 
-      <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+      <nav className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
         <div className="container">
 
           <a className="navbar-brand" href="/">
@@ -26,7 +26,7 @@ function NavBar() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto mb-2">
+            <ul className="navbar-nav ms-auto ">
               <li className="nav-item">
                 <a className="nav-link" href="#explore">Explore</a>
               </li>
