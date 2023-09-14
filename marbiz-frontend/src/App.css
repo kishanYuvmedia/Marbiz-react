@@ -338,10 +338,23 @@ h1,h2,h3,h4,h5,h6 {
   line-height: 1;
 }
 
-.celeb {
-  /* margin-bottom: -20px; */
-  display: grid;
-  align-content: end;
+.celeb1 {
+  /* Your default styles here */
+  /* transform: scale(1.1) translate(18px, -12px); */
+}
+
+.celeb2 {
+  /* Your default styles here */
+  /* transform: scale(1.1) translate(8px, -24.1px); */
+}
+
+@media (max-width: 768px) {
+  .celeb1,
+  .celeb2 {
+    /* Adjust styles for screens up to 768px wide */
+    /* For example, you can reset the transformations */
+    transform: none;
+  }
 }
 
 .nav-link {
@@ -352,11 +365,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .promotion-card {
-  max-width: 540px;
+  /* max-width: 540px;
   min-height: 200px;
   height: 150px;
   display: grid;
-  background: rgb(173, 34, 195);
+  background: rgb(173, 34, 195); */
+  border-radius: 20px;
   background: linear-gradient(
     0deg,
     rgba(173, 34, 195, 1) 0%,
@@ -364,9 +378,14 @@ h1,h2,h3,h4,h5,h6 {
   );
 }
 
+.promotion-title{
+  font-size: 35px;
+}
+
 .promotion-body {
   display: grid;
   align-content: center;
+  padding: 20px;
 }
 
 .list-group-item {
@@ -587,6 +606,37 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* btn css */
+.srch-btn {
+  
+  padding: 13px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 20px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #FA4FB7 0%, #FEC580  51%, #FA4FB7  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  /* width: 300px; */
+}
+
+.srch-btn:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.srch-btn:active {
+  transform: scale(0.95);
+}
 
 /* CSS */
 .button-87 {
