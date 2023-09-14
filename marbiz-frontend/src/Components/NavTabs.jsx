@@ -1,5 +1,5 @@
 import React from 'react'
-import  { VideoGallery, Gallery } from './Gallery'
+import  { VideoGallery } from './Gallery'
 import LightBoxGallery from './LightBoxGallery'
 
 const NavTabs = () => {

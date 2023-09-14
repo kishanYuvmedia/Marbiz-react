@@ -164,11 +164,11 @@ h1,h2,h3,h4,h5,h6 {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 
   @media (max-width: 768px) {
-    min-height: 350px;
+    min-height: 450px;
   }
 
   @media (max-width: 420px) {
-    min-height: 300px;
+    min-height: 450px;
   }
 
   &.card-has-bg {

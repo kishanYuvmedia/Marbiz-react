@@ -18,7 +18,7 @@ const CelebProfile = () => {
                         </ol>
                     </nav>
                 </div>
-                    <div className="col-md-4 col-12">
+                    <div className="col-md-4 col-sm-12">
                         <a
                             href={"https://unsplash.it/1200/768.jpg?image=251"}
                             data-toggle="lightbox"
@@ -31,7 +31,7 @@ const CelebProfile = () => {
                             />
                         </a>
                     </div>
-                    <div className="col-md-8 col-12 d-flex flex-column justify-content-center mx-2 my-3">
+                    <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center mx-2 my-3">
                         <div className="fs-1 fw-bold">Sanam</div>
                         <h3>(Live Band)</h3>
                         <h6>Mumbai, Maharashtra</h6>

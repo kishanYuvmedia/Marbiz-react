@@ -20,13 +20,10 @@ const HeroSection = () => {
           backgroundColor: "rgba(57, 57, 57, 0.5)",
           minHeight: "700px",
           border: "2px solid #9B3C95",
-          // opacity: "0.75",
-          
         }}
       >
-        <div className="container text-center" style={{inset: "0",}}>
-          <div className="d-flex justify-content-center">
-
+        <div className="container text-center">
+          <div className="d-flex justify-content-center flex-column align-items-center">
             <Typewriter
               options={{
                 strings: ['Influencer', 'Celebrity', "Models", "Publisher"],
@@ -35,43 +32,19 @@ const HeroSection = () => {
                 wrapperClassName: 'typeWriterText',
               }}
             />
-
             <div className="typeWriterText">Marketing Made Easy</div>
           </div>
           <p className="mt-3 text-white">
-            Find and hire top Instagram, TikTok, YouTube, and UGC influencers to
-            create unique content for your brand.
+            Find and hire top Instagram, TikTok, YouTube, and UGC influencers to create unique content for your brand.
           </p>
-          {/* <div className="mt-3">
-            <form className="form-inline">
-              <div className="input-group">
-                <input
-                  type="search"
-                  id="search"
-                  className="form-control "
-                  placeholder="Search"
-                  required
-                />
-                <div className="input-group-append">
-                  <button
-                    type="submit"
-                    className="btn btn-primary px-4 py-2.5 text-center"
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div> */}
 
           <div id="cover" className="my-3">
-
             <form method="get" action="" className="search-form">
-              <div class="tb">
-                <div class="td">
+              <div className="tb">
+                <div className="td">
                   <input className="search-input" type="text" placeholder="Search" required />
                 </div>
-                <div class="td" id="s-cover">
+                <div className="td" id="s-cover">
                   <button className="search-button" type="submit">
                     <div id="s-circle"></div>
                     <span></span>
@@ -79,9 +52,7 @@ const HeroSection = () => {
                 </div>
               </div>
             </form>
-            
           </div>
-
 
           <div className="mt-3">
             <span className="badge badge-primary me-2">Category 1</span>
@@ -90,6 +61,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
       <div
         className="my-3 d-flex justify-content-center align-items-center py-3 text-white gradient_background"
         style={{}}
