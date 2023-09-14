@@ -1,6 +1,6 @@
 import 'mdb-ui-kit/css/mdb.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
-
+import * as mdb from 'mdb-ui-kit'; 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import "./App.css";
