@@ -26,6 +26,9 @@ function NavBar() {
               <li class="nav-item">
                 <a class="nav-link" href="#category">Category</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/celebprofile">Celeb Profile</a>
+              </li>
             </ul>
             <ul className="navbar-nav ms-auto">
             

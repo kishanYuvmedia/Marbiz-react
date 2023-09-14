@@ -1,6 +1,7 @@
 * {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+    margin: 0;
+    padding: 0;
   }
 
 body {
@@ -344,9 +345,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .nav-link {
-  color: rgb(255, 159, 104);
+  color: #FA4FB7;
   font-size: 18px;
   font-weight: 500;
+  font-weight: 600;
 }
 
 .promotion-card {
@@ -381,11 +383,17 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .footer {
-  /* border-top: 2px solid #8a2dfc; */
+  border-top: 2px solid #8a2dfc;
   /* margin-top: auto; */
   position: relative;
   left: 0;
   bottom: 0;
+  border-radius: 20px 20px 0 0;
+  
+}
+
+.social-section {
+  border-bottom: 1px solid #8a2dfc
 }
 
 
@@ -427,7 +435,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .btn-hover.color-4 {
-  background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+  background-image: linear-gradient(to right, #FA4FB7, #ff9a44, #ef9d43, #FA4FB7);
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
 }
 
@@ -582,7 +590,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* CSS */
 .button-87 {
-  margin: 10px;
+  /* margin: 10px; */
   padding: 15px 30px;
   text-align: center;
   text-transform: uppercase;
@@ -594,12 +602,12 @@ h1,h2,h3,h4,h5,h6 {
   border: 0px;
   font-weight: 700;
   box-shadow: 0px 0px 14px -7px #f09819;
-  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  background-image: linear-gradient(45deg, #FA4FB7 0%, #FEC580  51%, #FA4FB7  100%);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 50%;
+  width: 300px;
 }
 
 .button-87:hover {
@@ -627,4 +635,10 @@ h1,h2,h3,h4,h5,h6 {
 
 .tags {
   background-color: red;
+}
+
+.breadcrumb-tag {
+  text-decoration: none;
+  font-weight: 600;
+  color: #be4ffa;
 }
