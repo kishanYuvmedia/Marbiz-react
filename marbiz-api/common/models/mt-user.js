@@ -1,6 +1,4 @@
-'use strict';
-const app = require('../../server/server');
+"use strict";
+const app = require("../../server/server");
 const loopback = require("loopback");
-module.exports = function (Mtuser) {
-   
-};
+module.exports = function (Mtuser) {};

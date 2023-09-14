@@ -7,11 +7,13 @@ import { createMtUsers, getPublicList } from "../../services/api/api-service";
 export default function EmailVerify(props) {
   const [otpStatus, setotpstatus] = useState(false);
   const [categoryList, setCategory] = useState([]);
+  const [userCreateData, setUserCreate] = useState([]);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     password: "",
     userType: "Choose...",
+    registerName: "",
     checked: false,
   });
   const [errors, setErrors] = useState({});
@@ -23,6 +25,7 @@ export default function EmailVerify(props) {
       [name]: fieldValue,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Validate the form
@@ -45,9 +48,7 @@ export default function EmailVerify(props) {
       newErrors.checked = "You must check the box";
     }
     setErrors(newErrors);
-    // If there are no errors, submit the form
     if (Object.keys(newErrors).length === 0) {
-      // You can access the form data here in the formData object
       console.log("Form data submitted:", formData);
       const dataJson = [];
       dataJson.push({
@@ -57,34 +58,53 @@ export default function EmailVerify(props) {
         username: formData.email,
         password: formData.password,
         email: formData.email,
+        registerName: props.userClaim,
         emailVerified: true,
       });
-      // Swal.fire(
-      //   "Thank You for Registration " + formData.fullName.trim(),
-      //   "Check you email for verification link",
-      //   "success"
-      // );
-      // const form = document.getElementById("myForm");
-      // emailjs
-      //   .sendForm(
-      //     "service_qo9nh4e", // Replace with your service ID
-      //     "template_xh1ijhr", // Replace with your template ID
-      //     form,
-      //     "lPidiJhuBIjxn13mLrXMo" // Replace with your user ID
-      //   )
-      //   .then(
-      //     (result) => {
-      //       console.log("Email sent successfully:", result.text);
-      //     },
-      //     (error) => {
-      //       console.error("Error sending email:", error.text);
-      //     }
-      //   );
-      console.log("Create new account", dataJson[0]);
       createMtUsers(dataJson[0]).then((result) => {
         console.log("save", result);
+        if (result) {
+          emailjs
+            .send(
+              "service_5o5wuul",
+              "template_xh1ijhr",
+              {
+                fullname: formData.fullName.trim(),
+                email: formData.email.trim(),
+              },
+              "wTvfm3MUc4AuPgXl1"
+            )
+            .then(
+              (result) => {
+                Swal.fire(
+                  "Thank You for Registration " + formData.fullName.trim(),
+                  "Check you email for verification link",
+                  "success"
+                );
+                setotpstatus(true);
+                //console.log("Email sent successfully:", result.text);
+              },
+              (error) => {
+                //console.error("Error sending email:", error.text);
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Getting issue with send email for verification",
+                  footer:
+                    '<a href="/creator">Create your profile defrent email account</a>',
+                });
+              }
+            );
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Email Address already register",
+            footer:
+              '<a href="/creator">Create your profile defrent email account</a>',
+          });
+        }
       });
-      setotpstatus(true);
     }
   };
   const isValidEmail = (email) => {
@@ -190,7 +210,6 @@ export default function EmailVerify(props) {
                       Sign Up
                     </Button>
                   </Form>
-
                   <p style={{ textAlign: "center", color: "#5d5d5d" }}>
                     By signing up, you agree to our Terms and Privacy Policy.
                   </p>
@@ -199,12 +218,17 @@ export default function EmailVerify(props) {
             </div>
           </div>
         )}
-        {otpStatus && (
-          <div class="p-5 text-center bg-body-tertiary hero">
-            <div class="container py-5">
-              <h1 class="text-body-emphasis">OTP</h1>
+        {otpStatus == true && (
+          <>
+            <div class="p-5 text-center bg-body-tertiary hero">
+              <div class="container py-5">
+                <i className="fa fa-mail-bulk" style={{ fontSize: "30px" }}></i>
+                <h1 class="text-body-emphasis">
+                  Check you email for verification link
+                </h1>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </>

@@ -3,25 +3,26 @@ import CelebCard from "./CelebCard";
 
 const Featured = () => {
   return (
-    <div className="container">
-      <div className="grid justify-start mt-5">
-        <h1 className="font-bold">Featured</h1>
-        <p>Hire top influencers across all platforms - See All</p>
+    <div className="container ">
+      <div className="d-grid justify-content-Start mt-5">
+        <h3 className="fw-bold section-featured display-6 text-uppercase ">Featured</h3>
+        <p className="text-secondary">Hire top influencer across all platforms - See All</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="mb-4">
+      <div className="row d-flex">
+        <div className="col-lg-3 col-md-12 col-sm-12 mb-4 ">
           <CelebCard />
         </div>
-        <div className="mb-4">
+        <div className="col-lg-3 col-md-12 col-sm-12 mb-4">
           <CelebCard />
         </div>
-        <div className="mb-4">
+        <div className="col-lg-3 col-md-12 col-sm-12 mb-4">
           <CelebCard />
         </div>
-        <div className="mb-4">
+        <div className="col-lg-3 col-md-12 col-sm-12 mb-4">
           <CelebCard />
         </div>
+        
       </div>
     </div>
   );
