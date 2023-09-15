@@ -8,7 +8,7 @@ const CelebCard = () => {
         borderRadius: '15px',
       }} 
     >
-      <img className="card-img d-none" src={'https://source.unsplash.com/600x900/?tech,street'} alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?" />
+      {/* <img className="card-img d-none" src={'https://source.unsplash.com/600x900/?tech,street'} alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?" /> */}
       <div className="card-img-overlay d-flex flex-column">
         <div className="card-body">
           <h4 className="card-title mt-0">
