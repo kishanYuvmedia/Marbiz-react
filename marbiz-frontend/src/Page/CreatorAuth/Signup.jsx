@@ -3,6 +3,7 @@ import "./style.css";
 import Swal from "sweetalert2";
 import EmailVerify from "./EmailVerify";
 import { checkPublicName } from "../../services/api/api-service";
+import { json } from "react-router-dom";
 export default function Signin() {
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");
@@ -13,7 +14,7 @@ export default function Signin() {
       setvalue(claimtext.target.value);
       if (claimtext.target.value != null) {
         checkPublicName(claimtext.target.value).then((result) => {
-          if (result) {
+          if (result.count > 0) {
             Swal.fire("Try again", "Claim name already taken", "warning");
           } else {
             Swal.fire("Congratulations", "Claim name avilable", "success");

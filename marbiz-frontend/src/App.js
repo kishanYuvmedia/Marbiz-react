@@ -1,4 +1,7 @@
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "mdb-ui-kit/css/mdb.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import * as mdb from "mdb-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import "./App.css";
@@ -10,6 +13,9 @@ import Home from "./Page/HomePage";
 import Signin from "./Page/CreatorAuth/Signup";
 import Verify from "./Page/CreatorAuth/Verify";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
+import Footer from "./Components/Footer";
+import CelebProfile from "./Page/CelebProfile";
+import "bs5-lightbox";
 function App() {
   return (
     <BrowserRouter>
@@ -19,10 +25,11 @@ function App() {
           <Route path="/creator" element={<Signin />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
+          <Route path="/profile/:regName" element={<CelebProfile />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
-
 export default App;

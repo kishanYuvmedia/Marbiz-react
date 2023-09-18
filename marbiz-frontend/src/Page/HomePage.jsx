@@ -2,19 +2,24 @@ import React from "react";
 import HeroSection from "../Components/HeroSection";
 import Featured from "../Components/Featured";
 import { MainListing, ModalListing } from "../Components/MainListing";
-import Footer from "../Components/Footer";
 import Promotions from "../Components/Promotions";
-
-
 function HomePage() {
   return (
     <div>
       <HeroSection />
-      <Featured />
-      <MainListing />
-      <ModalListing />
+      <Featured
+        title="Featured"
+        subtitle="Hire top influencer across all platforms - See All"
+      />
+      <Featured
+        title="Celebrities & Influencer"
+        subtitle="Hire top Celebrities & Influencer all platforms see All"
+      />
+      <Featured
+        title="Spokesperson & Models"
+        subtitle="Hire top Spokesperson & Models all platforms see All"
+      />
       <Promotions />
-      <Footer />
     </div>
   );
 }

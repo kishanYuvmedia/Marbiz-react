@@ -6,37 +6,50 @@ import { Outlet } from "react-router-dom";
 function NavBar() {
   return (
     <>
-      
-      <nav class="navbar navbar-expand-md bg-black navbar-dark">
-        <div class="container">
-          <a class="navbar-brand" href="/">
+
+      <nav className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+        <div className="container">
+
+          <a className="navbar-brand" href="/">
             <img src={logo} alt="Logo" />
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+          <button className="navbar-toggler" 
+                  type="button" 
+                  data-mdb-toggle="collapse" 
+                  data-mdb-target="#navbarNav" 
+                  aria-controls="navbarNav" 
+                  aria-expanded="false" 
+                  aria-label="Toggle navigation"
+                  >
+            <span className="fas fa-bars"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#explore">Explore</a>
+
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto ">
+              <li className="nav-item">
+                <a className="nav-link" href="#explore">Explore</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#works">How it Works</a>
+              <li className="nav-item">
+                <a className="nav-link" href="#works">How it Works</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#category">Category</a>
+              <li className="nav-item">
+                <a className="nav-link" href="#category">Category</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/celebprofile">Celeb Profile</a>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto">
-            
-            <li class="nav-item ">
-                <a class="nav-link" href="brand">Join As Brand</a>
+
+              <li className="nav-item ">
+                <a className="nav-link" href="brand">Join As Brand</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="creator">Join as creator</a>
+              <li className="nav-item">
+                <a className="nav-link" href="creator">Join as creator</a>
               </li>
             </ul>
-            <button class=" btn-hover color-4 btn-rounded ml-2">Login</button>
+            <button className=" btn-hover color-4 btn-rounded ms-2">Login</button>
           </div>
         </div>
       </nav>

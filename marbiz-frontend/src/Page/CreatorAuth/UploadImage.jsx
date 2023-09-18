@@ -30,16 +30,15 @@ export default function UploadImage() {
         method: "POST",
         body: formData,
       })
-        .then((response) => {
-          const jsondata = response.json();
-          console.log(jsondata.Object);
-          if (response) {
-            const data = [];
-            data.push({
+        .then((response) => response.json()) // Parse the JSON response
+        .then((data) => {
+          if (data) {
+            const dataImage = [];
+            dataImage.push({
               id: searchParams.get("id"),
-              coverImage: response.imageUrl,
+              coverImage: data.imageUrl,
             });
-            updateProfile(data).then((result) => {
+            updateProfile(dataImage).then((result) => {
               if (result) {
                 Swal.fire(
                   "Cover Image",
@@ -60,7 +59,8 @@ export default function UploadImage() {
           }
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // Handle any errors
+          console.error(error);
         });
     }
   };

@@ -20,6 +20,13 @@ export const getSystemList = (type) => {
     });
   });
 };
+export const getInfluencersList = (limit) => {
+  return new Promise((resolve, reject) => {
+    find("MtProfiles", { limit: limit, order: "fullName asc" }).then((data) => {
+      resolve(data);
+    });
+  });
+};
 export const createProfileListing = (data) => {
   return create("MtProfiles", data);
 };
@@ -58,4 +65,9 @@ export const uploadFile = (fileData, bucketName, folder = "") => {
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
   formData.append("myFile", fileData, folder + datestring + fileData.name);
   return apiKit.post(`https://portfolio.yuvmedia.in/api/upload.php`, formData);
+};
+export const getInfluencersProfile = (name) => {
+  return find("MtProfiles", {
+    where: { status: "I", and: [{ regName: name }] },
+  });
 };

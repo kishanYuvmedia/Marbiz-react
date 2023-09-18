@@ -3,93 +3,133 @@ import logo from "../Images/marbiz-logo.png";
 
 const Footer = () => {
     return (
-        <footer className=''>
-            <div className="container-fluid footer bg-black p-5 mt-5" style={{ borderRadius: "50px 50px 0 0" }}>
-                <div className='row justify-content-around'>
-                    <div className='col-lg-2 col-md-3 col-sm-6'>
-                        <img src={logo} alt="Logo" />
-                        <p className='text-white mt-3'>
-                            Influencer marketing can be an effective strategy
-                            for many brands, but it's not without its challenges
-                            and potential pitfalls. Here are some common shortcomings
-                            or challenges associated with influencer marketing:
-                        </p>
-                        <div className="mt-4">
-                            <div className="d-flex">
-                                <a href="#facebook" className="text-gray-400 hover-text-gray-900 dark-hover-text-white me-3">
-                                    <i className="fab fa-facebook-square"></i>
-                                </a>
-                                <a href="#Discord" className="text-gray-400 hover-text-gray-900 dark-hover-text-white me-3">
-                                    <i className="fab fa-discord"></i>
-                                </a>
-                                <a href="#Twitter" className="text-gray-400 hover-text-gray-900 dark-hover-text-white me-3">
-                                    <i className="fab fa-twitter-square"></i>
-                                </a>
-                                <a href="#Github" className="text-gray-400 hover-text-gray-900 dark-hover-text-white me-3">
-                                    <i className="fab fa-github-square"></i>
-                                </a>
-                                <a href="#Dribble" className="text-gray-400 hover-text-gray-900 dark-hover-text-white">
-                                    <i className="fab fa-dribbble"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className='col-lg-2 col-md-3 col-sm-6'>
-                        <h2 className="mb-2 text-white text-uppercase font-bold ">Category</h2>
-                        <div className='list-group list-group-light list-group-small'>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>Celebrities & Influencer</a>
-                            </li>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>Spokespersons & Models</a>
-                            </li>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>News Articles & Blogs</a>
-                            </li>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>Micro Influencer & Content Creators</a>
-                            </li>
-                        </div>
-                    </div>
 
-                    <div className='col-lg-2 col-md-3 col-sm-6'>
-                        <h2 className="mb-2 text-white text-uppercase font-bold">Discover</h2>
-                        <ul className='list-group list-group-light list-group-small'>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>Find Influencers</a>
-                            </li>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item '>Top Influencers</a>
-                            </li>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item '>Hire an Influencer</a>
-                            </li>
-                        </ul>
-                    </div>
+        <footer className="footer text-center text-lg-start bg-dark text-white">
 
-                    <div className='col-lg-2 col-md-3 col-sm-6'>
-                        <h2 className="mb-2 text-white text-uppercase font-bold">Discover</h2>
-                        <ul className='list-group list-group-light list-group-small'>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>Celebrities & Influencers</a>
-                            </li>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>Celebrities & Influencers</a>
-                            </li>
-                            <li className='mb-2 list-group-item'>
-                                <a href="#celeb" className='group-item'>Celebrities & Influencers</a>
-                            </li>
-                        </ul>
-                    </div>
+            <section className="d-flex social-section justify-content-center justify-content-lg-between p-4 " >
+
+                <div div className="me-5 d-none d-lg-block">
+                    <span>Get connected with us on social networks:</span>
                 </div>
+
+
+                <div>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-twitter"></i>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-google"></i>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-instagram"></i>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-linkedin"></i>
+                    </a>
+                    <a href="" className="me-4 text-reset">
+                        <i className="fab fa-github"></i>
+                    </a>
+                </div>
+
+            </section>
+
+
+
+            <section className="">
+                <div className="container text-center text-md-start mt-5">
+                    {/* <!-- Grid row --> */}
+                    <div className="row mt-3">
+                        {/* <!-- Grid column --> */}
+                        <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            {/* <!-- Content --> */}
+                            <img src={logo} alt="Logo" />
+                            <p className='my-3'>
+                                Influencer marketing can be an effective strategy for many brands, but it's not without its challenges and potential pitfalls. Here are some common shortcomings or challenges associated with influencer marketing.
+                            </p>
+                        </div>
+                        {/* <!-- Grid column --> */}
+
+                        {/* <!-- Grid column --> */}
+                        <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            {/* <!-- Links --> */}
+                            <h4 className="text-uppercase fw-bold mb-4">
+                                Category
+                            </h4>
+                            <p>
+                                <a href="#!" className="group-item">Celebrities & Influencer</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="group-item">Spokespersons & Models</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="group-item">News Articles & Blogs</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="group-item">Micro Influencer & Content Creators</a>
+                            </p>
+
+                        </div>
+
+                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            {/* <!-- Links --> */}
+                            <h4 className="text-uppercase fw-bold mb-4">
+                                Discover
+                            </h4>
+                            <p>
+                                <a href="#!" className="group-item">Find Influencers</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="group-item">Top Influencers</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="group-item">Hire an Influencers</a>
+                            </p>
+                        </div>
+
+                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                            <h4 className="text-uppercase fw-bold mb-4">
+                                Discover
+                            </h4>
+                            <p>
+                                <a href="#!" className="group-item">Find Influencers</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="group-item">Top Influencers</a>
+                            </p>
+                            <p>
+                                <a href="#!" className="group-item">Hire an Influencers</a>
+                            </p>
+                        </div>
+
+                        <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            {/* <!-- Links --> */}
+                            <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
+                            <p><i className="fas fa-home me-3"></i> Ajmer, Rajasthan</p>
+                            <p>
+                                <i className="fas fa-envelope me-3"></i>
+                                info@marbiz.com
+                            </p>
+                            <p><i className="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <div className="text-center p-3 bottom-footer" style={{}}>
+                © 2021 Copyright: Marbiz.com
+                <a className="text-reset fw-bold" href="/"> </a>
             </div>
-            <div className='bottom-footer p-2 d-flex justify-content-center align-items-center'>
-                <span className='text-sm text-white'>
-                    © Marbiz Inc.
-                </span>
-            </div>
+
         </footer>
+
+
     );
 }
 
