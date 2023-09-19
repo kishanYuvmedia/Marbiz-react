@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import bgImage from "../Images/influ-2.webp";
 import Typewriter from "typewriter-effect";
 import { getPublicList } from "../services/api/api-service";
+
 const HeroSection = () => {
   const [status, setstatus] = useState(true);
   const [categoryList, setCategory] = useState([]);
+  
   useEffect(() => {
     getPublicList("Influencers").then((result) => {
       setCategory(result);
@@ -12,6 +14,7 @@ const HeroSection = () => {
       console.log(categoryList);
     });
   }, [status]);
+
   return (
     <>
       <div
@@ -91,7 +94,7 @@ const HeroSection = () => {
             fontSize: "30px",
           }}
         >
-          Connecting Brands and Influencers Effortlessly.
+          Connecting Brands and Influencer Effortlessly.
         </div>
       </div>
     </>

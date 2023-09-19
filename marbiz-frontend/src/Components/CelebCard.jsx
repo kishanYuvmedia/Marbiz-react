@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { _ } from "lodash";
+
 const CelebCard = (props) => {
-  const [listcategory, setCategory] = useState(props.category);
+  const [listcategory, setCategory] = useState(Array.isArray(props.category) ? props.category : []);
+
   return (
     <>
       <div
@@ -23,17 +24,12 @@ const CelebCard = (props) => {
                     {props.fullName}
                   </h3>
                 </a>
-                {/* <small className="text-white">Active Platform</small> */}
                 <div className="d-flex justify-content-start mt-2">
-                  {listcategory &&
-                    listcategory.map((value) => (
-                      <span
-                        key={value.label}
-                        className="badge badge-danger me-2"
-                      >
-                        #{value.label}
-                      </span>
-                    ))}
+                  {listcategory.map((value) => (
+                    <span key={value.label} className="badge badge-danger me-2">
+                      #{value.label}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>

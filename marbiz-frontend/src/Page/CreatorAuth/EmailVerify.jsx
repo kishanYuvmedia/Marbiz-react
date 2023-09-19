@@ -218,7 +218,7 @@ export default function EmailVerify(props) {
             </div>
           </div>
         )}
-        {otpStatus == true && (
+        {otpStatus === true && (
           <>
             <div class="p-5 text-center bg-body-tertiary hero">
               <div class="container py-5">
