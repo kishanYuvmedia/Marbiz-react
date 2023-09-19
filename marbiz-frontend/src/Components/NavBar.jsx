@@ -36,9 +36,9 @@ function NavBar() {
               <li className="nav-item">
                 <a className="nav-link" href="#category">Category</a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="/celebprofile">Celeb Profile</a>
-              </li>
+              </li> */}
             </ul>
             <ul className="navbar-nav ms-auto">
 

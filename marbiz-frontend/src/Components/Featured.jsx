@@ -7,13 +7,13 @@ const placeholderData = [
   {
     id: 1,
     fullName: "John Doe",
-    coverImage: "placeholder-image-1.jpg",
+    coverImage: "https://unsplash.it/1200/768.jpg?image=251",
     userType: "Influencer",
   },
   {
     id: 2,
     fullName: "Jane Smith",
-    coverImage: "placeholder-image-2.jpg",
+    coverImage: "https://unsplash.it/1200/768.jpg?image=251",
     userType: "Influencer",
   },
   

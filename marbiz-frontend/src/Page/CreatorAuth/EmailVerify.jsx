@@ -4,10 +4,12 @@ import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { createMtUsers, getPublicList } from "../../services/api/api-service";
+
 export default function EmailVerify(props) {
   const [otpStatus, setotpstatus] = useState(false);
   const [categoryList, setCategory] = useState([]);
   const [userCreateData, setUserCreate] = useState([]);
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -16,6 +18,7 @@ export default function EmailVerify(props) {
     registerName: "",
     checked: false,
   });
+
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -47,6 +50,7 @@ export default function EmailVerify(props) {
     if (!formData.checked) {
       newErrors.checked = "You must check the box";
     }
+
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       console.log("Form data submitted:", formData);
@@ -61,6 +65,7 @@ export default function EmailVerify(props) {
         registerName: props.userClaim,
         emailVerified: true,
       });
+
       createMtUsers(dataJson[0]).then((result) => {
         console.log("save", result);
         if (result) {
@@ -107,16 +112,19 @@ export default function EmailVerify(props) {
       });
     }
   };
+
   const isValidEmail = (email) => {
     // Basic email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
+  
   useEffect(() => {
     getPublicList("Influencers").then((result) => {
       setCategory(result);
     });
   }, []);
+
   return (
     <>
       <div>

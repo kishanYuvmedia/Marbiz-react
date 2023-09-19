@@ -5,12 +5,10 @@
   padding: 0;
 }
 
-body {
-  background-color: #faf9f6;
-}
 
-body {
+body, html {
   background-color: #faf9f6;
+  min-height: 100vh;
 }
 
 h1,
@@ -348,21 +346,9 @@ h6 {
   line-height: 1;
 }
 
-.celeb1 {
-  /* Your default styles here */
-  /* transform: scale(1.1) translate(18px, -12px); */
-}
-
-.celeb2 {
-  /* Your default styles here */
-  /* transform: scale(1.1) translate(8px, -24.1px); */
-}
-
 @media (max-width: 768px) {
   .celeb1,
   .celeb2 {
-    /* Adjust styles for screens up to 768px wide */
-    /* For example, you can reset the transformations */
     transform: none;
   }
 }
@@ -375,11 +361,6 @@ h6 {
 }
 
 .promotion-card {
-  /* max-width: 540px;
-  min-height: 200px;
-  height: 150px;
-  display: grid;
-  background: rgb(173, 34, 195); */
   border-radius: 20px;
   background: linear-gradient(
     0deg,
@@ -726,4 +707,33 @@ h6 {
   text-decoration: none;
   font-weight: 600;
   color: #be4ffa;
+}
+
+.main-body {
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+.home-body {
+  margin-top: 75px;
+}
+
+@media (max-width: 768px) {
+  .main-body {
+    margin-top: 50px;
+  }
+
+  .home-body {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-body {
+    margin-top: 150px;
+  }
+
+  .home-body {
+    margin-top: 75px;
+  }
 }

@@ -20,9 +20,9 @@
 }
 .username-btn {
   background: linear-gradient(180deg, #9a3b95, #e36d83);
-  padding: 8px;
+  padding: 8px 20px;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 600;
   color: white;
   border-radius: 20px;
   cursor: pointer;

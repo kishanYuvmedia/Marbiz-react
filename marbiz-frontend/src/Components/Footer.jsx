@@ -5,7 +5,7 @@ const Footer = () => {
     return (
 
 
-        <footer className="footer text-center text-lg-start bg-dark text-white">
+        <footer className="footer mt-auto text-center text-lg-start bg-dark text-white">
 
             <section className="d-flex social-section justify-content-center justify-content-lg-between p-4 " >
 
@@ -123,7 +123,7 @@ const Footer = () => {
             </section>
 
             <div className="text-center p-3 bottom-footer" style={{}}>
-                © 2021 Copyright: Marbiz.com
+                © 2023 Copyright: Marbiz.com
                 <a className="text-reset fw-bold" href="/"> </a>
             </div>
 

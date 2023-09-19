@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import EmailVerify from "./EmailVerify";
 import { checkPublicName } from "../../services/api/api-service";
 import { json } from "react-router-dom";
+
 export default function Signin() {
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");
@@ -17,13 +18,13 @@ export default function Signin() {
           if (result.count > 0) {
             Swal.fire("Try again", "Claim name already taken", "warning");
           } else {
-            Swal.fire("Congratulations", "Claim name avilable", "success");
+            Swal.fire("Congratulations", "Claim name available", "success");
             setstatus(true);
           }
         });
       }
     } else {
-      Swal.fire("Try again", "Claim name not intered", "warning");
+      Swal.fire("Try again", "Claim name not entered", "warning");
     }
   };
 
@@ -31,8 +32,8 @@ export default function Signin() {
     <>
       {status === false && (
         <div>
-          <div className="p-5 text-center bg-body-tertiary hero">
-            <div className="container py-5">
+          <div className="my-5 p-5 text-center bg-body-tertiary hero">
+            <div className="container my-5 py-5">
               <h1 className="text-body-emphasis">Make Money as a Creator</h1>
               <p className="col-lg-8 mx-auto lead">
                 The simple way to sell, manage, and get paid for your Instagram,

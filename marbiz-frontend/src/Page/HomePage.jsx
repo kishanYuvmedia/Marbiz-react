@@ -3,6 +3,8 @@ import HeroSection from "../Components/HeroSection";
 import Featured from "../Components/Featured";
 import { MainListing, ModalListing } from "../Components/MainListing";
 import Promotions from "../Components/Promotions";
+import "../App.css"
+
 function HomePage() {
   return (
     <div>

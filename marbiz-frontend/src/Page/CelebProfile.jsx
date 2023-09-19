@@ -13,13 +13,13 @@ const CelebProfile = () => {
       .then((result) => {
         setprofile(result);
       })
-      .catch((err) => {});
+      .catch((err) => { });
   }, []);
   return (
     <>
       {regName && (
         <>
-          <div className="container mt-4">
+          <div className="container main-body">
             <div className="row my-3">
               <div className="mx-3">
                 <nav aria-label="breadcrumb " className="breadcrumb">
@@ -49,7 +49,7 @@ const CelebProfile = () => {
                   <img
                     src={"https://unsplash.it/600.jpg?image=251"}
                     className="img-fluid celeb-img"
-                    alt="Sanam Image"
+                    alt="Sanam Image1"
                   />
                 </a>
               </div>
@@ -59,13 +59,18 @@ const CelebProfile = () => {
                 </div>
                 <h3>(Live Band)</h3>
                 <h6>Mumbai, Maharashtra</h6>
-                <button className="button-87 my-3" role="button">
-                  See Price and Book
-                </button>
+
+                <a href="/inquiryform">
+                  <button className="button-87 my-3" role="button">
+                    See Price and Book
+                  </button>
+                </a>
+
                 <p>
                   Sanam became an instant hit among the Indian teenagers with
                   their 'Hawa Hawa' and 'Behka'!
                 </p>
+
               </div>
             </div>
           </div>
@@ -77,9 +82,13 @@ const CelebProfile = () => {
               </div>
             </div>
             <div className="d-flex justify-content-center my-3">
+
+              <a href="/inquiryform">
+
               <button className="button-87 " role="button">
                 See Price and Book
               </button>
+              </a>
             </div>
           </div>
 

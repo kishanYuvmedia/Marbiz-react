@@ -18,7 +18,7 @@ const HeroSection = () => {
   return (
     <>
       <div
-        className=" d-flex justify-content-center align-items-center position-relative"
+        className="home-body d-flex justify-content-center align-items-center position-relative"
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundPosition: "center",
@@ -85,7 +85,7 @@ const HeroSection = () => {
       </div>
 
       <div
-        className="my-3 d-flex justify-content-center align-items-center py-3 text-white gradient_background"
+        className="mb-3 d-flex justify-content-center align-items-center py-3 text-white gradient_background"
         style={{}}
       >
         <div
