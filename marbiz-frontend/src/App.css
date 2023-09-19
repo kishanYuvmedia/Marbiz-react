@@ -1,14 +1,24 @@
 * {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-body {
-  background-color: #FAF9F6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
+body {
+  background-color: #faf9f6;
+}
+
+body {
+  background-color: #faf9f6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -358,7 +368,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .nav-link {
-  color: #FA4FB7;
+  color: #fa4fb7;
   font-size: 18px;
   font-weight: 500;
   font-weight: 600;
@@ -378,7 +388,7 @@ h1,h2,h3,h4,h5,h6 {
   );
 }
 
-.promotion-title{
+.promotion-title {
   font-size: 35px;
 }
 
@@ -402,19 +412,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .footer {
+  /* border-top: 2px solid #8a2dfc; */
   border-top: 2px solid #8a2dfc;
   /* margin-top: auto; */
   position: relative;
   left: 0;
   bottom: 0;
   border-radius: 20px 20px 0 0;
-  
 }
 
 .social-section {
-  border-bottom: 1px solid #8a2dfc
+  border-bottom: 1px solid #8a2dfc;
 }
-
 
 .bottom-footer {
   background-color: #8a2dfc;
@@ -434,27 +443,40 @@ h1,h2,h3,h4,h5,h6 {
   cursor: pointer;
   margin-left: 20px;
   height: 45px;
-  text-align:center;
+  text-align: center;
   border: none;
   background-size: 300% 100%;
 
   border-radius: 50px;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-hover:hover {
   background-position: 100% 0;
-  moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-hover.color-4 {
-  background-image: linear-gradient(to right, #FA4FB7, #ff9a44, #ef9d43, #FA4FB7);
+  background-image: linear-gradient(
+    to right,
+    #fc6076,
+    #ff9a44,
+    #ef9d43,
+    #e75516
+  );
+  background-image: linear-gradient(
+    to right,
+    #fa4fb7,
+    #ff9a44,
+    #ef9d43,
+    #fa4fb7
+  );
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
 }
 
@@ -463,11 +485,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .section-featured {
-  color: #9B3C95;
+  color: #9b3c95;
+  color: #9b3c95;
 }
 
 /* search bar */
-
 
 .tb {
   display: table;
@@ -605,9 +627,7 @@ h1,h2,h3,h4,h5,h6 {
   background-color: #fff;
 }
 
-/* btn css */
 .srch-btn {
-  
   padding: 13px 25px;
   text-align: center;
   text-transform: uppercase;
@@ -619,7 +639,12 @@ h1,h2,h3,h4,h5,h6 {
   border: 0px;
   font-weight: 700;
   box-shadow: 0px 0px 14px -7px #f09819;
-  background-image: linear-gradient(45deg, #FA4FB7 0%, #FEC580  51%, #FA4FB7  100%);
+  background-image: linear-gradient(
+    45deg,
+    #fa4fb7 0%,
+    #fec580 51%,
+    #fa4fb7 100%
+  );
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -652,11 +677,23 @@ h1,h2,h3,h4,h5,h6 {
   border: 0px;
   font-weight: 700;
   box-shadow: 0px 0px 14px -7px #f09819;
-  background-image: linear-gradient(45deg, #FA4FB7 0%, #FEC580  51%, #FA4FB7  100%);
+  background-image: linear-gradient(
+    45deg,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  background-image: linear-gradient(
+    45deg,
+    #fa4fb7 0%,
+    #fec580 51%,
+    #fa4fb7 100%
+  );
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  width: 50%;
   width: 300px;
 }
 
@@ -671,7 +708,6 @@ h1,h2,h3,h4,h5,h6 {
   transform: scale(0.95);
 }
 
-
 .celeb-img {
   /* height: 550px; */
   /* width: 450px; */
@@ -681,7 +717,6 @@ h1,h2,h3,h4,h5,h6 {
 .breadcrumb {
   --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E");
 }
-
 
 .tags {
   background-color: red;
