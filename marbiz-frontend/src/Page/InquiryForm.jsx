@@ -3,23 +3,29 @@ import React from 'react';
 const InquiryForm = () => {
   return (
     <div>
-      <div className="container main-body">
+
+      <div className="container main-body my-5">
         <div className="row">
-          <div className="col-md-4 col-sm-12">
-            <a
-              href="/inquiryform"
-              data-toggle="lightbox"
-              data-gallery="example-gallery"
-            >
-              <img
-                src="https://unsplash.it/600.jpg?image=251"
-                className="img-fluid celeb-img"
-                alt="Sanam Image1"
-              />
-            </a>
-            <h3 className="mt-3">Celeb Name</h3>
+
+          <div className="col-md-4 col-sm-12 ">
+            <div className=''>
+
+
+              <a
+                href="/inquiryform"
+                data-toggle="lightbox"
+                data-gallery="example-gallery"
+              >
+                <img
+                  src="https://unsplash.it/600.jpg?image=251"
+                  className="img-fluid celeb-img"
+                  alt="Sanam Image1"
+                />
+              </a>
+              <h3 className="mt-3">Celeb Name</h3>
+            </div>
           </div>
-          
+
           <div className="col-md-6 col-sm-12 mx-auto my-3">
             <form>
               <div className="mb-4">

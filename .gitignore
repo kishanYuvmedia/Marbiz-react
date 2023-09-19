@@ -10,6 +10,8 @@ marbiz-backend/package-lock.json
 marbiz-api/node_modules
 marbiz-api/package-lock.json
 
+marbiz-backend/vendor
+
 /node_modules
 
 
