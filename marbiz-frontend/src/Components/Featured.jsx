@@ -6,15 +6,45 @@ import { getInfluencersList } from "../services/api/api-service";
 const placeholderData = [
   {
     id: 1,
-    fullName: "John Doe",
-    coverImage: "https://unsplash.it/1200/768.jpg?image=251",
-    userType: "Influencer",
+    fullName: "Kiku Sharda",
+    coverImage: "https://ik.imagekit.io/j83rchiauw/tr:w-200,h-300,fo-auto/tring/202208161306_zZXQp5Fugove8q8U.png",
+    userType: [{ label: "Influencer" }],
   },
   {
     id: 2,
-    fullName: "Jane Smith",
-    coverImage: "https://unsplash.it/1200/768.jpg?image=251",
-    userType: "Influencer",
+    fullName: "Mohit Malhotra",
+    coverImage: "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/RT4rfplg008IPj89.jpeg",
+    userType: [{ label: "Influencer" }],
+  },
+  {
+    id: 3,
+    fullName: "Salim Merchant",
+    coverImage: "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/202208181923_LDNA4pou48pkmtXD.jpeg",
+    userType: [{ label: "Influencer" }],
+  },
+  {
+    id: 4,
+    fullName: "Mohit Malhotra",
+    coverImage: "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/RT4rfplg008IPj89.jpeg",
+    userType: [{ label: "Influencer" }],
+  },
+  {
+    id: 5,
+    fullName: "Mohit Malhotra",
+    coverImage: "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/RT4rfplg008IPj89.jpeg",
+    userType: [{ label: "Influencer" }],
+  },
+  {
+    id: 6,
+    fullName: "Mohit Malhotra",
+    coverImage: "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/RT4rfplg008IPj89.jpeg",
+    userType: [{ label: "Influencer" }],
+  },
+  {
+    id: 7,
+    fullName: "Mohit Malhotra",
+    coverImage: "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/RT4rfplg008IPj89.jpeg",
+    userType: [{ label: "Influencer" }],
   },
   
 ];
@@ -46,7 +76,7 @@ const Featured = (props) => {
       <div className="row d-flex">
         {list && list.length > 0 ? (
           list.map((item) => (
-            <div key={item.id} className="col-lg-3 col-md-12 col-sm-12 mb-4">
+            <div key={item.id} className="col-lg-2 col-md-12 col-sm-12 mb-4">
               <CelebCard
                 fullName={item.fullName}
                 image={item.coverImage}
