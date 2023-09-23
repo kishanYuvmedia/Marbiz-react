@@ -10,5 +10,5 @@ export default {
   linkTextColor: "#556ee6",
   linkTextColor: "#556ee6",
   //apiUrl: "http://localhost:3000/api",
-  apiUrl: "http://3.110.223.149:3000/api",
+  apiUrl: "http://api.marbiz.in:3000/api",
 };
