@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../Images/marbiz-logo.png";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -15,24 +16,24 @@ const Footer = () => {
 
 
                 <div>
-                    <a href="" className="me-4 text-reset">
+                    <Link to="/facebook" className="me-4 text-reset">
                         <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" className="me-4 text-reset">
+                    </Link>
+                    <Link to="/twitter" className="me-4 text-reset">
                         <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="" className="me-4 text-reset">
+                    </Link>
+                    <Link to="/google" className="me-4 text-reset">
                         <i className="fab fa-google"></i>
-                    </a>
-                    <a href="" className="me-4 text-reset">
+                    </Link>
+                    <Link to="/instagram" className="me-4 text-reset">
                         <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="" className="me-4 text-reset">
+                    </Link>
+                    <Link to="/linkedin" className="me-4 text-reset">
                         <i className="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" className="me-4 text-reset">
+                    </Link>
+                    <Link to="/github" className="me-4 text-reset">
                         <i className="fab fa-github"></i>
-                    </a>
+                    </Link>
                 </div>
 
             </section>
@@ -60,16 +61,16 @@ const Footer = () => {
                                 Category
                             </h4>
                             <p>
-                                <a href="#!" className="group-item">Celebrities & Influencer</a>
+                                <Link to="/celebrities-influencer" className="group-item">Celebrities & Influencer</Link>
                             </p>
                             <p>
-                                <a href="#!" className="group-item">Spokespersons & Models</a>
+                                <Link to="/spokespersons-models" className="group-item">Spokespersons & Models</Link>
                             </p>
                             <p>
-                                <a href="#!" className="group-item">News Articles & Blogs</a>
+                                <Link to="/news-articles-blogs" className="group-item">News Articles & Blogs</Link>
                             </p>
                             <p>
-                                <a href="#!" className="group-item">Micro Influencer & Content Creators</a>
+                                <Link to="/micro-influencer-content-creators" className="group-item">Micro Influencer & Content Creators</Link>
                             </p>
 
                         </div>
@@ -80,13 +81,13 @@ const Footer = () => {
                                 Discover
                             </h4>
                             <p>
-                                <a href="#!" className="group-item">Find Influencers</a>
+                                <Link to="/find-influencers" className="group-item">Find Influencers</Link>
                             </p>
                             <p>
-                                <a href="#!" className="group-item">Top Influencers</a>
+                                <Link to="/top-influencers" className="group-item">Top Influencers</Link>
                             </p>
                             <p>
-                                <a href="#!" className="group-item">Hire an Influencers</a>
+                                <Link to="/hire-an-influencer" className="group-item">Hire an Influencer</Link>
                             </p>
                         </div>
 
@@ -96,13 +97,13 @@ const Footer = () => {
                                 Discover
                             </h4>
                             <p>
-                                <a href="#!" className="group-item">Find Influencers</a>
+                                <Link to="/find-influencers" className="group-item">Find Influencers</Link>
                             </p>
                             <p>
-                                <a href="#!" className="group-item">Top Influencers</a>
+                                <Link to="/top-influencers" className="group-item">Top Influencers</Link>
                             </p>
                             <p>
-                                <a href="#!" className="group-item">Hire an Influencers</a>
+                                <Link to="/hire-an-influencer" className="group-item">Hire an Influencer</Link>
                             </p>
                         </div>
 
@@ -124,7 +125,7 @@ const Footer = () => {
 
             <div className="text-center p-3 bottom-footer" style={{}}>
                 © 2023 Copyright: Marbiz.com
-                <a className="text-reset fw-bold" href="/"> </a>
+                <Link className="text-reset fw-bold" to='/'></Link>
             </div>
 
         </footer>

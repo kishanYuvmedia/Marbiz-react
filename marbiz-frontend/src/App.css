@@ -7,7 +7,7 @@
 
 
 body, html {
-  background-color: #28282B;
+  background-color: #000000;
   min-height: 100vh;
 }
 
@@ -403,7 +403,7 @@ h6 {
 }
 
 .social-section {
-  border-bottom: 1px solid #8a2dfc;
+  border-bottom: 1px solid #4d4d4d;
 }
 
 .bottom-footer {
@@ -736,4 +736,52 @@ h6 {
   .home-body {
     margin-top: 75px;
   }
+}
+
+.accordion-button {
+  color: white;
+  font-weight: 600;
+}
+.accordion-button i{
+  color: #FA59B3;
+}
+.accordion-borderless .accordion-item .accordion-button:not(.collapsed) {
+  color: white;
+  background-color:#28282B;
+}
+
+.accordion-body {
+  color: rgb(227, 227, 227);
+}
+
+/* Dark background */
+.dark-bg {
+  background-color: #111;
+  border: 2px solid #6f42c1; /* Purple border */
+  color: #fff; /* White text color */
+  border-radius: 10px;
+}
+
+/* Placeholder text color */
+.dark-bg::placeholder {
+  color: #ccc; /* Gray-white placeholder text */
+}
+
+/* Input focus styles */
+.dark-bg:focus {
+  border-color: #6f42c1; /* Purple border on focus */
+  color: #fff; /* White text color on focus */
+  background-color: #242225;
+}
+
+.form-switch .form-check-input {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.form-switch .form-check-input:checked[type="checkbox"]::after {
+  background-color: greenyellow;
+}
+
+.form-check-input[type="checkbox"]:checked {
+  background-color: green !important;
 }
