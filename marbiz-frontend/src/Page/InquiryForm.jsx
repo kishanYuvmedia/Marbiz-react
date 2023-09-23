@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const InquiryForm = () => {
   return (
     <div>
-      <div className="container main-body">
+
+      <div className="container main-body my-5">
         <div className="row">
           <div className="col-md-4 col-sm-12">
           
@@ -16,6 +17,7 @@ const InquiryForm = () => {
             
             <h3 className="mt-3 text-white ">Celeb Name</h3>
           </div>
+
 
           <div className="col-md-6 col-sm-12 mx-auto my-3">
 

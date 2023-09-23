@@ -708,7 +708,7 @@ h6 {
   font-weight: 600;
   color: #be4ffa;
 }
-
+/* 
 .main-body {
   margin-top: 75px;
   margin-bottom: 75px;
@@ -736,7 +736,7 @@ h6 {
   .home-body {
     margin-top: 75px;
   }
-}
+} 
 
 .accordion-button {
   color: white;

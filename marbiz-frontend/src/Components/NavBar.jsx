@@ -7,7 +7,7 @@ function NavBar() {
   return (
     <>
 
-      <nav className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+      <nav className="navbar sticky-top navbar-expand-md bg-dark navbar-dark">
         <div className="container">
 
           <a className="navbar-brand" href="/">
