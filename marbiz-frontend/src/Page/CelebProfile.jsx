@@ -3,6 +3,8 @@ import CelebCard from "../Components/CelebCard";
 import NavTabs from "../Components/NavTabs";
 import Accordion from "../Components/Accordion";
 import { useParams } from "react-router-dom";
+import { Badge, Stack } from "react-bootstrap";
+import { _ } from "lodash";
 import { getInfluencersProfile } from "../services/api/api-service";
 const CelebProfile = () => {
   let { regName } = useParams();
@@ -59,7 +61,13 @@ const CelebProfile = () => {
                   <h2>Name:{profileData.fullName}</h2>
                 </div>
                 <h3>(Live Band)</h3>
-                <h6>Mumbai, Maharashtra</h6>
+                <Stack direction="horizontal" gap={5}>
+                  {profileData.userType.map((item) => {
+                    <Badge pill bg="info">
+                      {item.label}
+                    </Badge>;
+                  })}
+                </Stack>
                 <button className="button-87 my-3" role="button">
                   See Price and Book
                 </button>

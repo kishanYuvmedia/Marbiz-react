@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { _ } from "lodash";
+import { Link } from "react-router-dom";
 const CelebCard = (props) => {
   const [listcategory, setCategory] = useState(props.category);
   return (
@@ -18,11 +19,11 @@ const CelebCard = (props) => {
           <div className="card-footer p-0">
             <div className="media">
               <div className="media-body">
-                <a href={`/profile/${props.regName}`}>
+                <Link className="nav-link" to={`/profile/${props.regName}`}>
                   <h3 className="my-0 fw-bold text-2xl text-white d-block">
                     {props.fullName}
                   </h3>
-                </a>
+                </Link>
                 {/* <small className="text-white">Active Platform</small> */}
                 <div className="d-flex justify-content-start mt-2">
                   {listcategory &&
