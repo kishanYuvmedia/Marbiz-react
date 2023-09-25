@@ -67,7 +67,7 @@ export const uploadFile = (fileData, bucketName, folder = "") => {
   return apiKit.post(`https://portfolio.yuvmedia.in/api/upload.php`, formData);
 };
 export const getInfluencersProfile = (name) => {
-  return find("MtProfiles", {
-    where: { status: "I", and: [{ regName: name }] },
+  return findOne("MtProfiles", {
+    where: { status: "A", and: [{ regName: name }] },
   });
 };

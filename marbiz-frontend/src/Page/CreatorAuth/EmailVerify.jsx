@@ -71,7 +71,7 @@ export default function EmailVerify(props) {
         if (result) {
           emailjs
             .send(
-              "service_5o5wuul",
+              "service_e7w1ogc",
               "template_xh1ijhr",
               {
                 fullname: formData.fullName.trim(),
