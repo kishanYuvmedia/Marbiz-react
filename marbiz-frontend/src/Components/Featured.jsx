@@ -52,17 +52,43 @@ const placeholderData = [
 const Featured = (props) => {
   const [list, setList] = useState([]);
 
+  // useEffect(() => {
+  //   // Simulate a 1-second delay before updating with placeholder data
+  //   setTimeout(() => {
+  //     setList(placeholderData); // Use placeholder data
+  //   }, 1000); // Simulate a 1-second delay (adjust as needed)
+
+  //   // Fetch data from the API
+  //   getInfluencersList(4).then((result) => {
+  //     setList(result);
+  //   });
+  // }, []);
+
   useEffect(() => {
     // Simulate a 1-second delay before updating with placeholder data
     setTimeout(() => {
       setList(placeholderData); // Use placeholder data
     }, 1000); // Simulate a 1-second delay (adjust as needed)
-
+  
     // Fetch data from the API
-    getInfluencersList(4).then((result) => {
-      setList(result);
-    });
+    getInfluencersList(4)
+      .then((result) => {
+        // Check if the result is an array and not empty
+        if (Array.isArray(result) && result.length > 0) {
+          setList(result);
+        } else {
+          // Handle the case where the API call returns an empty or invalid response
+          console.error("API response is empty or invalid:", result);
+          // You can set a default state here if needed
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+        // Handle the error state here if needed
+        // You can set a default state here if needed
+      });
   }, []);
+  
 
   return (
     <div className="container">

@@ -35,12 +35,12 @@ const NavTabs = () => {
             {/* <!-- Tabs navs --> */}
 
             {/* <!-- Tabs content --> */}
-            <div class="tab-content" id="ex-with-icons-content">
-                <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
+            <div className="tab-content" id="ex-with-icons-content">
+                <div className="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
                     {/* <Gallery /> */}
                     <LightBoxGallery />
                 </div>
-                <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
+                <div className="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
                     <VideoGallery />
                 </div>
 

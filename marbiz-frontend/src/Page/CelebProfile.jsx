@@ -7,21 +7,29 @@ import { getInfluencersProfile } from "../services/api/api-service";
 
 const CelebProfile = () => {
   let { regName } = useParams();
-  const [profileData, setprofile] = useState([]);
+  const [profileData, setprofile] = useState(null);
 
   console.log(regName);
+
   useEffect(() => {
     getInfluencersProfile(regName)
       .then((result) => {
         setprofile(result);
         console.log(profileData);
       })
-      .catch((err) => { });
-  }, []);
+      .catch((err) => { 
+        console.error("Error fetching profile data:", err);
+      });
+  }, [regName]);
+
+  // Render nothing if profileData is still null
+  if (profileData === null) {
+    return null;
+  }
 
   return (
     <>
-      {regName && (
+      {profileData && (
         <>
           <div className="container main-body">
             <div className="row my-3">
@@ -35,7 +43,7 @@ const CelebProfile = () => {
                       <Link to="/" className="breadcrumb-tag">Celebrity</Link>
                     </li>
                     <li className="breadcrumb-item active text-white" aria-current="page">
-                      Celeb Name
+                      {profileData.fullName}
                     </li>
                   </ol>
                 </nav>
@@ -97,8 +105,8 @@ const CelebProfile = () => {
         </>
       )}
       {regName && (
-        <div class="p-5 text-center bg-body-tertiary hero">
-          <div class="container py-5">
+        <div className="p-5 text-center bg-body-tertiary hero">
+          <div className="container py-5">
             <h1 className="text-white">Not found List</h1>
           </div>
         </div>

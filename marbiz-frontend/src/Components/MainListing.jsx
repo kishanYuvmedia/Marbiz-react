@@ -12,7 +12,7 @@ const MainListing = () => {
           Hire top Celebrities & Influencer all platforms see All
         </p>
       </div>
-      <hr class="hr hr-blurry" />
+      <hr className="hr hr-blurry" />
       <div className="row d-flex">
         <div className="col-lg-3 col-md-12 col-sm-12 mb-4 ">
           <CelebCard />
@@ -41,7 +41,7 @@ const ModalListing = () => {
         <p className="text-secondary">
           Hire top Spokesperson & Models all platforms see All
         </p>
-        <hr class="hr hr-blurry" />
+        <hr className="hr hr-blurry" />
         <div className="row d-flex ">
           <div className="col-lg-3 col-md-12 col-sm-12 mb-4 ">
             <CelebCard />

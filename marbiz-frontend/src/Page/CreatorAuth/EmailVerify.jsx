@@ -228,10 +228,10 @@ export default function EmailVerify(props) {
         )}
         {otpStatus === true && (
           <>
-            <div class="p-5 text-center bg-body-tertiary hero">
-              <div class="container py-5">
+            <div className="p-5 text-center bg-body-tertiary hero">
+              <div className="container py-5">
                 <i className="fa fa-mail-bulk" style={{ fontSize: "30px" }}></i>
-                <h1 class="text-body-emphasis">
+                <h1 className="text-body-emphasis">
                   Check you email for verification link
                 </h1>
               </div>

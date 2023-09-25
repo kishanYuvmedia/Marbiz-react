@@ -58,10 +58,10 @@ const HeroSection = () => {
           </h3>
 
           <div className="mt-3 d-flex justify-content-center">
-            <form class="d-flex input-group " style={{ maxWidth: "750px" }}>
+            <form className="d-flex input-group " style={{ maxWidth: "750px" }}>
               <input
                 type="search"
-                class="form-control "
+                className="form-control "
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="search-addon"
@@ -70,8 +70,8 @@ const HeroSection = () => {
                   borderRadius: "20px 0 0 20px",
                 }}
               />
-              <span class="srch-btn" id="search-addon">
-                <i class="fas fa-search"></i> Search
+              <span className="srch-btn" id="search-addon">
+                <i className="fas fa-search"></i> Search
               </span>
             </form>
           </div>
