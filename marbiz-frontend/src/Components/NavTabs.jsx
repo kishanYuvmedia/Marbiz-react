@@ -8,11 +8,10 @@ const NavTabs = () => {
             {/* <!-- Tabs navs --> */}
             <ul className="nav nav-tabs mb-3" id="ex-with-icons" role="tablist">
                 <li className="nav-item" role="presentation" style={{
-                    backgroundColor: "matteblack", // Change to your dark background color
-                    borderColor: "purple", // Purple border
-                    color: "orange", // Orange text color
-                    borderRadius: "5px",
-                    
+                    backgroundColor: "#332D2D !important", 
+                    borderColor: "purple !important", 
+                    color: "white !important", 
+                    borderRadius: "5px !important",
                 }}>
                     <a className="nav-link fw-bold active" id="ex-with-icons-tab-1" data-mdb-toggle="tab" href="#ex-with-icons-tabs-1" role="tab"
                         aria-controls="ex-with-icons-tabs-1" aria-selected="true">
@@ -20,9 +19,9 @@ const NavTabs = () => {
                     </a>
                 </li>
                 <li className="nav-item mx-3" role="presentation" style={{
-                    backgroundColor: "matteblack", // Change to your dark background color
-                    borderColor: "purple", // Purple border
-                    color: "orange", // Orange text color
+                    backgroundColor: "#332D2D", 
+                    borderColor: "purple", 
+                    color: "white", 
                     borderRadius: "5px",
                 }}>
                     <a className="nav-link fw-bold" id="ex-with-icons-tab-2" data-mdb-toggle="tab" href="#ex-with-icons-tabs-2" role="tab"

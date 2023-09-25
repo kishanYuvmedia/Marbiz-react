@@ -12,16 +12,20 @@ function HomePage() {
       <HeroSection />
       <Featured
         title="Featured"
-        subtitle="Hire top influencer across all platforms - See All"
+        subtitle="Hire top influencer across all platforms "
       />
       <PopularCategories />
       <Featured
-        title="Celebrities & Influencer"
-        subtitle="Hire top Celebrities & Influencer all platforms see All"
+        title="Influencer"
+        subtitle="Hire top Influencer all platforms "
+      />
+      <Featured
+        title="Celebrities"
+        subtitle="Hire top Celebrities all platforms"
       />
       <Featured
         title="Spokesperson & Models"
-        subtitle="Hire top Spokesperson & Models all platforms see All"
+        subtitle="Hire top Spokesperson & Models all platforms"
       />
       <Promotions />
     </div>

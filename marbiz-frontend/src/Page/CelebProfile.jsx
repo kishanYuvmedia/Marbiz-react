@@ -4,22 +4,38 @@ import NavTabs from "../Components/NavTabs";
 import Accordion from "../Components/Accordion";
 import { useParams, Link } from "react-router-dom";
 import { getInfluencersProfile } from "../services/api/api-service";
+import placeholderData from "../Components/dummyData";
+import Featured from "../Components/Featured";
+
+
 
 const CelebProfile = () => {
   let { regName } = useParams();
-  const [profileData, setprofile] = useState(null);
-
-  console.log(regName);
+  const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
+
+    setTimeout(() => {
+      setProfileData(placeholderData); 
+    }, 1000);
+
     getInfluencersProfile(regName)
       .then((result) => {
-        setprofile(result);
-        console.log(profileData);
+
+        if (Array.isArray(result) && result.length > 0) {
+
+          setProfileData(result);
+          console.log(profileData);
+        }
+        else {
+          console.error("API response is empty or invalid:", result);
+        }
       })
       .catch((err) => { 
         console.error("Error fetching profile data:", err);
+        
       });
+      
   }, [regName]);
 
   // Render nothing if profileData is still null
@@ -29,7 +45,7 @@ const CelebProfile = () => {
 
   return (
     <>
-      {profileData && (
+      {regName && (
         <>
           <div className="container main-body">
             <div className="row my-3">
@@ -59,7 +75,7 @@ const CelebProfile = () => {
               </div>
               <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center mx-2 my-3">
                 <div className="fs-1 fw-bold">
-                  <h2>Name:{profileData.fullName}</h2>
+                  <h2 className="text-white">Name:{profileData.fullName}</h2>
                 </div>
                 <h3 className="text-white">(Live Band)</h3>
                 <h6 className="text-white">Mumbai, Maharashtra</h6>
@@ -107,7 +123,8 @@ const CelebProfile = () => {
       {regName && (
         <div className="p-5 text-center bg-body-tertiary hero">
           <div className="container py-5">
-            <h1 className="text-white">Not found List</h1>
+            <h1 className="text-white">Similar</h1>
+            <Featured />
           </div>
         </div>
       )}

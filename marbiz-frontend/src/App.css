@@ -219,12 +219,13 @@ h6 {
   .card-footer {
     background: none;
     border-top: none;
-    .media {
-      img {
-        border: solid 3px rgba(255, 255, 255, 0.3);
-      }
-    }
   }
+  
+  .card-footer .media img {
+    border: solid 3px rgba(255, 255, 255, 0.3);
+  }
+  
+
   .card-title {
     font-weight: 800;
   }
@@ -718,7 +719,7 @@ h6 {
   margin-top: 75px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .main-body {
     margin-top: 50px;
   }
@@ -736,7 +737,7 @@ h6 {
   .home-body {
     margin-top: 75px;
   }
-} 
+}  */
 
 .accordion-button {
   color: white;

@@ -46,29 +46,31 @@ export default function Signin() {
         <div>
           <div className="my-5 p-5 text-center bg-body-tertiary hero">
             <div className="container ">
-            <div className="d-grid justify-content-center">
-              <dotlottie-player src="https://lottie.host/8fe8b914-6e21-4220-8886-c9e23e757b91/ypmqaQjU2U.json" background="transparent" speed="1" style={{width: "300px", height: "300px"}} loop autoplay></dotlottie-player>
-            </div>
+              <div className="d-grid justify-content-center">
+                <dotlottie-player src="https://lottie.host/8fe8b914-6e21-4220-8886-c9e23e757b91/ypmqaQjU2U.json" background="transparent" speed="1" style={{ width: "300px", height: "300px" }} loop autoplay></dotlottie-player>
+              </div>
               <h1 className="text-body-emphasis text-white fw-bold">Make Money as a Creator</h1>
               <p className="col-lg-8 mx-auto lead text-white">
                 The simple way to sell, manage, and get paid for your Instagram,
                 TikTok, YouTube, and UGC brand deals
               </p>
-              <div className="username-holder my-3 bg-dark">
-                <div className="username-domain ps-3">www.marbiz.com</div>
-                <div className="username-input-holder">
-                  <input
-                    type="text"
-                    className="username-text  text-white"
-                    onChange={(e) => setclaimtext(e)}
-                    placeholder="Your Name"
-                    style={{
-                      border: "none",
-                      outline: "none",
-                      boxShadow: "none",
-                      
-                    }}
-                  />
+              <div className="username-holder  my-3 bg-dark">
+                <div className="d-inline-flex   ">
+                  <div className="username-domain ps-3">www.marbiz.in/@</div>
+                  <div className="username-input-holder">
+                    <input
+                      type="text"
+                      className="username-text  text-white"
+                      onChange={(e) => setclaimtext(e)}
+                      placeholder="Your Username"
+                      style={{
+                        border: "none",
+                        outline: "none",
+                        boxShadow: "none",
+
+                      }}
+                    />
+                  </div>
                 </div>
                 <div className="username-btn" onClick={headlerclaim}>
                   Claim
