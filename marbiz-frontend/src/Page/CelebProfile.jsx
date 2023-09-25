@@ -5,13 +5,14 @@ import Accordion from "../Components/Accordion";
 import { useParams } from "react-router-dom";
 import { getInfluencersProfile } from "../services/api/api-service";
 const CelebProfile = () => {
-  const { regName } = useParams();
+  let { regName } = useParams();
   const [profileData, setprofile] = useState([]);
   console.log(regName);
   useEffect(() => {
     getInfluencersProfile(regName)
       .then((result) => {
         setprofile(result);
+        console.log(profileData);
       })
       .catch((err) => {});
   }, []);
@@ -55,7 +56,7 @@ const CelebProfile = () => {
               </div>
               <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center mx-2 my-3">
                 <div className="fs-1 fw-bold">
-                  <h2>Name:</h2>
+                  <h2>Name:{profileData.fullName}</h2>
                 </div>
                 <h3>(Live Band)</h3>
                 <h6>Mumbai, Maharashtra</h6>

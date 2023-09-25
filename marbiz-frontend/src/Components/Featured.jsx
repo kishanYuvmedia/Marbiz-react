@@ -24,6 +24,7 @@ const Featured = (props) => {
               fullName={item.fullName}
               image={item.coverImage}
               category={item.userType}
+              regName={item.regName}
             />
           </div>
         ))}
