@@ -131,7 +131,7 @@ export default function EmailVerify(props) {
         {otpStatus === false && (
           <div className="p-5 text-center bg-body-tertiary hero">
             <div className="container py-5">
-              <h1 className="text-body-emphasis">
+              <h1 className="text-body-emphasis text-white">
                 {" "}
                 Hello <strong className="gtext">@{props.userClaim} </strong>
                 Create Your Page
@@ -218,7 +218,7 @@ export default function EmailVerify(props) {
                       Sign Up
                     </Button>
                   </Form>
-                  <p style={{ textAlign: "center", color: "#5d5d5d" }}>
+                  <p style={{ textAlign: "center", color: "gray" }}>
                     By signing up, you agree to our Terms and Privacy Policy.
                   </p>
                 </Col>
