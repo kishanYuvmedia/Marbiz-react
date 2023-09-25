@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 const CelebCard = (props) => {
   const [listcategory, setCategory] = useState(Array.isArray(props.category) ? props.category : []);
@@ -22,11 +24,11 @@ const CelebCard = (props) => {
           <div className="card-footer p-0">
             <div className="media">
               <div className="media-body">
-                <a href={`/profile/${props.regName}`}>
+                <Link to={`/profile/${props.regName}`}>
                   <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
                     {props.fullName}
                   </h3>
-                </a>
+                </Link>
                 {/* <small className="text-white">Active Platform</small> */}
                 <div className="d-flex justify-content-start mt-2">
                   {listcategory &&

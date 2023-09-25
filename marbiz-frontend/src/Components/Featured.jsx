@@ -101,7 +101,7 @@ const Featured = (props) => {
       <hr className="hr hr-blurry" />
       <div className="row d-flex">
         {list.map((item) => (
-          <div key={item.id} className="col-lg-3 col-md-12 col-sm-12 mb-4 ">
+          <div key={item.id} className="col-lg-2 col-md-12 col-sm-12 mb-4 ">
             <CelebCard
               fullName={item.fullName}
               image={item.coverImage}

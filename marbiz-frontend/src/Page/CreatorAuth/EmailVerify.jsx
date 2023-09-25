@@ -96,7 +96,7 @@ export default function EmailVerify(props) {
                   title: "Oops...",
                   text: "Getting issue with send email for verification",
                   footer:
-                    '<a href="/creator">Create your profile defrent email account</a>',
+                    '<Link to="/creator">Create your profile with different email account</Link>',
                 });
               }
             );
@@ -106,7 +106,7 @@ export default function EmailVerify(props) {
             title: "Oops...",
             text: "Email Address already register",
             footer:
-              '<a href="/creator">Create your profile defrent email account</a>',
+              '<Link to="/creator">Create your profile with different email account</Link>',
           });
         }
       });
