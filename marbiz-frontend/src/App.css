@@ -5,8 +5,8 @@
   padding: 0;
 }
 
-
-body, html {
+body,
+html {
   background-color: #000000;
   min-height: 100vh;
 }
@@ -708,8 +708,8 @@ h6 {
   font-weight: 600;
   color: #be4ffa;
 }
-/* 
-.main-body {
+
+/* .main-body {
   margin-top: 75px;
   margin-bottom: 75px;
 }
@@ -736,18 +736,18 @@ h6 {
   .home-body {
     margin-top: 75px;
   }
-} 
+}  */
 
 .accordion-button {
   color: white;
   font-weight: 600;
 }
-.accordion-button i{
-  color: #FA59B3;
+.accordion-button i {
+  color: #fa59b3;
 }
 .accordion-borderless .accordion-item .accordion-button:not(.collapsed) {
   color: white;
-  background-color:#28282B;
+  background-color: #28282b;
 }
 
 .accordion-body {

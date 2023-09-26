@@ -11,22 +11,24 @@ export default function CreateProfile(props) {
   const [categoryList, setCategory] = useState([]);
   const [IdCategory, setsetIdCategory] = useState([]);
   const initialFormData = {
-    userType: "",
+    category: "",
     businessNumber: "",
     businessEmail: "",
     bio: "",
     about: "",
+    location: "",
     idProofType: "",
     idProofNo: "",
     checked: false,
   };
 
   const initialErrors = {
-    userType: "",
+    category: "",
     businessNumber: "",
     businessEmail: "",
     bio: "",
     about: "",
+    location: "",
     idProofType: "",
     idProofNo: "",
     checked: "",
@@ -77,7 +79,7 @@ export default function CreateProfile(props) {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      formData.userType = listarray;
+      formData.category = listarray;
       formData.regName = userdata.registerName;
       formData.mtUserId = userdata.id;
       formData.fullName = userdata.contactName;
@@ -122,17 +124,17 @@ export default function CreateProfile(props) {
               <Form onSubmit={handleSubmit} id="myForm">
                 <Form.Group as={Col} controlId="formUserType">
                   <Select
-                    defaultValue={formData.userType}
+                    defaultValue={formData.category}
                     isMulti
-                    name="userType"
-                    id="userType"
+                    name="category"
+                    id="category"
                     options={categoryList}
                     onChange={(e) => setUserType(e)}
                     className="basic-multi-select mb-3"
                     classNamePrefix="select"
                   />
                   <Form.Control.Feedback type="invalid">
-                    {errors.userType}
+                    {errors.category}
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formNumber">
@@ -161,6 +163,20 @@ export default function CreateProfile(props) {
                   />
                   <Form.Control.Feedback type="invalid">
                     {errors.businessEmail}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="location">
+                  <Form.Control
+                    type="text"
+                    name="location"
+                    id="location"
+                    placeholder="Location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    isInvalid={!!errors.location}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.location}
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formbio">

@@ -118,7 +118,7 @@ export default function EmailVerify(props) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-  
+
   useEffect(() => {
     getPublicList("Influencers").then((result) => {
       setCategory(result);

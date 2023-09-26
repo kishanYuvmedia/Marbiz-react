@@ -3,19 +3,28 @@ import CelebCard from "../Components/CelebCard";
 import NavTabs from "../Components/NavTabs";
 import Accordion from "../Components/Accordion";
 import { useParams, Link } from "react-router-dom";
-import { getInfluencersProfile } from "../services/api/api-service";
-
+import {
+  getInfluencersProfile,
+  getImagesList,
+} from "../services/api/api-service";
+import _ from "lodash";
 const CelebProfile = () => {
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
-
+  const [images, setImages] = useState([]);
   console.log(regName);
-
   useEffect(() => {
     getInfluencersProfile(regName)
       .then((result) => {
         setprofile(result);
-        console.log(profileData);
+        getImagesList(result.id)
+          .then((result) => {
+            setImages(result);
+            console.log("images", result);
+          })
+          .catch((err) => {
+            console.error("Error fetching profile data:", err);
+          });
       })
       .catch((err) => {
         console.error("Error fetching profile data:", err);
@@ -57,26 +66,36 @@ const CelebProfile = () => {
               </div>
               <div className="col-md-4 col-sm-12">
                 <img
-                  src={"https://unsplash.it/600.jpg?image=251"}
+                  src={profileData.coverImage}
                   className="img-fluid celeb-img"
                   alt="Sanam Image1"
                 />
               </div>
               <div className="col-md-6 col-sm-12 d-flex flex-column justify-content-center mx-2 my-3">
                 <div className="fs-1 fw-bold">
-                  <h2>Name:{profileData.fullName}</h2>
+                  <h1 className="text-white bold">
+                    Name:{profileData.fullName}
+                  </h1>
                 </div>
-                <h3 className="text-white">(Live Band)</h3>
-                <h6 className="text-white">Mumbai, Maharashtra</h6>
-
+                <h4 className="text-white">
+                  (
+                  {profileData.category.map((list, index) => (
+                    <span key={index}>
+                      {list.label}
+                      {index !== profileData.category.length - 1 && "/ "}
+                    </span>
+                  ))}
+                  )
+                </h4>
+                <h6 className="text-white">
+                  {_.get(profileData, "location")
+                    ? profileData.location
+                    : "India"}
+                </h6>
                 <Link to="/inquiryform">
                   <button className="button-87 my-3">See Price and Book</button>
                 </Link>
-
-                <p className="text-white">
-                  Sanam became an instant hit among the Indian teenagers with
-                  their 'Hawa Hawa' and 'Behka'!
-                </p>
+                <p className="text-white">{profileData.bio}</p>
               </div>
             </div>
           </div>
@@ -84,7 +103,7 @@ const CelebProfile = () => {
           <div className="container my-5">
             <div className="row">
               <div className="col">
-                <NavTabs />
+                <NavTabs images={images} />
               </div>
             </div>
             <div className="d-flex justify-content-center my-3">
@@ -97,7 +116,7 @@ const CelebProfile = () => {
           <div className="container my-5">
             <div className="row">
               <div className="col">
-                <Accordion />
+                <Accordion about={profileData.about} />
               </div>
             </div>
           </div>

@@ -2,19 +2,40 @@ import React, { useEffect, useState } from "react";
 import bgImage from "../Images/influ-2.webp";
 import Typewriter from "typewriter-effect";
 import { getPublicList } from "../services/api/api-service";
-
+const categories = [
+  { name: "Celebrity", color: "danger" },
+  { name: "Influencer", color: "info" },
+  { name: "Instagram", color: "success" },
+  { name: "Youtube", color: "primary" },
+  { name: "TV Star", color: "secondary" },
+  { name: "Stand Up", color: "warning" },
+  { name: "Celeb", color: "info" },
+];
 const HeroSection = () => {
-  const [status, setstatus] = useState(true);
   const [categoryList, setCategory] = useState([]);
-  
   useEffect(() => {
-    getPublicList("Influencers").then((result) => {
-      setCategory(result);
-      setstatus(false);
-      console.log(categoryList);
-    });
-  }, [status]);
-
+    getPublicList("Influencers")
+      .then((result) => {
+        // Check if the result is an array and not empty
+        if (Array.isArray(result) && result.length > 0) {
+          setTimeout(() => {
+            setCategory(result); // Use placeholder data
+          }, 1000);
+        } else {
+          // Handle the case where the API call returns an empty or invalid response
+          console.error("API response is empty or invalid:", result);
+          setTimeout(() => {
+            setCategory(categories); // Use placeholder data
+          }, 1000);
+          // You can set a default state here if needed
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+        // Handle the error state here if needed
+        // You can set a default state here if needed
+      });
+  }, []);
   return (
     <>
       <div
@@ -53,7 +74,7 @@ const HeroSection = () => {
             <div className="typeWriterText">Marketing Made Easy</div>
           </div>
           <h3 className="mt-3 text-white">
-            Find and hire top Instagram, TikTok, YouTube, and UGC influencer to
+            Find and hire top Instagram,Facebook, YouTube, and UGC influencer to
             create unique content for your brand.
           </h3>
 
@@ -76,10 +97,11 @@ const HeroSection = () => {
             </form>
           </div>
           <div className="mt-3">
-            <span className="badge badge-primary me-2">Demo</span>
-            {/* {categoryList.map((list) => {
-              <span className="badge badge-primary me-2">{list.label}</span>;
-            })} */}
+            {categoryList.map((list) => (
+              <span key={list.label} className="badge badge-primary me-2">
+                {list.label}
+              </span>
+            ))}
           </div>
         </div>
       </div>

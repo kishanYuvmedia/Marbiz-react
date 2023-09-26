@@ -20,9 +20,24 @@ export const getSystemList = (type) => {
     });
   });
 };
-export const getInfluencersList = (limit) => {
+export const getInfluencersList = (limit, type) => {
   return new Promise((resolve, reject) => {
-    find("MtProfiles", { limit: limit, order: "fullName asc" }).then((data) => {
+    find("MtProfiles", {
+      limit: limit,
+      where: { type: type, status: "A" },
+      order: "fullName asc",
+    }).then((data) => {
+      resolve(data);
+    });
+  });
+};
+export const getInfluencersFeturedList = (limit, type) => {
+  return new Promise((resolve, reject) => {
+    find("MtProfiles", {
+      limit: limit,
+      where: { type: type, Fetured: "A" },
+      order: "fullName asc",
+    }).then((data) => {
       resolve(data);
     });
   });
@@ -69,5 +84,10 @@ export const uploadFile = (fileData, bucketName, folder = "") => {
 export const getInfluencersProfile = (name) => {
   return findOne("MtProfiles", {
     where: { status: "A", and: [{ regName: name }] },
+  });
+};
+export const getImagesList = (id) => {
+  return find("Images", {
+    where: { status: "A", and: [{ profileId: id }] },
   });
 };
