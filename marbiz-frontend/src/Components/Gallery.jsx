@@ -52,7 +52,7 @@ const VideoGallery = () => {
         <div>
             <div className="row">
                 <div className='col-sm-12 col-md-4 '>
-                    <div class="ratio ratio-16x9">
+                    <div className="ratio ratio-16x9">
                         <iframe
                             src="https://www.youtube.com/embed/vlDzYIIOYmM"
                             title="YouTube video"

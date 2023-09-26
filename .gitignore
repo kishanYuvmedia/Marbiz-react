@@ -2,8 +2,16 @@
 
 # dependencies
 marbiz-frontend/node_modules
+marbiz-frontend/package-lock.json
+
 marbiz-backend/node_modules
+marbiz-backend/package-lock.json
+
 marbiz-api/node_modules
+marbiz-api/package-lock.json
+
+marbiz-backend/vendor
+
 /node_modules
 
 
@@ -26,5 +34,3 @@ marbiz-api/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-

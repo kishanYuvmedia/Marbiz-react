@@ -66,8 +66,8 @@ export default function UploadImage() {
   };
   return (
     <div>
-      <div class="p-5 text-center bg-body-tertiary hero">
-        <div class="container py-5">
+      <div className="p-5 text-center bg-body-tertiary hero">
+        <div className="container py-5">
           <h1>Upload your Cover profile</h1>
           <div className="row justify-content-center">
             <div className="col-md-6">

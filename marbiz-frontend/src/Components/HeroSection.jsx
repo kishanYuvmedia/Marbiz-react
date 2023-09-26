@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import bgImage from "../Images/influ-2.webp";
 import Typewriter from "typewriter-effect";
 import { getPublicList } from "../services/api/api-service";
+
 const HeroSection = () => {
   const [status, setstatus] = useState(true);
   const [categoryList, setCategory] = useState([]);
+  
   useEffect(() => {
     getPublicList("Influencers").then((result) => {
       setCategory(result);
@@ -12,10 +14,11 @@ const HeroSection = () => {
       console.log(categoryList);
     });
   }, [status]);
+
   return (
     <>
       <div
-        className=" d-flex justify-content-center align-items-center position-relative"
+        className="home-body d-flex justify-content-center align-items-center position-relative"
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundPosition: "center",
@@ -55,10 +58,10 @@ const HeroSection = () => {
           </h3>
 
           <div className="mt-3 d-flex justify-content-center">
-            <form class="d-flex input-group " style={{ maxWidth: "750px" }}>
+            <form className="d-flex input-group " style={{ maxWidth: "750px" }}>
               <input
                 type="search"
-                class="form-control "
+                className="form-control "
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="search-addon"
@@ -67,8 +70,8 @@ const HeroSection = () => {
                   borderRadius: "20px 0 0 20px",
                 }}
               />
-              <span class="srch-btn" id="search-addon">
-                <i class="fas fa-search"></i> Search
+              <span className="srch-btn" id="search-addon">
+                <i className="fas fa-search"></i> Search
               </span>
             </form>
           </div>
@@ -82,7 +85,7 @@ const HeroSection = () => {
       </div>
 
       <div
-        className="my-3 d-flex justify-content-center align-items-center py-3 text-white gradient_background"
+        className="mb-3 d-flex justify-content-center align-items-center py-3 text-white gradient_background"
         style={{}}
       >
         <div
@@ -91,7 +94,7 @@ const HeroSection = () => {
             fontSize: "30px",
           }}
         >
-          Connecting Brands and Influencers Effortlessly.
+          Connecting Brands and Influencer Effortlessly.
         </div>
       </div>
     </>

@@ -5,7 +5,8 @@ import { Outlet, Link } from "react-router-dom";
 function NavBar() {
   return (
     <>
-      <nav className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+
+      <nav className="navbar sticky-top navbar-expand-md bg-dark navbar-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" />
@@ -39,11 +40,11 @@ function NavBar() {
                   Category
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/celebprofile">
                   Celeb Profile
                 </Link>
-              </li>
+              </li> */}
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">

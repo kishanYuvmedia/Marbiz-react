@@ -1,5 +1,6 @@
 .username-holder {
   display: flex;
+  color: white;
   background-color: white;
   justify-content: space-between;
   width: 60%;
@@ -7,7 +8,7 @@
   box-shadow: var(--mediumBoxShadow);
   padding: 5px 10px;
   transition-duration: 0.3s;
-  border: 1px solid #6f20be;
+  border: 2px solid #6f20be;
   align-items: baseline;
   margin: 0 auto;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
@@ -20,16 +21,21 @@
 }
 .username-btn {
   background: linear-gradient(180deg, #9a3b95, #e36d83);
-  padding: 8px;
+  padding: 8px 20px;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 600;
   color: white;
   border-radius: 20px;
   cursor: pointer;
 }
 .username-text {
   border: none;
-  padding: 5px;
+  padding: 5px 15px;
+  background-color: #332D2D;
+  border-radius: 20px;
+}
+.username-text:focus {
+  background-color: black;
 }
 .gtext {
   font-size: 35px;

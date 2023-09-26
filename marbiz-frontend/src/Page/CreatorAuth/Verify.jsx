@@ -26,22 +26,22 @@ export default function Verify() {
   return (
     <div>
       {addprofile && (
-        <div class="p-5 text-center bg-body-tertiary hero">
-          <div class="container py-5">
+        <div className="p-5 text-center bg-body-tertiary hero">
+          <div className="container py-5">
             <CreateProfile userData={data} />
           </div>
         </div>
       )}
       {verifystatus == 0 && (
-        <div class="p-5 text-center bg-body-tertiary hero">
-          <div class="container py-5">
+        <div className="p-5 text-center bg-body-tertiary hero">
+          <div className="container py-5">
             <h1>User Not Valid</h1>
           </div>
         </div>
       )}
       {verifystatus == 1 && (
-        <div class="p-5 text-center bg-body-tertiary hero">
-          <div class="container py-5">
+        <div className="p-5 text-center bg-body-tertiary hero">
+          <div className="container py-5">
             <h1>
               Don't refresh{" "}
               <strong style={{ color: "#9a73ff" }}>

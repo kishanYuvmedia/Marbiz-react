@@ -1,8 +1,11 @@
 import React from "react";
 import HeroSection from "../Components/HeroSection";
 import Featured from "../Components/Featured";
-import { MainListing, ModalListing } from "../Components/MainListing";
+// import { MainListing, ModalListing } from "../Components/MainListing";
 import Promotions from "../Components/Promotions";
+import "../App.css"
+import PopularCategories from "../Components/PopularCategories";
+
 function HomePage() {
   return (
     <div>
@@ -11,6 +14,7 @@ function HomePage() {
         title="Featured"
         subtitle="Hire top influencer across all platforms - See All"
       />
+      <PopularCategories />
       <Featured
         title="Celebrities & Influencer"
         subtitle="Hire top Celebrities & Influencer all platforms see All"

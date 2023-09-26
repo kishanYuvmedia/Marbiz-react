@@ -1,0 +1,63 @@
+{
+    "name": "Images",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "strictObjectIDCoercion": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "src": {
+            "type": "string",
+            "required": true
+        },
+        "original": {
+            "type": "string",
+            "required": true
+        },
+        "width": {
+            "type": "number",
+            "default": 1080
+        },
+        "height": {
+            "type": "number",
+            "default": 1080
+        },
+        "tags": {
+            "type": "array"
+        },
+        "caption": {
+            "type": "string"
+        },
+        "profileId": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string",
+            "default": "I"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW"
+        },
+        {
+            "accessType": "READ",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW"
+        },
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$authenticated",
+            "permission": "ALLOW"
+        }
+    ],
+    "methods": {}
+}

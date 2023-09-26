@@ -1,0 +1,97 @@
+{
+    "name": "Enquiry",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "profileId": {
+            "type": "string",
+            "required": true
+        },
+        "occasion": {
+            "type": "string",
+            "required": true
+        },
+        "date": {
+            "type": "date",
+            "required": true
+        },
+        "city": {
+            "type": "string",
+            "required": true
+        },
+        "budget": {
+            "type": "string"
+        },
+        "peopleAttend": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "email": {
+            "type": "string"
+        },
+        "mobileNumber": {
+            "type": "string"
+        },
+        "details": {
+            "type": "string"
+        },
+        "moreOptionsBudget": {
+            "type": "string",
+            "default": "N"
+        },
+        "sendWhatsApp": {
+            "type": "string",
+            "default": "N"
+        },
+        "createdAt": {
+            "type": "date",
+            "defaultFn": "now"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+        },
+        {
+            "accessType": "WRITE",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW"
+        },
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$authenticated",
+            "permission": "ALLOW"
+        }
+    ],
+    "methods": {
+        "pingMe": {
+            "accepts": [],
+            "returns": [
+                {
+                    "arg": "response",
+                    "type": "string"
+                }
+            ],
+            "description": "ping service",
+            "http": [
+                {
+                    "path": "/pingMe",
+                    "verb": "get"
+                }
+            ]
+        }
+    }
+}

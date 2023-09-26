@@ -114,8 +114,8 @@ export default function CreateProfile(props) {
   }, []);
   return (
     <div>
-      <div class="p-5 text-center bg-body-tertiary hero">
-        <div class="container py-5">
+      <div className="p-5 text-center bg-body-tertiary hero">
+        <div className="container py-5">
           <h1>Make Your Profile </h1>
           <Row className="justify-content-md-center">
             <Col xs lg="6" style={{ textAlign: "left" }}>

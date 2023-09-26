@@ -4,10 +4,12 @@ import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { createMtUsers, getPublicList } from "../../services/api/api-service";
+
 export default function EmailVerify(props) {
   const [otpStatus, setotpstatus] = useState(false);
   const [categoryList, setCategory] = useState([]);
   const [userCreateData, setUserCreate] = useState([]);
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -16,6 +18,7 @@ export default function EmailVerify(props) {
     registerName: "",
     checked: false,
   });
+
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -47,6 +50,7 @@ export default function EmailVerify(props) {
     if (!formData.checked) {
       newErrors.checked = "You must check the box";
     }
+
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       console.log("Form data submitted:", formData);
@@ -61,6 +65,7 @@ export default function EmailVerify(props) {
         registerName: props.userClaim,
         emailVerified: true,
       });
+
       createMtUsers(dataJson[0]).then((result) => {
         console.log("save", result);
         if (result) {
@@ -91,7 +96,7 @@ export default function EmailVerify(props) {
                   title: "Oops...",
                   text: "Getting issue with send email for verification",
                   footer:
-                    '<a href="/creator">Create your profile defrent email account</a>',
+                    '<Link to="/creator">Create your profile with different email account</Link>',
                 });
               }
             );
@@ -101,29 +106,32 @@ export default function EmailVerify(props) {
             title: "Oops...",
             text: "Email Address already register",
             footer:
-              '<a href="/creator">Create your profile defrent email account</a>',
+              '<Link to="/creator">Create your profile with different email account</Link>',
           });
         }
       });
     }
   };
+
   const isValidEmail = (email) => {
     // Basic email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
+  
   useEffect(() => {
     getPublicList("Influencers").then((result) => {
       setCategory(result);
     });
   }, []);
+
   return (
     <>
       <div>
         {otpStatus === false && (
           <div className="p-5 text-center bg-body-tertiary hero">
             <div className="container py-5">
-              <h1 className="text-body-emphasis">
+              <h1 className="text-body-emphasis text-white">
                 {" "}
                 Hello <strong className="gtext">@{props.userClaim} </strong>
                 Create Your Page
@@ -210,7 +218,7 @@ export default function EmailVerify(props) {
                       Sign Up
                     </Button>
                   </Form>
-                  <p style={{ textAlign: "center", color: "#5d5d5d" }}>
+                  <p style={{ textAlign: "center", color: "gray" }}>
                     By signing up, you agree to our Terms and Privacy Policy.
                   </p>
                 </Col>
@@ -218,12 +226,12 @@ export default function EmailVerify(props) {
             </div>
           </div>
         )}
-        {otpStatus == true && (
+        {otpStatus === true && (
           <>
-            <div class="p-5 text-center bg-body-tertiary hero">
-              <div class="container py-5">
+            <div className="p-5 text-center bg-body-tertiary hero">
+              <div className="container py-5">
                 <i className="fa fa-mail-bulk" style={{ fontSize: "30px" }}></i>
-                <h1 class="text-body-emphasis">
+                <h1 className="text-body-emphasis">
                   Check you email for verification link
                 </h1>
               </div>
