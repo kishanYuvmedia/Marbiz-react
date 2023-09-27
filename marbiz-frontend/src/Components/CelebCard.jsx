@@ -1,7 +1,6 @@
 import React, { useState } from "react";
+import { _ } from "lodash";
 import { Link } from "react-router-dom";
-
-
 const CelebCard = (props) => {
   const [listcategory, setCategory] = useState(Array.isArray(props.category) ? props.category : []);
 
@@ -24,7 +23,7 @@ const CelebCard = (props) => {
           <div className="card-footer p-0">
             <div className="media">
               <div className="media-body">
-                <Link to={`/profile/${props.regName}`}>
+                <Link className="nav-link" to={`/profile/${props.regName}`}>
                   <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
                     {props.fullName}
                   </h3>
