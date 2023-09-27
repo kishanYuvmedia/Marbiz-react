@@ -107,7 +107,7 @@ export default function CreateProfile(props) {
     }
   };
   useEffect(() => {
-    getPublicList("Influencers").then((result) => {
+    getPublicList("CategoryType").then((result) => {
       setCategory(result);
     });
     getPublicList("Document").then((result) => {
@@ -118,7 +118,7 @@ export default function CreateProfile(props) {
     <div>
       <div className="p-5 text-center bg-body-tertiary hero">
         <div className="container py-5">
-          <h1>Make Your Profile </h1>
+          <h1 style={{ color: "white" }}>Make Your Profile </h1>
           <Row className="justify-content-md-center">
             <Col xs lg="6" style={{ textAlign: "left" }}>
               <Form onSubmit={handleSubmit} id="myForm">
@@ -245,6 +245,7 @@ export default function CreateProfile(props) {
                     type="checkbox"
                     name="checked"
                     label="Check me out"
+                    style={{ color: "white" }}
                     checked={formData.checked}
                     onChange={handleChange}
                     isInvalid={!!errors.checked}
@@ -261,7 +262,7 @@ export default function CreateProfile(props) {
                   Create Profile
                 </Button>
               </Form>
-              <p style={{ textAlign: "center", color: "#5d5d5d" }}>
+              <p style={{ textAlign: "center", color: "#fff" }}>
                 By signing up, you agree to our Terms and Privacy Policy.
               </p>
             </Col>

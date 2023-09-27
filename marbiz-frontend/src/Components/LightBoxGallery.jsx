@@ -4,7 +4,7 @@ import Lightbox from "react-18-image-lightbox";
 import "react-18-image-lightbox/style.css";
 const LightBoxGallery = (props) => {
   const [index, setIndex] = useState(-1);
-  const [images, setImages] = useState(props.images);
+  const [images, setImages] = useState(props.images || []);
   const currentImage = images[index];
   const nextIndex = (index + 1) % images.length;
   const nextImage = images[nextIndex] || currentImage;
@@ -17,7 +17,7 @@ const LightBoxGallery = (props) => {
   return (
     <div>
       <Gallery
-        images={images}
+        images={props.images}
         onClick={handleClick}
         enableImageSelection={false}
       />

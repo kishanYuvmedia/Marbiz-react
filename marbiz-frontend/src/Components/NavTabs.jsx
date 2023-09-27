@@ -3,6 +3,7 @@ import { VideoGallery } from "./Gallery";
 import LightBoxGallery from "./LightBoxGallery";
 
 const NavTabs = (props) => {
+  console.log("final", props.images);
   return (
     <div>
       {/* <!-- Tabs navs --> */}
@@ -25,6 +26,7 @@ const NavTabs = (props) => {
             role="tab"
             aria-controls="ex-with-icons-tabs-1"
             aria-selected="true"
+            style={{ color: "black", backgroundColor: "#fff" }}
           >
             <i className="fas fa-chart-pie fa-fw me-2"></i>Gallery
           </a>
@@ -47,6 +49,7 @@ const NavTabs = (props) => {
             role="tab"
             aria-controls="ex-with-icons-tabs-2"
             aria-selected="false"
+            style={{ color: "black", backgroundColor: "#fff" }}
           >
             <i className="fas fa-chart-line fa-fw me-2"></i>Video
           </a>
@@ -59,7 +62,6 @@ const NavTabs = (props) => {
           role="tabpanel"
           aria-labelledby="ex-with-icons-tab-1"
         >
-          {/* <Gallery /> */}
           <LightBoxGallery images={props.images} />
         </div>
         <div
@@ -68,7 +70,7 @@ const NavTabs = (props) => {
           role="tabpanel"
           aria-labelledby="ex-with-icons-tab-2"
         >
-          <VideoGallery />
+          <VideoGallery vedio={[]} />
         </div>
       </div>
       {/* <!-- Tabs content --> */}

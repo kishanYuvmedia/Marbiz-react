@@ -15,7 +15,7 @@ const CelebCard = (props) => {
           borderRadius: "15px",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          border: "1px solid cyan",
+          border: "1px solid #9644fd",
         }}
       >
         <div className="card-img-overlay d-flex flex-column">

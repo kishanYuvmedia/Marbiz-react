@@ -15,7 +15,7 @@
       "type": "string",
       "required": true
     },
-    "categorytype": {
+    "categoryType": {
       "type": "string",
       "required": true,
       "default": "Influencers"
@@ -111,7 +111,7 @@
     "getUniqueLocations": {
       "accepts": [
         {
-          "arg": "categoryType",
+          "arg": "typeCategory",
           "type": "string",
           "required": true
         },

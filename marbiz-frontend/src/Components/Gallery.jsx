@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Gallery = () => {
-    return (
-        <div>
-            {/* <div className="row">
+  return (
+    <div>
+      {/* <div className="row">
                 <div className='col-sm-12 col-md-4 '>
                     <img
                         className="rounded-3 ratio ratio-16x9"
@@ -39,30 +39,28 @@ const Gallery = () => {
                 </div>
 
             </div> */}
+    </div>
+  );
+};
 
-            
-
-        </div>
-    )
-}
-
-
-const VideoGallery = () => {
-    return (
-        <div>
-            <div className="row">
-                <div className='col-sm-12 col-md-4 '>
-                    <div className="ratio ratio-16x9">
-                        <iframe
-                            src="https://www.youtube.com/embed/vlDzYIIOYmM"
-                            title="YouTube video"
-                            allowfullscreen
-                        ></iframe>
-                    </div>
-                </div>
+const VideoGallery = (props) => {
+  return (
+    <div>
+      <div className="row">
+        {props.vedio.map((data) => {
+          <div className="col-sm-12 col-md-4">
+            <div className="ratio ratio-16x9">
+              <iframe
+                src={data.url}
+                title="YouTube video"
+                allowfullscreen
+              ></iframe>
             </div>
-        </div>
-    )
-}
+          </div>;
+        })}
+      </div>
+    </div>
+  );
+};
 
-export { Gallery, VideoGallery }
+export { Gallery, VideoGallery };

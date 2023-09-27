@@ -12,15 +12,16 @@ const CelebProfile = () => {
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [images, setImages] = useState([]);
-  console.log(regName);
   useEffect(() => {
     getInfluencersProfile(regName)
       .then((result) => {
         setprofile(result);
         getImagesList(result.id)
-          .then((result) => {
-            setImages(result);
-            console.log("images", result);
+          .then((resultdb) => {
+            setTimeout(() => {
+              setImages(resultdb); // Use placeholder data
+            }, 1000);
+            console.log("images", images);
           })
           .catch((err) => {
             console.error("Error fetching profile data:", err);

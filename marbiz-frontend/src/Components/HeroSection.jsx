@@ -52,7 +52,9 @@ const HeroSection = () => {
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            //backgroundColor: "rgba(0, 0, 0, 0.6)",
+            background:
+              "linear-gradient(45deg, #00000094 0%, #fe60ad40 51%, #2930211f 100%)",
           }}
         ></div>
 

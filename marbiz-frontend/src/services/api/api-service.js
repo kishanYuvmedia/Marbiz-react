@@ -24,7 +24,7 @@ export const getInfluencersList = (limit, type) => {
   return new Promise((resolve, reject) => {
     find("MtProfiles", {
       limit: limit,
-      where: { type: type, status: "A" },
+      where: { categoryType: type, status: "A" },
       order: "fullName asc",
     }).then((data) => {
       resolve(data);
@@ -35,7 +35,7 @@ export const getInfluencersFeturedList = (limit, type) => {
   return new Promise((resolve, reject) => {
     find("MtProfiles", {
       limit: limit,
-      where: { type: type, Fetured: "A" },
+      where: { categoryType: type, Fetured: "A" },
       order: "fullName asc",
     }).then((data) => {
       resolve(data);
@@ -87,7 +87,7 @@ export const getInfluencersProfile = (name) => {
   });
 };
 export const getImagesList = (id) => {
-  return find("Images", {
-    where: { status: "A", and: [{ profileId: id }] },
+  return find(`MtProfiles/${id}/Images`, {
+    where: { status: "A" },
   });
 };

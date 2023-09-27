@@ -304,7 +304,7 @@ h6 {
 }
 
 .gradient_background {
-  background: linear-gradient(180deg, #9a3b95, #e36d83);
+  background: linear-gradient(180deg, #8e3afc, #ff67aa);
 }
 .button-42 {
   background-color: initial;
@@ -354,7 +354,7 @@ h6 {
 }
 
 .nav-link {
-  color: #fa4fb7;
+  color: #fff;
   font-size: 18px;
   font-weight: 500;
   font-weight: 600;
@@ -362,11 +362,7 @@ h6 {
 
 .promotion-card {
   border-radius: 20px;
-  background: linear-gradient(
-    0deg,
-    rgba(173, 34, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background: linear-gradient(180deg, #8e3afc, #ff67aa);
 }
 
 .promotion-title {
@@ -407,7 +403,7 @@ h6 {
 }
 
 .bottom-footer {
-  background-color: #8a2dfc;
+  background: linear-gradient(60deg, #8e3afc, #ff67aa);
 }
 
 .navbar {
@@ -446,18 +442,12 @@ h6 {
 .btn-hover.color-4 {
   background-image: linear-gradient(
     to right,
-    #fc6076,
-    #ff9a44,
-    #ef9d43,
-    #e75516
+    #913dfb,
+    #fd34c2,
+    #8423fe,
+    #913efd
   );
-  background-image: linear-gradient(
-    to right,
-    #fa4fb7,
-    #ff9a44,
-    #ef9d43,
-    #fa4fb7
-  );
+  background-image: 0 4px 15px 0 rgb(49, 22, 19);
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
 }
 
@@ -622,9 +612,9 @@ h6 {
   box-shadow: 0px 0px 14px -7px #f09819;
   background-image: linear-gradient(
     45deg,
-    #fa4fb7 0%,
-    #fec580 51%,
-    #fa4fb7 100%
+    #fe62ac 0%,
+    #8726ff 51%,
+    #fe5ab0 100%
   );
   cursor: pointer;
   user-select: none;
@@ -660,15 +650,9 @@ h6 {
   box-shadow: 0px 0px 14px -7px #f09819;
   background-image: linear-gradient(
     45deg,
-    #ff512f 0%,
-    #f09819 51%,
-    #ff512f 100%
-  );
-  background-image: linear-gradient(
-    45deg,
-    #fa4fb7 0%,
-    #fec580 51%,
-    #fa4fb7 100%
+    #9948fc 0%,
+    #fe60ad 51%,
+    #fe57b1 100%
   );
   cursor: pointer;
   user-select: none;
