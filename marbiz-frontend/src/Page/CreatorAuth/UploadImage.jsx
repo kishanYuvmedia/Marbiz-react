@@ -68,7 +68,9 @@ export default function UploadImage() {
     <div>
       <div className="p-5 text-center bg-body-tertiary hero">
         <div className="container py-5">
-          <h1>Upload your Cover profile</h1>
+          <h1 style={{ color: "white", margin: 40 }}>
+            Upload your Cover profile
+          </h1>
           <div className="row justify-content-center">
             <div className="col-md-6">
               <input
@@ -78,7 +80,7 @@ export default function UploadImage() {
                 onChange={handleFileChange}
               />
               <p>{errorMessage}</p>
-              <button className="btn btn-info" onClick={handleUpload}>
+              <button className="button-87 w-100" onClick={handleUpload}>
                 Upload
               </button>
             </div>

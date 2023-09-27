@@ -2,7 +2,7 @@
 "use strict";
 const _ = require("lodash");
 module.exports = function (Mtprofile) {
-  Mtprofile.getUniqueLocations = (categoryType, state, callback) => {
+  Mtprofile.getUniqueLocations = (typeCategory, state, callback) => {
     const allState = [],
       allCity = [];
     let filter = { where: { category: { inq: categoryType } } };

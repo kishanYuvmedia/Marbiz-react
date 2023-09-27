@@ -5,7 +5,6 @@ import { Outlet, Link } from "react-router-dom";
 function NavBar() {
   return (
     <>
-
       <nav className="navbar sticky-top navbar-expand-md bg-dark navbar-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
@@ -26,17 +25,17 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/explore">
+                <Link className="nav-link" to="/#">
                   Explore
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/works">
+                <Link className="nav-link" to="/#">
                   How it Works
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/category">
+                <Link className="nav-link" to="/#">
                   Category
                 </Link>
               </li>

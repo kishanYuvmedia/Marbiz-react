@@ -118,7 +118,7 @@ export default function EmailVerify(props) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-  
+
   useEffect(() => {
     getPublicList("Influencers").then((result) => {
       setCategory(result);
@@ -230,8 +230,11 @@ export default function EmailVerify(props) {
           <>
             <div className="p-5 text-center bg-body-tertiary hero">
               <div className="container py-5">
-                <i className="fa fa-mail-bulk" style={{ fontSize: "30px" }}></i>
-                <h1 className="text-body-emphasis">
+                <i
+                  className="fa fa-mail-bulk text-white mb-5"
+                  style={{ fontSize: "30px" }}
+                ></i>
+                <h1 className="text-body-emphasis text-white mb-5">
                   Check you email for verification link
                 </h1>
               </div>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { _ } from "lodash";
 import { Link } from "react-router-dom";
+
 const CelebCard = (props) => {
-  const [listcategory, setCategory] = useState(Array.isArray(props.category) ? props.category : []);
+  const [listcategory, setCategory] = useState(
+    Array.isArray(props.category) ? props.category : []
+  );
 
   return (
     <>
@@ -13,7 +15,7 @@ const CelebCard = (props) => {
           borderRadius: "15px",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          border: "1px solid cyan"
+          border: "1px solid #9644fd",
         }}
       >
         <div className="card-img-overlay d-flex flex-column">
@@ -23,7 +25,7 @@ const CelebCard = (props) => {
           <div className="card-footer p-0">
             <div className="media">
               <div className="media-body">
-                <Link className="nav-link" to={`/profile/${props.regName}`}>
+                <Link to={`/profile/${props.regName}`}>
                   <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
                     {props.fullName}
                   </h3>

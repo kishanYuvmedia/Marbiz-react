@@ -11,22 +11,24 @@ export default function CreateProfile(props) {
   const [categoryList, setCategory] = useState([]);
   const [IdCategory, setsetIdCategory] = useState([]);
   const initialFormData = {
-    userType: "",
+    category: "",
     businessNumber: "",
     businessEmail: "",
     bio: "",
     about: "",
+    location: "",
     idProofType: "",
     idProofNo: "",
     checked: false,
   };
 
   const initialErrors = {
-    userType: "",
+    category: "",
     businessNumber: "",
     businessEmail: "",
     bio: "",
     about: "",
+    location: "",
     idProofType: "",
     idProofNo: "",
     checked: "",
@@ -77,7 +79,7 @@ export default function CreateProfile(props) {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      formData.userType = listarray;
+      formData.category = listarray;
       formData.regName = userdata.registerName;
       formData.mtUserId = userdata.id;
       formData.fullName = userdata.contactName;
@@ -105,7 +107,7 @@ export default function CreateProfile(props) {
     }
   };
   useEffect(() => {
-    getPublicList("Influencers").then((result) => {
+    getPublicList("CategoryType").then((result) => {
       setCategory(result);
     });
     getPublicList("Document").then((result) => {
@@ -116,23 +118,23 @@ export default function CreateProfile(props) {
     <div>
       <div className="p-5 text-center bg-body-tertiary hero">
         <div className="container py-5">
-          <h1>Make Your Profile </h1>
+          <h1 style={{ color: "white" }}>Make Your Profile </h1>
           <Row className="justify-content-md-center">
             <Col xs lg="6" style={{ textAlign: "left" }}>
               <Form onSubmit={handleSubmit} id="myForm">
                 <Form.Group as={Col} controlId="formUserType">
                   <Select
-                    defaultValue={formData.userType}
+                    defaultValue={formData.category}
                     isMulti
-                    name="userType"
-                    id="userType"
+                    name="category"
+                    id="category"
                     options={categoryList}
                     onChange={(e) => setUserType(e)}
                     className="basic-multi-select mb-3"
                     classNamePrefix="select"
                   />
                   <Form.Control.Feedback type="invalid">
-                    {errors.userType}
+                    {errors.category}
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formNumber">
@@ -161,6 +163,20 @@ export default function CreateProfile(props) {
                   />
                   <Form.Control.Feedback type="invalid">
                     {errors.businessEmail}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="location">
+                  <Form.Control
+                    type="text"
+                    name="location"
+                    id="location"
+                    placeholder="Location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    isInvalid={!!errors.location}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.location}
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formbio">
@@ -229,6 +245,7 @@ export default function CreateProfile(props) {
                     type="checkbox"
                     name="checked"
                     label="Check me out"
+                    style={{ color: "white" }}
                     checked={formData.checked}
                     onChange={handleChange}
                     isInvalid={!!errors.checked}
@@ -245,7 +262,7 @@ export default function CreateProfile(props) {
                   Create Profile
                 </Button>
               </Form>
-              <p style={{ textAlign: "center", color: "#5d5d5d" }}>
+              <p style={{ textAlign: "center", color: "#fff" }}>
                 By signing up, you agree to our Terms and Privacy Policy.
               </p>
             </Col>

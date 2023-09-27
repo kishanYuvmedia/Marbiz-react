@@ -63,5 +63,13 @@
   "MtContactUs": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Images": {
+    "dataSource": "mongoDB",
+    "public": true
+  },
+  "Enquiry": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }
