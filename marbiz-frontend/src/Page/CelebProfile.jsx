@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react";
 import CelebCard from "../Components/CelebCard";
 import NavTabs from "../Components/NavTabs";
 import Accordion from "../Components/Accordion";
-<<<<<<< HEAD
-import { useParams, Link } from "react-router-dom";
-=======
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Badge, Stack } from "react-bootstrap";
 import { _ } from "lodash";
->>>>>>> kishan/master
 import { getInfluencersProfile } from "../services/api/api-service";
 import placeholderData from "../Components/dummyData";
 import Featured from "../Components/Featured";
@@ -83,18 +79,6 @@ const CelebProfile = () => {
                 <div className="fs-1 fw-bold">
                   <h2 className="text-white">Name:{profileData.fullName}</h2>
                 </div>
-<<<<<<< HEAD
-                <h3 className="text-white">(Live Band)</h3>
-                <h6 className="text-white">Mumbai, Maharashtra</h6>
-
-                <Link to="/inquiryform">
-                  <button className="button-87 my-3" >
-                    See Price and Book
-                  </button>
-                </Link>
-
-                <p className="text-white">
-=======
                 <h3>(Live Band)</h3>
                 <Stack direction="horizontal" gap={5}>
                   {profileData.userType.map((item) => {
@@ -107,7 +91,6 @@ const CelebProfile = () => {
                   See Price and Book
                 </button>
                 <p>
->>>>>>> kishan/master
                   Sanam became an instant hit among the Indian teenagers with
                   their 'Hawa Hawa' and 'Behka'!
                 </p>
