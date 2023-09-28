@@ -72,7 +72,7 @@ export default function Signin() {
                     />
                   </div>
                 </div>
-                <div className="username-btn" onClick={headlerclaim}>
+                <div className="srch-btn" onClick={headlerclaim}>
                   Claim
                 </div>
               </div>
