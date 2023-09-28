@@ -2,26 +2,40 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { updateProfile } from "../../services/api/api-service";
 import { useNavigate } from "react-router-dom";
+
 export default function UploadImage() {
   const searchParams = new URLSearchParams(document.location.search);
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [imagePreview, setImagePreview] = useState(null);
+
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+      const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
       if (allowedTypes.includes(file.type)) {
         setSelectedFile(file);
         setErrorMessage("");
+
+        // Create a FileReader to read the selected file
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          setImagePreview(e.target.result); // Set the imagePreview state with the data URL
+        };
+        reader.readAsDataURL(file);
+
       } else {
         setSelectedFile(null);
         setErrorMessage(
           "Please select a valid image file (jpg, jpeg, or png)."
         );
+        setImagePreview(null); // Clear the image preview
       }
     }
   };
+
   const handleUpload = async () => {
     if (selectedFile) {
       const formData = new FormData();
@@ -42,7 +56,7 @@ export default function UploadImage() {
               if (result) {
                 Swal.fire(
                   "Cover Image",
-                  "Your cover page update successfully",
+                  "Your cover page updated successfully",
                   "success"
                 );
                 navigate(`/`, {
@@ -54,7 +68,7 @@ export default function UploadImage() {
             Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: "Somthing wrong please Reupload Image",
+              text: "Something went wrong please Retry uploading Image",
             });
           }
         })
@@ -64,26 +78,53 @@ export default function UploadImage() {
         });
     }
   };
+
   return (
     <div>
-      <div className="p-5 text-center bg-body-tertiary hero">
-        <div className="container py-5">
-          <h1 style={{ color: "white", margin: 40 }}>
-            Upload your Cover profile
-          </h1>
-          <div className="row justify-content-center">
-            <div className="col-md-6">
+      <div className="p-3 text-center bg-body-tertiary hero">
+        <div className="container my-5 p-5 bg-dark rounded-3 upload-img-section">
+
+          <div className="row mb-3 justify-content-center">
+            <div className="col-md-6 d-grid justify-content-center align-content-center">
+              <h1 className="text-white m-3">
+                Upload Your Profile Image
+              </h1>
+              <label for="file-upload" class="custom-file-upload p-3 text-gray fw-bold text-uppercase align-content-center d-grid">
+                Upload your image
+              </label>
+
               <input
+                id="file-upload"
                 type="file"
                 accept=".jpg, .jpeg, .png"
-                className="form-control"
+                className="form-control dark-bg"
                 onChange={handleFileChange}
               />
-              <p>{errorMessage}</p>
+
+              <p className="">{errorMessage}</p>
               <button className="button-87 w-100" onClick={handleUpload}>
-                Upload
+                Submit
               </button>
             </div>
+
+
+            <div className="col-md-6 d-grid justify-content-center">
+              {/* <h1 className="text-white mb-3">
+                Preview
+              </h1> */}
+              {/* Display the image preview */}
+              {imagePreview && (
+                <img
+                  src={imagePreview}
+                  alt="Img Preview"
+                  className="img-preview mt-3 shadow-lg"
+                />
+              )}
+            </div>
+
+          </div>
+          <div>
+
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const InquiryForm = () => {
               alt="Sanam Image1"
             />
 
-            <h3 className="mt-3 text-white ">Celeb Name</h3>
+            <h3 className="mt-3 text-white fw-bold ">Celeb Name</h3>
           </div>
 
           <div className="col-md-6 col-sm-12 mx-auto my-3 inquiry-form  p-4 rounded-3 ">

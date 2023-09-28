@@ -26,7 +26,7 @@ export default function Verify() {
   return (
     <div>
       {addprofile && (
-        <div className="p-5 text-center bg-body-tertiary hero">
+        <div className="p-3 text-center bg-body-tertiary hero">
           <div className="container py-5">
             <CreateProfile userData={data} />
           </div>
