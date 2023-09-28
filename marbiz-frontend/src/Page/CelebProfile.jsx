@@ -8,16 +8,14 @@ import {
   getImagesList,
 } from "../services/api/api-service";
 import _ from "lodash";
+
 const CelebProfile = () => {
+  
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [images, setImages] = useState([]);
+
   useEffect(() => {
-
-    // setTimeout(() => {
-    //   setProfileData(placeholderData);
-    // }, 1000);
-
     getInfluencersProfile(regName)
       .then((result) => {
         setprofile(result);
@@ -34,9 +32,7 @@ const CelebProfile = () => {
       })
       .catch((err) => {
         console.error("Error fetching profile data:", err);
-
       });
-
   }, [regName]);
 
   // Render nothing if profileData is still null
@@ -46,7 +42,7 @@ const CelebProfile = () => {
 
   return (
     <>
-      {regName && (
+      {profileData && (
         <>
           <div className="container main-body">
             <div className="row my-3">
@@ -133,8 +129,7 @@ const CelebProfile = () => {
       {regName && (
         <div className="p-5 text-center bg-body-tertiary hero">
           <div className="container py-5">
-            <h1 className="text-white">Similar</h1>
-            {/* <Featured /> */}
+            <h1 className="text-white">Not found List</h1>
           </div>
         </div>
       )}

@@ -16,9 +16,9 @@ const InquiryForm = () => {
             <h3 className="mt-3 text-white ">Celeb Name</h3>
           </div>
 
-          <div className="col-md-6 col-sm-12 mx-auto my-3">
+          <div className="col-md-6 col-sm-12 mx-auto my-3 inquiry-form  p-4 rounded-3 ">
             <form>
-              <div className="mb-4">
+              <div className="mb-3">
                 <label className="form-label text-white" for="occasion">
                   What's the occasion?*
                 </label>
@@ -33,8 +33,8 @@ const InquiryForm = () => {
                   <option value="3">Three</option>
                 </select>
               </div>
-
-              <div className="mb-4">
+              <div className="row mb-3">
+              <div className="col-md-6 mb-3">
                 <label className="form-label text-white" for="eventDate">
                   Event Date
                 </label>
@@ -45,7 +45,7 @@ const InquiryForm = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div className="col-md-6 mb-3">
                 <label className="form-label text-white" for="venueCity">
                   Venue City*
                 </label>
@@ -55,8 +55,9 @@ const InquiryForm = () => {
                   className="form-control dark-bg"
                 />
               </div>
+              </div>
 
-              <div className="row mb-4">
+              <div className="row mb-3">
                 <div className="col-md-6">
                   <label className="form-label text-white" for="budget">
                     Budget*
@@ -80,14 +81,15 @@ const InquiryForm = () => {
                 </div>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-3">
                 <label className="form-label text-white" for="name">
                   Full Name*
                 </label>
                 <input type="text" id="name" className="form-control dark-bg" />
               </div>
 
-              <div className="mb-4">
+              <div className="row mb-3">
+              <div className="col-md-6 mb-3">
                 <label className="form-label text-white" for="email">
                   Email Address (No Spam!)*
                 </label>
@@ -98,7 +100,7 @@ const InquiryForm = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div className="col-md-6 mb-3">
                 <label className="form-label text-white" for="mobile">
                   Mobile Number*
                 </label>
@@ -108,19 +110,20 @@ const InquiryForm = () => {
                   className="form-control dark-bg"
                 />
               </div>
+              </div>
 
-              <div className="mb-4">
+              <div className="mb-3">
                 <label className="form-label text-white" for="message">
                   Tell us more (we love to listen)
                 </label>
                 <textarea
                   id="message"
                   className="form-control dark-bg"
-                  rows="4"
+                  rows="3"
                 ></textarea>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-3">
                 <label className="form-label text-white" for="options">
                   Send more options in my budget
                 </label>
@@ -135,7 +138,7 @@ const InquiryForm = () => {
                 </select>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-3">
                 <div className="form-check form-switch">
                   <input
                     className="form-check-input"
@@ -153,7 +156,7 @@ const InquiryForm = () => {
               </div>
 
               <div className="d-grid justify-content-center">
-                <button type="submit" className="button-87 btn-block mb-4">
+                <button type="submit" className="button-87 btn-block mb-3">
                   Place order
                 </button>
               </div>

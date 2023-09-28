@@ -1,18 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { getPublicList } from "../services/api/api-service";
+
 const PopularCategories = () => {
   const [categoryList, setCategory] = useState([]);
 
+  // useEffect(() => {
+  //   getPublicList("Influencers").then((result) => {
+  //     // setCategory(result);
+  //     setTimeout(() => {
+  //       setCategory(result); // Use placeholder data
+  //     }, 1000);
+  //     console.log("API Response:", categoryList)
+
+  //   });
+  // }, []);
+
   useEffect(() => {
     getPublicList("Influencers").then((result) => {
-      // setCategory(result);
-      setTimeout(() => {
-        setCategory(result); // Use placeholder data
-      }, 1000);
-      console.log("API Response:", categoryList)
-
+      // Use a callback function to update the state based on the previous state
+      setCategory((prevCategoryList) => {
+        // Check if the result is an array and not empty
+        if (Array.isArray(result) && result.length > 0) {
+          return result; // Use the API data if available
+        } else {
+          // Handle the case where the API call returns an empty or invalid response
+          console.error("API response is empty or invalid:", result);
+          return prevCategoryList; // Use the previous state (no change)
+        }
+      });
+      console.log("API Response:", result);
     });
-  }, []);
+  }, []); // Include an empty dependency array
+
   return (
     <div className="container py-5">
       <div className="fs-4 text-white fw-bold text-uppercase">

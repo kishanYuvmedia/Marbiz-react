@@ -36,9 +36,11 @@ const placeholderData = [
 ];
 
 function HomePage() {
+  
   const [list, setList] = useState([]);
   const [Influencerlist, setInfluencerlistList] = useState([]);
   const [celebritylist, setcelebritylistList] = useState([]);
+
   useEffect(() => {
     getInfluencersFeturedList(6, "Influencers")
       .then((result) => {
