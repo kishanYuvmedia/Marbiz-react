@@ -1,27 +1,89 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CelebCard from "./CelebCard";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 const SliderList = (props) => {
+  const { title, subtitle, list } = props;
+
+  // Determine the number of cards to display based on the device width
+  const getNumVisibleCards = () => {
+    if (window.innerWidth <= 768) {
+      // For mobile devices, display 1 card at a time
+      return 1;
+    } else {
+      // For desktop, display 6 cards at a time
+      return 6;
+    }
+  };
+
   return (
     <div className="container">
-      <div className="d-grid justify-content-Start mt-5">
+      <div className="d-grid justify-content-start mt-5">
         <h3 className="fw-bold section-heading display-6 text-uppercase">
-          {props.title}
+          {title}
         </h3>
-        <p className="text-secondary">{props.subtitle}</p>
+        <p className="text-secondary">{subtitle}</p>
       </div>
       <hr className="hr hr-blurry" />
-      <div className="row d-flex">
-        {props.list.map((item) => (
-          <div key={item.id} className="col-lg-2 col-md-12 col-sm-12 mb-4 ">
-            <CelebCard
-              fullName={item.fullName}
-              image={item.coverImage}
-              category={item.category}
-              regName={item.regName}
-            />
-          </div>
+      
+
+      {/* <Carousel
+        showThumbs={true}
+        showStatus={false}
+        centerMode={false}
+        centerSlidePercentage={20} // Adjust this value as needed
+        infiniteLoop={true}
+      >
+        {list.map((item) => (
+          <CelebCard
+            key={item.id}
+            fullName={item.fullName}
+            image={item.coverImage}
+            category={item.category}
+            regName={item.regName}
+          />
         ))}
-      </div>
+      </Carousel> */}
+
+      <Carousel
+        showThumbs={false}
+        showStatus={false}
+        centerMode={true}
+        // centerSlidePercentage={20}
+        infiniteLoop={true}
+        showArrows={true}
+        showIndicators={false}
+        
+        swipeable={true}
+        emulateTouch={true}
+        interval={5000}
+        autoPlay={false}
+        stopOnHover={true}
+        dynamicHeight={false}
+        renderThumbs={() => {}} // Hide the default thumbnail navigation
+        selectedItem={0} // Set the initially selected item
+        axis="horizontal" // Set the scroll direction
+        useKeyboardArrows={true}
+        transitionTime={500}
+        swipeScrollTolerance={1}
+        width="100%"
+        
+        centerSlidePercentage={100 /getNumVisibleCards()} // Adjust the percentage based on the number of cards
+        itemsToShow={getNumVisibleCards()} // Specify the number of visible cards
+      >
+        {list.map((item) => (
+          <CelebCard
+            key={item.id}
+            fullName={item.fullName}
+            image={item.coverImage}
+            category={item.category}
+            regName={item.regName}
+          />
+        ))}
+      </Carousel>
+
+
     </div>
   );
 };

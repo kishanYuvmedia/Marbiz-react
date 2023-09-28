@@ -9,7 +9,7 @@ const CelebCard = (props) => {
   return (
     <>
       <div
-        className="card text-dark card-has-bg click-col"
+        className="card mx-2 text-dark card-has-bg click-col"
         style={{
           backgroundImage: `url("${props.image}")`,
           borderRadius: "15px",
@@ -24,7 +24,7 @@ const CelebCard = (props) => {
           </div>
           <div className="card-footer p-0">
             <div className="media">
-              <div className="media-body">
+              <div className="media-body" style={{ textAlign: "start" }}>
                 <Link to={`/profile/${props.regName}`}>
                   <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
                     {props.fullName}
