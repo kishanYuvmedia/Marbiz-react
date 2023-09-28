@@ -149,13 +149,22 @@ const SidebarContent = props => {
             <li>
               <Link to="/#" className="has-arrow">
                 <i className="bx bx-home-circle"></i>
-                <span>{props.t("Dashboards")}</span>
+                <span>{props.t("Profile")}</span>
               </Link>
               <ul className="sub-menu">
                 <li>
-                  <Link to="/dashboard">{props.t("Default")}</Link>
+                  <Link to="/dashboard">{props.t("Celebrity")}</Link>
                 </li>
                 <li>
+                  <Link to="/dashboard">{props.t("Influencer")}</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard">{props.t("Spokes Person")}</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard">{props.t("Sports Person")}</Link>
+                </li>
+                {/* <li>
                   <Link to="/dashboard-saas">{props.t("Saas")}</Link>
                 </li>
                 <li>
@@ -168,7 +177,7 @@ const SidebarContent = props => {
                   <Link to="/dashboard-job">                    
                     {props.t("Job")}
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
 
