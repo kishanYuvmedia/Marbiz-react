@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import bgImage from "../Images/influ-2.webp";
-import Typewriter from "typewriter-effect";
+import Typewriter from "typewriter-effect"; 
 import { getPublicList } from "../services/api/api-service";
 const categories = [
   { name: "Celebrity", color: "danger" },

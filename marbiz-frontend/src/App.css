@@ -353,6 +353,21 @@ h6 {
   font-weight: 900;
   line-height: 1;
 }
+.typeWriterTextMove {
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1;
+  
+  background: -webkit-linear-gradient(#ec0606, #6a0101); /* For Safari and older versions of Chrome */
+  background: -o-linear-gradient(#8f0808, #00a100); /* For Opera */
+  background: linear-gradient( #9E32EF, #F054B9); /* Standard syntax */
+
+  
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 
 @media (max-width: 768px) {
   .celeb1,
