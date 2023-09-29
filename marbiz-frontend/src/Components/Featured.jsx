@@ -10,27 +10,27 @@ const Featured = (props) => {
     // Fetch data from the API
     getInfluencersList(4)
       .then((result) => {
-        
-        console.log("API Response:", result); 
+
+        console.log("API Response:", result);
         if (Array.isArray(result) && result.length > 0) {
-          
+
           setTimeout(() => {
-            setList(result); 
+            setList(result);
           }, 1000);
 
         } else {
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setList(placeholderData); 
+            setList(placeholderData);
           }, 2000);
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        
+
       });
   }, []);
-  
+
   return (
     <div className="container">
       <div className="d-grid justify-content-Start mt-5">

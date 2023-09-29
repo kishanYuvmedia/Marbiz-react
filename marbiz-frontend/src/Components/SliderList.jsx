@@ -19,34 +19,16 @@ const SliderList = (props) => {
 
   return (
     <div className="container">
-      <div className="d-grid justify-content-start mt-5">
-        <h3 className="fw-bold section-heading display-6 text-uppercase">
+      <div className="d-grid  justify-content-center mt-5">
+        <h3 className="fw-bold section-heading  text-center display-6 text-uppercase">
           {title}
         </h3>
-        <p className="text-secondary">{subtitle}</p>
+          <span className="text-secondary">{subtitle}</span>
       </div>
       <hr className="hr hr-blurry" />
-      
 
-      {/* <Carousel
-        showThumbs={true}
-        showStatus={false}
-        centerMode={false}
-        centerSlidePercentage={20} // Adjust this value as needed
-        infiniteLoop={true}
-      >
-        {list.map((item) => (
-          <CelebCard
-            key={item.id}
-            fullName={item.fullName}
-            image={item.coverImage}
-            category={item.category}
-            regName={item.regName}
-          />
-        ))}
-      </Carousel> */}
 
-      <Carousel
+      <Carousel style={{ padding: "20px 20px", }}
         showThumbs={false}
         showStatus={false}
         centerMode={true}
@@ -54,22 +36,22 @@ const SliderList = (props) => {
         infiniteLoop={true}
         showArrows={true}
         showIndicators={false}
-        
+
         swipeable={true}
         emulateTouch={true}
         interval={5000}
         autoPlay={false}
         stopOnHover={true}
         dynamicHeight={false}
-        renderThumbs={() => {}} // Hide the default thumbnail navigation
+        renderThumbs={() => { }} // Hide the default thumbnail navigation
         selectedItem={0} // Set the initially selected item
         axis="horizontal" // Set the scroll direction
         useKeyboardArrows={true}
         transitionTime={500}
         swipeScrollTolerance={1}
         width="100%"
-        
-        centerSlidePercentage={100 /getNumVisibleCards()} // Adjust the percentage based on the number of cards
+
+        centerSlidePercentage={100 / getNumVisibleCards()} // Adjust the percentage based on the number of cards
         itemsToShow={getNumVisibleCards()} // Specify the number of visible cards
       >
         {list.map((item) => (
