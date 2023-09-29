@@ -15,10 +15,12 @@ const CelebCard = (props) => {
           borderRadius: "15px",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          border: "1px solid #9644fd",
+          borderWidth: 4,
+          borderStyle: "solid",
+          borderImage: "linear-gradient(to right, red, green)",
         }}
       >
-        <div className="card-img-overlay d-flex flex-column">
+        <div className="card-img-overlay d-flex flex-column boxcard">
           <div className="card-body">
             {/* <h4 className="card-title mt-0"></h4> */}
           </div>
