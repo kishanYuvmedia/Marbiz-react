@@ -22,7 +22,7 @@ const Brand = () => {
 
                         />
 
-                        <p className='text-white fs-4 text-capitalize my-3'>Find influencers, run campaigns, and get unique content for your brand in seconds</p>
+                        <p className='text-white fs-4 text-capitalize my-3'>Find influencer, run campaigns, and get unique content for your brand in seconds</p>
                     </div>
 
 

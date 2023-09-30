@@ -7,7 +7,7 @@ import { json } from "react-router-dom";
 
 
 
-export default function Signin() {
+export default function CreatorSignUp() {
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");
   const [status, setstatus] = useState(false);
@@ -21,7 +21,7 @@ export default function Signin() {
             console.log("API Response:", result); // Log the response for debugging
             if (result && result.count !== undefined) {
               if (result.count > 0) {
-                Swal.fire("Try again", "Claim name already taken", "warning");
+                Swal.fire("Try again", "This Username is already taken", "warning");
               } else {
                 Swal.fire("Congratulations", "Claim name available", "success");
                 setstatus(true);

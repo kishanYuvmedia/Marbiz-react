@@ -5,7 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 function NavBar() {
   return (
     <>
-      <nav className="navbar sticky-top navbar-expand-md bg-dark navbar-dark">
+      <nav className="navbar sticky-top navbar-expand-md  navbar-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" />
@@ -25,25 +25,21 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/#">
+                <Link className="nav-link" to="/explore">
                   Explore
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/#">
+                <Link className="nav-link" to="/howitworks">
                   How it Works
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/#">
+                <Link className="nav-link" to="/category">
                   Category
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/celebprofile">
-                  Celeb Profile
-                </Link>
-              </li> */}
+              
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
@@ -52,14 +48,16 @@ function NavBar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/creator">
+                <Link className="nav-link" to="/creatorSignUp">
                   Join as creator
                 </Link>
               </li>
             </ul>
-            <button className=" btn-hover color-4 btn-rounded ms-2">
-              Login
-            </button>
+            <Link to="/login">
+              <button className=" btn-hover color-4 btn-rounded ms-2">
+                Login
+              </button>
+            </Link>
           </div>
         </div>
       </nav>

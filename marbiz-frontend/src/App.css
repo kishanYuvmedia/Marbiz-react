@@ -333,8 +333,8 @@ h6 {
   position: relative;
   text-align: center;
   touch-action: manipulation;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   vertical-align: top;
   white-space: nowrap;
   width: 100%;
@@ -408,7 +408,7 @@ h6 {
   text-decoration: none;
 }
 .group-item:hover {
-  color: rgb(12, 235, 255);
+  color: rgb(182, 57, 255);
 }
 
 .footer {
@@ -419,6 +419,7 @@ h6 {
   left: 0;
   bottom: 0;
   border-radius: 20px 20px 0 0;
+  background-color: #28282B;
 }
 
 .social-section {
@@ -431,6 +432,7 @@ h6 {
 
 .navbar {
   border-bottom: 2px solid #8A2DFC;
+  background-color: #28282B;
 }
 
 /* btn Ui */
@@ -448,7 +450,6 @@ h6 {
   background-size: 300% 100%;
 
   border-radius: 50px;
-  moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
@@ -456,7 +457,6 @@ h6 {
 
 .btn-hover:hover {
   background-position: 100% 0;
-  moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
@@ -641,8 +641,8 @@ h6 {
     #fe5ab0 100%
   );
   cursor: pointer;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   touch-action: manipulation;
   /* width: 300px; */
 }
@@ -679,8 +679,8 @@ h6 {
     #fe57b1 100%
   );
   cursor: pointer;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   touch-action: manipulation;
   width: 50%;
   width: 300px;

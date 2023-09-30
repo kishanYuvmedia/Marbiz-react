@@ -37,6 +37,8 @@
   padding: 5px 5px;
   background-color: #332D2D;
   border-radius: 10px;
+  width: 100%;
+  
 }
 .username-text:focus {
   background-color: black;
@@ -45,6 +47,8 @@
   font-size: 35px;
   /* background: -webkit-linear-gradient(#fe62ac 0%, #8726ff 51%); */
   -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
     45deg,
@@ -53,3 +57,4 @@
     #fe5ab0 100%
   );
 }
+

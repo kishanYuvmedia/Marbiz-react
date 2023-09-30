@@ -6,7 +6,7 @@ const Footer = () => {
     return (
 
 
-        <footer className="footer text-center text-lg-start bg-dark text-white">
+        <footer className="footer text-center text-lg-start text-white">
 
             <section className="d-flex social-section justify-content-center justify-content-lg-between p-4 " >
 

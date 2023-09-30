@@ -213,7 +213,7 @@ export default function CreateProfile(props) {
                     as="textarea"
                     name="about"
                     id="about"
-                    placeholder="A  bout"
+                    placeholder="Tell us something about you"
                     className="dark-bg"
                     value={formData.about}
                     onChange={handleChange}

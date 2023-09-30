@@ -70,7 +70,7 @@ const HeroSection = () => {
                 strings: ["Influencer", "Celebrity", "Models", "Publisher"],
                 autoStart: true,
                 loop: true,
-                wrapperClassName: "typeWriterText",
+                wrapperClassName: "typeWriterTextMove",
               }}
             />
             <div className="typeWriterText">Marketing Made Easy</div>
