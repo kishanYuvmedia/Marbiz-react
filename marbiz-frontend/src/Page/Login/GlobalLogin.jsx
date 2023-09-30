@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 document.title = "MARBIZ | Login";
 
@@ -21,9 +22,9 @@ const GlobalLogin = () => {
             </div>
           </Col>
           <Col lg="6" md="8">
-            <h1 className='text-white mb-3'>Welcome </h1>
-            <div className='inquiry-form rounded-3 p-3'>
-              <Form className='m-3'>
+            <div className='text-white fs-1 text-center mb-3'>Welcome Back</div>
+            <div className='inquiry-form rounded-3 p-4 '>
+              <Form className=''>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label className='text-white'>Email address</Form.Label>
                   <Form.Control className='dark-bg' type="email" placeholder="Enter email" />
@@ -38,10 +39,20 @@ const GlobalLogin = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check className='text-muted' type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Button variant="primary" type="submit" className='srch-btn px-5'>
-                  Login
-                </Button>
+
+                <div className='d-flex align-items-center justify-content-between'>
+
+                  <Button variant="primary" type="submit" className='srch-btn px-5'>
+                    Login
+                  </Button>
+                  <div className=''>
+                    <Link to="/#">
+                      <div className='text-muted'>Forgot Password?</div>
+                    </Link>
+                  </div>
+                </div>
               </Form>
+
             </div>
           </Col>
 

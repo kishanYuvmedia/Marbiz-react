@@ -31,6 +31,10 @@ import Verify from "./Page/CreatorAuth/Verify";
 // Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
+import BrandDashboard from "./Page/Brand/BrandDashboard";
+import BrandHome from "./Components/BrandHome";
+import BrandBooking from "./Components/BrandBooking";
+import BrandWishlist from "./Components/BrandWishlist";
 
 
 function App() {
@@ -56,6 +60,15 @@ function App() {
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />
+
+          <Route path="/brand-dashboard" element={<BrandDashboard />}>
+            <Route path="brandHome" element={<BrandHome />} />
+            <Route path="brandBooking" element={<BrandBooking />} />
+            <Route path="brandWishlist" element={<BrandWishlist />} />
+            
+          </Route>
+
+
         </Route>
       </Routes>
       <Footer />

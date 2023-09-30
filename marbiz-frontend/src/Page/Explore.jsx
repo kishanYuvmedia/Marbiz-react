@@ -1,8 +1,17 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
+
 
 const Explore = () => {
   return (
-    <div>Explore</div>
+    <div>
+      <Container style={{ height: "60vh", }}>
+        <div >
+
+          <h1 className='text-white'>Explore</h1>
+        </div>
+      </Container>
+    </div>
   )
 }
 
