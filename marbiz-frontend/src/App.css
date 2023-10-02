@@ -628,7 +628,7 @@ h6 {
 }
 
 .srch-btn {
-  padding: 13px 25px;
+  padding: 13px 20px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -906,4 +906,19 @@ h6 {
 
 .nav-link:focus, .nav-link:hover {
   color: #FD66AB;
+}
+
+.main-category-filter {
+  width: 350px;
+}
+.main-category-filter option{
+  background-color: #28282B;
+  
+}
+
+.multi-select-category .css-13cymwt-control {
+  width: 350px;
+}
+.multi-select-category .css-t3ipsp-control{
+  width: 350px;
 }
