@@ -9,7 +9,7 @@ const CelebCard = (props) => {
 
   return (
     <div style={{
-      
+      margin: "0 10px", 
     }}>
       <div className="card card-bg mx-2 card-has-bg click-col" style={{
         // background: "linear-gradient(145deg, #8725fe, #FE66AB)",

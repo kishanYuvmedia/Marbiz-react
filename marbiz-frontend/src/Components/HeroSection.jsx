@@ -64,7 +64,7 @@ const HeroSection = (props) => {
 
   return (
     <>
-      <div className="home-body container-fluid  pt-5 position-relative"
+      <div className="home-body container-fluid position-relative"
         style={{
           // backgroundImage: `url(${bgImage})`,
           // backgroundPosition: "center",
@@ -72,7 +72,7 @@ const HeroSection = (props) => {
           // backgroundSize: "cover",
           // display: "flex",
           // justifyContent: "center",
-
+          paddingTop: "100px",
           minHeight: "800px",
         }}
       >

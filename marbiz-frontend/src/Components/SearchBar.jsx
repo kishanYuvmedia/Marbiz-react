@@ -20,15 +20,19 @@ const SearchBar = () => {
         <div>
 
             {/* Search filters */}
-            <Container className='py-5' >
-                <Row className='d-grid align-content-top justify-content-center' >
+            <Container className='py-3 py-md-5' >
+                <Row className='justify-content-center align-items-center' >
                     <form>
-                        <div className='d-flex bg-dark p-2 align-items-center rounded-6'>
-
-                            <div className="multi-select-category">
+                        <div className='d-flex px-2 px-md-4 justify-content-start align-items-center rounded-6' style={{
+                            border: "1px solid white",
+                        }}>
+                            <div className='me-3'>
+                                <button type="submit" className='search-btn fs-2 rounded-pill align-items-center d-flex'><BsSearch /></button>
+                            </div>
+                            <div className="multi-select-category border-end border-danger border-2">
 
                                 <Select
-                                    placeholder="Platform"
+                                    placeholder="Choose a platform"
                                     name="platform"
                                     id="platform"
                                     className="basic-multi-select "
@@ -49,9 +53,7 @@ const SearchBar = () => {
 
                                 />
                             </div>
-                            <div className='ms-3'>
-                                <Button type="submit" className='srch-btn fs-6 rounded-pill align-items-center d-flex'><BsSearch /></Button>
-                            </div>
+                            
 
                         </div>
                     </form>

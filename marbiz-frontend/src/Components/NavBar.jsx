@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <>
       <nav className="navbar sticky-top navbar-expand-md  navbar-dark">
-        <div className="container-fluid mx-5">
+        <div className="container-fluid mx-lg-5">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" />
           </Link>
@@ -57,7 +57,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <Link to="/login">
-                  <button className=" btn-hover color-4  ms-2">
+                  <button className=" btn-hover color-4 w-50 fw-normal ms-2">
                     Login
                   </button>
                 </Link>

@@ -395,6 +395,7 @@ a {
 
 .nav-item {
   width: 160px;
+  text-align: center;
 }
 
 .nav-link {
@@ -438,13 +439,13 @@ a {
 
 .footer {
   /* border-top: 2px solid #8a2dfc; */
-  border-top: 2px solid #8a2dfc;
+  /* border-top: 2px solid #8a2dfc; */
   /* margin-top: auto; */
   position: relative;
   left: 0;
   bottom: 0;
   border-radius: 20px 20px 0 0;
-  background-color: #28282B;
+  background-color: #1414152B;
 }
 
 .social-section {
@@ -452,7 +453,7 @@ a {
 }
 
 .bottom-footer {
-  background: linear-gradient(60deg, #8e3afc, #ff67aa);
+  /* background: linear-gradient(60deg, #8e3afc, #ff67aa); */
 }
 
 .navbar {
@@ -463,9 +464,9 @@ a {
 /* btn Ui */
 
 .btn-hover {
-  width: 100px;
-  font-size: 20px;
-  font-weight: 600;
+  width: 130px;
+  font-size: 18px;
+  font-weight: 400;
   color: #fff;
   cursor: pointer;
   margin-left: 20px;
@@ -501,6 +502,9 @@ a {
 
 .section-heading {
   color: white;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 73px;
 }
 
 
@@ -672,6 +676,8 @@ a {
   /* width: 300px; */
 }
 
+
+
 .srch-btn:hover {
   background-position: right center;
   /* change the direction of the change here */
@@ -681,6 +687,32 @@ a {
 
 .srch-btn:active {
   transform: scale(0.95);
+}
+
+.search-btn {
+  padding: 13px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  /* background-image: linear-gradient(
+    45deg,
+    #F5615F 0%,
+    #FC396E 51%,
+    #F5615F 100%
+  ); */
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  /* width: 300px; */
 }
 
 /* CSS */
@@ -833,11 +865,12 @@ a {
 }
 
 .css-13cymwt-control {
-  background-color: #292929 !important;
+  /* background-color: #292929 !important; */
+  background-color: #000000 !important;
   padding: 5px 15px !important;
 
   border-top: 0px solid #6f42c1  !important;
-  border-bottom: 2px solid #6f42c1 !important;
+  border-bottom: 0px solid #6f42c1 !important;
   border-left: 0px solid #6f42c1 !important;
   border-right: 0px solid #6f42c1 !important;
   color: #fff !important;
@@ -846,9 +879,9 @@ a {
 .css-t3ipsp-control {
   
   padding: 5px 15px !important;
-  background-color: #292929 !important;
+  background-color: #000000 !important;
   border-top: 0px solid #6f42c1  !important;
-  border-bottom: 2px solid #6f42c1 !important;
+  border-bottom: 0px solid #6f42c1 !important;
   border-left: 0px solid #6f42c1 !important;
   border-right: 0px solid #6f42c1 !important;
   color: #fff !important;
@@ -935,14 +968,24 @@ a {
   background-color: #28282B;
   
 }
-
-.multi-select-category .css-13cymwt-control {
-  width: 350px;
+/* Default width for larger screens */
+.multi-select-category .css-13cymwt-control,
+.multi-select-category .css-t3ipsp-control {
+  width: 500px;
 }
-.multi-select-category .css-t3ipsp-control{
-  width: 350px;
+
+/* Adjust width for smaller screens */
+@media (max-width: 768px) {
+  .multi-select-category .css-13cymwt-control,
+  .multi-select-category .css-t3ipsp-control {
+    width: 100%; /* Set to 100% width for screens <= 768px */
+  }
 }
 
 .custom-card {
   margin-right: 20px; /* Adjust the margin to control the spacing between cards */
+}
+
+.navbar-collapse {
+  display: grid;
 }

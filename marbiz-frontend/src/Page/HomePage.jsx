@@ -9,7 +9,7 @@ import {
   getInfluencersFeturedList,
   getInfluencersList,
 } from "../services/api/api-service";
-import SearchBar from "../Components/searchBar";
+import SearchBar from "../Components/SearchBar";
 
 
 // Placeholder data (example)
@@ -128,7 +128,7 @@ function HomePage() {
       <HeroSection  list={list} />
 
       <SearchBar />
-      
+
       <PopularCategories />
 
       <SliderList
@@ -147,7 +147,13 @@ function HomePage() {
         subtitle="Hire top Spokesperson & Models all platforms see All"
         list={Influencerlist}
       />
-      <Promotions />
+      <SliderList
+        title="UGC"
+        subtitle="Hire top Spokesperson & Models all platforms see All"
+        list={Influencerlist}
+        marginbottom="50px"
+      />
+      
     </div>
   );
 }
