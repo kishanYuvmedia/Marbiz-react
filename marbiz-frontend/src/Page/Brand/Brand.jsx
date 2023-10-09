@@ -22,16 +22,27 @@ const Brand = () => {
 
                         />
 
-                        <p className='text-white fs-4 text-capitalize my-3'>Find influencers, run campaigns, and get unique content for your brand in seconds</p>
+                        <p className='text-white fs-4 text-capitalize my-3'>Find influencer, run campaigns, and get unique content for your brand in seconds</p>
                     </div>
 
 
-                    <div className="d-grid justify-content-center">
+                    <div className="d-flex justify-content-center">
+                    <div className='me-3'>
+
                         <Link to="/brand-signup">
                             <Button className='srch-btn fs-6 px-5'>
                                 Start For Free
                             </Button>
                         </Link>
+                    </div>
+                    <div>
+
+                        <Link to="/brand-dashboard">
+                            <Button className='srch-btn fs-6 px-5'>
+                                Dashboard
+                            </Button>
+                        </Link>
+                    </div>
                     </div>
 
 

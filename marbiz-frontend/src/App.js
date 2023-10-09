@@ -1,39 +1,83 @@
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "mdb-ui-kit/css/mdb.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+<<<<<<< HEAD
 import "mdb-ui-kit/js/mdb.min.js";
+=======
+import 'mdb-ui-kit/js/mdb.min.js';
+>>>>>>> anshul/master
 import * as mdb from "mdb-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
+import "bs5-lightbox";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// public routes
 import NavBar from "./Components/NavBar";
 import Home from "./Page/HomePage";
-import Signin from "./Page/CreatorAuth/Signup";
-import Verify from "./Page/CreatorAuth/Verify";
-import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Footer from "./Components/Footer";
-import CelebProfile from "./Page/CelebProfile";
-import "bs5-lightbox";
 import InquiryForm from "./Page/InquiryForm";
+import CelebProfile from "./Page/CelebProfile";
+import GlobalLogin from "./Page/Login/GlobalLogin";
+import HowItWorks from "./Page/HowItWorks";
+import Explore from "./Page/Explore";
+import Category from "./Page/Category";
+
+
+// Creator routes
+import CreatorSignUp from "./Page/CreatorAuth/CreatorSignUp";
+import UploadImage from "./Page/CreatorAuth/UploadImage";
+import Verify from "./Page/CreatorAuth/Verify";
+
+// Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
+import BrandDashboard from "./Page/Brand/BrandDashboard";
+import BrandHome from "./Components/BrandHome";
+import BrandBooking from "./Components/BrandBooking";
+import BrandWishlist from "./Components/BrandWishlist";
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<NavBar />}>
+
+          {/* Public Routes */}
           <Route index element={<Home />} />
-          <Route path="/creator" element={<Signin />} />
-          <Route path="/brand" element={<Brand />} />
-          <Route path="/brand-signup" element={<BrandSignup />} />
+          <Route path="/inquiryform" element={<InquiryForm />} />
+          <Route path="/profile/:regName" element={<CelebProfile />} />
+          <Route path="/login" element={<GlobalLogin />} />
+          <Route path="/howitworks" element={<HowItWorks />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/category" element={<Category />} />
+
+          {/* Creator Routes */}
+          <Route path="/creatorSignup" element={<CreatorSignUp />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
+<<<<<<< HEAD
           <Route path="/profile/:regName" element={<CelebProfile />} />
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
+=======
+
+          {/* Brand Routes*/}
+          <Route path="/brand" element={<Brand />} />
+          <Route path="/brand-signup" element={<BrandSignup />} />
+
+          <Route path="/brand-dashboard" element={<BrandDashboard />}>
+            <Route path="brandHome" element={<BrandHome />} />
+            <Route path="brandBooking" element={<BrandBooking />} />
+            <Route path="brandWishlist" element={<BrandWishlist />} />
+            
+          </Route>
+
+
+>>>>>>> anshul/master
         </Route>
       </Routes>
       <Footer />

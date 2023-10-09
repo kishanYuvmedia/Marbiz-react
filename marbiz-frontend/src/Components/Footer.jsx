@@ -6,38 +6,7 @@ const Footer = () => {
     return (
 
 
-        <footer className="footer text-center text-lg-start bg-dark text-white">
-
-            <section className="d-flex social-section justify-content-center justify-content-lg-between p-4 " >
-
-                <div div className="me-5 d-none d-lg-block">
-                    <span>Get connected with us on social networks:</span>
-                </div>
-
-
-                <div>
-                    <Link to="/facebook" className="me-4 text-reset">
-                        <i className="fab fa-facebook-f"></i>
-                    </Link>
-                    <Link to="/twitter" className="me-4 text-reset">
-                        <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link to="/google" className="me-4 text-reset">
-                        <i className="fab fa-google"></i>
-                    </Link>
-                    <Link to="/instagram" className="me-4 text-reset">
-                        <i className="fab fa-instagram"></i>
-                    </Link>
-                    <Link to="/linkedin" className="me-4 text-reset">
-                        <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link to="/github" className="me-4 text-reset">
-                        <i className="fab fa-github"></i>
-                    </Link>
-                </div>
-
-            </section>
-
+        <footer className="footer text-center text-lg-start text-white">
 
 
             <section className="">
@@ -122,11 +91,40 @@ const Footer = () => {
 
                 </div>
             </section>
+            <section className="d-flex social-section align-items-center justify-content-center justify-content-lg-between p-4 " >
 
-            <div className="text-center p-3 bottom-footer" style={{}}>
+                <div div className="me-5 d-none d-lg-block">
+                    <span>Get connected with us on social networks:</span>
+                </div>
+
+                <div className="text-center p-3 bottom-footer" >
                 © 2023 Copyright: Marbiz.com
                 <Link className="text-reset fw-bold" to='/'></Link>
             </div>
+
+                <div>
+                    <Link to="/facebook" className="me-4 text-reset">
+                        <i className="fab fa-facebook-f"></i>
+                    </Link>
+                    <Link to="/twitter" className="me-4 text-reset">
+                        <i className="fab fa-twitter"></i>
+                    </Link>
+                    <Link to="/google" className="me-4 text-reset">
+                        <i className="fab fa-google"></i>
+                    </Link>
+                    <Link to="/instagram" className="me-4 text-reset">
+                        <i className="fab fa-instagram"></i>
+                    </Link>
+                    <Link to="/linkedin" className="me-4 text-reset">
+                        <i className="fab fa-linkedin"></i>
+                    </Link>
+                    <Link to="/github" className="me-4 text-reset">
+                        <i className="fab fa-github"></i>
+                    </Link>
+                </div>
+
+            </section>
+            
 
         </footer>
 

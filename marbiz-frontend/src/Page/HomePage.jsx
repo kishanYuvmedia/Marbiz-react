@@ -9,6 +9,8 @@ import {
   getInfluencersFeturedList,
   getInfluencersList,
 } from "../services/api/api-service";
+import SearchBar from "../Components/SearchBar";
+
 
 // Placeholder data (example)
 const placeholderData = [
@@ -33,6 +35,20 @@ const placeholderData = [
       "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/202208181923_LDNA4pou48pkmtXD.jpeg",
     category: [{ label: "Singer" }],
   },
+  {
+    id: 4,
+    fullName: "Salim Merchant",
+    coverImage:
+      "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/202208181923_LDNA4pou48pkmtXD.jpeg",
+    category: [{ label: "Singer" }],
+  },
+  {
+    id: 5,
+    fullName: "Salim Merchant",
+    coverImage:
+      "https://ik.imagekit.io/j83rchiauw/tring/tr:w-350,h-350,fo-auto,q-100/202208181923_LDNA4pou48pkmtXD.jpeg",
+    category: [{ label: "Singer" }],
+  },
 ];
 
 function HomePage() {
@@ -42,79 +58,85 @@ function HomePage() {
   const [celebritylist, setcelebritylistList] = useState([]);
 
   useEffect(() => {
+
     getInfluencersFeturedList(6, "Influencers")
       .then((result) => {
-        // Check if the result is an array and not empty
+        
         if (Array.isArray(result) && result.length > 0) {
           setTimeout(() => {
-            setList(result); // Use placeholder data
+            setList(result); 
           }, 1000);
         } else {
-          // Handle the case where the API call returns an empty or invalid response
+          
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setList(placeholderData); // Use placeholder data
+            setList(placeholderData); 
           }, 1000);
-          // You can set a default state here if needed
+          
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        // Handle the error state here if needed
-        // You can set a default state here if needed
+        
       });
+
     getInfluencersList(6, "Influencers")
       .then((result) => {
-        // Check if the result is an array and not empty
+        
         if (Array.isArray(result) && result.length > 0) {
           setTimeout(() => {
-            setInfluencerlistList(result); // Use placeholder data
+            setInfluencerlistList(result); 
           }, 1000);
         } else {
-          // Handle the case where the API call returns an empty or invalid response
+          
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setInfluencerlistList(placeholderData); // Use placeholder data
+            setInfluencerlistList(placeholderData); 
           }, 1000);
-          // You can set a default state here if needed
+          
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        // Handle the error state here if needed
-        // You can set a default state here if needed
+        
       });
+
     getInfluencersList(6, "celebrity")
       .then((result) => {
-        // Check if the result is an array and not empty
+        
         if (Array.isArray(result) && result.length > 0) {
           setTimeout(() => {
-            setcelebritylistList(result); // Use placeholder data
+            setcelebritylistList(result); 
           }, 1000);
         } else {
-          // Handle the case where the API call returns an empty or invalid response
+          
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setcelebritylistList(placeholderData); // Use placeholder data
+            setcelebritylistList(placeholderData); 
           }, 1000);
-          // You can set a default state here if needed
+          
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        // Handle the error state here if needed
-        // You can set a default state here if needed
+        
       });
   }, []);
+
   return (
     <div>
-      <HeroSection />
+      <HeroSection  list={list} />
+
+      <SearchBar />
+
+      <PopularCategories />
+
       <SliderList
         title="Featured"
         subtitle="Hire top influencer across all platforms - See All"
         list={list}
       />
-      <PopularCategories />
+      
       <SliderList
         title="Celebrities"
         subtitle="Hire top Celebrities & Influencer all platforms see All"
@@ -125,7 +147,13 @@ function HomePage() {
         subtitle="Hire top Spokesperson & Models all platforms see All"
         list={Influencerlist}
       />
-      <Promotions />
+      <SliderList
+        title="UGC"
+        subtitle="Hire top Spokesperson & Models all platforms see All"
+        list={Influencerlist}
+        marginbottom="50px"
+      />
+      
     </div>
   );
 }

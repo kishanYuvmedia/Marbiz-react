@@ -3,7 +3,15 @@ import "./style.css";
 import Swal from "sweetalert2";
 import EmailVerify from "./EmailVerify";
 import { checkPublicName } from "../../services/api/api-service";
+<<<<<<< HEAD:marbiz-frontend/src/Page/CreatorAuth/Signup.jsx
 export default function Signin() {
+=======
+import { json } from "react-router-dom";
+
+
+
+export default function CreatorSignUp() {
+>>>>>>> anshul/master:marbiz-frontend/src/Page/CreatorAuth/CreatorSignUp.jsx
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");
   const [status, setstatus] = useState(false);
@@ -17,7 +25,7 @@ export default function Signin() {
             console.log("API Response:", result); // Log the response for debugging
             if (result && result.count !== undefined) {
               if (result.count > 0) {
-                Swal.fire("Try again", "Claim name already taken", "warning");
+                Swal.fire("Try again", "This Username is already taken", "warning");
               } else {
                 Swal.fire("Congratulations", "Claim name available", "success");
                 setstatus(true);

@@ -5,8 +5,8 @@ import { Outlet, Link } from "react-router-dom";
 function NavBar() {
   return (
     <>
-      <nav className="navbar sticky-top navbar-expand-md bg-dark navbar-dark">
-        <div className="container">
+      <nav className="navbar sticky-top navbar-expand-md  navbar-dark">
+        <div className="container-fluid mx-lg-5">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" />
           </Link>
@@ -25,41 +25,45 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/#">
+                <Link className="nav-link text-center border-end border-danger border-2" to="/explore">
                   Explore
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/#">
+                <Link className="nav-link text-center border-end border-danger border-2" to="/howitworks">
                   How it Works
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/#">
+                <Link className="nav-link text-center" to="/category">
                   Category
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/celebprofile">
-                  Celeb Profile
-                </Link>
-              </li> */}
+
             </ul>
             <ul className="navbar-nav ms-auto">
+              
               <li className="nav-item">
-                <Link className="nav-link" to="/brand">
-                  Join As Brand
+                <Link className="nav-link d-flex align-items-center" to="/brand">
+                  Join as Brand
+                  <i class="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/creator">
+                <Link className="nav-link d-flex align-items-center" to="/creatorSignUp">
                   Join as creator
+                  <i class="fa-solid fa-arrow-right-long ms-2"></i>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/login">
+                  <button className=" btn-hover color-4 w-50 fw-normal ms-2">
+                    Login
+                  </button>
                 </Link>
               </li>
             </ul>
-            <button className=" btn-hover color-4 btn-rounded ms-2">
-              Login
-            </button>
+
           </div>
         </div>
       </nav>
