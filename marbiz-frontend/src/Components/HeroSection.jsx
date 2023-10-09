@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
-import bgImage from "../Images/influ-2.webp";
-import Typewriter from "typewriter-effect"; 
+
+import manBGImage from "../Images/man-bg-image.webp";
+import womenBGImage from "../Images/woman-bg-image.webp";
+
+import Typewriter from "typewriter-effect";
 import { getPublicList } from "../services/api/api-service";
+
+import CelebCard from "./CelebCard";
+
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+
 const categories = [
   { name: "Celebrity", color: "danger" },
   { name: "Influencer", color: "info" },
@@ -11,55 +21,99 @@ const categories = [
   { name: "Stand Up", color: "warning" },
   { name: "Celeb", color: "info" },
 ];
-const HeroSection = () => {
+const HeroSection = (props) => {
+  const { list } = props;
+  const cardHeight = 400;
+
   const [categoryList, setCategory] = useState([]);
+
   useEffect(() => {
+
     getPublicList("Influencers")
       .then((result) => {
-        // Check if the result is an array and not empty
+
         if (Array.isArray(result) && result.length > 0) {
           setTimeout(() => {
-            setCategory(result); // Use placeholder data
+            setCategory(result);
           }, 1000);
         } else {
-          // Handle the case where the API call returns an empty or invalid response
+
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setCategory(categories); // Use placeholder data
+            setCategory(categories);
           }, 1000);
-          // You can set a default state here if needed
+
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        // Handle the error state here if needed
-        // You can set a default state here if needed
+
       });
   }, []);
+
+  // Determine the number of cards to display based on the device width
+  const getNumVisibleCards = () => {
+    if (window.innerWidth <= 768) {
+      // For mobile devices, display 1 card at a time
+      return 2;
+    } else {
+      // For desktop, display 6 cards at a time
+      return 6;
+    }
+  };
+
   return (
     <>
-      <div
-        className="home-body d-flex justify-content-center align-items-center position-relative"
+      <div className="home-body container-fluid  pt-5 position-relative"
         style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          // backgroundImage: `url(${bgImage})`,
+          // backgroundPosition: "center",
+          // backgroundRepeat: "no-repeat",
+          // backgroundSize: "cover",
+          // display: "flex",
+          // justifyContent: "center",
 
-          minHeight: "700px",
+          minHeight: "800px",
         }}
       >
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{
-            //backgroundColor: "rgba(0, 0, 0, 0.6)",
-            background:
-              "linear-gradient(45deg, #00000094 0%, #fe60ad40 51%, #2930211f 100%)",
-          }}
-        ></div>
 
-        <div
-          className="container text-center"
+        <div className="position-absolute" style={{
+          width: "500px",
+          height: "800px",
+        }}>
+          <div
+            className=" "
+            style={{
+              background: "radial-gradient(circle, rgba(252, 110, 144, 0.49) 0%, rgba(254, 96, 173, 0) 51%, rgba(0, 0, 0, 0) 100%)",
+
+              width: "100%",
+              height: "100%",
+              top: "0%",
+              // opacity: "0.7",
+            }}
+          ></div>
+        </div>
+        <div className="position-absolute top-50 end-0" style={{
+          width: "500px",
+          height: "500px",
+        }}>
+          <div
+            className=" "
+            style={{
+              background: "radial-gradient(circle, rgba(252, 110, 144, 0.49) 0%, rgba(254, 96, 173, 0) 51%, rgba(0, 0, 0, 0) 100%)",
+
+              width: "100%",
+              height: "100%",
+              top: "0%",
+              // opacity: "0.7",
+            }}
+          ></div>
+        </div>
+
+        <img src={manBGImage} alt="man-bg-img" className="position-absolute top-0 start-0 h-100" />
+        <img src={womenBGImage} alt="women-bg-img" className="position-absolute top-0 end-0 h-100" />
+
+        <div className="container text-center"
           style={{
             zIndex: 10,
           }}
@@ -72,15 +126,24 @@ const HeroSection = () => {
                 loop: true,
                 wrapperClassName: "typeWriterTextMove",
               }}
+              style={{
+                zIndex: 10,
+              }}
             />
-            <div className="typeWriterText">Marketing Made Easy</div>
+            <div className="typeWriterText" style={{
+              zIndex: 10,
+            }}>Marketing Made Easy</div>
           </div>
-          <h3 className="mt-3 text-white">
-            Find and hire top Instagram,Facebook, YouTube, and UGC influencer to
+          <h3 className="mt-3 text-white" style={{
+            zIndex: 10,
+          }}>
+            Find and hire top Instagram,Facebook, YouTube, and UGC <br />influencer to
             create unique content for your brand.
           </h3>
 
-          <div className="mt-3 d-flex justify-content-center">
+
+
+          {/* <div className="mt-3 d-flex justify-content-center">
             <form className="d-flex input-group " style={{ maxWidth: "750px" }}>
               <input
                 type="search"
@@ -97,30 +160,65 @@ const HeroSection = () => {
                 <i className="fas fa-search"></i> Search
               </span>
             </form>
-          </div>
-          <div className="mt-3">
+          </div> */}
+
+          {/* <div className="mt-3">
             {categoryList.length > 0 && categoryList.map((list) => (
               <span key={list.label} className="badge badge-primary me-2">
                 {list.label}
               </span>
             ))}
-          </div>
+          </div> */}
+
+        </div>
+
+        {/* featued slider */}
+        <div className="container-fluid py-5" style={{
+          zIndex: 10,
+        }}>
+
+          <Carousel style={{ padding: "20px 20px", }}
+            showThumbs={false}
+            showStatus={false}
+            centerMode={true}
+            // centerSlidePercentage={20}
+            infiniteLoop={true}
+            showArrows={false}
+            showIndicators={false}
+
+            swipeable={true}
+            emulateTouch={true}
+            interval={3000}
+            autoPlay={true}
+            stopOnHover={true}
+            dynamicHeight={false}
+            renderThumbs={() => { }}
+            selectedItem={0}
+            axis="horizontal"
+            useKeyboardArrows={true}
+            transitionTime={500}
+            swipeScrollTolerance={1}
+            width="100%"
+            centerSlidePercentage={100 / getNumVisibleCards()}
+            itemsToShow={getNumVisibleCards()}
+          >
+            {list.map((item, index) => (
+              <CelebCard
+                key={item.id}
+                fullName={item.fullName}
+                image={item.coverImage}
+                category={item.category}
+                regName={item.regName}
+                isEven={index % 2 !== 0}
+                cardHeight={cardHeight}
+                cardGap={20}
+              />
+            ))}
+          </Carousel>
         </div>
       </div>
 
-      <div
-        className="mb-3 d-flex justify-content-center align-items-center py-3 text-white gradient_background"
-        style={{}}
-      >
-        <div
-          className="fw-bold text-center"
-          style={{
-            fontSize: "30px",
-          }}
-        >
-          Connecting Brands and Influencer Effortlessly.
-        </div>
-      </div>
+
     </>
   );
 };

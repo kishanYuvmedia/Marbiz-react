@@ -6,13 +6,17 @@ const CelebCard = (props) => {
     Array.isArray(props.category) ? props.category : []
   );
 
-  return (
-    <>
-      <div className="card card-bg mx-2 card-has-bg click-col" style={{
-        background: "linear-gradient(145deg, #8725fe, #FE66AB)",
-        // borderRadius: "15px",
-        padding: "2px",
 
+  return (
+    <div style={{
+      
+    }}>
+      <div className="card card-bg mx-2 card-has-bg click-col" style={{
+        // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
+        // borderRadius: "15px",
+        // padding: "2px",
+        transform: `translateY(${props.isEven ? 10 : -10}px)`,
+        marginRight: `${props.cardGap}px`,
       }}>
 
 
@@ -25,7 +29,8 @@ const CelebCard = (props) => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             border: "0",
-
+            height: `${props.cardHeight}px`,
+            
           }}
         >
           <div className="card-img-overlay d-flex flex-column">
@@ -58,7 +63,7 @@ const CelebCard = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

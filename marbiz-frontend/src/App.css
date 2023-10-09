@@ -1,9 +1,20 @@
 * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@font-face {
+  font-family: 'SharpGrotesk-medium';
+  src: local('./Fonts/Sharp_Grotesk/sharp-grotesk-medium-25-regular.woff') format('woff'); 
+}
+@font-face {
+  font-family: 'SharpGrotesk-bold';
+  src: local('./Fonts/Sharp_Grotesk/SharpGrotesk-Bold25.otf') format('otf'); 
+}
+@font-face {
+  font-family: 'Coolvetica-rg';
+  src: local('./Fonts/Coolvetica/coolvetica-rg.otf ') format('otf'); 
 }
 
 body,
@@ -18,8 +29,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+a {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+
 
 .App {
   text-align: center;
@@ -172,7 +188,7 @@ h6 {
   border: none;
   transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 10px;
   min-height: 300px;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 
@@ -218,7 +234,7 @@ h6 {
         background: linear-gradient(
           0deg,
           #000000 0%,
-          #c800ff4b 25%,
+          #FC3C6D4F 25%,
           #8725fe00 100%
         );
       }
@@ -377,11 +393,15 @@ h6 {
   }
 }
 
+.nav-item {
+  width: 160px;
+}
+
 .nav-link {
   color: #fff;
   font-size: 18px;
-  font-weight: 500;
   font-weight: 600;
+  
 }
 .nav-link:hover {
   color: #f25cb4;
@@ -436,14 +456,14 @@ h6 {
 }
 
 .navbar {
-  border-bottom: 2px solid #8A2DFC;
-  background-color: #28282B;
+  /* border-bottom: 2px solid #8A2DFC; */
+  background-color: #000000;
 }
 
 /* btn Ui */
 
 .btn-hover {
-  width: 150px;
+  width: 100px;
   font-size: 20px;
   font-weight: 600;
   color: #fff;
@@ -454,7 +474,7 @@ h6 {
   border: none;
   background-size: 300% 100%;
 
-  border-radius: 50px;
+  border-radius: 8px;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
@@ -470,10 +490,10 @@ h6 {
 .btn-hover.color-4 {
   background-image: linear-gradient(
     to right,
-    #913dfb,
-    #fd34c2,
-    #8423fe,
-    #913efd
+    #F5615F,
+    #FC396E,
+    #FC396E,
+    #F5615F
   );
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
@@ -921,4 +941,8 @@ h6 {
 }
 .multi-select-category .css-t3ipsp-control{
   width: 350px;
+}
+
+.custom-card {
+  margin-right: 20px; /* Adjust the margin to control the spacing between cards */
 }
