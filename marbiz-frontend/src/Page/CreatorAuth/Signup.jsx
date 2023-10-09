@@ -65,22 +65,24 @@ export default function Signin() {
                 The simple way to sell, manage, and get paid for your Instagram,
                 TikTok, YouTube, and UGC brand deals
               </p>
-              <div className="username-holder my-3 bg-dark">
-                <div className="username-domain ps-3">www.marbiz.in</div>
-                <div className="username-input-holder">
-                  <input
-                    type="text"
-                    className="username-text  text-white"
-                    onChange={(e) => setclaimtext(e)}
-                    placeholder="Your Name"
-                    style={{
-                      border: "none",
-                      outline: "none",
-                      boxShadow: "none",
-                    }}
-                  />
+              <div className="username-holder  my-3 bg-dark">
+                <div className="d-inline-flex   ">
+                  <div className="username-domain ps-3">www.marbiz.in/@</div>
+                  <div className="username-input-holder">
+                    <input
+                      type="text"
+                      className="username-text  text-white"
+                      onChange={(e) => setclaimtext(e)}
+                      placeholder="Your Username"
+                      style={{
+                        border: "none",
+                        outline: "none",
+                        boxShadow: "none",
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="username-btn" onClick={headlerclaim}>
+                <div className="srch-btn" onClick={headlerclaim}>
                   Claim
                 </div>
               </div>

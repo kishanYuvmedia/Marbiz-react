@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import bgImage from "../Images/influ-2.webp";
-import Typewriter from "typewriter-effect";
+import Typewriter from "typewriter-effect"; 
 import { getPublicList } from "../services/api/api-service";
 const categories = [
   { name: "Celebrity", color: "danger" },
@@ -99,7 +99,7 @@ const HeroSection = () => {
             </form>
           </div>
           <div className="mt-3">
-            {categoryList.map((list) => (
+            {categoryList.length > 0 && categoryList.map((list) => (
               <span key={list.label} className="badge badge-primary me-2">
                 {list.label}
               </span>

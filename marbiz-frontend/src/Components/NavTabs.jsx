@@ -16,6 +16,10 @@ const NavTabs = (props) => {
             borderColor: "purple", // Purple border
             color: "orange", // Orange text color
             borderRadius: "5px",
+            // backgroundColor: "#332D2D !important", 
+            //         borderColor: "purple !important", 
+            //         color: "white !important", 
+            //         borderRadius: "5px !important",
           }}
         >
           <a

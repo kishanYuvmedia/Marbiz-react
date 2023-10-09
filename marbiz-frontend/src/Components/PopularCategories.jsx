@@ -1,22 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { getPublicList } from "../services/api/api-service";
+
+
 const PopularCategories = () => {
   const [categoryList, setCategory] = useState([]);
 
+  // useEffect(() => {
+  //   getPublicList("Influencers").then((result) => {
+  //     // setCategory(result);
+  //     setTimeout(() => {
+  //       setCategory(result); // Use placeholder data
+  //     }, 1000);
+  //     console.log("API Response:", categoryList)
+
+  //   });
+  // }, []);
+
   useEffect(() => {
-    getPublicList("Influencers").then((result) => {
-      setCategory(result);
-    });
+    getPublicList("Influencers")
+      .then((result) => {
+        setCategory(result);
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+      });
   }, []);
+
   return (
     <div className="container py-5">
       <div className="fs-4 text-white fw-bold text-uppercase">
         Popular Categories to explore
       </div>
-      <div className="row mt-3">
+      <div className="horizontal-scroll-container"
+        style={{
+          display: "flex",
+          overflowX: "auto",
+          width: "100%", // Adjust the width as needed
+        }}
+        >
         {categoryList.map((category, index) => (
-          <div className="col" key={index}>
+          <div className=" m-2" key={index}>
             <div className={`badge badge-success px-3 py-2 fs-6 fw-medium`}>
+              <i className="bi bi-star"></i>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -32,6 +57,8 @@ const PopularCategories = () => {
           </div>
         ))}
       </div>
+
+
     </div>
   );
 };

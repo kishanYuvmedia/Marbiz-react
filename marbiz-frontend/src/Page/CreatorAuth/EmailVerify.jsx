@@ -120,7 +120,7 @@ export default function EmailVerify(props) {
   };
 
   useEffect(() => {
-    getPublicList("Influencers").then((result) => {
+    getPublicList("Platform").then((result) => {
       setCategory(result);
     });
   }, []);
@@ -129,21 +129,28 @@ export default function EmailVerify(props) {
     <>
       <div>
         {otpStatus === false && (
-          <div className="p-5 text-center bg-body-tertiary hero">
+          <div className="p-3 text-center bg-body-tertiary hero">
             <div className="container py-5">
               <h1 className="text-body-emphasis text-white">
                 {" "}
                 Hello <strong className="gtext">@{props.userClaim} </strong>
-                Create Your Page
+                Create Your Own Profile
               </h1>
+
               <Row className="justify-content-md-center mt-4">
-                <Col xs lg="6" style={{ textAlign: "left" }}>
+                <Col
+                  xs
+                  lg="6"
+                  style={{ textAlign: "left" }}
+                  className="inquiry-form  p-5 rounded-3"
+                >
                   <Form onSubmit={handleSubmit} id="myForm">
                     <Form.Group className="mb-3" controlId="formGridAddress1">
                       <Form.Control
                         type="text"
                         name="fullName"
                         placeholder="Full Name"
+                        className="dark-bg"
                         value={formData.fullName}
                         onChange={handleChange}
                         isInvalid={!!errors.fullName}
@@ -158,6 +165,7 @@ export default function EmailVerify(props) {
                         type="email"
                         name="email"
                         placeholder="Email"
+                        className="dark-bg"
                         value={formData.email}
                         onChange={handleChange}
                         isInvalid={!!errors.email}
@@ -172,6 +180,7 @@ export default function EmailVerify(props) {
                         type="password"
                         name="password"
                         placeholder="Password"
+                        className="dark-bg"
                         value={formData.password}
                         onChange={handleChange}
                         isInvalid={!!errors.password}
@@ -183,6 +192,7 @@ export default function EmailVerify(props) {
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Select
                         name="userType"
+                        className="dark-bg"
                         defaultValue={formData.userType}
                         onChange={handleChange}
                         isInvalid={!!errors.userType}
@@ -201,6 +211,7 @@ export default function EmailVerify(props) {
                       <Form.Check
                         type="checkbox"
                         name="checked"
+                        className="text-white"
                         label="Check me out"
                         checked={formData.checked}
                         onChange={handleChange}
@@ -212,7 +223,7 @@ export default function EmailVerify(props) {
                     </Form.Group>
                     <Button
                       variant="primary"
-                      className="button-42 w-100"
+                      className="srch-btn w-100 fs-6"
                       type="submit"
                     >
                       Sign Up

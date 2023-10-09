@@ -4,12 +4,14 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
+
 export default function CreateProfile(props) {
   const navigate = useNavigate();
   const [userdata, setUserDate] = useState(props.userData);
   const [selectUsertype, setUserType] = useState([]);
   const [categoryList, setCategory] = useState([]);
   const [IdCategory, setsetIdCategory] = useState([]);
+
   const initialFormData = {
     category: "",
     businessNumber: "",
@@ -33,8 +35,10 @@ export default function CreateProfile(props) {
     idProofNo: "",
     checked: "",
   };
+
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState(initialErrors);
+
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
     // Clear the error for the field when it's changed
@@ -57,6 +61,7 @@ export default function CreateProfile(props) {
       [name]: type === "file" ? files[0] : value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const listarray = [];
@@ -67,6 +72,7 @@ export default function CreateProfile(props) {
         value: list.value,
       });
     });
+
     if (!formData.businessNumber) {
       newErrors.businessNumber = "Business contact number is required.";
     }
@@ -107,19 +113,20 @@ export default function CreateProfile(props) {
     }
   };
   useEffect(() => {
-    getPublicList("CategoryType").then((result) => {
+    getPublicList("Category").then((result) => {
       setCategory(result);
     });
     getPublicList("Document").then((result) => {
       setsetIdCategory(result);
     });
   }, []);
+
   return (
     <div>
-      <div className="p-5 text-center bg-body-tertiary hero">
-        <div className="container py-5">
-          <h1 style={{ color: "white" }}>Make Your Profile </h1>
-          <Row className="justify-content-md-center">
+      <div className="p-3 text-center bg-body-tertiary hero">
+        <div className="container ">
+          <h1 className="fw-bold text-white mb-3">Make Your Profile </h1>
+          <Row className="justify-content-md-center ">
             <Col xs lg="6" style={{ textAlign: "left" }}>
               <Form onSubmit={handleSubmit} id="myForm">
                 <Form.Group as={Col} controlId="formUserType">
@@ -130,46 +137,55 @@ export default function CreateProfile(props) {
                     id="category"
                     options={categoryList}
                     onChange={(e) => setUserType(e)}
-                    className="basic-multi-select mb-3"
+                    className="basic-multi-select  mb-3"
                     classNamePrefix="select"
                   />
                   <Form.Control.Feedback type="invalid">
                     {errors.category}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formNumber">
-                  <Form.Control
-                    type="text"
-                    name="businessNumber"
-                    id="businessNumber"
-                    placeholder="Business contact number"
-                    value={formData.businessNumber}
-                    onChange={handleChange}
-                    isInvalid={!!errors.businessNumber}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.businessNumber}
-                  </Form.Control.Feedback>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="businessEmail">
-                  <Form.Control
-                    type="text"
-                    name="businessEmail"
-                    id="businessEmail"
-                    placeholder="Business Email"
-                    value={formData.businessEmail}
-                    onChange={handleChange}
-                    isInvalid={!!errors.businessEmail}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.businessEmail}
-                  </Form.Control.Feedback>
-                </Form.Group>
+
+                <Row>
+                  <Form.Group className="col-md-6 mb-3" controlId="formNumber">
+                    <Form.Control
+                      type="text"
+                      name="businessNumber"
+                      id="businessNumber"
+                      className="dark-bg"
+                      placeholder="Business contact number"
+                      value={formData.businessNumber}
+                      onChange={handleChange}
+                      isInvalid={!!errors.businessNumber}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.businessNumber}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                  <Form.Group
+                    className="col-md-6 mb-3"
+                    controlId="businessEmail"
+                  >
+                    <Form.Control
+                      type="text"
+                      name="businessEmail"
+                      id="businessEmail"
+                      placeholder="Business Email"
+                      className="dark-bg"
+                      value={formData.businessEmail}
+                      onChange={handleChange}
+                      isInvalid={!!errors.businessEmail}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.businessEmail}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
                 <Form.Group className="mb-3" controlId="location">
                   <Form.Control
                     type="text"
                     name="location"
                     id="location"
+                    className="dark-bg"
                     placeholder="Location"
                     value={formData.location}
                     onChange={handleChange}
@@ -184,7 +200,8 @@ export default function CreateProfile(props) {
                     as="textarea"
                     name="bio"
                     id="bio"
-                    placeholder="bio"
+                    placeholder="Bio"
+                    className="dark-bg"
                     value={formData.bio}
                     onChange={handleChange}
                     isInvalid={!!errors.bio}
@@ -199,7 +216,8 @@ export default function CreateProfile(props) {
                     as="textarea"
                     name="about"
                     id="about"
-                    placeholder="about"
+                    placeholder="A  bout"
+                    className="dark-bg"
                     value={formData.about}
                     onChange={handleChange}
                     isInvalid={!!errors.about}
@@ -209,37 +227,46 @@ export default function CreateProfile(props) {
                     {errors.about}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group as={Col} className="mb-3" controlId="formGridState">
-                  <Form.Select
-                    name="idProofType"
-                    defaultValue={formData.idProofType}
-                    onChange={handleChange}
-                    isInvalid={!!errors.idProofType}
-                  >
-                    <option disabled>How did you hear about us?</option>
-                    {IdCategory.map((list) => (
-                      <option key={list.label}>{list.label}</option>
-                    ))}
-                  </Form.Select>
-                  <Form.Control.Feedback type="invalid">
-                    {errors.idProofType}
-                  </Form.Control.Feedback>
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formNumber">
-                  <Form.Control
-                    type="text"
-                    name="idProofNo"
-                    id="idProofNo"
-                    placeholder="Id Proof Number"
-                    value={formData.idProofNo}
-                    onChange={handleChange}
-                    isInvalid={!!errors.idProofNo}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.idProofNo}
-                  </Form.Control.Feedback>
-                </Form.Group>
+                <Row>
+                  <Form.Group
+                    as={Col}
+                    className="col-md-6 mb-3"
+                    controlId="formGridState"
+                  >
+                    <Form.Select
+                      name="idProofType"
+                      className="dark-bg"
+                      defaultValue={formData.idProofType}
+                      onChange={handleChange}
+                      isInvalid={!!errors.idProofType}
+                    >
+                      <option disabled>Select</option>
+                      {IdCategory.map((list) => (
+                        <option key={list.label}>{list.label}</option>
+                      ))}
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid">
+                      {errors.idProofType}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+
+                  <Form.Group className="col-md-6 mb-3" controlId="formNumber">
+                    <Form.Control
+                      type="text"
+                      name="idProofNo"
+                      id="idProofNo"
+                      placeholder="ID Proof Number"
+                      className="dark-bg"
+                      value={formData.idProofNo}
+                      onChange={handleChange}
+                      isInvalid={!!errors.idProofNo}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.idProofNo}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
                 <Form.Group className="mb-3 mt-3" id="formGridCheckbox7">
                   <Form.Check
                     type="checkbox"
@@ -256,7 +283,7 @@ export default function CreateProfile(props) {
                 </Form.Group>
                 <Button
                   variant="primary"
-                  className="button-42 w-100"
+                  className="srch-btn fs-6 w-100"
                   type="submit"
                 >
                   Create Profile

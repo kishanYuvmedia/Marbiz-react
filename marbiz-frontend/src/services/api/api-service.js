@@ -9,6 +9,7 @@ import {
 import { getLocalData } from "../global-storage";
 import { retry } from "redux-saga/effects";
 import apiKit, { axiosRequest } from "./axios-base";
+
 export const getSystemList = (type) => {
   return new Promise((resolve, reject) => {
     find("MtSystemLists", {
@@ -42,6 +43,7 @@ export const getInfluencersFeturedList = (limit, type) => {
     });
   });
 };
+
 export const createProfileListing = (data) => {
   return create("MtProfiles", data);
 };

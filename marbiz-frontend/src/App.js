@@ -18,6 +18,8 @@ import Footer from "./Components/Footer";
 import CelebProfile from "./Page/CelebProfile";
 import "bs5-lightbox";
 import InquiryForm from "./Page/InquiryForm";
+import Brand from "./Page/Brand/Brand";
+import BrandSignup from "./Page/Brand/BrandSignup";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
           <Route path="/creator" element={<Signin />} />
+          <Route path="/brand" element={<Brand />} />
+          <Route path="/brand-signup" element={<BrandSignup />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
           <Route path="/profile/:regName" element={<CelebProfile />} />

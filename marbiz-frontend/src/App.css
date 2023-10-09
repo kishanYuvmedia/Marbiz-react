@@ -140,6 +140,10 @@ h6 {
   width: 79px;
 }
 
+.xyb {
+  background: linear-gradient(315deg, #8725fe, #FE66AB)
+}
+
 .box .text-wrapper-2 {
   color: #ffffff;
   font-family: "Inter-Regular", Helvetica;
@@ -182,6 +186,7 @@ h6 {
   &.card-has-bg {
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     background-size: 125%;
+    
     background-repeat: no-repeat;
     background-position: center center;
     &:before {
@@ -204,14 +209,16 @@ h6 {
       box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
       background-size: 130%;
       transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-
+      transform: translateY(-20px);
+      z-index: 99;
       .card-img-overlay {
         transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-        background: rgb(255, 186, 33);
+        /* background: rgb(255, 186, 33); */
         background: linear-gradient(
           0deg,
-          rgb(0, 0, 0) 0%,
-          rgba(0, 0, 0, 0) 100%
+          #000000 0%,
+          #c800ff4b 25%,
+          #8725fe00 100%
         );
       }
     }
@@ -219,12 +226,13 @@ h6 {
   .card-footer {
     background: none;
     border-top: none;
-    .media {
-      img {
-        border: solid 3px rgba(255, 255, 255, 0.3);
-      }
-    }
   }
+  
+  .card-footer .media img {
+    border: solid 3px rgba(255, 255, 255, 0.3);
+  }
+  
+
   .card-title {
     font-weight: 800;
   }
@@ -345,6 +353,21 @@ h6 {
   font-weight: 900;
   line-height: 1;
 }
+.typeWriterTextMove {
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1;
+  
+  background: -webkit-linear-gradient(#ec0606, #6a0101); /* For Safari and older versions of Chrome */
+  background: -o-linear-gradient(#8f0808, #00a100); /* For Opera */
+  background: linear-gradient( #9E32EF, #F054B9); /* Standard syntax */
+
+  
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 
 @media (max-width: 768px) {
   .celeb1,
@@ -407,7 +430,7 @@ h6 {
 }
 
 .navbar {
-  border-bottom: 2px solid rgb(168, 85, 247);
+  border-bottom: 2px solid #8A2DFC;
 }
 
 /* btn Ui */
@@ -454,6 +477,7 @@ h6 {
 .section-heading {
   color: white;
 }
+
 
 .section-featured {
   color: #9b3c95;
@@ -702,7 +726,7 @@ h6 {
   margin-top: 75px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .main-body {
     margin-top: 50px;
   }
@@ -740,8 +764,12 @@ h6 {
 
 /* Dark background */
 .dark-bg {
-  background-color: #111;
-  border: 2px solid #6f42c1; /* Purple border */
+  background-color: #292929;
+  padding: 10px 15px;
+  border-top: 0px solid #6f42c1; /* Purple border */
+  border-bottom: 2px solid #6f42c1; /* Purple border */
+  border-left: 0px solid #6f42c1; /* Purple border */
+  border-right: 0px solid #6f42c1; /* Purple border */
   color: #fff; /* White text color */
   border-radius: 10px;
 }
@@ -755,7 +783,8 @@ h6 {
 .dark-bg:focus {
   border-color: #6f42c1; /* Purple border on focus */
   color: #fff; /* White text color on focus */
-  background-color: #242225;
+  background-color: rgb(29, 29, 29);
+  box-shadow: inset 0 0 0 0px #6f42c1;
 }
 
 .form-switch .form-check-input {
@@ -768,4 +797,99 @@ h6 {
 
 .form-check-input[type="checkbox"]:checked {
   background-color: green !important;
+  border: green;
+  padding: 2px;
+}
+
+
+.inquiry-form {
+  background-color: 	#28282B;
+  border: 2px solid #6f42c1
+}
+
+.css-13cymwt-control {
+  background-color: #292929 !important;
+  padding: 5px 15px !important;
+
+  border-top: 0px solid #6f42c1  !important;
+  border-bottom: 2px solid #6f42c1 !important;
+  border-left: 0px solid #6f42c1 !important;
+  border-right: 0px solid #6f42c1 !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+}
+.css-t3ipsp-control {
+  
+  padding: 5px 15px !important;
+  background-color: #292929 !important;
+  border-top: 0px solid #6f42c1  !important;
+  border-bottom: 2px solid #6f42c1 !important;
+  border-left: 0px solid #6f42c1 !important;
+  border-right: 0px solid #6f42c1 !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 0 0px !important;
+}
+
+.css-166bipr-Input {
+  color: white !important;
+}
+
+.selectmenu .css-1nmdiq5-menu {
+  background-color: black;
+}
+
+/* Default styles */
+#file-upload[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 2px dashed gray;
+  width: 100%; /* Adjust the width as needed for responsiveness */
+  min-height: 100px; /* Set a minimum height for the container */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.custom-file-upload:hover {
+  border: 2px dashed rgb(240, 240, 240);
+  color: white;
+}
+
+/* Styles for the image preview */
+.img-preview {
+  max-width: 100%;
+  height: 400px;
+  /* border: 2px solid #6f42c1;  */
+  border-radius: 10px;
+  margin-top: 10px;
+  display: block;
+  
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .custom-file-upload {
+    width: 80%; /* Adjust the width for smaller screens */
+  }
+}
+
+.upload-img-section {
+  border: 2px solid #8A2DFC; /* Purple border */
+
+}
+
+.carousel .slider-wrapper {
+  padding: 20px 20px !important;
+}
+
+.card .card-img:hover {
+  transform: scale(1.07);
+  
 }

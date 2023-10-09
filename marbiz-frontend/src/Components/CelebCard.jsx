@@ -9,40 +9,47 @@ const CelebCard = (props) => {
   return (
     <>
       <div
-        className="card text-dark card-has-bg click-col"
+        className="card card-bg mx-2 card-has-bg click-col"
         style={{
-          backgroundImage: `url("${props.image}")`,
-          borderRadius: "15px",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          borderWidth: 4,
-          borderStyle: "solid",
-          borderImage: "linear-gradient(to right, red, green)",
+          background: "linear-gradient(145deg, #8725fe, #FE66AB)",
+          // borderRadius: "15px",
+          padding: "2px",
         }}
       >
-        <div className="card-img-overlay d-flex flex-column boxcard">
-          <div className="card-body">
-            {/* <h4 className="card-title mt-0"></h4> */}
-          </div>
-          <div className="card-footer p-0">
-            <div className="media">
-              <div className="media-body">
-                <Link to={`/profile/${props.regName}`}>
-                  <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
-                    {props.fullName}
-                  </h3>
-                </Link>
-                {/* <small className="text-white">Active Platform</small> */}
-                <div className="d-flex justify-content-start mt-2">
-                  {listcategory &&
-                    listcategory.map((value) => (
-                      <span
-                        key={value.label}
-                        className="badge badge-danger me-2"
-                      >
-                        #{value.label}
-                      </span>
-                    ))}
+        <div
+          className="card card-img text-dark "
+          style={{
+            backgroundImage: `url("${props.image}")`,
+            // borderRadius: "15px",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            border: "0",
+          }}
+        >
+          <div className="card-img-overlay d-flex flex-column">
+            <div className="card-body">
+              {/* <h4 className="card-title mt-0"></h4> */}
+            </div>
+            <div className="card-footer p-0">
+              <div className="media">
+                <div className="media-body" style={{ textAlign: "start" }}>
+                  <Link to={`/profile/${props.regName}`}>
+                    <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
+                      {props.fullName}
+                    </h3>
+                  </Link>
+                  {/* <small className="text-white">Active Platform</small> */}
+                  <div className="d-flex justify-content-start mt-2">
+                    {listcategory &&
+                      listcategory.map((value) => (
+                        <span
+                          key={value.label}
+                          className="badge badge-danger me-2"
+                        >
+                          #{value.label}
+                        </span>
+                      ))}
+                  </div>
                 </div>
               </div>
             </div>

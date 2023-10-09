@@ -119,10 +119,12 @@ const InquiryForm = () => {
               className="img-fluid celeb-img"
               alt="Sanam Image1"
             />
-            <h3 className="mt-3 text-white "> {profileData.fullName}</h3>
+
+            <h3 className="mt-3 text-white ">Celeb Name</h3>
           </div>
+
           <div className="col-md-6 col-sm-12 mx-auto my-3">
-            <form onSubmit={handleSubmit}>
+            <form>
               <div className="mb-4">
                 <label className="form-label text-white" for="occasion">
                   What's the occasion?*
@@ -150,49 +152,51 @@ const InquiryForm = () => {
                   )}
                 </div>
               </div>
+              <div className="row mb-3">
+                <div className="col-md-6 mb-3">
+                  <label className="form-label text-white" for="eventDate">
+                    Event Date
+                  </label>
+                  <input
+                    type="date"
+                    id="eventDate"
+                    name="eventDate"
+                    className="form-control dark-bg"
+                    value={formData.eventDate}
+                    onChange={handleInputChange}
+                  />
+                  <div className="mb-4">
+                    {errors.eventDate && (
+                      <div className="invalid-feedback text-white">
+                        {errors.eventDate}
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-              <div className="mb-4">
-                <label className="form-label text-white" for="eventDate">
-                  Event Date
-                </label>
-                <input
-                  type="date"
-                  id="eventDate"
-                  name="eventDate"
-                  className="form-control dark-bg"
-                  value={formData.eventDate}
-                  onChange={handleInputChange}
-                />
                 <div className="mb-4">
-                  {errors.eventDate && (
-                    <div className="invalid-feedback text-white">
-                      {errors.eventDate}
-                    </div>
-                  )}
+                  <label className="form-label text-white" for="venueCity">
+                    Venue City*
+                  </label>
+                  <input
+                    type="text"
+                    id="venueCity"
+                    name="venueCity"
+                    className="form-control dark-bg"
+                    value={formData.venueCity}
+                    onChange={handleInputChange}
+                  />
+                  <div className="mb-4">
+                    {errors.venueCity && (
+                      <div className="invalid-feedback text-white">
+                        {errors.venueCity}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-              <div className="mb-4">
-                <label className="form-label text-white" for="venueCity">
-                  Venue City*
-                </label>
-                <input
-                  type="text"
-                  id="venueCity"
-                  name="venueCity"
-                  className="form-control dark-bg"
-                  value={formData.venueCity}
-                  onChange={handleInputChange}
-                />
-                <div className="mb-4">
-                  {errors.venueCity && (
-                    <div className="invalid-feedback text-white">
-                      {errors.venueCity}
-                    </div>
-                  )}
-                </div>
-              </div>
 
-              <div className="row mb-4">
+              <div className="row mb-3">
                 <div className="col-md-6">
                   <label className="form-label text-white" for="budget">
                     Budget*
@@ -234,6 +238,7 @@ const InquiryForm = () => {
                   </div>
                 </div>
               </div>
+
               <div className="mb-4">
                 <label className="form-label text-white" for="name">
                   Full Name*
@@ -255,49 +260,51 @@ const InquiryForm = () => {
                 </div>
               </div>
 
-              <div className="mb-4">
-                <label className="form-label text-white" for="email">
-                  Email Address (No Spam!)*
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="form-control dark-bg"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                />
-                <div className="mb-4">
-                  {errors.email && (
-                    <div className="invalid-feedback text-white">
-                      {errors.email}
-                    </div>
-                  )}
+              <div className="row mb-3">
+                <div className="col-md-6 mb-3">
+                  <label className="form-label text-white" for="email">
+                    Email Address (No Spam!)*
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="form-control dark-bg"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                  <div className="mb-4">
+                    {errors.email && (
+                      <div className="invalid-feedback text-white">
+                        {errors.email}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="col-md-6 mb-3">
+                  <label className="form-label text-white" for="mobile">
+                    Mobile Number*
+                  </label>
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    className="form-control dark-bg"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                  />
+                  <div className="mb-4">
+                    {errors.mobile && (
+                      <div className="invalid-feedback text-white">
+                        {errors.mobile}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              <div className="mb-4">
-                <label className="form-label text-white" for="mobile">
-                  Mobile Number*
-                </label>
-                <input
-                  type="tel"
-                  id="mobile"
-                  name="mobile"
-                  className="form-control dark-bg"
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                />
-                <div className="mb-4">
-                  {errors.mobile && (
-                    <div className="invalid-feedback text-white">
-                      {errors.mobile}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div className="mb-4">
+              <div className="mb-3">
                 <label className="form-label text-white" for="message">
                   Tell us more (we love to listen)
                 </label>
@@ -306,8 +313,6 @@ const InquiryForm = () => {
                   name="message"
                   className="form-control dark-bg"
                   rows="4"
-                  value={formData.message}
-                  onChange={handleInputChange}
                 ></textarea>
                 <div className="mb-4">
                   {errors.message && (
@@ -318,7 +323,7 @@ const InquiryForm = () => {
                 </div>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-3">
                 <label className="form-label text-white" for="options">
                   Send more options in my budget
                 </label>
@@ -343,7 +348,7 @@ const InquiryForm = () => {
                 </div>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-3">
                 <div className="form-check form-switch">
                   <input
                     className="form-check-input"
@@ -364,7 +369,7 @@ const InquiryForm = () => {
 
               <div className="d-grid justify-content-center">
                 <button type="submit" className="button-87 btn-block mb-4">
-                  Send Request
+                  Place order
                 </button>
               </div>
             </form>
