@@ -3,8 +3,6 @@ import "./style.css";
 import Swal from "sweetalert2";
 import EmailVerify from "./EmailVerify";
 import { checkPublicName } from "../../services/api/api-service";
-import { json } from "react-router-dom";
-
 export default function Signin() {
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");

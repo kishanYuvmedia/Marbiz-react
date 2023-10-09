@@ -20,39 +20,16 @@ export const getSystemList = type => {
     })
   })
 }
-export const getStrikePrice = type => {
-  return axiosRequest(
-    "GET",
-    `${["TdDerivatives", "strikeprice"].join("/")}`,
-    undefined,
-    undefined,
-    { type },
-    true
-  )
+export const createPublicList = data => {
+  return create("MtPublicLists", data)
 }
-export const getExpairDate = type => {
-  return axiosRequest(
-    "GET",
-    `${["TdDerivatives", "productexpirydate"].join("/")}`,
-    undefined,
-    undefined,
-    { type },
-    true
-  )
-}
-export const getOptionDataTable = (type, expairdate, strickPrice) => {
-  return axiosRequest(
-    "GET",
-    `${["TdDerivatives", "optiondata"].join("/")}`,
-    undefined,
-    undefined,
-    { type, expairdate, strickPrice },
-    true
-  )
-}
-export const geIntradayData = type => {
-  return find("TdDerivatives", {
-    where: { INSTRUMENTIDENTIFIER: `${type}-I` },
-    order: "id desc",
+export const getPublicList = type => {
+  return new Promise((resolve, reject) => {
+    find("MtPublicLists", {
+      where: { listType: type },
+      order: "label asc",
+    }).then(data => {
+      resolve(data)
+    })
   })
 }

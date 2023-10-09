@@ -2,12 +2,11 @@ import PropTypes from "prop-types"
 import React, { useState } from "react"
 
 import { connect } from "react-redux"
-import { Row, Col } from "reactstrap"
 import { Link } from "react-router-dom"
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu"
 
-import logo from "../../assets/images/scalping-logo.webp"
-import logoLightSvg from "../../assets/images/scalping-logo.webp"
+import logo from "../../assets/image/marbiz-logo.png"
+import logoLightSvg from "../../assets/image/marbiz-logo.png"
 
 //i18n
 import { withTranslation } from "react-i18next"

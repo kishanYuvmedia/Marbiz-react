@@ -7,7 +7,7 @@ import {
 const login = (username, password) => {
   return new Promise((resolve, reject) => {
     apiKit
-      .post("/TdUsers/login?include=user", { username, password })
+      .post("/MtUsers/login?include=user", { username, password })
       .then(function (response) {
         storeLocalData("accessToken", response.data.id)
         storeLocalData("userId", response.data.userId)
@@ -42,7 +42,7 @@ const signup = (
   //console.log(data)
   return new Promise((resolve, reject) => {
     apiKit
-      .post("/TdUsers", data)
+      .post("/MtUsers", data)
       .then(function (response) {
         resolve(response.data)
       })
@@ -55,7 +55,7 @@ const signup = (
 const logout = () => {
   return new Promise((resolve, reject) => {
     apiKit
-      .post("/TdUsers/logout?access_token=" + getLocalData("accessToken"))
+      .post("/MtUsers/logout?access_token=" + getLocalData("accessToken"))
       .then(function (response) {
         console.log("logout")
         removeLocalData("accessToken")

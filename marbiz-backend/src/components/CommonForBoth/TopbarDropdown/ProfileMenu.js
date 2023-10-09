@@ -15,7 +15,7 @@ import { Link } from "react-router-dom"
 import withRouter from "components/Common/withRouter"
 import { getLocalData } from "../../../services/global-storage"
 // users
-import user1 from "../../../assets/images/users/avatar-1.jpg"
+import user1 from "../../../assets/image/icon.png"
 
 const ProfileMenu = props => {
   // Declare a new state variable, which we'll call "menu"
@@ -26,7 +26,7 @@ const ProfileMenu = props => {
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"))
-      setusername(obj.contactName || "User")
+      setusername(obj.contactName || "Admin")
     }
   }, [props.success])
 

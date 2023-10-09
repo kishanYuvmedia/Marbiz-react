@@ -1,21 +1,20 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { connect } from "react-redux";
-import withRouter from "components/Common/withRouter";
+import PropTypes from "prop-types"
+import React from "react"
+import { connect } from "react-redux"
+import withRouter from "components/Common/withRouter"
 
 //i18n
-import { withTranslation } from "react-i18next";
-import SidebarContent from "./SidebarContent";
+import { withTranslation } from "react-i18next"
+import SidebarContent from "./SidebarContent"
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-import logo from "../../assets/images/scalping-logo.webp";
-import logoLightPng from "../../assets/images/scalping-logo.webp";
-import logoLightSvg from "../../assets/images/scalping-logo.webp";
-import logoDark from "../../assets/images/scalping-logo.webp";
+import logo from "../../assets/image/marbiz-logo.png"
+import logoLightPng from "../../assets/image/marbiz-logo.png"
+import logoLightSvg from "../../assets/image/marbiz-logo.png"
+import logoDark from "../../assets/image/marbiz-logo.png"
 
 const Sidebar = props => {
-
   return (
     <React.Fragment>
       <div className="vertical-menu">
@@ -35,9 +34,6 @@ const Sidebar = props => {
             </span>
             <span className="logo-lg ">
               <img src={logoLightPng} alt="" height="50" />
-              <span className="ms-2 fs-5 text-white text-uppercase fw-bold">
-                Scalping Price
-              </span>
             </span>
           </Link>
         </div>
@@ -47,19 +43,19 @@ const Sidebar = props => {
         <div className="sidebar-background"></div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
 Sidebar.propTypes = {
   type: PropTypes.string,
-};
+}
 
 const mapStatetoProps = state => {
   return {
     layout: state.Layout,
-  };
-};
+  }
+}
 export default connect(
   mapStatetoProps,
   {}
-)(withRouter(withTranslation()(Sidebar)));
+)(withRouter(withTranslation()(Sidebar)))

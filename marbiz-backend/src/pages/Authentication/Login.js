@@ -3,8 +3,6 @@ import React from "react"
 import {
   Row,
   Col,
-  CardBody,
-  Card,
   Alert,
   Container,
   Form,
@@ -25,11 +23,11 @@ import { useFormik } from "formik"
 // actions
 import { loginUser } from "../../store/actions"
 
-import logo from "assets/image/scalping-logo.png"
+import logo from "assets/image/marbiz-logo.png"
 import CarouselPage from "./CarouselPage"
 const Login = props => {
   //meta title
-  document.title = "Login | Scalping"
+  document.title = "Login | Admin"
 
   const dispatch = useDispatch()
 
@@ -84,10 +82,7 @@ const Login = props => {
                     </div>
                     <div className="my-auto">
                       <div>
-                        <h5 className="text-success">Welcome Back !</h5>
-                        <p className="text-danger">
-                          Sign in to continue to trendsarthi.com.
-                        </p>
+                        <h5 className="text-white">Admin</h5>
                       </div>
 
                       <div className="mt-4">
@@ -149,21 +144,6 @@ const Login = props => {
                               </FormFeedback>
                             ) : null}
                           </div>
-
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="customControlInline"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="customControlInline"
-                            >
-                              Remember me
-                            </label>
-                          </div>
-
                           <div className="mt-3 d-grid">
                             <button
                               className="btn btn-success btn-block"
@@ -172,36 +152,13 @@ const Login = props => {
                               Log In
                             </button>
                           </div>
-                          <div className="mt-4 text-center">
-                            <Link
-                              to="/forgot-password"
-                              className="text-primary"
-                            >
-                              <i className="mdi mdi-lock me-1" />
-                              Forgot your password?
-                            </Link>
-                          </div>
                         </Form>
-
-                        <div className="mt-5 text-center">
-                          <p>
-                            Don&apos;t have an account ?
-                            <Link
-                              to="register"
-                              className="fw-medium text-danger"
-                            >
-                              Signup now
-                            </Link>
-                          </p>
-                        </div>
                       </div>
                     </div>
-
                     <div className="mt-4 mt-md-5 text-center">
                       <p className="mb-0">
-                        © {new Date().getFullYear()} http://trendsarthi.com/.
-                        Crafted with{" "}
-                        <i className="mdi mdi-heart text-danger"></i> by
+                        © {new Date().getFullYear()} www.margbiz.in. Crafted
+                        with <i className="mdi mdi-heart text-danger"></i> by
                         Yuvmedia.in
                       </p>
                     </div>
