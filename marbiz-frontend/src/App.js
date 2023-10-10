@@ -5,6 +5,7 @@ import 'mdb-ui-kit/js/mdb.min.js';
 import * as mdb from "mdb-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
+import "./responsive.css";
 import "bs5-lightbox";
 // import "bootstrap/dist/css/bootstrap.min.css";
 

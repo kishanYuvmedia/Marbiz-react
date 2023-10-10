@@ -29,7 +29,7 @@ const SearchBar = () => {
                             <div className='me-3'>
                                 <button type="submit" className='search-btn fs-2 rounded-pill align-items-center d-flex'><BsSearch /></button>
                             </div>
-                            <div className="multi-select-category border-end border-danger border-2">
+                            <div className="multi-select-category d-flex">
 
                                 <Select
                                     placeholder="Choose a platform"
@@ -39,6 +39,7 @@ const SearchBar = () => {
                                     classNamePrefix="select"
                                     options={optionsPlatform}
                                 />
+                            <div class="vr" style={{backgroundColor: "red"}}></div>
                             </div>
 
                             <div className="ms-3 multi-select-category">

@@ -138,12 +138,12 @@ function HomePage() {
       />
       
       <SliderList
-        title="Celebrities"
+        title="Instgram"
         subtitle="Hire top Celebrities & Influencer all platforms see All"
         list={celebritylist}
       />
       <SliderList
-        title="Influencer"
+        title="Youtube"
         subtitle="Hire top Spokesperson & Models all platforms see All"
         list={Influencerlist}
       />

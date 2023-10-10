@@ -9,13 +9,13 @@ const CelebCard = (props) => {
 
   return (
     <div style={{
-      margin: "0 10px", 
+      margin: "0 10px",
     }}>
-      <div className="card card-bg mx-2 card-has-bg click-col" style={{
+      <div className="card bg-black card-bg mx-2 card-has-bg click-col" style={{
         // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
         // borderRadius: "15px",
         // padding: "2px",
-        transform: `translateY(${props.isEven ? 10 : -10}px)`,
+        transform: `translateY(${props.index === 0 ? 10 : (props.index % 2 !== 0 ? -10 : 10)}px)`,
         marginRight: `${props.cardGap}px`,
       }}>
 
@@ -30,7 +30,7 @@ const CelebCard = (props) => {
             backgroundSize: "cover",
             border: "0",
             height: `${props.cardHeight}px`,
-            
+
           }}
         >
           <div className="card-img-overlay d-flex flex-column">
@@ -44,24 +44,31 @@ const CelebCard = (props) => {
                     <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
                       {props.fullName}
                     </h3>
+
                   </Link>
-                  {/* <small className="text-white">Active Platform</small> */}
-                  <div className="d-flex justify-content-start mt-2">
-                    {listcategory &&
-                      listcategory.map((value) => (
-                        <span
-                          key={value.label}
-                          className="badge badge-danger me-2"
-                        >
-                          #{value.label}
-                        </span>
-                      ))}
-                  </div>
+                  
+                  
                 </div>
               </div>
             </div>
           </div>
+
         </div>
+      
+      <div className="d-flex justify-content-start mt-2 p-2 " style={{
+        zIndex: "5",
+      }}>
+        {listcategory &&
+          listcategory.map((value) => (
+            <span
+              key={value.label}
+              className="badge badge-danger me-2"
+            >
+              {value.label}
+            </span>
+          ))}
+          <small className="text-white">Active Platform</small>
+      </div>
       </div>
     </div>
   );

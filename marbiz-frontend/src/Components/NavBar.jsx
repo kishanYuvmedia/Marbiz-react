@@ -25,15 +25,18 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link text-center border-end border-danger border-2" to="/explore">
+                <Link className="nav-link text-center " to="/explore">
                   Explore
                 </Link>
               </li>
+              <div class="vr" style={{backgroundColor: "red"}}></div>
+
               <li className="nav-item">
-                <Link className="nav-link text-center border-end border-danger border-2" to="/howitworks">
+                <Link className="nav-link text-center " to="/howitworks">
                   How it Works
                 </Link>
               </li>
+              <div class="vr" style={{backgroundColor: "red"}}></div>
               <li className="nav-item">
                 <Link className="nav-link text-center" to="/category">
                   Category
