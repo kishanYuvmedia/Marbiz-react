@@ -5,34 +5,40 @@ import { getPublicList } from "../services/api/api-service";
 const PopularCategories = () => {
   const [categoryList, setCategory] = useState([]);
 
-  // useEffect(() => {
-  //   getPublicList("Influencers").then((result) => {
-  //     // setCategory(result);
-  //     setTimeout(() => {
-  //       setCategory(result); // Use placeholder data
-  //     }, 1000);
-  //     console.log("API Response:", categoryList)
-
-  //   });
-  // }, []);
-
   useEffect(() => {
-    getPublicList("Influencers")
-      .then((result) => {
-        setTimeout(() => {
-          setCategory(result); // Use placeholder data
-        }, 1000);
-        console.log("API Response:", categoryList)
-      })
-      .catch((error) => {
-        console.error("Error fetching data from the API:", error);
-      });
+    getPublicList("Platform").then((result) => {
+      // setCategory(result);
+      setTimeout(() => {
+        setCategory(result); // Use placeholder data
+      }, 1000);
+      console.log("API Response:", categoryList)
+
+    });
   }, []);
 
+  // useEffect(() => {
+
+  //   async function fetchCategoryList() {
+  //     try {
+  //       const result = await getPublicList("Instagram");
+  //       setTimeout(() => {
+  //         console.log("API Response:", result); // Log the API response
+  //         setCategory(result); // Use placeholder data
+  //       }, 1000);
+  //     } catch (error) {
+  //       console.error("Error fetching data from the API:", error);
+  //     }
+  //   }
+
+  //   fetchCategoryList();
+  // }, []);
+
+
+
   // Conditional rendering when categoryList is not yet defined
-  if (!categoryList || categoryList.length === 0) {
-    return <div className="text-white text-center">Loading categories...</div>; // You can customize this loading message
-  }
+  // if (!categoryList || categoryList.length === 0) {
+  //   return <div className="text-white text-center">Loading categories...</div>; // You can customize this loading message
+  // }
 
   return (
     <div className="container">

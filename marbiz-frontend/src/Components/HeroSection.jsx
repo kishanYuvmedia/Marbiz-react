@@ -29,7 +29,7 @@ const HeroSection = (props) => {
 
   useEffect(() => {
 
-    getPublicList("Influencers")
+    getPublicList("Platform")
       .then((result) => {
 
         if (Array.isArray(result) && result.length > 0) {

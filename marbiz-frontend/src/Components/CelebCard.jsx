@@ -14,6 +14,8 @@ const CelebCard = (props) => {
           background: "linear-gradient(145deg, #8725fe, #FE66AB)",
           // borderRadius: "15px",
           padding: "2px",
+          transform: `translateY(${props.index === 0 ? 10 : (props.index % 2 !== 0 ? -10 : 10)}px)`,
+          marginRight: `${props.cardGap}px`,
         }}
       >
         <div
@@ -62,7 +64,7 @@ const CelebCard = (props) => {
                 {value.label}
               </span>
             ))}
-          <small className="text-white">Active Platform</small>
+          <small className="text-white">(TV Serials)</small>
         </div>
       </div>
     </>

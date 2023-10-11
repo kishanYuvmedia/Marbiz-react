@@ -14,6 +14,7 @@ const CelebProfile = () => {
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getInfluencersProfile(regName)
@@ -24,16 +25,33 @@ const CelebProfile = () => {
             setTimeout(() => {
               setImages(resultdb); // Use placeholder data
             }, 1000);
+            setLoading(false); // Set loading to false when data is ready
             console.log("images", images);
           })
           .catch((err) => {
             console.error("Error fetching profile data:", err);
+            setLoading(false); // Set loading to false even on error
           });
       })
       .catch((err) => {
         console.error("Error fetching profile data:", err);
+        setLoading(false); // Set loading to false even on error
       });
   }, [regName]);
+
+  if (loading) {
+    return <div>Loading...</div>; // Show a loading indicator
+  }
+
+  if (!profileData) {
+    return (
+      <div className="p-5 text-center bg-body-tertiary hero">
+        <div className="container py-5">
+          <h1 className="text-white">Not found List</h1>
+        </div>
+      </div>
+    );
+  }
 
   // Render nothing if profileData is still null
   if (profileData === null) {

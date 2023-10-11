@@ -57,9 +57,26 @@ function HomePage() {
   const [Influencerlist, setInfluencerlistList] = useState([]);
   const [celebritylist, setcelebritylistList] = useState([]);
 
+  // const fetchData = async () => {
+  //   try {
+  //     const featuredList = await getInfluencersFeturedList(6, "Instagram");
+  //     setList(featuredList.length > 0 ? featuredList : placeholderData);
+
+  //     const influencerList = await getInfluencersList(6, "Instagram");
+  //     setInfluencerlistList(influencerList.length > 0 ? influencerList : placeholderData);
+
+  //     const celebrityList = await getInfluencersList(6, "Instagram");
+  //     setcelebritylistList(celebrityList.length > 0 ? celebrityList : placeholderData);
+  //   } catch (error) {
+  //     console.error("Error fetching data from the API:", error);
+  //     // Handle the error here
+  //     // You can show an error message or take other appropriate actions
+  //   }
+  // };
+
   useEffect(() => {
 
-    getInfluencersFeturedList(6, "Influencers")
+    getInfluencersFeturedList(6, "LinkedIn")
       .then((result) => {
         
         if (Array.isArray(result) && result.length > 0) {
@@ -80,7 +97,7 @@ function HomePage() {
         
       });
 
-    getInfluencersList(6, "Influencers")
+    getInfluencersList(6, "LinkedIn")
       .then((result) => {
         
         if (Array.isArray(result) && result.length > 0) {
@@ -101,7 +118,7 @@ function HomePage() {
         
       });
 
-    getInfluencersList(6, "celebrity")
+    getInfluencersList(6, "LinkedIn")
       .then((result) => {
         
         if (Array.isArray(result) && result.length > 0) {
@@ -121,6 +138,8 @@ function HomePage() {
         console.error("Error fetching data from the API:", error);
         
       });
+
+    // fetchData();
   }, []);
 
   return (
@@ -132,7 +151,7 @@ function HomePage() {
       <PopularCategories />
 
       <SliderList
-        title="Featured"
+        title="Top Influencer"
         subtitle="Hire top influencer across all platforms - See All"
         list={list}
       />
