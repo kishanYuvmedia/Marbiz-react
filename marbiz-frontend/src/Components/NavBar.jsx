@@ -29,14 +29,14 @@ function NavBar() {
                   Explore
                 </Link>
               </li>
-              <div class="vr" style={{backgroundColor: "red"}}></div>
+              <div className="vr" style={{backgroundColor: "red"}}></div>
 
               <li className="nav-item">
                 <Link className="nav-link text-center " to="/howitworks">
                   How it Works
                 </Link>
               </li>
-              <div class="vr" style={{backgroundColor: "red"}}></div>
+              <div className="vr" style={{backgroundColor: "red"}}></div>
               <li className="nav-item">
                 <Link className="nav-link text-center" to="/category">
                   Category
@@ -49,13 +49,13 @@ function NavBar() {
               <li className="nav-item">
                 <Link className="nav-link d-flex align-items-center" to="/brand">
                   Join as Brand
-                  <i class="fa-solid fa-arrow-right-long ms-2"></i>
+                  <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link d-flex align-items-center" to="/creatorSignUp">
                   Join as creator
-                  <i class="fa-solid fa-arrow-right-long ms-2"></i>
+                  <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
               </li>
               <li className="nav-item">

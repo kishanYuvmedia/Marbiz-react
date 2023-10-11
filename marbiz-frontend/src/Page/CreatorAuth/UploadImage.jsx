@@ -89,7 +89,7 @@ export default function UploadImage() {
               <h1 className="text-white m-3">
                 Upload Your Profile Image
               </h1>
-              <label for="file-upload" class="custom-file-upload p-3 text-gray fw-bold text-uppercase align-content-center d-grid">
+              <label for="file-upload" className="custom-file-upload p-3 text-gray fw-bold text-uppercase align-content-center d-grid">
                 Upload your image
               </label>
 

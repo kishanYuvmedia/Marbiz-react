@@ -39,7 +39,7 @@ const SearchBar = () => {
                                     classNamePrefix="select"
                                     options={optionsPlatform}
                                 />
-                            <div class="vr" style={{backgroundColor: "red"}}></div>
+                            <div className="vr" style={{backgroundColor: "red"}}></div>
                             </div>
 
                             <div className="ms-3 multi-select-category">

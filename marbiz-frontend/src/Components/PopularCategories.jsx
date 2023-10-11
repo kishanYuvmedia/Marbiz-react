@@ -19,12 +19,20 @@ const PopularCategories = () => {
   useEffect(() => {
     getPublicList("Influencers")
       .then((result) => {
-        setCategory(result);
+        setTimeout(() => {
+          setCategory(result); // Use placeholder data
+        }, 1000);
+        console.log("API Response:", categoryList)
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
       });
   }, []);
+
+  // Conditional rendering when categoryList is not yet defined
+  if (!categoryList || categoryList.length === 0) {
+    return <div className="text-white text-center">Loading categories...</div>; // You can customize this loading message
+  }
 
   return (
     <div className="container">

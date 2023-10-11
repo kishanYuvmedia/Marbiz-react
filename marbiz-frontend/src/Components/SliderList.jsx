@@ -26,7 +26,7 @@ const SliderList = (props) => {
           </h3>
           <span className="text-secondary">{subtitle}</span>
         </div>
-        <hr class="border border-danger border-1 opacity-50" />
+        <hr className="border border-danger border-1 opacity-50" />
       </div>
 
       <div className="container-fluid">
