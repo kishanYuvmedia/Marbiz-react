@@ -6,24 +6,19 @@ const CelebCard = (props) => {
     Array.isArray(props.category) ? props.category : []
   );
 
-
   return (
-    <div style={{
-      margin: "0 10px",
-    }}>
-      <div className="card bg-black card-bg mx-2 card-has-bg click-col" style={{
-        // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
-        // borderRadius: "15px",
-        // padding: "2px",
-        transform: `translateY(${props.index === 0 ? 10 : (props.index % 2 !== 0 ? -10 : 10)}px)`,
-        marginRight: `${props.cardGap}px`,
-      }}>
-
-
+    <>
+      <div
+        className="card card-bg mx-2 card-has-bg click-col"
+        style={{
+          background: "linear-gradient(145deg, #8725fe, #FE66AB)",
+          // borderRadius: "15px",
+          padding: "2px",
+        }}
+      >
         <div
           className="card card-img text-dark "
           style={{
-
             backgroundImage: `url("${props.image}")`,
             // borderRadius: "15px",
             backgroundRepeat: "no-repeat",
@@ -46,31 +41,32 @@ const CelebCard = (props) => {
                     </h3>
 
                   </Link>
-                  
-                  
+
+
                 </div>
               </div>
             </div>
           </div>
 
         </div>
-      
-      <div className="d-flex justify-content-start mt-2 p-2 " style={{
-        zIndex: "5",
-      }}>
-        {listcategory &&
-          listcategory.map((value) => (
-            <span
-              key={value.label}
-              className="badge badge-danger me-2"
-            >
-              {value.label}
-            </span>
-          ))}
+
+        <div className="d-flex justify-content-start mt-2 p-2 " style={{
+          zIndex: "5",
+        }}>
+          {listcategory &&
+            listcategory.map((value) => (
+              <span
+                key={value.label}
+                className="badge badge-danger me-2"
+              >
+                {value.label}
+              </span>
+            ))}
           <small className="text-white">Active Platform</small>
+        </div>
       </div>
-      </div>
-    </div>
+    </>
+
   );
 };
 

@@ -120,7 +120,7 @@ export default function EmailVerify(props) {
   };
 
   useEffect(() => {
-    getPublicList("Influencers").then((result) => {
+    getPublicList("Platform").then((result) => {
       setCategory(result);
     });
   }, []);
@@ -138,7 +138,12 @@ export default function EmailVerify(props) {
               </h1>
 
               <Row className="justify-content-md-center mt-4">
-                <Col xs lg="6" style={{ textAlign: "left" }} className="inquiry-form  p-5 rounded-3">
+                <Col
+                  xs
+                  lg="6"
+                  style={{ textAlign: "left" }}
+                  className="inquiry-form  p-5 rounded-3"
+                >
                   <Form onSubmit={handleSubmit} id="myForm">
                     <Form.Group className="mb-3" controlId="formGridAddress1">
                       <Form.Control

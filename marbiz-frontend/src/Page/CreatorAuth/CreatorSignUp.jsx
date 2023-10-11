@@ -5,8 +5,6 @@ import EmailVerify from "./EmailVerify";
 import { checkPublicName } from "../../services/api/api-service";
 import { json } from "react-router-dom";
 
-
-
 export default function CreatorSignUp() {
   const [claimtext, setclaimtext] = useState("");
   const [value, setvalue] = useState("");
@@ -32,7 +30,11 @@ export default function CreatorSignUp() {
           })
           .catch((error) => {
             console.error("API Error:", error); // Log any API errors
-            Swal.fire("Error", "An error occurred while checking the claim name", "error");
+            Swal.fire(
+              "Error",
+              "An error occurred while checking the claim name",
+              "error"
+            );
           });
       }
     } else {
@@ -47,9 +49,18 @@ export default function CreatorSignUp() {
           <div className="my-5 p-5 text-center bg-body-tertiary hero">
             <div className="container ">
               <div className="d-grid justify-content-center">
-                <dotlottie-player src="https://lottie.host/8fe8b914-6e21-4220-8886-c9e23e757b91/ypmqaQjU2U.json" background="transparent" speed="1" style={{ width: "300px", height: "300px" }} loop autoplay></dotlottie-player>
+                <dotlottie-player
+                  src="https://lottie.host/8fe8b914-6e21-4220-8886-c9e23e757b91/ypmqaQjU2U.json"
+                  background="transparent"
+                  speed="1"
+                  style={{ width: "300px", height: "300px" }}
+                  loop
+                  autoplay
+                ></dotlottie-player>
               </div>
-              <h1 className="text-body-emphasis text-white fw-bold">Make Money as a Creator</h1>
+              <h1 className="text-body-emphasis text-white fw-bold">
+                Make Money as a Creator
+              </h1>
               <p className="col-lg-8 mx-auto lead text-white">
                 The simple way to sell, manage, and get paid for your Instagram,
                 TikTok, YouTube, and UGC brand deals
@@ -67,7 +78,6 @@ export default function CreatorSignUp() {
                         border: "none",
                         outline: "none",
                         boxShadow: "none",
-
                       }}
                     />
                   </div>
@@ -88,4 +98,3 @@ export default function CreatorSignUp() {
     </>
   );
 }
-

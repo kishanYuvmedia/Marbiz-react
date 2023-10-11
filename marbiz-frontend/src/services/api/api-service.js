@@ -53,7 +53,9 @@ export const createProfileListing = (data) => {
 export const createMtUsers = (data) => {
   return create("MtUsers", data);
 };
-
+export const createEnquiry = (data) => {
+  return create("Enquiries", data);
+};
 export const createProfile = (data) => {
   return create("MtProfiles", data);
 };

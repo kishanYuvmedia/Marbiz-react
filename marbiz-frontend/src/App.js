@@ -1,7 +1,7 @@
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "mdb-ui-kit/css/mdb.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import 'mdb-ui-kit/js/mdb.min.js';
+import "mdb-ui-kit/js/mdb.min.js";
 import * as mdb from "mdb-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
@@ -57,6 +57,8 @@ function App() {
           <Route path="/creatorSignup" element={<CreatorSignUp />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
+          
+          <Route path="/inquiryform/:regName" element={<InquiryForm />} />
 
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />

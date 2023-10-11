@@ -113,7 +113,7 @@ export default function CreateProfile(props) {
     }
   };
   useEffect(() => {
-    getPublicList("CategoryType").then((result) => {
+    getPublicList("Category").then((result) => {
       setCategory(result);
     });
     getPublicList("Document").then((result) => {
@@ -125,7 +125,7 @@ export default function CreateProfile(props) {
     <div>
       <div className="p-3 text-center bg-body-tertiary hero">
         <div className="container ">
-          <h1 className="fw-bold text-white mb-3" >Make Your Profile </h1>
+          <h1 className="fw-bold text-white mb-3">Make Your Profile </h1>
           <Row className="justify-content-md-center ">
             <Col xs lg="6" style={{ textAlign: "left" }}>
               <Form onSubmit={handleSubmit} id="myForm">
@@ -145,37 +145,40 @@ export default function CreateProfile(props) {
                   </Form.Control.Feedback>
                 </Form.Group>
 
-                <Row >
-                <Form.Group className="col-md-6 mb-3" controlId="formNumber">
-                  <Form.Control
-                    type="text"
-                    name="businessNumber"
-                    id="businessNumber"
-                    className="dark-bg"
-                    placeholder="Business contact number"
-                    value={formData.businessNumber}
-                    onChange={handleChange}
-                    isInvalid={!!errors.businessNumber}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.businessNumber}
-                  </Form.Control.Feedback>
-                </Form.Group>
-                <Form.Group className="col-md-6 mb-3" controlId="businessEmail">
-                  <Form.Control
-                    type="text"
-                    name="businessEmail"
-                    id="businessEmail"
-                    placeholder="Business Email"
-                    className="dark-bg"
-                    value={formData.businessEmail}
-                    onChange={handleChange}
-                    isInvalid={!!errors.businessEmail}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.businessEmail}
-                  </Form.Control.Feedback>
-                </Form.Group>
+                <Row>
+                  <Form.Group className="col-md-6 mb-3" controlId="formNumber">
+                    <Form.Control
+                      type="text"
+                      name="businessNumber"
+                      id="businessNumber"
+                      className="dark-bg"
+                      placeholder="Business contact number"
+                      value={formData.businessNumber}
+                      onChange={handleChange}
+                      isInvalid={!!errors.businessNumber}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.businessNumber}
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                  <Form.Group
+                    className="col-md-6 mb-3"
+                    controlId="businessEmail"
+                  >
+                    <Form.Control
+                      type="text"
+                      name="businessEmail"
+                      id="businessEmail"
+                      placeholder="Business Email"
+                      className="dark-bg"
+                      value={formData.businessEmail}
+                      onChange={handleChange}
+                      isInvalid={!!errors.businessEmail}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.businessEmail}
+                    </Form.Control.Feedback>
+                  </Form.Group>
                 </Row>
                 <Form.Group className="mb-3" controlId="location">
                   <Form.Control
@@ -225,40 +228,44 @@ export default function CreateProfile(props) {
                   </Form.Control.Feedback>
                 </Form.Group>
 
-                <Row >
-                <Form.Group as={Col} className="col-md-6 mb-3" controlId="formGridState">
-                  <Form.Select
-                    name="idProofType"
-                    className="dark-bg"
-                    defaultValue={formData.idProofType}
-                    onChange={handleChange}
-                    isInvalid={!!errors.idProofType}
+                <Row>
+                  <Form.Group
+                    as={Col}
+                    className="col-md-6 mb-3"
+                    controlId="formGridState"
                   >
-                    <option disabled>Select</option>
-                    {IdCategory.map((list) => (
-                      <option key={list.label}>{list.label}</option>
-                    ))}
-                  </Form.Select>
-                  <Form.Control.Feedback type="invalid">
-                    {errors.idProofType}
-                  </Form.Control.Feedback>
-                </Form.Group>
+                    <Form.Select
+                      name="idProofType"
+                      className="dark-bg"
+                      defaultValue={formData.idProofType}
+                      onChange={handleChange}
+                      isInvalid={!!errors.idProofType}
+                    >
+                      <option disabled>Select</option>
+                      {IdCategory.map((list) => (
+                        <option key={list.label}>{list.label}</option>
+                      ))}
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid">
+                      {errors.idProofType}
+                    </Form.Control.Feedback>
+                  </Form.Group>
 
-                <Form.Group className="col-md-6 mb-3" controlId="formNumber">
-                  <Form.Control
-                    type="text"
-                    name="idProofNo"
-                    id="idProofNo"
-                    placeholder="ID Proof Number"
-                    className="dark-bg"
-                    value={formData.idProofNo}
-                    onChange={handleChange}
-                    isInvalid={!!errors.idProofNo}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.idProofNo}
-                  </Form.Control.Feedback>
-                </Form.Group>
+                  <Form.Group className="col-md-6 mb-3" controlId="formNumber">
+                    <Form.Control
+                      type="text"
+                      name="idProofNo"
+                      id="idProofNo"
+                      placeholder="ID Proof Number"
+                      className="dark-bg"
+                      value={formData.idProofNo}
+                      onChange={handleChange}
+                      isInvalid={!!errors.idProofNo}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      {errors.idProofNo}
+                    </Form.Control.Feedback>
+                  </Form.Group>
                 </Row>
                 <Form.Group className="mb-3 mt-3" id="formGridCheckbox7">
                   <Form.Check

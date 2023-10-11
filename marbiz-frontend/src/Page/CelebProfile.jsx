@@ -39,7 +39,6 @@ const CelebProfile = () => {
   if (profileData === null) {
     return null;
   }
-
   return (
     <>
       {profileData && (
@@ -96,8 +95,11 @@ const CelebProfile = () => {
                     ? profileData.location
                     : "India"}
                 </h6>
-                <Link to="/inquiryform">
-                  <button className="button-87 my-3">See Price and Book</button>
+                <Link
+                  to={`/inquiryform/${profileData.regName}`}
+                  className="button-87 my-3"
+                >
+                  See Price and Book
                 </Link>
                 <p className="text-white">{profileData.bio}</p>
               </div>
@@ -111,7 +113,7 @@ const CelebProfile = () => {
               </div>
             </div>
             <div className="d-flex justify-content-center my-3">
-              <Link to="/inquiryform">
+              <Link to={`/inquiryform/${profileData.regName}`}>
                 <button className="button-87 my-3">See Price and Book</button>
               </Link>
             </div>
