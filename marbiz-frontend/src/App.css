@@ -1,20 +1,22 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 @font-face {
-  font-family: 'SharpGrotesk-medium';
-  src: local('./Fonts/Sharp_Grotesk/sharp-grotesk-medium-25-regular.woff') format('woff'); 
+  font-family: "SharpGrotesk-medium";
+  src: local("./Fonts/Sharp_Grotesk/sharp-grotesk-medium-25-regular.woff")
+    format("woff");
 }
 @font-face {
-  font-family: 'SharpGrotesk-bold';
-  src: local('./Fonts/Sharp_Grotesk/SharpGrotesk-Bold25.otf') format('otf'); 
+  font-family: "SharpGrotesk-bold";
+  src: local("./Fonts/Sharp_Grotesk/SharpGrotesk-Bold25.otf") format("otf");
 }
 @font-face {
-  font-family: 'Coolvetica-rg';
-  src: local('./Fonts/Coolvetica/coolvetica-rg.otf ') format('otf'); 
+  font-family: "Coolvetica-rg";
+  src: local("./Fonts/Coolvetica/coolvetica-rg.otf ") format("otf");
 }
 
 body,
@@ -29,13 +31,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 a {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
 
 .App {
   text-align: center;
@@ -158,7 +161,7 @@ a {
 }
 
 .xyb {
-  background: linear-gradient(315deg, #8725fe, #FE66AB)
+  background: linear-gradient(315deg, #8725fe, #fe66ab);
 }
 
 .box .text-wrapper-2 {
@@ -203,7 +206,7 @@ a {
   &.card-has-bg {
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     background-size: 125%;
-    
+
     background-repeat: no-repeat;
     background-position: center center;
     &:before {
@@ -234,7 +237,7 @@ a {
         background: linear-gradient(
           0deg,
           #000000 0%,
-          #FC3C6D4F 25%,
+          #fc3c6d4f 25%,
           #8725fe00 100%
         );
       }
@@ -244,11 +247,10 @@ a {
     background: none;
     border-top: none;
   }
-  
+
   .card-footer .media img {
     border: solid 3px rgba(255, 255, 255, 0.3);
   }
-  
 
   .card-title {
     font-weight: 800;
@@ -374,17 +376,18 @@ a {
   font-size: 60px;
   font-weight: 900;
   line-height: 1;
-  
-  background: -webkit-linear-gradient(#ec0606, #6a0101); /* For Safari and older versions of Chrome */
-  background: -o-linear-gradient(#8f0808, #00a100); /* For Opera */
-  background: linear-gradient( #9E32EF, #F054B9); /* Standard syntax */
 
-  
+  background: -webkit-linear-gradient(
+    #ec0606,
+    #6a0101
+  ); /* For Safari and older versions of Chrome */
+  background: -o-linear-gradient(#8f0808, #00a100); /* For Opera */
+  background: linear-gradient(#9e32ef, #f054b9); /* Standard syntax */
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
 
 @media (max-width: 768px) {
   .celeb1,
@@ -402,11 +405,9 @@ a {
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  
 }
 .nav-link:hover {
   color: #f25cb4;
-  
 }
 
 .promotion-card {
@@ -445,7 +446,7 @@ a {
   left: 0;
   bottom: 0;
   border-radius: 20px 20px 0 0;
-  background-color: #1414152B;
+  background-color: #1414152b;
 }
 
 .social-section {
@@ -491,10 +492,10 @@ a {
 .btn-hover.color-4 {
   background-image: linear-gradient(
     to right,
-    #F5615F,
-    #FC396E,
-    #FC396E,
-    #F5615F
+    #f5615f,
+    #fc396e,
+    #fc396e,
+    #f5615f
   );
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
@@ -506,7 +507,6 @@ a {
   font-weight: 400;
   line-height: 73px;
 }
-
 
 .section-featured {
   color: #9b3c95;
@@ -676,8 +676,6 @@ a {
   /* width: 300px; */
 }
 
-
-
 .srch-btn:hover {
   background-position: right center;
   /* change the direction of the change here */
@@ -757,7 +755,7 @@ a {
 .celeb-img {
   /* height: 550px; */
   /* width: 450px; */
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
 
 .breadcrumb {
@@ -858,10 +856,9 @@ a {
   padding: 2px;
 }
 
-
 .inquiry-form {
-  background-color: 	#28282B;
-  border: 2px solid #6f42c1
+  background-color: #28282b;
+  border: 2px solid #6f42c1;
 }
 
 .css-13cymwt-control {
@@ -869,7 +866,7 @@ a {
   background-color: #000000 !important;
   padding: 5px 15px !important;
 
-  border-top: 0px solid #6f42c1  !important;
+  border-top: 0px solid #6f42c1 !important;
   border-bottom: 0px solid #6f42c1 !important;
   border-left: 0px solid #6f42c1 !important;
   border-right: 0px solid #6f42c1 !important;
@@ -877,10 +874,9 @@ a {
   border-radius: 10px !important;
 }
 .css-t3ipsp-control {
-  
   padding: 5px 15px !important;
   background-color: #000000 !important;
-  border-top: 0px solid #6f42c1  !important;
+  border-top: 0px solid #6f42c1 !important;
   border-bottom: 0px solid #6f42c1 !important;
   border-left: 0px solid #6f42c1 !important;
   border-right: 0px solid #6f42c1 !important;
@@ -928,7 +924,6 @@ a {
   border-radius: 10px;
   margin-top: 10px;
   display: block;
-  
 }
 
 /* Responsive styles */
@@ -939,8 +934,7 @@ a {
 }
 
 .upload-img-section {
-  border: 2px solid #8A2DFC; /* Purple border */
-
+  border: 2px solid #8a2dfc; /* Purple border */
 }
 
 .carousel .slider-wrapper {
@@ -949,24 +943,23 @@ a {
 
 .card .card-img:hover {
   transform: scale(1.07);
-  
 }
 
-.dashboard-nav{
-  border-bottom: 2px solid #8A2DFC;
-  background-color: #28282B;
+.dashboard-nav {
+  border-bottom: 2px solid #8a2dfc;
+  background-color: #28282b;
 }
 
-.nav-link:focus, .nav-link:hover {
-  color: #FD66AB;
+.nav-link:focus,
+.nav-link:hover {
+  color: #fd66ab;
 }
 
 .main-category-filter {
   width: 350px;
 }
-.main-category-filter option{
-  background-color: #28282B;
-  
+.main-category-filter option {
+  background-color: #28282b;
 }
 /* Default width for larger screens */
 .multi-select-category .css-13cymwt-control,
@@ -974,11 +967,106 @@ a {
   width: 580px;
 }
 
-
 .custom-card {
   margin-right: 20px; /* Adjust the margin to control the spacing between cards */
 }
 
 .navbar-collapse {
   display: grid;
+}
+
+.profile-image-container {
+  border-radius: 50%;
+  overflow: hidden; /* This is important to ensure the image stays within the circular container */
+  width: 100px; /* Set your desired width */
+  height: 100px; /* Set your desired height */
+}
+
+/* Add additional styling for the image if needed */
+.profile-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the image fills the circular container */
+  object-position: center;
+}
+
+.gallery-container-one {
+  height: 515px;
+}
+.gallery-container-one img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.gallery-container-two {
+  height: 250px;
+}
+.gallery-container-three {
+  height: 250px;
+}
+.gallery-container-two img {
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+.gallery-container-three img {
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+  object-position: top;
+}
+
+.nav-tabs .tab-btn {
+  /* width: 130px; */
+  font-size: 16px;
+  /* font-weight: 300; */
+  color: #fff;
+  cursor: pointer;
+  /* margin-left: 20px; */
+  /* height: 45px; */
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 8px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #f5615f,
+    #fc396e,
+    #fc396e,
+    #f5615f
+  );
+  background-image: 0 4px 15px 0 rgb(49, 22, 19);
+  /* box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75); */
+}
+.nav-tabs .tab-btn:hover {
+  /* width: 130px; */
+  font-size: 16px;
+  /* font-weight: 300; */
+  color: #fff;
+  cursor: pointer;
+  /* margin-left: 20px; */
+  /* height: 45px; */
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 8px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #fc396e,
+    #f5615f,
+    #f5615f,
+    #fc396e
+  );
+  background-image: 0 4px 15px 0 rgb(49, 22, 19);
+  box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
 }
