@@ -1100,13 +1100,13 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0.8rem 0;
+  /* padding: 0.8rem 0; */
   background-color: rgb(0, 0, 0); /* Specify your background color here */
   z-index: 99;
   /* will-change: transform; */
   /* transform: translateZ(0); */
   /* Specify your box shadow here */
-  border-top: 1px solid red;
+  border-top: 1px solid #FC396E;
   
 }
 
@@ -1127,14 +1127,31 @@ a {
   color: white;
   flex-direction: column;
   align-items: center;
-
+  font-weight: 600;
+  padding: 0.8rem 0;
 
 }
 .bottom-nav-link:hover {
   
-  color: red;
+  color: #F5615F;
 }
 
-.bottom-nav-link .active {
-  color: red; /* Specify your active link text color here */
+.bottom-nav-item.active {
+  color: #ffffff; /* Specify your active link text color here */
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #fc396e,
+    #f5615f,
+    #f5615f,
+    #fc396e
+  );
+  background-image: 0 4px 15px 0 rgb(49, 22, 19);
+  box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.bottom-nav-item.active a {
+  color: #ffffff; /* Specify your active link text color here */
+  
 }

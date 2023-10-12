@@ -41,6 +41,7 @@ function NavBar() {
                   Explore
                 </Link>
               </li>
+              <div className="vr desktop-view" style={{backgroundColor: "#FC6E90"}}></div>
               <li className="nav-item">
                 <Link
                   className={`nav-link text-center ${activeNavItem === "howitworks" && "active"}`}
@@ -50,6 +51,7 @@ function NavBar() {
                   How it Works
                 </Link>
               </li>
+              <div className="vr desktop-view" style={{backgroundColor: "#FC6E90"}}></div>
               <li className="nav-item">
                 <Link
                   className={`nav-link text-center ${activeNavItem === "category" && "active"}`}
@@ -100,6 +102,7 @@ function NavBar() {
               <span class="">Explore</span>
             </Link>
           </div>
+          
           <div
             className={`bottom-nav-item ${
               activeNavItem === "brand" ? "active" : ""

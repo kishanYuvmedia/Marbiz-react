@@ -57,22 +57,6 @@ function HomePage() {
   const [Influencerlist, setInfluencerlistList] = useState([]);
   const [celebritylist, setcelebritylistList] = useState([]);
 
-  // const fetchData = async () => {
-  //   try {
-  //     const featuredList = await getInfluencersFeturedList(6, "Instagram");
-  //     setList(featuredList.length > 0 ? featuredList : placeholderData);
-
-  //     const influencerList = await getInfluencersList(6, "Instagram");
-  //     setInfluencerlistList(influencerList.length > 0 ? influencerList : placeholderData);
-
-  //     const celebrityList = await getInfluencersList(6, "Instagram");
-  //     setcelebritylistList(celebrityList.length > 0 ? celebrityList : placeholderData);
-  //   } catch (error) {
-  //     console.error("Error fetching data from the API:", error);
-  //     // Handle the error here
-  //     // You can show an error message or take other appropriate actions
-  //   }
-  // };
 
   useEffect(() => {
 
@@ -139,7 +123,7 @@ function HomePage() {
         
       });
 
-    // fetchData();
+    
   }, []);
 
   return (

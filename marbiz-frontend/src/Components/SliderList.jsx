@@ -29,7 +29,7 @@ const SliderList = (props) => {
         <hr className="border border-danger border-1 opacity-50" />
       </div>
 
-      <div className="container-fluid">
+      <div className="container">
         <Carousel style={{ padding: "20px 20px", }}
           showThumbs={false}
           showStatus={false}
