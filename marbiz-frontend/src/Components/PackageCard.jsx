@@ -1,9 +1,8 @@
 import React from 'react'
 
-
-const PackageCard = ({title, cost, icon}) => {
+const PackageCard = ({ title, cost, icon }) => {
     return (
-        <div>
+        <div className='mb-3'>
             <div className="border border-danger rounded-3 p-4">
                 <div className="d-flex text-white justify-content-between">
                     <h3>{title}</h3>
@@ -12,11 +11,16 @@ const PackageCard = ({title, cost, icon}) => {
                 <div>
                     <p className="text-secondary"> Top creators have completed multiple orders and have a high rating from brands Top creators have completed multiple orders and have a high rating fromTop creators have completed multiple orders and have a high rating from</p>
                 </div>
-                <div className="d-flex text-white justify-content-between">
-                    <div className="fs-3">
-                        {icon}
+                <div className="d-flex text-white justify-content-between align-items-center">
+                    <div className="">
+                        <img src={icon} alt="icon"  style={{
+                            height: "32px",
+                            width: "32px",
+                        }}/>
                     </div>
-                    <button className="btn-hover color-4">Start</button>
+                    <div>
+                        <button className="btn-global px-3 ">Start</button>
+                    </div>
                 </div>
             </div>
         </div>

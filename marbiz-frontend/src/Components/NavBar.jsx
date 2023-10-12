@@ -60,7 +60,7 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <Link to="/login">
-                  <button className=" btn-hover color-4 w-50 fw-normal ms-2">
+                  <button className=" btn-global w-50 fw-normal ms-2">
                     Login
                   </button>
                 </Link>

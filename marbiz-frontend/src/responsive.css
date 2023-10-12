@@ -14,6 +14,10 @@
   .multi-select-category .css-t3ipsp-control {
     width: 100%;
   }
+
+  .package-navigation {
+    justify-content: center;
+  }
 }
 @media only screen and (max-width: 575px) {
 }

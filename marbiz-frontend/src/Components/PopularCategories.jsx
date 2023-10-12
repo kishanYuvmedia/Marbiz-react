@@ -56,8 +56,7 @@ const PopularCategories = () => {
         >
           {categoryList.map((category, index) => (
             <div className=" m-2" key={index}>
-              <div className=" btn-hover color-4 overflow-x-auto px-3 py-2 fs-6 fw-light">
-                <i className="bi bi-star"></i>
+              <div className="btn-global overflow-x-auto px-3 py-2 fs-6 fw-light">
                 {" "}
                 {category.label}
               </div>

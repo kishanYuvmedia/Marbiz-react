@@ -64,7 +64,7 @@ const CelebProfile = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="col-8 d-flex justify-content-between ">
+                            <div className="col-md-4 col-8 d-flex justify-content-between ">
                                 <div>
 
 
@@ -83,11 +83,12 @@ const CelebProfile = () => {
                                         {_.get(profileData, "location") ? profileData.location : "India"}
                                     </h6>
                                 </div>
-                                <div className="d-grid align-content-center">
-                                    <Link to={`/inquiryform/${profileData.regName}`}>
-                                        <button className="button-87 my-3">See Price and Book</button>
-                                    </Link>
-                                </div>
+
+                            </div>
+                            <div className="col-12 col-md-4 justify-content-center align-content-center">
+                                <Link to={`/inquiryform/${profileData.regName}`}>
+                                    <button className="button-87 my-3">See Price and Book</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -155,7 +156,7 @@ const CelebProfile = () => {
                             </Link>
                         </div>
                     </div>
-                    
+
                     {/* Packages section */}
                     <div className="container">
                         <div className="row">
@@ -169,13 +170,7 @@ const CelebProfile = () => {
                         </div>
                     </div>
 
-                    <div className="container my-5">
-                        <div className="row">
-                            <div className="col">
-                                <Accordion about={profileData.about} />
-                            </div>
-                        </div>
-                    </div>
+
                 </>
             )}
             {regName && (

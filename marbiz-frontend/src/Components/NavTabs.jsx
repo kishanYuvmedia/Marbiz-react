@@ -1,8 +1,11 @@
 import React from "react";
-import { VideoGallery } from "./Gallery";
-import LightBoxGallery from "./LightBoxGallery";
+
 import { BsInstagram, BsYoutube } from "react-icons/bs";
 import PackageCard from "./PackageCard";
+
+import ugc_icon from "../Images/ugc_icon.png"
+import youtube_icon from "../Images/youtube_icon.png"
+import insta_icon from "../Images/insta_icon.png"
 
 
 
@@ -11,13 +14,13 @@ const NavTabs = (props) => {
     return (
         <div>
             {/* <!-- Tabs navs --> */}
-            <ul className="nav nav-tabs mb-3" id="ex-with-icons" role="tablist">
+            <ul className="nav package-navigation nav-tabs mb-3" id="ex-with-icons" role="tablist">
                 <li
-                    className="nav-item"
+                    className="nav-item "
                     role="presentation"
                 >
                     <a
-                        className="nav-link tab-btn text-white active"
+                        className="nav-link active"
                         id="all-package"
                         data-mdb-toggle="tab"
                         href="#all-packages"
@@ -30,72 +33,57 @@ const NavTabs = (props) => {
                     </a>
                 </li>
                 <li
-                    className="nav-item mx-3"
+                    className="nav-item"
                     role="presentation"
-                    style={{
-                        backgroundColor: "matteblack", // Change to your dark background color
-                        borderColor: "purple", // Purple border
-                        color: "orange", // Orange text color
-                        borderRadius: "5px",
-                    }}
+                    
                 >
                     <a
-                        className="nav-link fw-bold"
+                        className="nav-link"
                         id="instagram-package"
                         data-mdb-toggle="tab"
                         href="#instagram-packages"
                         role="tab"
                         aria-controls="instagram-packages"
                         aria-selected="false"
-                        style={{ color: "black", backgroundColor: "#fff" }}
+                        
                     >
-                        <i className="fas fa-chart-line fa-fw me-2"></i>Intagram
+                        Intagram
                     </a>
                 </li>
                 <li
-                    className="nav-item mx-3"
+                    className="nav-item"
                     role="presentation"
-                    style={{
-                        backgroundColor: "matteblack", // Change to your dark background color
-                        borderColor: "purple", // Purple border
-                        color: "orange", // Orange text color
-                        borderRadius: "5px",
-                    }}
+                    
                 >
                     <a
-                        className="nav-link fw-bold"
+                        className="nav-link"
                         id="youtube-package"
                         data-mdb-toggle="tab"
                         href="#youtube-packages"
                         role="tab"
                         aria-controls="youtube-packages"
                         aria-selected="false"
-                        style={{ color: "black", backgroundColor: "#fff" }}
+                        
                     >
-                        <i className="fas fa-chart-line fa-fw me-2"></i>Youtube
+                        Youtube
                     </a>
                 </li>
                 <li
-                    className="nav-item mx-3"
+                    className="nav-item"
                     role="presentation"
-                    style={{
-                        backgroundColor: "matteblack", // Change to your dark background color
-                        borderColor: "purple", // Purple border
-                        color: "orange", // Orange text color
-                        borderRadius: "5px",
-                    }}
+                    
                 >
                     <a
-                        className="nav-link fw-bold"
+                        className="nav-link"
                         id="ugc-packages"
                         data-mdb-toggle="tab"
                         href="#ugc-package"
                         role="tab"
                         aria-controls="ugc-packages"
                         aria-selected="false"
-                        style={{ color: "black", backgroundColor: "#fff" }}
+                        
                     >
-                        <i className="fas fa-chart-line fa-fw me-2"></i>UGC
+                        UGC
                     </a>
                 </li>
             </ul>
@@ -114,11 +102,9 @@ const NavTabs = (props) => {
                         <div className="row py-3">
                             <div className="col-md-6 ">
                                 <PackageCard title={"3 Instagram Video"} cost={"100"} icon={<BsInstagram />} />
-
                             </div>
                             <div className="col-md-6 ">
                                 <PackageCard title={"3 Instagram Video"} cost={"100"} icon={<BsInstagram />} />
-
                             </div>
                         </div>
 
@@ -131,16 +117,16 @@ const NavTabs = (props) => {
                     role="tabpanel"
                     aria-labelledby="instagram-package"
                 >
-                    {/* <VideoGallery vedio={[]} /> */}
+                    
                     <div className="container ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
 
-                                <PackageCard title={"3 Instagram Video"} cost={"100"} icon={<BsInstagram />} />
+                                <PackageCard title={"3 Instagram Video"} cost={"100"} icon={insta_icon} />
 
                             </div>
                             <div className="col-md-6 ">
-                                <PackageCard title={"3 Instagram Reel"} cost={"200"} icon={<BsInstagram />} />
+                                <PackageCard title={"3 Instagram Reel"} cost={"200"} icon={insta_icon} />
 
                             </div>
                         </div>
@@ -154,16 +140,16 @@ const NavTabs = (props) => {
                     role="tabpanel"
                     aria-labelledby="youtube-package"
                 >
-                    {/* <VideoGallery vedio={[]} /> */}
+                    
                     <div className="container ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
 
-                                <PackageCard title={"3 Youtube Video"} cost={"500"} icon={<BsYoutube />} />
+                                <PackageCard title={"3 Youtube Video"} cost={"500"} icon={youtube_icon} />
 
                             </div>
                             <div className="col-md-6 ">
-                                <PackageCard title={"3 Youtube Shots"} cost={"400"} icon={<BsYoutube />} />
+                                <PackageCard title={"3 Youtube Shots"} cost={"400"} icon={youtube_icon} />
 
                             </div>
                         </div>
@@ -177,16 +163,16 @@ const NavTabs = (props) => {
                     role="tabpanel"
                     aria-labelledby="ugc-packages"
                 >
-                    {/* <VideoGallery vedio={[]} /> */}
+                    
                     <div className="container ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
 
-                                <PackageCard title={"3 UGC Video"} cost={"300"} />
+                                <PackageCard title={"3 UGC Video"} cost={"300"} icon={ugc_icon} />
 
                             </div>
                             <div className="col-md-6 ">
-                                <PackageCard title={"3 UGC Reel"} cost={"200"} />
+                                <PackageCard title={"3 UGC Reel"} cost={"200"} icon={ugc_icon}/>
 
                             </div>
                         </div>
