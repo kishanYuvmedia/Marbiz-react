@@ -101,10 +101,10 @@ const NavTabs = (props) => {
                     <div className="container ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
-                                <PackageCard title={"3 Instagram Video"} cost={"100"} icon={<BsInstagram />} />
+                                <PackageCard title={"3 Instagram Video"} cost={"100"} icon={insta_icon} />
                             </div>
                             <div className="col-md-6 ">
-                                <PackageCard title={"3 Instagram Video"} cost={"100"} icon={<BsInstagram />} />
+                                <PackageCard title={"3 UGC Video"} cost={"400"} icon={ugc_icon} />
                             </div>
                         </div>
 

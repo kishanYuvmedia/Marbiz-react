@@ -125,7 +125,9 @@ const Footer = () => {
 
             </section>
             
-
+            <div className=' pb-5 mobile-view'>
+                <hr />
+            </div>
         </footer>
 
 

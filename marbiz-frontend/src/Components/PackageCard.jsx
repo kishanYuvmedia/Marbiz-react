@@ -3,7 +3,7 @@ import React from 'react'
 const PackageCard = ({ title, cost, icon }) => {
     return (
         <div className='mb-3'>
-            <div className="border border-danger rounded-3 p-4">
+            <div className="border border-danger package-card p-4">
                 <div className="d-flex text-white justify-content-between">
                     <h3>{title}</h3>
                     <h3>$ {cost}</h3>

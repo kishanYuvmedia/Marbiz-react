@@ -5,6 +5,9 @@
 @media only screen and (max-width: 1200px) {
 }
 @media only screen and (min-width: 992px) {
+  .mobile-view {
+    display: none;
+  }
 }
 @media only screen and (max-width: 992px) {
 }
@@ -17,6 +20,10 @@
 
   .package-navigation {
     justify-content: center;
+  }
+
+  .desktop-view {
+    display: none;
   }
 }
 @media only screen and (max-width: 575px) {

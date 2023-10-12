@@ -98,13 +98,13 @@ const CelebProfile = () => {
                         <div className="row align-items-center">
                             <div className="col-md-6 col-lg-6 col-xl-6 d-none d-md-block">
                                 {/* Large image for medium and larger screens */}
-                                <div className="text-center gallery-container-one border rounded-3 border-danger border-1">
+                                <div className="text-center gallery-container-one  ">
                                     <img src={profileData.coverImage} alt="" className="rounded-3" />
                                 </div>
                             </div>
                             <div className="col-12 d-md-none">
                                 {/* Large image for mobile devices (hidden on medium and larger screens) */}
-                                <div className="text-center gallery-container-one border rounded-3 border-danger border-1">
+                                <div className="text-center gallery-container-one  ">
                                     <img src={profileData.coverImage} alt="" className="rounded-3" />
                                 </div>
                             </div>
@@ -112,13 +112,13 @@ const CelebProfile = () => {
                                 <div className="row py-2">
                                     <div className="col-6 col-md-6">
                                         {/* Small images for all screen sizes */}
-                                        <div className="text-center gallery-container-two border rounded-3 border-danger border-1">
+                                        <div className="text-center gallery-container-two  ">
                                             <img src={profileData.coverImage} alt="" className="rounded-3" />
                                         </div>
                                     </div>
                                     <div className="col-6 col-md-6">
                                         {/* Small images for all screen sizes */}
-                                        <div className="text-center gallery-container-two border rounded-3 border-danger border-1">
+                                        <div className="text-center gallery-container-two  ">
                                             <img src={profileData.coverImage} alt="" className="rounded-3" />
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@ const CelebProfile = () => {
                                 <div className="row pt-2">
                                     <div className="col-12">
                                         {/* Small image for all screen sizes */}
-                                        <div className="text-center gallery-container-three border rounded-3 border-danger border-1">
+                                        <div className="text-center gallery-container-three  ">
                                             <img src={profileData.coverImage} alt="" className="rounded-3" />
                                         </div>
                                     </div>
@@ -164,9 +164,10 @@ const CelebProfile = () => {
                                 <span className="text-white fs-3 me-3">Packages</span>
                                 <span className="text-secondary fs-6">How does it work</span>
                             </div>
-
                             <NavTabs />
-
+                            <div className="my-3">
+                                <span className="text-secondary fs-6">Have a different request?</span>
+                            </div>
                         </div>
                     </div>
 

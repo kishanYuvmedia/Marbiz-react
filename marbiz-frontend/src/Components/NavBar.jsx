@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../Images/marbiz-logo.png";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
+import { BsSearch, BsBriefcase, BsPeople, BsStar } from "react-icons/bs";
+
 
 function NavBar() {
+  const location = useLocation();
+  const [activeNavItem, setActiveNavItem] = useState("explore");
+
+  const handleNavItemClick = (item) => {
+    setActiveNavItem(item);
+  };
+
   return (
     <>
-      <nav className="navbar sticky-top navbar-expand-md  navbar-dark">
+      <nav className="navbar navbar-expand-md navbar-dark">
         <div className="container-fluid mx-lg-5">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" />
@@ -21,31 +30,37 @@ function NavBar() {
           >
             <span className="fas fa-bars"></span>
           </button>
-
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link text-center " to="/explore">
+                <Link
+                  className={`nav-link text-center ${activeNavItem === "explore" && "active"}`}
+                  to="/explore"
+                  onClick={() => handleNavItemClick("explore")}
+                >
                   Explore
                 </Link>
               </li>
-              <div className="vr" style={{backgroundColor: "red"}}></div>
-
               <li className="nav-item">
-                <Link className="nav-link text-center " to="/howitworks">
+                <Link
+                  className={`nav-link text-center ${activeNavItem === "howitworks" && "active"}`}
+                  to="/howitworks"
+                  onClick={() => handleNavItemClick("howitworks")}
+                >
                   How it Works
                 </Link>
               </li>
-              <div className="vr" style={{backgroundColor: "red"}}></div>
               <li className="nav-item">
-                <Link className="nav-link text-center" to="/category">
+                <Link
+                  className={`nav-link text-center ${activeNavItem === "category" && "active"}`}
+                  to="/category"
+                  onClick={() => handleNavItemClick("category")}
+                >
                   Category
                 </Link>
               </li>
-
             </ul>
             <ul className="navbar-nav ms-auto">
-              
               <li className="nav-item">
                 <Link className="nav-link d-flex align-items-center" to="/brand">
                   Join as Brand
@@ -60,16 +75,66 @@ function NavBar() {
               </li>
               <li className="nav-item">
                 <Link to="/login">
-                  <button className=" btn-global w-50 fw-normal ms-2">
+                  <button className="btn-global w-50 fw-normal ms-2">
                     Login
                   </button>
                 </Link>
               </li>
             </ul>
-
           </div>
         </div>
       </nav>
+
+      {/* mobile navigation */}
+      <div className="position-relative mobile-view">
+        <nav class="bottom-nav">
+          <div
+            className={`bottom-nav-item ${
+              activeNavItem === "explore" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("explore")}
+          >
+            <Link className="bottom-nav-link" to="/explore">
+              
+              <BsSearch />
+              <span class="">Explore</span>
+            </Link>
+          </div>
+          <div
+            className={`bottom-nav-item ${
+              activeNavItem === "brand" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("brand")}
+          >
+            <Link className="bottom-nav-link" to="/brand">
+            <BsBriefcase />
+              <span class="">Brand</span>
+            </Link>
+          </div>
+          <div
+            className={`bottom-nav-item ${
+              activeNavItem === "creatorSignUp" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("creatorSignUp")}
+          >
+            <Link className="bottom-nav-link" to="/creatorSignUp">
+            <BsStar />
+              <span class="">Creator</span>
+            </Link>
+          </div>
+          <div
+            className={`bottom-nav-item ${
+              activeNavItem === "login" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("login")}
+          >
+            <Link to="/login" className="bottom-nav-link">
+            <BsPeople />
+              <span class="">Login</span>
+            </Link>
+          </div>
+        </nav>
+      </div>
 
       <Outlet />
     </>

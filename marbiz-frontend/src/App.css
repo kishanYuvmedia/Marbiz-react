@@ -1087,3 +1087,54 @@ a {
   width: 100%;
   /* margin: 10px; */
 }
+
+.package-card {
+  border-radius: 20px;
+}
+
+
+/* mobile navigation */
+.bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem 0;
+  background-color: rgb(0, 0, 0); /* Specify your background color here */
+  z-index: 99;
+  /* will-change: transform; */
+  /* transform: translateZ(0); */
+  /* Specify your box shadow here */
+  border-top: 1px solid red;
+  
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  /* font-size: 0.8rem;
+  color: white; Specify your text color here */
+}
+
+.bottom-nav-link {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+.bottom-nav-link:hover {
+  
+  color: red;
+}
+
+.bottom-nav-link .active {
+  color: red; /* Specify your active link text color here */
+}
