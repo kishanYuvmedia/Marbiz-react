@@ -6,33 +6,22 @@ const CelebCard = (props) => {
     Array.isArray(props.category) ? props.category : []
   );
 
-<<<<<<< HEAD
   return (
-    <>
+    <div
+      style={{
+        margin: "0 10px",
+      }}
+    >
       <div
         className="card card-bg mx-2 card-has-bg click-col"
         style={{
-          background: "linear-gradient(145deg, #8725fe, #FE66AB)",
+          // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
           // borderRadius: "15px",
-          padding: "2px",
+          // padding: "2px",
+          transform: `translateY(${props.isEven ? 10 : -10}px)`,
+          marginRight: `${props.cardGap}px`,
         }}
       >
-=======
-
-  return (
-    <div style={{
-      margin: "0 10px", 
-    }}>
-      <div className="card card-bg mx-2 card-has-bg click-col" style={{
-        // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
-        // borderRadius: "15px",
-        // padding: "2px",
-        transform: `translateY(${props.isEven ? 10 : -10}px)`,
-        marginRight: `${props.cardGap}px`,
-      }}>
-
-
->>>>>>> anshul/master
         <div
           className="card card-img text-dark "
           style={{
@@ -41,11 +30,7 @@ const CelebCard = (props) => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             border: "0",
-<<<<<<< HEAD
-=======
             height: `${props.cardHeight}px`,
-            
->>>>>>> anshul/master
           }}
         >
           <div className="card-img-overlay d-flex flex-column">

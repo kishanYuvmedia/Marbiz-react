@@ -10,11 +10,15 @@ export default function UploadImage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
 
-
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+      const allowedTypes = [
+        "image/jpeg",
+        "image/jpg",
+        "image/png",
+        "image/webp",
+      ];
       if (allowedTypes.includes(file.type)) {
         setSelectedFile(file);
         setErrorMessage("");
@@ -25,7 +29,6 @@ export default function UploadImage() {
           setImagePreview(e.target.result); // Set the imagePreview state with the data URL
         };
         reader.readAsDataURL(file);
-
       } else {
         setSelectedFile(null);
         setErrorMessage(
@@ -40,7 +43,7 @@ export default function UploadImage() {
     if (selectedFile) {
       const formData = new FormData();
       formData.append("image", selectedFile, "compressed-image.jpg"); // You can set the filename here
-      fetch("https://portfolio.yuvmedia.in/upload.php", {
+      fetch("https://marbiz.yuvmedia.in/upload.php", {
         method: "POST",
         body: formData,
       })
@@ -83,13 +86,13 @@ export default function UploadImage() {
     <div>
       <div className="p-3 text-center bg-body-tertiary hero">
         <div className="container my-5 p-5 bg-dark rounded-3 upload-img-section">
-
           <div className="row mb-3 justify-content-center">
             <div className="col-md-6 d-grid justify-content-center align-content-center">
-              <h1 className="text-white m-3">
-                Upload Your Profile Image
-              </h1>
-              <label for="file-upload" class="custom-file-upload p-3 text-gray fw-bold text-uppercase align-content-center d-grid">
+              <h1 className="text-white m-3">Upload Your Profile Image</h1>
+              <label
+                for="file-upload"
+                class="custom-file-upload p-3 text-gray fw-bold text-uppercase align-content-center d-grid"
+              >
                 Upload your image
               </label>
 
@@ -107,7 +110,6 @@ export default function UploadImage() {
               </button>
             </div>
 
-
             <div className="col-md-6 d-grid justify-content-center">
               {/* <h1 className="text-white mb-3">
                 Preview
@@ -121,11 +123,8 @@ export default function UploadImage() {
                 />
               )}
             </div>
-
           </div>
-          <div>
-
-          </div>
+          <div></div>
         </div>
       </div>
     </div>

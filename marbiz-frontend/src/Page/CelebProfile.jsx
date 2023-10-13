@@ -10,7 +10,6 @@ import {
 import _ from "lodash";
 
 const CelebProfile = () => {
-  
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [images, setImages] = useState([]);

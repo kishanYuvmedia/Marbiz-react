@@ -1,11 +1,7 @@
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "mdb-ui-kit/css/mdb.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-<<<<<<< HEAD
 import "mdb-ui-kit/js/mdb.min.js";
-=======
-import 'mdb-ui-kit/js/mdb.min.js';
->>>>>>> anshul/master
 import * as mdb from "mdb-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
@@ -26,7 +22,6 @@ import HowItWorks from "./Page/HowItWorks";
 import Explore from "./Page/Explore";
 import Category from "./Page/Category";
 
-
 // Creator routes
 import CreatorSignUp from "./Page/CreatorAuth/CreatorSignUp";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
@@ -40,13 +35,11 @@ import BrandHome from "./Components/BrandHome";
 import BrandBooking from "./Components/BrandBooking";
 import BrandWishlist from "./Components/BrandWishlist";
 
-
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<NavBar />}>
-
           {/* Public Routes */}
           <Route index element={<Home />} />
           <Route path="/inquiryform" element={<InquiryForm />} />
@@ -60,10 +53,8 @@ function App() {
           <Route path="/creatorSignup" element={<CreatorSignUp />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
-<<<<<<< HEAD
           <Route path="/profile/:regName" element={<CelebProfile />} />
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
-=======
 
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
@@ -73,11 +64,7 @@ function App() {
             <Route path="brandHome" element={<BrandHome />} />
             <Route path="brandBooking" element={<BrandBooking />} />
             <Route path="brandWishlist" element={<BrandWishlist />} />
-            
           </Route>
-
-
->>>>>>> anshul/master
         </Route>
       </Routes>
       <Footer />
