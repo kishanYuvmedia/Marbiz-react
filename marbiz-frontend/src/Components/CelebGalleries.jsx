@@ -25,7 +25,7 @@ const CelebGallery = (props) => {
         <h3 className="fw-bold section-heading  text-center display-6 text-uppercase">
           {title}
         </h3>
-        <span className="text-secondary">{subtitle}</span>
+        <span className="text-secondary text-center">{subtitle}</span>
       </div>
       <hr className="hr hr-blurry" />
 

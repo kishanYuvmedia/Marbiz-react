@@ -55,7 +55,7 @@ const HeroSection = (props) => {
   const getNumVisibleCards = () => {
     if (window.innerWidth <= 768) {
       // For mobile devices, display 1 card at a time
-      return 1;
+      return 2;
     } else {
       // For desktop, display 6 cards at a time
       return 6;
@@ -107,7 +107,7 @@ const HeroSection = (props) => {
         <img src={manBGImage} alt="man-bg-img" className="position-absolute top-0 start-0 h-100" />
         <img src={womenBGImage} alt="women-bg-img" className="position-absolute top-0 end-0 h-100" />
 
-        <div className="container text-center"
+        <div className="container text-center position-relative"
           style={{
             zIndex: 10,
           }}

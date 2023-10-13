@@ -6,7 +6,7 @@ const PopularCategories = () => {
   const [categoryList, setCategory] = useState([]);
 
   useEffect(() => {
-    getPublicList("Platform").then((result) => {
+    getPublicList("Category").then((result) => {
       // setCategory(result);
       setTimeout(() => {
         setCategory(result); // Use placeholder data
@@ -16,32 +16,9 @@ const PopularCategories = () => {
     });
   }, []);
 
-  // useEffect(() => {
-
-  //   async function fetchCategoryList() {
-  //     try {
-  //       const result = await getPublicList("Instagram");
-  //       setTimeout(() => {
-  //         console.log("API Response:", result); // Log the API response
-  //         setCategory(result); // Use placeholder data
-  //       }, 1000);
-  //     } catch (error) {
-  //       console.error("Error fetching data from the API:", error);
-  //     }
-  //   }
-
-  //   fetchCategoryList();
-  // }, []);
-
-
-
-  // Conditional rendering when categoryList is not yet defined
-  // if (!categoryList || categoryList.length === 0) {
-  //   return <div className="text-white text-center">Loading categories...</div>; // You can customize this loading message
-  // }
 
   return (
-    <div className="container">
+    <div className="container-fluid ">
       <div className="row justify-content-center">
         <div className=" text-center text-capitalize section-heading">
           Popular Categories to explore
@@ -51,13 +28,21 @@ const PopularCategories = () => {
             display: "flex",
             overflowX: "auto",
             width: "100%", // Adjust the width as needed
-            padding: "20px 0"
+            padding: "20px 0",
+            WebkitOverflowScrolling: "touch", // Enable touch scrolling for iOS
+            "-ms-overflow-style": "none", // Hide scrollbar on Internet Explorer
+            scrollbarWidth: "none", // Hide scrollbar on Firefox
+            // whiteSpace: "nowrap", // Allow the content to be displayed in a single line
+            "-webkit-scroll-snap-type": "x mandatory", // Optional for better iOS scrolling
+              scrollSnapType: "x mandatory", // Optional for better scrolling in other browsers
           }}
         >
           {categoryList.map((category, index) => (
-            <div className=" m-2" key={index}>
-              <div className="btn-global overflow-x-auto px-3 py-2 fs-6 fw-light">
-                {" "}
+            <div className=" mx-3" key={index}>
+              <div className="btn-global d-grid align-items-center overflow-x-auto px-3 py-2 fs-6" style={{
+                height: "70px",
+                width: "180px",
+              }}>
                 {category.label}
               </div>
             </div>

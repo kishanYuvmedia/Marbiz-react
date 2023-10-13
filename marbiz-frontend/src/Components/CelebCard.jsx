@@ -11,15 +11,16 @@ const CelebCard = (props) => {
       <div
         className="card card-bg mx-2 card-has-bg click-col"
         style={{
-          background: "linear-gradient(145deg, #8725fe, #FE66AB)",
+          // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
+          backgroundColor: "black",
           // borderRadius: "15px",
-          padding: "2px",
+          // padding: "2px",
           transform: `translateY(${props.index === 0 ? 10 : (props.index % 2 !== 0 ? -10 : 10)}px)`,
-          marginRight: `${props.cardGap}px`,
+          // marginRight: `${props.cardGap}px`,
         }}
       >
         <div
-          className="card card-img text-dark "
+          className="card card-img  "
           style={{
             backgroundImage: `url("${props.image}")`,
             // borderRadius: "15px",
@@ -52,9 +53,11 @@ const CelebCard = (props) => {
 
         </div>
 
-        <div className="d-flex justify-content-start mt-2 p-2 " style={{
-          zIndex: "5",
-        }}>
+      </div>
+      <div className="mt-2 p-2" style={{
+        zIndex: "5",
+      }}>
+        <div className="d-flex justify-content-start  " >
           {listcategory &&
             listcategory.map((value) => (
               <span
@@ -64,8 +67,8 @@ const CelebCard = (props) => {
                 {value.label}
               </span>
             ))}
-          <small className="text-white">(TV Serials)</small>
         </div>
+        <div className="mt-2 text-secondary text-start">TV Serials</div>
       </div>
     </>
 
