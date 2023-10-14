@@ -4,7 +4,6 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Flicking from "@egjs/react-flicking";
 
-
 const SliderList = (props) => {
   const { title, subtitle, list, displayHeading } = props;
 
@@ -19,17 +18,16 @@ const SliderList = (props) => {
     }
   };
 
-  
-
   return (
     <>
-      <div className="container" style={{
-        display: `${displayHeading}`,
-      }}>
+      <div
+        className="container"
+        style={{
+          display: `${displayHeading}`,
+        }}
+      >
         <div className="d-grid  justify-content-center mt-5">
-          <h3 className="section-heading  text-center ">
-            {title}
-          </h3>
+          <h3 className="section-heading  text-center ">{title}</h3>
           <span className="text-secondary">{subtitle}</span>
         </div>
         <hr className="border border-danger border-1 opacity-50" />
@@ -37,7 +35,6 @@ const SliderList = (props) => {
 
       <div className="container">
         <div className="row">
-
           {/* <Carousel style={{ padding: "20px 20px", }}
           showThumbs={false}
           showStatus={false}
@@ -75,13 +72,9 @@ const SliderList = (props) => {
           ))}
         </Carousel> */}
 
-          <Flicking
-            // bound={true}
-            deceleration={0.0005}
-            renderOnlyVisible={true}
-          >
-              {list.map((item, index) => (
-            <div>
+          <Flicking bound={true} deceleration={0.0005} renderOnlyVisible={true}>
+            {list.map((item, index) => (
+              <div>
                 <CelebCard
                   key={item.id}
                   fullName={item.fullName}
@@ -93,13 +86,11 @@ const SliderList = (props) => {
                   // index={index}
                   platform={item.categoryType}
                 />
-            </div>
-              ))}
-
+              </div>
+            ))}
           </Flicking>
         </div>
       </div>
-
     </>
   );
 };

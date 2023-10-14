@@ -60,7 +60,6 @@ const CelebCard = (props) => {
             backgroundSize: "cover",
 
             height: `${props.cardHeight}px`,
-
           }}
         >
           <div className="card-img-overlay d-flex flex-column">
@@ -81,36 +80,25 @@ const CelebCard = (props) => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       <div
-        className="mt-2 p-2"
+        className="mt-2 card-base"
         style={{
           zIndex: "5",
+          width: "300px",
         }}
       >
-        <div className="d-flex justify-content-start  ">
-          {listcategory &&
-            listcategory.map((value) => (
-              <span key={value.label} className="badge badge-danger me-2">
-=======
-      <div className="mt-2 card-base" style={{
-        zIndex: "5",
-        width: "300px",
-      }}>
         <div className="d-flex justify-content-start flex-wrap">
           {listcategory &&
             listcategory.map((value) => (
-              <span
-                key={value.label}
-                className="badge badge-danger m-1"
-              >
->>>>>>> anshul/master
+              <span key={value.label} className="badge badge-danger m-1">
                 {value.label}
               </span>
             ))}
         </div>
 
-        <div className="mt-2 px-2 text-secondary text-start">{props.platform}</div>
+        <div className="mt-2 px-2 text-secondary text-start">
+          {props.platform}
+        </div>
       </div>
     </div>
   );
