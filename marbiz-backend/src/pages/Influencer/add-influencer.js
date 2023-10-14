@@ -8,6 +8,7 @@ import {
   createProfileListing,
   checkPublicName,
 } from "../../services/api/api-service"
+import Select from "react-select"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { MultiSelect } from "react-multi-select-component"
@@ -182,7 +183,10 @@ export default function AddInfluencer(props) {
         })
     }
   }
-
+  function handleMulti(selectedMulti) {
+    setSelected(selectedMulti)
+    console.log(selectedMulti)
+  }
   return (
     <div>
       <React.Fragment>
@@ -348,12 +352,13 @@ export default function AddInfluencer(props) {
                           <Label htmlFor="formrow-category-Input">
                             category
                           </Label>
-                          <MultiSelect
-                            options={categoryList}
+                          <Select
                             value={selected}
-                            onChange={setSelected}
-                            labelledBy="Select"
-                            className="text-black"
+                            isMulti={true}
+                            name="category"
+                            onChange={e => handleMulti(e)}
+                            options={categoryList}
+                            className="select2-selection"
                           />
                         </div>
                       </Col>

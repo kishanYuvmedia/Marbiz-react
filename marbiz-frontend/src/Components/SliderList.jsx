@@ -2,9 +2,11 @@ import React from "react";
 import CelebCard from "./CelebCard";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Flicking from "@egjs/react-flicking";
+
 
 const SliderList = (props) => {
-  const { title, subtitle, list } = props;
+  const { title, subtitle, list, displayHeading } = props;
 
   // Determine the number of cards to display based on the device width
   const getNumVisibleCards = () => {
@@ -17,9 +19,13 @@ const SliderList = (props) => {
     }
   };
 
+  
+
   return (
     <>
-      <div className="container">
+      <div className="container" style={{
+        display: `${displayHeading}`,
+      }}>
         <div className="d-grid  justify-content-center mt-5">
           <h3 className="section-heading  text-center ">
             {title}
@@ -30,7 +36,9 @@ const SliderList = (props) => {
       </div>
 
       <div className="container">
-        <Carousel style={{ padding: "20px 20px", }}
+        <div className="row">
+
+          {/* <Carousel style={{ padding: "20px 20px", }}
           showThumbs={false}
           showStatus={false}
           centerMode={true}
@@ -65,7 +73,31 @@ const SliderList = (props) => {
               regName={item.regName}
             />
           ))}
-        </Carousel>
+        </Carousel> */}
+
+          <Flicking
+            // bound={true}
+            deceleration={0.0005}
+            renderOnlyVisible={true}
+          >
+              {list.map((item, index) => (
+            <div>
+                <CelebCard
+                  key={item.id}
+                  fullName={item.fullName}
+                  image={item.coverImage}
+                  category={item.category}
+                  regName={item.regName}
+                  // cardHeight={cardHeight}
+                  cardGap={20}
+                  // index={index}
+                  platform={item.categoryType}
+                />
+            </div>
+              ))}
+
+          </Flicking>
+        </div>
       </div>
 
     </>

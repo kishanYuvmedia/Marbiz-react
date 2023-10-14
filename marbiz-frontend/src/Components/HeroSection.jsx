@@ -10,6 +10,7 @@ import CelebCard from "./CelebCard";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Flicking from "@egjs/react-flicking";
 
 
 const categories = [
@@ -32,7 +33,7 @@ const HeroSection = (props) => {
     getPublicList("Platform")
       .then((result) => {
 
-        if (Array.isArray(result) && result.length > 0) {
+        if (result.length > 0) {
           setTimeout(() => {
             setCategory(result);
           }, 1000);
@@ -55,7 +56,7 @@ const HeroSection = (props) => {
   const getNumVisibleCards = () => {
     if (window.innerWidth <= 768) {
       // For mobile devices, display 1 card at a time
-      return 2;
+      return 1;
     } else {
       // For desktop, display 6 cards at a time
       return 6;
@@ -142,9 +143,9 @@ const HeroSection = (props) => {
         <div className="container-fluid py-5" style={{
           zIndex: 10,
           padding: "0 5px",
-          
+
         }}>
-          <Carousel style={{ padding: "20px 20px", }}
+          {/* <Carousel style={{ padding: "20px 20px", }}
             showThumbs={false}
             showStatus={false}
             centerMode={true}
@@ -181,7 +182,30 @@ const HeroSection = (props) => {
                 index={index}
               />
             ))}
-          </Carousel>
+          </Carousel> */}
+
+          <Flicking
+            
+            bound={true}
+            deceleration={0.0005}
+            renderOnlyVisible={true}
+          >
+            <div>
+              {list.map((item, index) => (
+                <CelebCard
+                  key={item.id}
+                  fullName={item.fullName}
+                  image={item.coverImage}
+                  // category={item.category}
+                  regName={item.regName}
+                  cardHeight={cardHeight}
+                  cardGap={20}
+                  index={index}
+                />
+              ))}
+            </div>
+
+          </Flicking>
         </div>
       </div>
 

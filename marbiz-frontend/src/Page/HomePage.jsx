@@ -81,7 +81,7 @@ function HomePage() {
         
       });
 
-    getInfluencersList(6, "LinkedIn")
+    getInfluencersList(6, "Youtube")
       .then((result) => {
         
         if (Array.isArray(result) && result.length > 0) {
@@ -132,7 +132,7 @@ function HomePage() {
 
       <SearchBar />
 
-      <PopularCategories />
+      <PopularCategories title={"Popular Categories to explore"} />
 
       <SliderList
         title="Top Influencer"

@@ -11,7 +11,7 @@ const CelebCard = (props) => {
       }}
     >
       <div
-        className="card card-bg mx-2 card-has-bg click-col"
+        className="card card-bg mx-2 card-has-bg click-col pt-3"
         style={{
           // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
           backgroundColor: "black",
@@ -23,7 +23,7 @@ const CelebCard = (props) => {
           // marginRight: `${props.cardGap}px`,
         }}
       >
-        <div
+        {/* <div
           className="card card-img  "
           style={{
             backgroundImage: `url("${props.image}")`,
@@ -35,8 +35,37 @@ const CelebCard = (props) => {
           }}
         >
           <div className="card-img-overlay d-flex flex-column">
+            <div className="card-body">*/}
+        {/* <h4 className="card-title mt-0"></h4> */}
+        {/* </div>
+            <div className="card-footer p-0">
+              <div className="media">
+                <div className="media-body" style={{ textAlign: "start" }}>
+                  <Link to={`/profile/${props.regName}`}>
+                    <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
+                      {props.fullName}
+                    </h3>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div> 
+
+        </div> */}
+        <div
+          className="card card-img pt-3"
+          style={{
+            backgroundImage: `url("${props.image}")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+
+            height: `${props.cardHeight}px`,
+
+          }}
+        >
+          <div className="card-img-overlay d-flex flex-column">
             <div className="card-body">
-              {/* <h4 className="card-title mt-0"></h4> */}
+              {/* Any content you want inside the card body */}
             </div>
             <div className="card-footer p-0">
               <div className="media">
@@ -52,6 +81,7 @@ const CelebCard = (props) => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <div
         className="mt-2 p-2"
         style={{
@@ -62,11 +92,25 @@ const CelebCard = (props) => {
           {listcategory &&
             listcategory.map((value) => (
               <span key={value.label} className="badge badge-danger me-2">
+=======
+      <div className="mt-2 card-base" style={{
+        zIndex: "5",
+        width: "300px",
+      }}>
+        <div className="d-flex justify-content-start flex-wrap">
+          {listcategory &&
+            listcategory.map((value) => (
+              <span
+                key={value.label}
+                className="badge badge-danger m-1"
+              >
+>>>>>>> anshul/master
                 {value.label}
               </span>
             ))}
         </div>
-        <div className="mt-2 text-secondary text-start">TV Serials</div>
+
+        <div className="mt-2 px-2 text-secondary text-start">{props.platform}</div>
       </div>
     </div>
   );

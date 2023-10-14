@@ -15,7 +15,7 @@
 @media only screen and (max-width: 767px) {
   .multi-select-category .css-13cymwt-control,
   .multi-select-category .css-t3ipsp-control {
-    width: 100%;
+    width: 360px;
   }
 
   .package-navigation {
@@ -26,15 +26,38 @@
     display: none;
   }
 
+  .section-heading {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+
+  .username-text{
+    width: 100%;
+  }
+
   
-.section-heading {
-  color: white;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 40px;
-}
 }
 @media only screen and (max-width: 575px) {
+  .username-holder {
+    width: 100%; /* Set to 100% for smaller screens */
+  }
+  .bottom-nav-item {
+    max-width: 110px;
+  }
+
+  .typeWriterTextMove {
+    text-align: center;
+  }
+  .infoCardHeading {
+    text-align: center;
+    font-size: 30px;
+  }
 }
 @media only screen and (max-width: 375px) {
+  .bottom-nav-item {
+    max-width: 92px;
+  }
+
 }
