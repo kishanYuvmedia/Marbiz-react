@@ -72,7 +72,7 @@ const HeroSection = (props) => {
         }}
       >
 
-        <div className="position-absolute" style={{
+        <div className="position-absolute desktop-view" style={{
           width: "500px",
           height: "800px",
         }}>
@@ -88,7 +88,7 @@ const HeroSection = (props) => {
             }}
           ></div>
         </div>
-        <div className="position-absolute top-50 end-0" style={{
+        <div className="position-absolute top-50 end-0 desktop-view" style={{
           width: "500px",
           height: "500px",
         }}>
@@ -105,8 +105,8 @@ const HeroSection = (props) => {
           ></div>
         </div>
 
-        <img src={manBGImage} alt="man-bg-img" className="position-absolute top-0 start-0 h-100" />
-        <img src={womenBGImage} alt="women-bg-img" className="position-absolute top-0 end-0 h-100" />
+        <img src={manBGImage} alt="man-bg-img" className="position-absolute top-0 start-0 h-100 desktop-view" />
+        <img src={womenBGImage} alt="women-bg-img" className="position-absolute top-0 end-0 h-100 desktop-view" />
 
         <div className="container text-center position-relative"
           style={{

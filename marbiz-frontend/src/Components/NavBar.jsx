@@ -155,6 +155,7 @@ function NavBar() {
         </nav>
       </div>
 
+
       <Outlet />
     </>
   );
