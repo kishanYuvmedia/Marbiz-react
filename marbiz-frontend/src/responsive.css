@@ -1,0 +1,40 @@
+@media only screen and (max-width: 1500px) {
+}
+@media only screen and (min-width: 1200px) {
+}
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (min-width: 992px) {
+  .mobile-view {
+    display: none;
+  }
+}
+@media only screen and (max-width: 992px) {
+}
+
+@media only screen and (max-width: 767px) {
+  .multi-select-category .css-13cymwt-control,
+  .multi-select-category .css-t3ipsp-control {
+    width: 100%;
+  }
+
+  .package-navigation {
+    justify-content: center;
+  }
+
+  .desktop-view {
+    display: none;
+  }
+
+  
+.section-heading {
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40px;
+}
+}
+@media only screen and (max-width: 575px) {
+}
+@media only screen and (max-width: 375px) {
+}

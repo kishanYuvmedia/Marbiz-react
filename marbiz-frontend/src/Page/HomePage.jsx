@@ -57,9 +57,10 @@ function HomePage() {
   const [Influencerlist, setInfluencerlistList] = useState([]);
   const [celebritylist, setcelebritylistList] = useState([]);
 
+
   useEffect(() => {
 
-    getInfluencersFeturedList(6, "Influencers")
+    getInfluencersFeturedList(6, "LinkedIn")
       .then((result) => {
         
         if (Array.isArray(result) && result.length > 0) {
@@ -80,7 +81,7 @@ function HomePage() {
         
       });
 
-    getInfluencersList(6, "Influencers")
+    getInfluencersList(6, "LinkedIn")
       .then((result) => {
         
         if (Array.isArray(result) && result.length > 0) {
@@ -101,7 +102,7 @@ function HomePage() {
         
       });
 
-    getInfluencersList(6, "celebrity")
+    getInfluencersList(6, "LinkedIn")
       .then((result) => {
         
         if (Array.isArray(result) && result.length > 0) {
@@ -121,6 +122,8 @@ function HomePage() {
         console.error("Error fetching data from the API:", error);
         
       });
+
+    
   }, []);
 
   return (
@@ -132,18 +135,18 @@ function HomePage() {
       <PopularCategories />
 
       <SliderList
-        title="Featured"
+        title="Top Influencer"
         subtitle="Hire top influencer across all platforms - See All"
         list={list}
       />
       
       <SliderList
-        title="Celebrities"
+        title="Instgram"
         subtitle="Hire top Celebrities & Influencer all platforms see All"
         list={celebritylist}
       />
       <SliderList
-        title="Influencer"
+        title="Youtube"
         subtitle="Hire top Spokesperson & Models all platforms see All"
         list={Influencerlist}
       />

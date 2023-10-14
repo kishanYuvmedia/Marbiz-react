@@ -29,7 +29,7 @@ const HeroSection = (props) => {
 
   useEffect(() => {
 
-    getPublicList("Influencers")
+    getPublicList("Platform")
       .then((result) => {
 
         if (Array.isArray(result) && result.length > 0) {
@@ -66,12 +66,6 @@ const HeroSection = (props) => {
     <>
       <div className="home-body container-fluid position-relative"
         style={{
-          // backgroundImage: `url(${bgImage})`,
-          // backgroundPosition: "center",
-          // backgroundRepeat: "no-repeat",
-          // backgroundSize: "cover",
-          // display: "flex",
-          // justifyContent: "center",
           paddingTop: "100px",
           minHeight: "800px",
         }}
@@ -113,7 +107,7 @@ const HeroSection = (props) => {
         <img src={manBGImage} alt="man-bg-img" className="position-absolute top-0 start-0 h-100" />
         <img src={womenBGImage} alt="women-bg-img" className="position-absolute top-0 end-0 h-100" />
 
-        <div className="container text-center"
+        <div className="container text-center position-relative"
           style={{
             zIndex: 10,
           }}
@@ -136,53 +130,26 @@ const HeroSection = (props) => {
           </div>
           <h3 className="mt-3 text-white" style={{
             zIndex: 10,
+            fontSize: "1.2rem",
           }}>
             Find and hire top Instagram,Facebook, YouTube, and UGC <br />influencer to
             create unique content for your brand.
           </h3>
-
-
-
-          {/* <div className="mt-3 d-flex justify-content-center">
-            <form className="d-flex input-group " style={{ maxWidth: "750px" }}>
-              <input
-                type="search"
-                className="form-control "
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="search-addon"
-                style={{
-                  padding: "25px",
-                  borderRadius: "20px 0 0 20px",
-                }}
-              />
-              <span className="srch-btn" id="search-addon">
-                <i className="fas fa-search"></i> Search
-              </span>
-            </form>
-          </div> */}
-
-          {/* <div className="mt-3">
-            {categoryList.length > 0 && categoryList.map((list) => (
-              <span key={list.label} className="badge badge-primary me-2">
-                {list.label}
-              </span>
-            ))}
-          </div> */}
 
         </div>
 
         {/* featued slider */}
         <div className="container-fluid py-5" style={{
           zIndex: 10,
+          padding: "0 5px",
+          
         }}>
-
           <Carousel style={{ padding: "20px 20px", }}
             showThumbs={false}
             showStatus={false}
             centerMode={true}
             // centerSlidePercentage={20}
-            infiniteLoop={true}
+            infiniteLoop={false}
             showArrows={false}
             showIndicators={false}
 
@@ -209,9 +176,9 @@ const HeroSection = (props) => {
                 image={item.coverImage}
                 category={item.category}
                 regName={item.regName}
-                isEven={index % 2 !== 0}
                 cardHeight={cardHeight}
                 cardGap={20}
+                index={index}
               />
             ))}
           </Carousel>

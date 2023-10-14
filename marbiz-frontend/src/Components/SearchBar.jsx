@@ -26,10 +26,10 @@ const SearchBar = () => {
                         <div className='d-flex px-2 px-md-4 justify-content-start align-items-center rounded-6' style={{
                             border: "1px solid white",
                         }}>
-                            <div className='me-3'>
+                            <div className='me-3 desktop-view'>
                                 <button type="submit" className='search-btn fs-2 rounded-pill align-items-center d-flex'><BsSearch /></button>
                             </div>
-                            <div className="multi-select-category border-end border-danger border-2">
+                            <div className="multi-select-category d-flex">
 
                                 <Select
                                     placeholder="Choose a platform"
@@ -39,9 +39,10 @@ const SearchBar = () => {
                                     classNamePrefix="select"
                                     options={optionsPlatform}
                                 />
+                            <div className="vr py-2 mx-2" style={{backgroundColor: "#FC6E90",}}></div>
                             </div>
 
-                            <div className="ms-3 multi-select-category">
+                            <div className="me-2 multi-select-category">
                                 <Select
                                     isMulti
                                     placeholder="Category"

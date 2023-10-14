@@ -16,7 +16,7 @@ import Dropzone from "react-dropzone"
 //Import Breadcrumb
 import Swal from "sweetalert2"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
-import { CardView, ModelBox } from "../ui-components"
+import { CardView } from "../ui-components"
 import { UploadbulkImages, getImagesList } from "services/api/api-service"
 import Lightbox from "react-image-lightbox"
 import { useParams, Link } from "react-router-dom"
@@ -71,7 +71,7 @@ export default function Upload() {
             return UploadbulkImages({
               src: data.imageUrl,
               original: data.imageUrl,
-              caption: "Gallery",
+              caption: "Image",
               profileId: profileId,
               status: "A",
             }).then(data => {
@@ -135,7 +135,6 @@ export default function Upload() {
   }
   const handleImageChange2 = e => {
     const file = e.target.files[0]
-
     if (file) {
       const reader = new FileReader()
       reader.onload = e => {
@@ -177,10 +176,10 @@ export default function Upload() {
       setSelectedfile4(null)
     }
   }
-  const handleUpload = async () => {
-    if (selectedFile) {
+  const uploadfile = async (file, setSelectedImage) => {
+    if (file) {
       const formDataImage = new FormData()
-      formDataImage.append("image", selectedFile, "compressed-image.jpg") // You can set the filename here
+      formDataImage.append("image", file, "compressed-image.jpg") // You can set the filename here
       fetch("https://marbiz.yuvmedia.in/upload.php", {
         method: "POST",
         body: formDataImage,
@@ -188,14 +187,9 @@ export default function Upload() {
         .then(response => response.json()) // Parse the JSON response
         .then(data => {
           if (data) {
-            Swal.fire(
-              "Cover Image",
-              "Your cover page updated successfully",
-              "success"
-            )
-            setUlr(data.imageUrl)
-            setImagePreview(data.imageUrl)
-            console.log(data.imageUrl)
+            console.log(data)
+            setSelectedImage(data.imageUrl)
+            return true
           } else {
             Swal.fire({
               icon: "error",
@@ -208,6 +202,28 @@ export default function Upload() {
           // Handle any errors
           console.error(error)
         })
+      formDataImage.delete("image")
+    }
+  }
+  const handleUpload = async () => {
+    const promises = []
+    promises.push(uploadfile(selectedfile1, setSelectedImage1))
+    promises.push(uploadfile(selectedfile2, setSelectedImage2))
+    promises.push(uploadfile(selectedfile3, setSelectedImage3))
+    promises.push(uploadfile(selectedfile4, setSelectedImage4))
+    const results = await Promise.all(promises)
+    if (results.every(result => result === true)) {
+      Swal.fire(
+        "Upload successfully",
+        "Cover Page Images added successfully",
+        "success"
+      )
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong. Please retry uploading images.",
+      })
     }
   }
   return (
@@ -503,22 +519,38 @@ export default function Upload() {
                     <Row>
                       <Col sm="12">
                         <div className="popup-gallery d-flex flex-wrap">
-                          <div className="img-fluid float-left">
-                            {images &&
-                              Array.isArray(images) &&
-                              images.map(list => (
-                                <img
-                                  key={list.id}
-                                  src={list.src}
-                                  onClick={() => {
-                                    setisGallery(true)
-                                    setphotoIndex(0)
-                                  }}
-                                  alt=""
-                                  width="200"
-                                  style={{ margin: 10 }}
-                                />
-                              ))}
+                          <div className="img-fluid float-left ">
+                            <div>
+                              <div className="row">
+                                {images &&
+                                  Array.isArray(images) &&
+                                  images.map(list => (
+                                    <div className="col-3" key={list.id}>
+                                      <div>
+                                        <img
+                                          src={list.src}
+                                          onClick={() => {
+                                            setisGallery(true)
+                                            setphotoIndex(0)
+                                          }}
+                                          alt=""
+                                          width="100%"
+                                          height="250"
+                                          style={{ margin: 10 }}
+                                        />
+                                      </div>
+                                      <div className="justify-content-center">
+                                        <Button
+                                          className="btn btn-danger w-100 "
+                                          type="submit"
+                                        >
+                                          Delete
+                                        </Button>
+                                      </div>
+                                    </div>
+                                  ))}
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </Col>

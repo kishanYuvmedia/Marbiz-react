@@ -5,6 +5,7 @@ import "mdb-ui-kit/js/mdb.min.js";
 import * as mdb from "mdb-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
+import "./responsive.css";
 import "bs5-lightbox";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -21,12 +22,10 @@ import GlobalLogin from "./Page/Login/GlobalLogin";
 import HowItWorks from "./Page/HowItWorks";
 import Explore from "./Page/Explore";
 import Category from "./Page/Category";
-
 // Creator routes
 import CreatorSignUp from "./Page/CreatorAuth/CreatorSignUp";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Verify from "./Page/CreatorAuth/Verify";
-
 // Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
@@ -34,7 +33,6 @@ import BrandDashboard from "./Page/Brand/BrandDashboard";
 import BrandHome from "./Components/BrandHome";
 import BrandBooking from "./Components/BrandBooking";
 import BrandWishlist from "./Components/BrandWishlist";
-
 function App() {
   return (
     <BrowserRouter>
@@ -53,7 +51,7 @@ function App() {
           <Route path="/creatorSignup" element={<CreatorSignUp />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
-          <Route path="/profile/:regName" element={<CelebProfile />} />
+
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
 
           {/* Brand Routes*/}
