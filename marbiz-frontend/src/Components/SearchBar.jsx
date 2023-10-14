@@ -67,7 +67,7 @@ const SearchBar = () => {
 
                     <form className='position-relative'>
                         <div className="d-flex flex-column flex-md-row align-items-center rounded-6 border-2 border">
-                            <div className="me-3 desktop-view">
+                        <div className="me-3 desktop-view">
                                 <button type="submit" className="search-btn fs-2 rounded-pill align-items-center d-flex"><BsSearch /></button>
                             </div>
                             <div className="col-sm-12 col-md-6 d-flex multi-select-category">
@@ -97,6 +97,9 @@ const SearchBar = () => {
                                     classNamePrefix="select"
                                     options={optionsCategory}
                                 />
+                            </div>
+                            <div className="me-3 mobile-view">
+                                <button type="submit" className="search-btn fs-2 rounded-pill align-items-center d-flex"><BsSearch /></button>
                             </div>
                         </div>
                     </form>
