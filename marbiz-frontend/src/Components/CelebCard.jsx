@@ -19,7 +19,7 @@ const CelebCard = (props) => {
           // marginRight: `${props.cardGap}px`,
         }}
       >
-        <div
+        {/* <div
           className="card card-img  "
           style={{
             backgroundImage: `url("${props.image}")`,
@@ -32,8 +32,37 @@ const CelebCard = (props) => {
           }}
         >
           <div className="card-img-overlay d-flex flex-column">
-            <div className="card-body">
+            <div className="card-body">*/}
               {/* <h4 className="card-title mt-0"></h4> */}
+            {/* </div>
+            <div className="card-footer p-0">
+              <div className="media">
+                <div className="media-body" style={{ textAlign: "start" }}>
+                  <Link to={`/profile/${props.regName}`}>
+                    <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
+                      {props.fullName}
+                    </h3>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div> 
+
+        </div> */}
+        <div
+          className="card card-img"
+          style={{
+            backgroundImage: `url("${props.image}")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            
+            height: `${props.cardHeight}px`,
+            
+          }}
+        >
+          <div className="card-img-overlay d-flex flex-column">
+            <div className="card-body">
+              {/* Any content you want inside the card body */}
             </div>
             <div className="card-footer p-0">
               <div className="media">
@@ -42,15 +71,11 @@ const CelebCard = (props) => {
                     <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
                       {props.fullName}
                     </h3>
-
                   </Link>
-
-
                 </div>
               </div>
             </div>
           </div>
-
         </div>
 
       </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getPublicList } from "../services/api/api-service";
+import Flicking from "@egjs/react-flicking";
 
-
-const PopularCategories = ({title}) => {
+const PopularCategories = ({ title }) => {
   const [categoryList, setCategory] = useState([]);
 
   useEffect(() => {
@@ -23,30 +23,20 @@ const PopularCategories = ({title}) => {
         <div className=" text-center text-capitalize section-heading">
           {title}
         </div>
-        <div className="horizontal-scroll-container justify-content-center"
-          style={{
-            display: "flex",
-            overflowX: "auto",
-            width: "100%", // Adjust the width as needed
-            padding: "20px 0",
-            WebkitOverflowScrolling: "touch", // Enable touch scrolling for iOS
-            "-ms-overflow-style": "none", // Hide scrollbar on Internet Explorer
-            scrollbarWidth: "none", // Hide scrollbar on Firefox
-            // whiteSpace: "nowrap", // Allow the content to be displayed in a single line
-            "-webkit-scroll-snap-type": "x mandatory", // Optional for better iOS scrolling
-              scrollSnapType: "x mandatory", // Optional for better scrolling in other browsers
-          }}
-        >
-          {categoryList.map((category, index) => (
-            <div className=" mx-3" key={index}>
-              <div className="btn-global d-grid align-items-center overflow-x-auto px-3 py-2 fs-6" style={{
-                // height: "70px",
-                width: "180px",
+
+        <div className="my-2">
+          <Flicking moveType="freeScroll" bound={true} >
+
+            {categoryList.map((category, index) => (
+              <span key={index} className="btn-global px-4 m-2" style={{
+                fontSize: "18px",
               }}>
                 {category.label}
-              </div>
-            </div>
-          ))}
+              </span>
+            ))}
+
+          </Flicking>
+
         </div>
       </div>
 

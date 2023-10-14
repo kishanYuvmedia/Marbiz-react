@@ -3,6 +3,7 @@ import CelebCard from "./CelebCard";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Row } from "react-bootstrap";
+import Flicking from '@egjs/react-flicking';
 
 
 const CelebGallery = (props) => {
@@ -30,20 +31,30 @@ const CelebGallery = (props) => {
       <hr className="hr hr-blurry" />
 
       <Row>
-        {list.map((item) => (
-          <div className="mb-4" style={{
-            width: "250px"
-          }}>
+        <Flicking
 
-            <CelebCard
-              key={item.id}
-              fullName={item.fullName}
-              image={item.coverImage}
-              category={item.category}
-              regName={item.regName}
-            />
-          </div>
-        ))}
+          bound={false}
+          deceleration={0.0005}
+          renderOnlyVisible={true}
+        >
+
+          {list.map((item) => (
+            <div className="mb-4">
+
+              <CelebCard
+                key={item.id}
+                fullName={item.fullName}
+                image={item.coverImage}
+                category={item.category}
+                regName={item.regName}
+              />
+            </div>
+          ))}
+
+
+        </Flicking>
+
+
       </Row>
     </div>
   );

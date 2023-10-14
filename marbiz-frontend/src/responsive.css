@@ -36,11 +36,20 @@
   .username-text{
     width: 100%;
   }
+
+  
 }
 @media only screen and (max-width: 575px) {
   .username-holder {
     width: 100%; /* Set to 100% for smaller screens */
   }
+  .bottom-nav-item {
+    max-width: 110px;
+  }
 }
 @media only screen and (max-width: 375px) {
+  .bottom-nav-item {
+    max-width: 92px;
+  }
+
 }
