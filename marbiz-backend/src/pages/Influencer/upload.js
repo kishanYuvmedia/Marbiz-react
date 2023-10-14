@@ -17,14 +17,22 @@ import Dropzone from "react-dropzone"
 import Swal from "sweetalert2"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { CardView } from "../ui-components"
-import { UploadbulkImages, getImagesList } from "services/api/api-service"
+import {
+  UploadbulkImages,
+  getImagesList,
+  UpdateProfile,
+  getProfile,
+  deleteImages,
+} from "services/api/api-service"
 import Lightbox from "react-image-lightbox"
 import { useParams, Link } from "react-router-dom"
 import "react-image-lightbox/style.css"
 import classnames from "classnames"
 import defaultImges from "../../assets/image/default-image.jpg"
-import { isEmpty } from "lodash"
+import _, { isEmpty } from "lodash"
+import { composeInitialProps } from "react-i18next"
 export default function Upload() {
+  const [profile, setprofile] = useState(null)
   const [selectedImage1, setSelectedImage1] = useState(null)
   const [selectedImage2, setSelectedImage2] = useState(null)
   const [selectedImage3, setSelectedImage3] = useState(null)
@@ -92,6 +100,7 @@ export default function Upload() {
           "Your cover page updated successfully",
           "success"
         )
+        getImagedata()
       })
       .catch(error => {
         Swal.fire({
@@ -101,7 +110,19 @@ export default function Upload() {
         })
       })
   }
-  useEffect(() => {
+  const deleteProfileImages = id => {
+    deleteImages(id).then(result => {
+      if (result) {
+        Swal.fire(
+          "Delete Image successfully",
+          "Influencer Image Delete successfuly",
+          "success"
+        )
+        getImagedata()
+      }
+    })
+  }
+  const getImagedata = () => {
     getImagesList(profileId)
       .then(resultdb => {
         setTimeout(() => {
@@ -112,6 +133,28 @@ export default function Upload() {
       .catch(err => {
         console.error("Error fetching profile data:", err)
       })
+    getProfile(profileId)
+      .then(resultdb => {
+        setprofile(resultdb)
+        setSelectedImage1(
+          _.get(resultdb, "image1") ? resultdb.image1 : defaultImges
+        )
+        setSelectedImage2(
+          _.get(resultdb, "image2") ? resultdb.image2 : defaultImges
+        )
+        setSelectedImage3(
+          _.get(resultdb, "image3") ? resultdb.image3 : defaultImges
+        )
+        setSelectedImage4(
+          _.get(resultdb, "image4") ? resultdb.image4 : defaultImges
+        )
+      })
+      .catch(err => {
+        console.error("Error fetching profile data:", err)
+      })
+  }
+  useEffect(() => {
+    getImagedata()
   }, [])
   const toggle = tab => {
     if (activeTab !== tab) {
@@ -179,45 +222,65 @@ export default function Upload() {
   const uploadfile = async (file, setSelectedImage) => {
     if (file) {
       const formDataImage = new FormData()
-      formDataImage.append("image", file, "compressed-image.jpg") // You can set the filename here
-      fetch("https://marbiz.yuvmedia.in/upload.php", {
-        method: "POST",
-        body: formDataImage,
-      })
-        .then(response => response.json()) // Parse the JSON response
-        .then(data => {
-          if (data) {
-            console.log(data)
-            setSelectedImage(data.imageUrl)
-            return true
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Something went wrong please Retry uploading Image",
-            })
-          }
+      formDataImage.append("image", file, "compressed-image.jpg")
+      try {
+        const response = await fetch("https://marbiz.yuvmedia.in/upload.php", {
+          method: "POST",
+          body: formDataImage,
         })
-        .catch(error => {
-          // Handle any errors
-          console.error(error)
-        })
-      formDataImage.delete("image")
+        const data = await response.json()
+        if (data) {
+          console.log(data)
+          setSelectedImage(data.imageUrl)
+          return true
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong please Retry uploading Image",
+          })
+          return false
+        }
+      } catch (error) {
+        // Handle any errors
+        console.error(error)
+        return false
+      }
     }
+    return false // Return false if there's no file to upload
   }
+
   const handleUpload = async () => {
-    const promises = []
-    promises.push(uploadfile(selectedfile1, setSelectedImage1))
-    promises.push(uploadfile(selectedfile2, setSelectedImage2))
-    promises.push(uploadfile(selectedfile3, setSelectedImage3))
-    promises.push(uploadfile(selectedfile4, setSelectedImage4))
+    const promises = [
+      uploadfile(selectedfile1, setSelectedImage1),
+      uploadfile(selectedfile2, setSelectedImage2),
+      uploadfile(selectedfile3, setSelectedImage3),
+      uploadfile(selectedfile4, setSelectedImage4),
+    ]
+
     const results = await Promise.all(promises)
+    console.log("results", results)
+
     if (results.every(result => result === true)) {
-      Swal.fire(
-        "Upload successfully",
-        "Cover Page Images added successfully",
-        "success"
-      )
+      const data = {
+        image1: selectedImage1,
+        image2: selectedImage2,
+        image3: selectedImage3,
+        image4: selectedImage4,
+        ...profile,
+      }
+      console.log(data)
+
+      UpdateProfile(data).then(result => {
+        if (!isEmpty(result)) {
+          Swal.fire(
+            "Upload successfully",
+            "Cover Page Images added successfully",
+            "success"
+          )
+          getImagedata()
+        }
+      })
     } else {
       Swal.fire({
         icon: "error",
@@ -226,6 +289,7 @@ export default function Upload() {
       })
     }
   }
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -543,8 +607,11 @@ export default function Upload() {
                                         <Button
                                           className="btn btn-danger w-100 "
                                           type="submit"
+                                          onClick={() =>
+                                            deleteProfileImages(list.id)
+                                          }
                                         >
-                                          Delete
+                                          Delete Image
                                         </Button>
                                       </div>
                                     </div>

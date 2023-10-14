@@ -46,18 +46,14 @@ function App() {
           <Route path="/howitworks" element={<HowItWorks />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/category" element={<Category />} />
-
           {/* Creator Routes */}
           <Route path="/creatorSignup" element={<CreatorSignUp />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
-
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
-
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />
-
           <Route path="/brand-dashboard" element={<BrandDashboard />}>
             <Route path="brandHome" element={<BrandHome />} />
             <Route path="brandBooking" element={<BrandBooking />} />

@@ -12,8 +12,12 @@ import {
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { CardView, ModelBox } from "../ui-components"
 import TableData from "pages/ui-components/table-data"
-import { getProfileList, UpdateProfile } from "services/api/api-service"
-import { isEmpty } from "lodash"
+import {
+  getProfileList,
+  UpdateProfile,
+  deleteProfile,
+} from "services/api/api-service"
+import { isEmpty, result } from "lodash"
 import Swal from "sweetalert2"
 import { Link } from "react-router-dom"
 export default function InfluencerList() {
@@ -156,9 +160,20 @@ export default function InfluencerList() {
       }
     })
   }
+  const deleteprofile = id => {
+    deleteProfile(id).then(result => {
+      Swal.fire(
+        "Delete successfully",
+        "Influencer Profile Delete successfuly",
+        "success"
+      )
+      getdata()
+    })
+  }
   useEffect(() => {
     getdata()
   }, [])
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -213,6 +228,12 @@ export default function InfluencerList() {
           >
             Add Images and vedio
           </Link>
+          <Button
+            onClick={() => deleteprofile(viewdata.id)}
+            className="btn btn-danger mt-3"
+          >
+            Delete
+          </Button>
         </div>
       </ModelBox>
     </React.Fragment>

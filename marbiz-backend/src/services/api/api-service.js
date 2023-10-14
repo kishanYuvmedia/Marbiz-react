@@ -41,6 +41,9 @@ export const createProfileListing = data => {
 export const deletePublicList = id => {
   return deleteById("MtPublicLists", id)
 }
+export const deleteProfile = id => {
+  return deleteById("MtProfiles", id)
+}
 export const checkPublicName = name => {
   return count("MtProfiles", null, { regName: name })
 }
@@ -48,6 +51,15 @@ export const getProfileList = () => {
   return new Promise((resolve, reject) => {
     find("MtProfiles", {
       order: "createdAt asc",
+    }).then(data => {
+      resolve(data)
+    })
+  })
+}
+export const getProfile = profileid => {
+  return new Promise((resolve, reject) => {
+    findOne("MtProfiles", {
+      id: profileid,
     }).then(data => {
       resolve(data)
     })
@@ -63,4 +75,7 @@ export const getImagesList = id => {
   return find(`MtProfiles/${id}/Images`, {
     where: { status: "A" },
   })
+}
+export const deleteImages = id => {
+  return deleteById("Images", id)
 }
