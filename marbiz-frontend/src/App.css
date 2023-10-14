@@ -871,6 +871,11 @@ a {
 
 .select__menu .css-1nmdiq5-menu {
   background-color: black;
+  z-index: 10 !important;
+}
+
+.flicking-camera {
+  z-index: 0;
 }
 
 /* Default styles */
@@ -944,7 +949,7 @@ a {
 /* Default width for larger screens */
 .multi-select-category .css-13cymwt-control,
 .multi-select-category .css-t3ipsp-control {
-  width: 580px;
+  width: 540px;
   /* flex-grow: 1; */
   /* display: flex; */
 }
@@ -1170,4 +1175,8 @@ a {
 
 .css-1dimb5e-singleValue {
   color: #f5615f !important;
+}
+
+.infoCardHeading {
+  font-size: 36px;
 }

@@ -66,11 +66,12 @@ const SearchBar = () => {
                     </form> */}
 
                     <form className='position-relative'>
-                        <div className="d-flex flex-column flex-md-row align-items-center rounded-6" style={{ border: "1px solid white", display: "flex" }}>
+                        <div className="d-flex flex-column flex-md-row align-items-center rounded-6 border-2 border">
                             <div className="me-3 desktop-view">
                                 <button type="submit" className="search-btn fs-2 rounded-pill align-items-center d-flex"><BsSearch /></button>
                             </div>
                             <div className="col-sm-12 col-md-6 d-flex multi-select-category">
+                            
                                 <Select
                                     placeholder="Choose a platform"
                                     name="platform"
@@ -79,7 +80,7 @@ const SearchBar = () => {
                                     classNamePrefix="select"
                                     options={optionsPlatform}
                                 />
-                                <div className="vr py-2 mx-2" style={{
+                                <div className="vr py-2 mx-2 desktop-view" style={{
                                     backgroundColor: "#FC6E90",
                                     alignSelf: "center",
                                     height: "50px",

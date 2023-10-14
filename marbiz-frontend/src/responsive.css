@@ -15,7 +15,7 @@
 @media only screen and (max-width: 767px) {
   .multi-select-category .css-13cymwt-control,
   .multi-select-category .css-t3ipsp-control {
-    width: 100%;
+    width: 360px;
   }
 
   .package-navigation {
@@ -45,6 +45,14 @@
   }
   .bottom-nav-item {
     max-width: 110px;
+  }
+
+  .typeWriterTextMove {
+    text-align: center;
+  }
+  .infoCardHeading {
+    text-align: center;
+    font-size: 30px;
   }
 }
 @media only screen and (max-width: 375px) {

@@ -9,7 +9,7 @@ const CelebCard = (props) => {
   return (
     <>
       <div
-        className="card card-bg mx-2 card-has-bg click-col"
+        className="card card-bg mx-2 card-has-bg click-col pt-3"
         style={{
           // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
           backgroundColor: "black",
@@ -33,8 +33,8 @@ const CelebCard = (props) => {
         >
           <div className="card-img-overlay d-flex flex-column">
             <div className="card-body">*/}
-              {/* <h4 className="card-title mt-0"></h4> */}
-            {/* </div>
+        {/* <h4 className="card-title mt-0"></h4> */}
+        {/* </div>
             <div className="card-footer p-0">
               <div className="media">
                 <div className="media-body" style={{ textAlign: "start" }}>
@@ -50,14 +50,14 @@ const CelebCard = (props) => {
 
         </div> */}
         <div
-          className="card card-img"
+          className="card card-img pt-3"
           style={{
             backgroundImage: `url("${props.image}")`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            
+
             height: `${props.cardHeight}px`,
-            
+
           }}
         >
           <div className="card-img-overlay d-flex flex-column">
@@ -79,21 +79,23 @@ const CelebCard = (props) => {
         </div>
 
       </div>
-      <div className="mt-2 p-2" style={{
+      <div className="mt-2 card-base" style={{
         zIndex: "5",
+        width: "300px",
       }}>
-        <div className="d-flex justify-content-start  " >
+        <div className="d-flex justify-content-start flex-wrap">
           {listcategory &&
             listcategory.map((value) => (
               <span
                 key={value.label}
-                className="badge badge-danger me-2"
+                className="badge badge-danger m-1"
               >
                 {value.label}
               </span>
             ))}
         </div>
-        <div className="mt-2 text-secondary text-start">Platform</div>
+
+        <div className="mt-2 px-2 text-secondary text-start">{props.platform}</div>
       </div>
     </>
 

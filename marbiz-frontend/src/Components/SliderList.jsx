@@ -19,11 +19,13 @@ const SliderList = (props) => {
     }
   };
 
+  
+
   return (
     <>
       <div className="container" style={{
-          display: `${displayHeading}`,
-        }}>
+        display: `${displayHeading}`,
+      }}>
         <div className="d-grid  justify-content-center mt-5">
           <h3 className="section-heading  text-center ">
             {title}
@@ -34,9 +36,9 @@ const SliderList = (props) => {
       </div>
 
       <div className="container">
-      <div className="row">
+        <div className="row">
 
-        {/* <Carousel style={{ padding: "20px 20px", }}
+          {/* <Carousel style={{ padding: "20px 20px", }}
           showThumbs={false}
           showStatus={false}
           centerMode={true}
@@ -73,13 +75,13 @@ const SliderList = (props) => {
           ))}
         </Carousel> */}
 
-        <Flicking
-            bound={true}
+          <Flicking
+            // bound={true}
             deceleration={0.0005}
             renderOnlyVisible={true}
           >
-            <div>
               {list.map((item, index) => (
+            <div>
                 <CelebCard
                   key={item.id}
                   fullName={item.fullName}
@@ -88,13 +90,14 @@ const SliderList = (props) => {
                   regName={item.regName}
                   // cardHeight={cardHeight}
                   cardGap={20}
-                  index={index}
+                  // index={index}
+                  platform={item.categoryType}
                 />
-              ))}
             </div>
+              ))}
 
           </Flicking>
-      </div>
+        </div>
       </div>
 
     </>
