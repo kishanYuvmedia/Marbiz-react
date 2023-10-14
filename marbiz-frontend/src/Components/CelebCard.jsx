@@ -12,7 +12,7 @@ const CelebCard = (props) => {
         className="card card-bg mx-2 card-has-bg click-col pt-3"
         style={{
           // background: "linear-gradient(145deg, #8725fe, #FE66AB)",
-          backgroundColor: "black",
+          backgroundColor: "#00000000",
           // borderRadius: "15px",
           // padding: "2px",
           transform: `translateY(${props.index === 0 ? 10 : (props.index % 2 !== 0 ? -10 : 10)}px)`,

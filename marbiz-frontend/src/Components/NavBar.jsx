@@ -14,7 +14,7 @@ function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-dark">
+      <nav className="navbar navbar-expand-md navbar-dark sticky-top">
         <div className="container-fluid mx-lg-5">
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Logo" />
@@ -138,6 +138,7 @@ function NavBar() {
           </div>
         </nav>
       </div>
+
 
       <Outlet />
     </>

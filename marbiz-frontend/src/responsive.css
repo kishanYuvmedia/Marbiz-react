@@ -46,7 +46,9 @@
   .bottom-nav-item {
     max-width: 110px;
   }
-
+  .bottom-nav {
+    max-width: 412px;
+  }
   .typeWriterTextMove {
     text-align: center;
   }
