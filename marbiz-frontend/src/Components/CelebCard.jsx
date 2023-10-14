@@ -68,7 +68,7 @@ const CelebCard = (props) => {
               </span>
             ))}
         </div>
-        <div className="mt-2 text-secondary text-start">TV Serials</div>
+        <div className="mt-2 text-secondary text-start">Platform</div>
       </div>
     </>
 

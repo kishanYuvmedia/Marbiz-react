@@ -70,7 +70,7 @@ function NavBar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex align-items-center" to="/creatorSignUp">
+                <Link className="nav-link d-flex align-items-center" to="/creator">
                   Join as creator
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
@@ -116,11 +116,11 @@ function NavBar() {
           </div>
           <div
             className={`bottom-nav-item ${
-              activeNavItem === "creatorSignUp" ? "active" : ""
+              activeNavItem === "creator" ? "active" : ""
             }`}
-            onClick={() => setActiveNavItem("creatorSignUp")}
+            onClick={() => setActiveNavItem("creator")}
           >
-            <Link className="bottom-nav-link" to="/creatorSignUp">
+            <Link className="bottom-nav-link" to="/creator">
             <BsStar />
               <span class="">Creator</span>
             </Link>

@@ -132,7 +132,7 @@ function HomePage() {
 
       <SearchBar />
 
-      <PopularCategories />
+      <PopularCategories title={"Popular Categories to explore"} />
 
       <SliderList
         title="Top Influencer"

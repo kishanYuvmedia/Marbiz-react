@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getPublicList } from "../services/api/api-service";
 
 
-const PopularCategories = () => {
+const PopularCategories = ({title}) => {
   const [categoryList, setCategory] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const PopularCategories = () => {
     <div className="container-fluid ">
       <div className="row justify-content-center">
         <div className=" text-center text-capitalize section-heading">
-          Popular Categories to explore
+          {title}
         </div>
         <div className="horizontal-scroll-container justify-content-center"
           style={{
@@ -40,7 +40,7 @@ const PopularCategories = () => {
           {categoryList.map((category, index) => (
             <div className=" mx-3" key={index}>
               <div className="btn-global d-grid align-items-center overflow-x-auto px-3 py-2 fs-6" style={{
-                height: "70px",
+                // height: "70px",
                 width: "180px",
               }}>
                 {category.label}

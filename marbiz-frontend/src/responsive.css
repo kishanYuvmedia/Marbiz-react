@@ -26,15 +26,21 @@
     display: none;
   }
 
-  
-.section-heading {
-  color: white;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 40px;
-}
+  .section-heading {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+
+  .username-text{
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 575px) {
+  .username-holder {
+    width: 100%; /* Set to 100% for smaller screens */
+  }
 }
 @media only screen and (max-width: 375px) {
 }

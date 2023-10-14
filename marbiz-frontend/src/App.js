@@ -5,6 +5,7 @@ import "mdb-ui-kit/js/mdb.min.js";
 import * as mdb from "mdb-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
+import "../src/Page/CreatorAuth/style.css";
 import "./responsive.css";
 import "bs5-lightbox";
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,7 +26,7 @@ import Category from "./Page/Category";
 
 
 // Creator routes
-import CreatorSignUp from "./Page/CreatorAuth/CreatorSignUp";
+import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Verify from "./Page/CreatorAuth/Verify";
 
@@ -54,7 +55,7 @@ function App() {
           <Route path="/category" element={<Category />} />
 
           {/* Creator Routes */}
-          <Route path="/creatorSignup" element={<CreatorSignUp />} />
+          <Route path="/creator" element={<Creator />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
           

@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const SliderList = (props) => {
-  const { title, subtitle, list } = props;
+  const { title, subtitle, list, displayHeading } = props;
 
   // Determine the number of cards to display based on the device width
   const getNumVisibleCards = () => {
@@ -19,7 +19,9 @@ const SliderList = (props) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{
+          display: `${displayHeading}`,
+        }}>
         <div className="d-grid  justify-content-center mt-5">
           <h3 className="section-heading  text-center ">
             {title}
