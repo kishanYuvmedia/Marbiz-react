@@ -52,9 +52,9 @@ const placeholderData = [
 
 function HomePage() {
   const [list, setList] = useState([]);
-  const [Influencerlist, setInfluencerlistList] = useState([]);
-  const [celebritylist, setcelebritylistList] = useState([]);
-
+  const [instagramlist, setInstagramlist] = useState([]);
+  const [ugclist, setugclist] = useState([]);
+  const [Youtubelist, setYoutubeList] = useState([]);
   useEffect(() => {
     getInfluencersFetured(8)
       .then((result) => {
@@ -72,42 +72,28 @@ function HomePage() {
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
       });
-
-    getInfluencersList(6, "Youtube")
-      .then((result) => {
-        if (Array.isArray(result) && result.length > 0) {
-          setTimeout(() => {
-            setInfluencerlistList(result);
-          }, 1000);
-        } else {
-          console.error("API response is empty or invalid:", result);
-          setTimeout(() => {
-            setInfluencerlistList(placeholderData);
-          }, 1000);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data from the API:", error);
-      });
-
-    getInfluencersList(6, "Youtube")
-      .then((result) => {
-        if (Array.isArray(result) && result.length > 0) {
-          setTimeout(() => {
-            setcelebritylistList(result);
-          }, 1000);
-        } else {
-          console.error("API response is empty or invalid:", result);
-          setTimeout(() => {
-            setcelebritylistList(placeholderData);
-          }, 1000);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data from the API:", error);
-      });
+    getlist("User Generated Content", setugclist);
+    getlist("Instagram", setInstagramlist);
+    getlist("Youtube", setYoutubeList);
   }, []);
-
+  function getlist(type, valueSetter) {
+    getInfluencersList(6, type)
+      .then((result) => {
+        if (Array.isArray(result) && result.length > 0) {
+          setTimeout(() => {
+            valueSetter(result);
+          }, 1000);
+        } else {
+          console.error("API response is empty or invalid:", result);
+          setTimeout(() => {
+            valueSetter(placeholderData);
+          }, 1000);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+      });
+  }
   return (
     <div>
       <HeroSection />
@@ -119,23 +105,22 @@ function HomePage() {
       <SliderList
         title="Top Influencer"
         subtitle="Hire top influencer across all platforms - See All"
-        list={list}
+        list={list ? list : placeholderData}
       />
-
       <SliderList
         title="Instgram"
         subtitle="Hire top Celebrities & Influencer all platforms see All"
-        list={celebritylist}
+        list={instagramlist ? instagramlist : placeholderData}
       />
       <SliderList
         title="Youtube"
         subtitle="Hire top Spokesperson & Models all platforms see All"
-        list={Influencerlist}
+        list={Youtubelist ? Youtubelist : placeholderData}
       />
       <SliderList
         title="UGC"
         subtitle="Hire top Spokesperson & Models all platforms see All"
-        list={Influencerlist}
+        list={ugclist ? ugclist : placeholderData}
         marginbottom="50px"
       />
     </div>

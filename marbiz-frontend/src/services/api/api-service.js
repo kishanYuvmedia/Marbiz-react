@@ -56,15 +56,21 @@ export const getInfluencersFetured = (limit) => {
     });
   });
 };
-export const getInfluencersAll = (platform, category) => {
-  const filter = {
-    where: { status: "A" },
+export const getInfluencersAll = (platform, category1) => {
+  let filter = {
+    where: {},
     order: "id desc",
   };
-  if (platform) {
+  if (platform != null && category1.length > 0) {
+    filter.where.and = [
+      { category: { inq: category1 } },
+      { status: "A" },
+      { categoryType: platform },
+    ];
+  } else if (platform != null) {
     filter.where.and = platform
       ? [{ status: "A" }, { categoryType: platform }]
-      : [{ category: category }];
+      : [{ status: "A" }];
   }
   return find("MtProfiles", filter);
 };

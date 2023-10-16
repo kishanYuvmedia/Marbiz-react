@@ -1,23 +1,12 @@
 import React from "react";
 import CelebCard from "./CelebCard";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Flicking from "@egjs/react-flicking";
-
+import { isEmpty } from "lodash";
+import { Placeholder, Card } from "react-bootstrap";
+import image from "../Images/loadimage.webp";
 const SliderList = (props) => {
   const { title, subtitle, list, displayHeading } = props;
-
-  // Determine the number of cards to display based on the device width
-  const getNumVisibleCards = () => {
-    if (window.innerWidth <= 768) {
-      // For mobile devices, display 1 card at a time
-      return 1;
-    } else {
-      // For desktop, display 6 cards at a time
-      return 6;
-    }
-  };
-
   return (
     <>
       <div
@@ -35,29 +24,28 @@ const SliderList = (props) => {
 
       <div className="container">
         <div className="row">
-          <Flicking
-            bound={true}
-            deceleration={0.0005}
-            circular={true}
-            align={"prev"}
-            renderOnlyVisible={true}
-          >
-            {list.map((item, index) => (
-              <div>
-                <CelebCard
-                  key={item.id}
-                  fullName={item.fullName}
-                  image={item.coverImage}
-                  category={item.category}
-                  regName={item.regName}
-                  // cardHeight={cardHeight}
-                  cardGap={20}
-                  // index={index}
-                  platform={item.categoryType}
-                />
-              </div>
-            ))}
-          </Flicking>
+          {!isEmpty(list) && (
+            <Flicking
+              bound={true}
+              deceleration={0.0005}
+              circular={true}
+              align={"prev"}
+              renderOnlyVisible={true}
+            >
+              {list.map((item, index) => (
+                <div key={index}>
+                  <CelebCard
+                    fullName={item.fullName}
+                    image={item.coverImage}
+                    category={item.category}
+                    regName={item.regName}
+                    cardGap={20}
+                    platform={item.categoryType}
+                  />
+                </div>
+              ))}
+            </Flicking>
+          )}
         </div>
       </div>
     </>
