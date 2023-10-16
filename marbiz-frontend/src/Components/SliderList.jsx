@@ -35,44 +35,13 @@ const SliderList = (props) => {
 
       <div className="container">
         <div className="row">
-          {/* <Carousel style={{ padding: "20px 20px", }}
-          showThumbs={false}
-          showStatus={false}
-          centerMode={true}
-          // centerSlidePercentage={20}
-          infiniteLoop={true}
-          showArrows={true}
-          showIndicators={false}
-
-          swipeable={true}
-          emulateTouch={true}
-          interval={5000}
-          autoPlay={false}
-          stopOnHover={true}
-          dynamicHeight={false}
-          renderThumbs={() => { }} // Hide the default thumbnail navigation
-          selectedItem={0} // Set the initially selected item
-          axis="horizontal" // Set the scroll direction
-          useKeyboardArrows={true}
-          transitionTime={500}
-          swipeScrollTolerance={1}
-          width="100%"
-
-          centerSlidePercentage={100 / getNumVisibleCards()} // Adjust the percentage based on the number of cards
-          itemsToShow={getNumVisibleCards()} // Specify the number of visible cards
-        >
-          {list.map((item) => (
-            <CelebCard
-              key={item.id}
-              fullName={item.fullName}
-              image={item.coverImage}
-              category={item.category}
-              regName={item.regName}
-            />
-          ))}
-        </Carousel> */}
-
-          <Flicking bound={true} deceleration={0.0005} renderOnlyVisible={true}>
+          <Flicking
+            bound={true}
+            deceleration={0.0005}
+            circular={true}
+            align={"prev"}
+            renderOnlyVisible={true}
+          >
             {list.map((item, index) => (
               <div>
                 <CelebCard

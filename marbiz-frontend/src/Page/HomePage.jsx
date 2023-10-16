@@ -6,11 +6,10 @@ import Promotions from "../Components/Promotions";
 import "../App.css";
 import PopularCategories from "../Components/PopularCategories";
 import {
-  getInfluencersFeturedList,
+  getInfluencersFetured,
   getInfluencersList,
 } from "../services/api/api-service";
 import SearchBar from "../Components/SearchBar";
-
 
 // Placeholder data (example)
 const placeholderData = [
@@ -52,83 +51,66 @@ const placeholderData = [
 ];
 
 function HomePage() {
-  
   const [list, setList] = useState([]);
   const [Influencerlist, setInfluencerlistList] = useState([]);
   const [celebritylist, setcelebritylistList] = useState([]);
 
-
   useEffect(() => {
-
-    getInfluencersFeturedList(6, "LinkedIn")
+    getInfluencersFetured(8)
       .then((result) => {
-        
         if (Array.isArray(result) && result.length > 0) {
           setTimeout(() => {
-            setList(result); 
+            setList(result);
           }, 1000);
         } else {
-          
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setList(placeholderData); 
+            setList(placeholderData);
           }, 1000);
-          
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        
       });
 
     getInfluencersList(6, "Youtube")
       .then((result) => {
-        
         if (Array.isArray(result) && result.length > 0) {
           setTimeout(() => {
-            setInfluencerlistList(result); 
+            setInfluencerlistList(result);
           }, 1000);
         } else {
-          
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setInfluencerlistList(placeholderData); 
+            setInfluencerlistList(placeholderData);
           }, 1000);
-          
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        
       });
 
-    getInfluencersList(6, "LinkedIn")
+    getInfluencersList(6, "Youtube")
       .then((result) => {
-        
         if (Array.isArray(result) && result.length > 0) {
           setTimeout(() => {
-            setcelebritylistList(result); 
+            setcelebritylistList(result);
           }, 1000);
         } else {
-          
           console.error("API response is empty or invalid:", result);
           setTimeout(() => {
-            setcelebritylistList(placeholderData); 
+            setcelebritylistList(placeholderData);
           }, 1000);
-          
         }
       })
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
-        
       });
-
-    
   }, []);
 
   return (
     <div>
-      <HeroSection  list={list} />
+      <HeroSection />
 
       <SearchBar />
 
@@ -139,7 +121,7 @@ function HomePage() {
         subtitle="Hire top influencer across all platforms - See All"
         list={list}
       />
-      
+
       <SliderList
         title="Instgram"
         subtitle="Hire top Celebrities & Influencer all platforms see All"
@@ -156,9 +138,6 @@ function HomePage() {
         list={Influencerlist}
         marginbottom="50px"
       />
-
-
-      
     </div>
   );
 }
