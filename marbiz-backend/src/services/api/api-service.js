@@ -59,7 +59,7 @@ export const getProfileList = () => {
 export const getProfile = profileid => {
   return new Promise((resolve, reject) => {
     findOne("MtProfiles", {
-      id: profileid,
+      where: { id: profileid },
     }).then(data => {
       resolve(data)
     })

@@ -67,12 +67,8 @@ export default function CreateProfile(props) {
     const listarray = [];
     const newErrors = {};
     selectUsertype.map((list) => {
-      listarray.push({
-        label: list.label,
-        value: list.value,
-      });
+      listarray.push(list.label);
     });
-
     if (!formData.businessNumber) {
       newErrors.businessNumber = "Business contact number is required.";
     }

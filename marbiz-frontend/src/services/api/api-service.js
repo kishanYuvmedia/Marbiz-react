@@ -56,7 +56,18 @@ export const getInfluencersFetured = (limit) => {
     });
   });
 };
-
+export const getInfluencersAll = (platform, category) => {
+  const filter = {
+    where: { status: "A" },
+    order: "id desc",
+  };
+  if (platform) {
+    filter.where.and = platform
+      ? [{ status: "A" }, { categoryType: platform }]
+      : [{ category: category }];
+  }
+  return find("MtProfiles", filter);
+};
 export const createProfileListing = (data) => {
   return create("MtProfiles", data);
 };

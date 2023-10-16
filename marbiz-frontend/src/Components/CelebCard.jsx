@@ -23,35 +23,6 @@ const CelebCard = (props) => {
           // marginRight: `${props.cardGap}px`,
         }}
       >
-        {/* <div
-          className="card card-img  "
-          style={{
-            backgroundImage: `url("${props.image}")`,
-            // borderRadius: "15px",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            border: "0",
-            height: `${props.cardHeight}px`,
-          }}
-        >
-          <div className="card-img-overlay d-flex flex-column">
-            <div className="card-body">*/}
-        {/* <h4 className="card-title mt-0"></h4> */}
-        {/* </div>
-            <div className="card-footer p-0">
-              <div className="media">
-                <div className="media-body" style={{ textAlign: "start" }}>
-                  <Link to={`/profile/${props.regName}`}>
-                    <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
-                      {props.fullName}
-                    </h3>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div> 
-
-        </div> */}
         <div
           className="card card-img pt-3"
           style={{
@@ -90,8 +61,8 @@ const CelebCard = (props) => {
         <div className="d-flex justify-content-start flex-wrap">
           {listcategory &&
             listcategory.map((value) => (
-              <span key={value.label} className="badge badge-danger m-1">
-                {value.label}
+              <span key={value} className="badge badge-danger m-1">
+                {value}
               </span>
             ))}
         </div>

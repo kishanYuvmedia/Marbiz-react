@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { MultiSelect } from "react-multi-select-component"
 import Swal from "sweetalert2"
+import { forEach } from "lodash"
 export default function AddInfluencer(props) {
   const navigate = useNavigate()
   document.title = "Add Category | Marbiz"
@@ -78,12 +79,16 @@ export default function AddInfluencer(props) {
     if (!formData.businessNumber || !formData.fullName) {
       return
     }
+    const listMulti = []
+    selected.forEach(item => {
+      listMulti.push(item.label)
+    })
     const data = []
     data.push({
       categoryType: selectCategory,
       fullName: formData.fullName,
       regName: formData.regName,
-      category: selected,
+      category: listMulti,
       businessNumber: formData.businessNumber,
       about: formData.about,
       bio: formData.bio,
@@ -185,7 +190,6 @@ export default function AddInfluencer(props) {
   }
   function handleMulti(selectedMulti) {
     setSelected(selectedMulti)
-    console.log(selectedMulti)
   }
   return (
     <div>

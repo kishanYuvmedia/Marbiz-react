@@ -61,17 +61,6 @@ function NavBar() {
                 className="vr desktop-view"
                 style={{ backgroundColor: "#FC6E90" }}
               ></div>
-              <li className="nav-item">
-                <Link
-                  className={`nav-link text-center ${
-                    activeNavItem === "category" && "active"
-                  }`}
-                  to="/category"
-                  onClick={() => handleNavItemClick("category")}
-                >
-                  Category
-                </Link>
-              </li>
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
@@ -132,17 +121,6 @@ function NavBar() {
           </div>
           <div
             className={`bottom-nav-item ${
-              activeNavItem === "creator" ? "active" : ""
-            }`}
-            onClick={() => setActiveNavItem("creator")}
-          >
-            <Link className="bottom-nav-link" to="/creator">
-              <BsStar />
-              <span class="">Creator</span>
-            </Link>
-          </div>
-          <div
-            className={`bottom-nav-item ${
               activeNavItem === "login" ? "active" : ""
             }`}
             onClick={() => setActiveNavItem("login")}
@@ -154,7 +132,6 @@ function NavBar() {
           </div>
         </nav>
       </div>
-
 
       <Outlet />
     </>

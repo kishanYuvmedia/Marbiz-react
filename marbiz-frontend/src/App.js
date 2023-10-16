@@ -22,7 +22,6 @@ import CelebProfile from "./Page/CelebProfile";
 import GlobalLogin from "./Page/Login/GlobalLogin";
 import HowItWorks from "./Page/HowItWorks";
 import Explore from "./Page/Explore";
-import Category from "./Page/Category";
 // Creator routes
 import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
@@ -46,7 +45,6 @@ function App() {
           <Route path="/login" element={<GlobalLogin />} />
           <Route path="/howitworks" element={<HowItWorks />} />
           <Route path="/explore" element={<Explore />} />
-          <Route path="/category" element={<Category />} />
           {/* Creator Routes */}
           <Route path="/creator" element={<Creator />} />
           <Route path="/emailverify" element={<Verify />} />

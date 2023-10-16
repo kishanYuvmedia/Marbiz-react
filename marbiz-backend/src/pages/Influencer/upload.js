@@ -135,6 +135,7 @@ export default function Upload() {
       })
     getProfile(profileId)
       .then(resultdb => {
+        console.log("image Profile", resultdb)
         setprofile(resultdb)
         setSelectedImage1(
           _.get(resultdb, "image1") ? resultdb.image1 : defaultImges
@@ -582,14 +583,14 @@ export default function Upload() {
                   <TabPane tabId="1">
                     <Row>
                       <Col sm="12">
-                        <div className="popup-gallery d-flex flex-wrap">
+                        <div className="popup-gallery flex-wrap">
                           <div className="img-fluid float-left ">
                             <div>
                               <div className="row">
                                 {images &&
                                   Array.isArray(images) &&
                                   images.map(list => (
-                                    <div className="col-3" key={list.id}>
+                                    <div className="col-md-2" key={list.id}>
                                       <div>
                                         <img
                                           src={list.src}
@@ -598,9 +599,11 @@ export default function Upload() {
                                             setphotoIndex(0)
                                           }}
                                           alt=""
-                                          width="100%"
-                                          height="250"
-                                          style={{ margin: 10 }}
+                                          style={{
+                                            margin: 1,
+                                            height: 250,
+                                            width: "100%",
+                                          }}
                                         />
                                       </div>
                                       <div className="justify-content-center">

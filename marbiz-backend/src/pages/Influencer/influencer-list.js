@@ -210,7 +210,7 @@ export default function InfluencerList() {
             </tr>
             <tr>
               <th>Category</th>
-              <td>{viewdata.category?.map(list => list.label + ",")}</td>
+              <td>{viewdata.category}</td>
             </tr>
             <tr>
               <th>Business Contact Number</th>
