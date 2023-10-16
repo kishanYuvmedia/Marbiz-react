@@ -1207,7 +1207,7 @@ body {
 
 .home-body {
   padding-top: 100px;
-  min-height: 800px;
+  /* min-height: 800px; */
 }
 
 .sub-heading {

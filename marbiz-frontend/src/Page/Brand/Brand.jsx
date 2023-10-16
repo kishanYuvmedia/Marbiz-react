@@ -19,12 +19,10 @@ const Brand = () => {
         <div>
             <Container className='py-5'>
                 {/* BG Gradient */}
-                
+
                 <HeroBgGradient />
 
-                <Row className='d-grid align-content-center justify-content-center' style={{
-                    height: "60vh",
-                }}>
+                <Row className='d-grid align-content-center justify-content-center' >
                     <div className="d-flex justify-content-center flex-column align-items-center">
                         <div className="typeWriterText text-center mb-2">The Easy Way to Generate</div>
                         <Typewriter
