@@ -6,18 +6,37 @@ import { useParams, Link } from "react-router-dom";
 import {
   getInfluencersProfile,
   getImagesList,
+  getInfluencersList,
 } from "../services/api/api-service";
 import _ from "lodash";
-
+import SliderList from "../Components/SliderList";
 const CelebProfile = () => {
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [images, setImages] = useState([]);
-
+  const [list, setList] = useState([]);
+  const [type, settype] = useState("");
+  function getlist(type, valueSetter) {
+    getInfluencersList(6, type)
+      .then((result) => {
+        if (Array.isArray(result) && result.length > 0) {
+          setTimeout(() => {
+            valueSetter(result);
+          }, 1000);
+        } else {
+          console.error("API response is empty or invalid:", result);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+      });
+  }
   useEffect(() => {
     getInfluencersProfile(regName)
       .then((result) => {
         setprofile(result);
+        getlist(result.categoryType, setList);
+        settype(result.categoryType);
         getImagesList(result.id)
           .then((resultdb) => {
             setTimeout(() => {
@@ -62,10 +81,7 @@ const CelebProfile = () => {
                   </div>
                   <h4 className="text-white fs-6">
                     {profileData.category.map((list, index) => (
-                      <span key={index}>
-                        {list.label}
-                        {index !== profileData.category.length - 1 && " / "}
-                      </span>
+                      <span key={index}>{list},</span>
                     ))}
                   </h4>
                   <h6 className="text-secondary">
@@ -90,7 +106,7 @@ const CelebProfile = () => {
                 {/* Large image for medium and larger screens */}
                 <div className="text-center gallery-container-one  ">
                   <img
-                    src={profileData.coverImage}
+                    src={profileData.image1 || profileData.coverImage}
                     alt=""
                     className="rounded-3"
                   />
@@ -100,7 +116,7 @@ const CelebProfile = () => {
                 {/* Large image for mobile devices (hidden on medium and larger screens) */}
                 <div className="text-center gallery-container-one  ">
                   <img
-                    src={profileData.coverImage}
+                    src={profileData.image1 || profileData.coverImage}
                     alt=""
                     className="rounded-3"
                   />
@@ -112,7 +128,7 @@ const CelebProfile = () => {
                     {/* Small images for all screen sizes */}
                     <div className="text-center gallery-container-two  ">
                       <img
-                        src={profileData.coverImage}
+                        src={profileData.image2 || profileData.coverImage}
                         alt=""
                         className="rounded-3"
                       />
@@ -122,7 +138,7 @@ const CelebProfile = () => {
                     {/* Small images for all screen sizes */}
                     <div className="text-center gallery-container-two  ">
                       <img
-                        src={profileData.coverImage}
+                        src={profileData.image3 || profileData.coverImage}
                         alt=""
                         className="rounded-3"
                       />
@@ -134,7 +150,7 @@ const CelebProfile = () => {
                     {/* Small image for all screen sizes */}
                     <div className="text-center gallery-container-three  ">
                       <img
-                        src={profileData.coverImage}
+                        src={profileData.image4 || profileData.coverImage}
                         alt=""
                         className="rounded-3"
                       />
@@ -192,7 +208,11 @@ const CelebProfile = () => {
       {regName && (
         <div className="p-5 text-center bg-body-tertiary hero">
           <div className="container py-5">
-            <h1 className="text-white">Not found List</h1>
+            <SliderList
+              title={type}
+              subtitle="Hire top Celebrities & Influencer all platforms see All"
+              list={list}
+            />
           </div>
         </div>
       )}

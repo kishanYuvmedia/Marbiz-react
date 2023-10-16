@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { MultiSelect } from "react-multi-select-component"
 import Swal from "sweetalert2"
-import { forEach } from "lodash"
 export default function AddInfluencer(props) {
   const navigate = useNavigate()
   document.title = "Add Category | Marbiz"
@@ -80,9 +79,12 @@ export default function AddInfluencer(props) {
       return
     }
     const listMulti = []
-    selected.forEach(item => {
-      listMulti.push(item.label)
-    })
+    if (Array.isArray(selected)) {
+      selected.map(item => listMulti.push(item.label))
+    } else {
+      // Handle the case when 'selected' is not an array or is undefined
+      console.error("'selected' is not an array or is undefined")
+    }
     const data = []
     data.push({
       categoryType: selectCategory,
@@ -188,8 +190,8 @@ export default function AddInfluencer(props) {
         })
     }
   }
-  function handleMulti(selectedMulti) {
-    setSelected(selectedMulti)
+  function handleMulti(e) {
+    setSelected(e.label)
   }
   return (
     <div>
