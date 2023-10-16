@@ -11,6 +11,7 @@ import SliderList from "../../Components/SliderList";
 import artist_1 from "../../Images/artist_1.webp"
 import artist_2 from "../../Images/artist_2.webp"
 import artist_3 from "../../Images/artist_3.webp"
+import HeroBgGradient from "../../Components/HeroBgGradient";
 
 
 
@@ -75,6 +76,8 @@ export default function Creator() {
 
   return (
     <>
+        <HeroBgGradient />
+
       {status === false && (
         <div>
           <div className="my-5 p-2 text-center bg-body-tertiary hero">

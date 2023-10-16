@@ -11,12 +11,17 @@ import artist_4 from "../../Images/artist_4.webp"
 import InfoCardOne from '../../Components/InfoCardOne';
 import InfoCardTwo from '../../Components/InfoCardTwo';
 import PopularCategories from '../../Components/PopularCategories';
+import HeroBgGradient from '../../Components/HeroBgGradient';
 
 
 const Brand = () => {
     return (
         <div>
             <Container className='py-5'>
+                {/* BG Gradient */}
+                
+                <HeroBgGradient />
+
                 <Row className='d-grid align-content-center justify-content-center' style={{
                     height: "60vh",
                 }}>

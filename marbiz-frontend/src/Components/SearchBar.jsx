@@ -65,13 +65,13 @@ const SearchBar = () => {
                         </div>
                     </form> */}
 
-                    <form className='position-relative'>
-                        <div className="d-flex flex-column flex-md-row align-items-center rounded-6 border-2 border">
-                        <div className="me-3 desktop-view">
+                    <form className=''>
+                        <div className="position-relative d-flex flex-column flex-md-row align-items-center rounded-6 border-2 border">
+                            <div className="col-md-1 justify-content-center me-3 desktop-view">
                                 <button type="submit" className="search-btn fs-2 rounded-pill align-items-center d-flex"><BsSearch /></button>
                             </div>
-                            <div className="col-sm-12 col-md-6 d-flex multi-select-category">
-                            
+                            <div className="col-sm-12 col-md-5  multi-select-category">
+
                                 <Select
                                     placeholder="Choose a platform"
                                     name="platform"
@@ -80,14 +80,15 @@ const SearchBar = () => {
                                     classNamePrefix="select"
                                     options={optionsPlatform}
                                 />
-                                <div className="vr py-2 mx-2 desktop-view" style={{
+                                </div>
+                                <div className="col-md-1 vr py-2 mx-2 desktop-view" style={{
                                     backgroundColor: "#FC6E90",
                                     alignSelf: "center",
                                     height: "50px",
                                 }}>
                                 </div>
-                            </div>
-                            <div className="col-sm-12 col-md-6 me-2 multi-select-category">
+                            
+                            <div className="col-sm-12 col-md-5 me-2 multi-select-category">
                                 <Select
                                     isMulti
                                     placeholder="Category"

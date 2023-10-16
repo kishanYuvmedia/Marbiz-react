@@ -31,15 +31,15 @@ const CelebGallery = (props) => {
       <hr className="hr hr-blurry" />
 
       <Row>
-        <Flicking
+        {/* <Flicking
 
-          bound={false}
+          bound={true}
           deceleration={0.0005}
           renderOnlyVisible={true}
-        >
+        > */}
 
           {list.map((item) => (
-            <div className="mb-4">
+            <div className="col-6 col-md-3 mb-4">
 
               <CelebCard
                 key={item.id}
@@ -52,7 +52,7 @@ const CelebGallery = (props) => {
           ))}
 
 
-        </Flicking>
+        {/* </Flicking> */}
 
 
       </Row>

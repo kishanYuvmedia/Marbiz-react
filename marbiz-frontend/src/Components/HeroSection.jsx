@@ -11,6 +11,7 @@ import CelebCard from "./CelebCard";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Flicking from "@egjs/react-flicking";
+import HeroBgGradient from "./HeroBgGradient";
 
 
 const categories = [
@@ -52,16 +53,7 @@ const HeroSection = (props) => {
       });
   }, []);
 
-  // Determine the number of cards to display based on the device width
-  const getNumVisibleCards = () => {
-    if (window.innerWidth <= 768) {
-      // For mobile devices, display 1 card at a time
-      return 1;
-    } else {
-      // For desktop, display 6 cards at a time
-      return 6;
-    }
-  };
+
 
   return (
     <>
@@ -71,39 +63,8 @@ const HeroSection = (props) => {
           minHeight: "800px",
         }}
       >
+        <HeroBgGradient />
 
-        <div className="position-absolute desktop-view" style={{
-          width: "500px",
-          height: "800px",
-        }}>
-          <div
-            className=" "
-            style={{
-              background: "radial-gradient(circle, rgba(252, 110, 144, 0.49) 0%, rgba(254, 96, 173, 0) 51%, rgba(0, 0, 0, 0) 100%)",
-
-              width: "100%",
-              height: "100%",
-              top: "0%",
-              // opacity: "0.7",
-            }}
-          ></div>
-        </div>
-        <div className="position-absolute top-50 end-0 desktop-view" style={{
-          width: "500px",
-          height: "500px",
-        }}>
-          <div
-            className=" "
-            style={{
-              background: "radial-gradient(circle, rgba(252, 110, 144, 0.49) 0%, rgba(254, 96, 173, 0) 51%, rgba(0, 0, 0, 0) 100%)",
-
-              width: "100%",
-              height: "100%",
-              top: "0%",
-              // opacity: "0.7",
-            }}
-          ></div>
-        </div>
 
         <img src={manBGImage} alt="man-bg-img" className="position-absolute top-0 start-0 h-100 desktop-view" />
         <img src={womenBGImage} alt="women-bg-img" className="position-absolute top-0 end-0 h-100 desktop-view" />
@@ -145,53 +106,15 @@ const HeroSection = (props) => {
           padding: "0 5px",
 
         }}>
-          {/* <Carousel style={{ padding: "20px 20px", }}
-            showThumbs={false}
-            showStatus={false}
-            centerMode={true}
-            // centerSlidePercentage={20}
-            infiniteLoop={false}
-            showArrows={false}
-            showIndicators={false}
-
-            swipeable={true}
-            emulateTouch={true}
-            interval={3000}
-            autoPlay={true}
-            stopOnHover={true}
-            dynamicHeight={false}
-            renderThumbs={() => { }}
-            selectedItem={0}
-            axis="horizontal"
-            useKeyboardArrows={true}
-            transitionTime={500}
-            swipeScrollTolerance={1}
-            width="100%"
-            centerSlidePercentage={100 / getNumVisibleCards()}
-            itemsToShow={getNumVisibleCards()}
-          >
-            {list.map((item, index) => (
-              <CelebCard
-                key={item.id}
-                fullName={item.fullName}
-                image={item.coverImage}
-                category={item.category}
-                regName={item.regName}
-                cardHeight={cardHeight}
-                cardGap={20}
-                index={index}
-              />
-            ))}
-          </Carousel> */}
 
           <Flicking
-            
+
             bound={true}
             deceleration={0.0005}
             renderOnlyVisible={true}
           >
-            <div>
-              {list.map((item, index) => (
+            {list.map((item, index) => (
+              <div>
                 <CelebCard
                   key={item.id}
                   fullName={item.fullName}
@@ -202,8 +125,8 @@ const HeroSection = (props) => {
                   cardGap={20}
                   index={index}
                 />
-              ))}
-            </div>
+              </div>
+            ))}
 
           </Flicking>
         </div>

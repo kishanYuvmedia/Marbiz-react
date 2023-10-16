@@ -10,6 +10,7 @@ import {
   getInfluencersList,
 } from "../services/api/api-service";
 import SearchBar from '../Components/SearchBar';
+import HeroBgGradient from '../Components/HeroBgGradient';
 
 
 const optionsPlatform = [
@@ -113,47 +114,11 @@ const Explore = () => {
 
   return (
     <div>
+      {/* BG Gradient */}
+      <HeroBgGradient />
+
       {/* Search filters */}
-      {/* <Container className='py-5' >
-        <Row className='d-grid align-content-top justify-content-center' >
-          <form>
-            <div className='d-flex bg-dark p-2 align-items-center rounded-6'>
-
-              <div className="multi-select-category">
-
-                <Select
-                  placeholder="Platform"
-                  name="platform"
-                  id="platform"
-                  className="basic-multi-select "
-                  classNamePrefix="select"
-                  options={optionsPlatform}
-                />
-              </div>
-
-              <div className="ms-3 multi-select-category">
-                <Select
-                  isMulti
-                  placeholder="Category"
-                  name="category"
-                  id="category"
-                  className="basic-multi-select "
-                  classNamePrefix="select"
-                  options={optionsCategory}
-
-                />
-              </div>
-              <div className='ms-3'>
-                <Button type="submit" className='srch-btn fs-6 rounded-pill align-items-center d-flex'><BsSearch /></Button>
-              </div>
-
-            </div>
-          </form>
-
-        </Row>
-      </Container> */}
-
-    <SearchBar />
+      <SearchBar />
 
       {/* Celeb Gallery */}
       <Container className='mb-5'>
@@ -162,7 +127,7 @@ const Explore = () => {
             title="Influencer"
             subtitle="Hire top influencer across all platforms"
             list={list}
-            
+
           />
         </Row>
       </Container>
