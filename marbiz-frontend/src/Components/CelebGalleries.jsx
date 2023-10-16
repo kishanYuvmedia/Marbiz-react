@@ -23,12 +23,12 @@ const CelebGallery = (props) => {
   return (
     <div className="container">
       <div className="d-grid  justify-content-center mt-5">
-        <h3 className="fw-bold section-heading  text-center display-6 text-uppercase">
+        <h3 className=" section-heading  text-center display-6 ">
           {title}
         </h3>
         <span className="text-secondary text-center">{subtitle}</span>
       </div>
-      <hr className="hr hr-blurry" />
+      <hr className="border border-danger border-1 opacity-50" />
 
       <Row>
         {/* <Flicking

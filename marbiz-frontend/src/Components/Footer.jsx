@@ -6,27 +6,31 @@ const Footer = () => {
     return (
 
 
-        <footer className="footer text-center text-lg-start text-white">
+        <footer className="footer text-center text-lg-start text-white pt-3">
 
 
             <section className="">
-                <div className="container text-center text-md-start mt-5">
+                <div className="container-fluid text-start mt-5 mx-1 mx-md-5">
                     {/* <!-- Grid row --> */}
                     <div className="row mt-3">
                         {/* <!-- Grid column --> */}
-                        <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <div className="col-md-4 d-flex">
                             {/* <!-- Content --> */}
-                            <img src={logo} alt="Logo" />
-                            <p className='my-3'>
-                                Influencer marketing can be an effective strategy for many brands, but it's not without its challenges and potential pitfalls. Here are some common shortcomings or challenges associated with influencer marketing.
-                            </p>
+                            <div className='pe-0 pe-md-5'>
+                                <img src={logo} alt="Logo" />
+                                <div className='my-3 text-secondary' style={{
+                                    fontSize: "20px",
+                                    fontWeight: "400",
+                                    fontFamily: "DM_Sans1",
+                                }}>
+                                    Influencer marketing can be an effective strategy for many brands, but it's not without its challenges and potential pitfalls. Here are some common shortcomings or challenges associated with influencer marketing.
+                                </div>
+                            </div>
+                            <div className='vr desktop-view'></div>
                         </div>
-                        {/* <!-- Grid column --> */}
-
-                        {/* <!-- Grid column --> */}
-                        <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <div className="col-md-3 ">
                             {/* <!-- Links --> */}
-                            <h4 className="text-uppercase fw-bold mb-4">
+                            <h4 className="  mb-4">
                                 Category
                             </h4>
                             <p>
@@ -44,9 +48,9 @@ const Footer = () => {
 
                         </div>
 
-                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <div className="col-md-2  ">
                             {/* <!-- Links --> */}
-                            <h4 className="text-uppercase fw-bold mb-4">
+                            <h4 className="  mb-4">
                                 Discover
                             </h4>
                             <p>
@@ -60,35 +64,32 @@ const Footer = () => {
                             </p>
                         </div>
 
-                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                            <h4 className="text-uppercase fw-bold mb-4">
-                                Discover
-                            </h4>
-                            <p>
-                                <Link to="/find-influencers" className="group-item">Find Influencers</Link>
-                            </p>
-                            <p>
-                                <Link to="/top-influencers" className="group-item">Top Influencers</Link>
-                            </p>
-                            <p>
-                                <Link to="/hire-an-influencer" className="group-item">Hire an Influencer</Link>
-                            </p>
-                        </div>
-
-                        <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <div className="col-md-2 ">
                             {/* <!-- Links --> */}
-                            <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-                            <p><i className="fas fa-home me-3"></i>Ajmer, Rajasthan</p>
-                            <p>
-                                <i className="fas fa-envelope me-3"></i>
-                                info@marbiz.com
+                            <h4 className="  mb-4">Contact</h4>
+                            <p >
+                                <Link to={"/#"} className='text-secondary'>
+                                    <i className="fas fa-home me-3"></i>
+                                    Ajmer, Rajasthan
+                                </Link>
                             </p>
-                            <p><i className="fas fa-phone me-3"></i>+91-8078671648</p>
-                        </div>
+                            <p >
+                                <Link to={"mailto:info@marbiz.com"} className='text-secondary'>
+                                    <i className="fas fa-envelope me-3"></i>
+                                    info@marbiz.com
+                                </Link>
 
+                            </p>
+
+                            <p >
+                                <a href="tel:+918078671648" className='text-secondary'>
+                                    <i className="fas fa-phone me-3"></i>
+                                    +91-8078671648
+                                </a>
+                            </p>
+
+                        </div>
                     </div>
-
                 </div>
             </section>
             <section className="d-flex social-section align-items-center justify-content-center justify-content-lg-between p-4 " >
@@ -98,9 +99,9 @@ const Footer = () => {
                 </div>
 
                 <div className="text-center p-3 bottom-footer" >
-                © 2023 Copyright: Marbiz.com
-                <Link className="text-reset fw-bold" to='/'></Link>
-            </div>
+                    © 2023 Copyright: Marbiz.com
+                    <Link className="text-reset fw-bold" to='/'></Link>
+                </div>
 
                 <div>
                     <Link to="/facebook" className="me-4 text-reset">
@@ -124,11 +125,11 @@ const Footer = () => {
                 </div>
 
             </section>
-            
+
             <div className=' pb-5 mobile-view'>
                 <hr />
             </div>
-        </footer>
+        </footer >
 
 
     );

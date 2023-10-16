@@ -86,29 +86,32 @@ const HeroSection = (props) => {
                 zIndex: 10,
               }}
             />
-            <div className="typeWriterText" style={{
+            <h6 className="typeWriterText" style={{
               zIndex: 10,
-            }}>Marketing Made Easy</div>
+            }}>Marketing Made Easy</h6>
           </div>
-          <h3 className="mt-3 text-white" style={{
-            zIndex: 10,
-            fontSize: "1.2rem",
+          <div className="mt-3 sub-heading text-white" style={{
+            
+            fontSize: "32px",
+            fontWeight: "400",
+            lineHeight: "48px,"
           }}>
-            Find and hire top Instagram,Facebook, YouTube, and UGC <br />influencer to
+            Find and hire top Instagram, 
+            Facebook, YouTube, and UGC <br />influencer to
             create unique content for your brand.
-          </h3>
+          </div>
 
         </div>
 
         {/* featued slider */}
-        <div className="container-fluid py-5" style={{
+        <div className="container py-5" style={{
           zIndex: 10,
           padding: "0 5px",
 
         }}>
 
           <Flicking
-
+            circular={true}
             bound={true}
             deceleration={0.0005}
             renderOnlyVisible={true}

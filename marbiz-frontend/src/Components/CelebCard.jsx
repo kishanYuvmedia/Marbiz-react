@@ -68,7 +68,7 @@ const CelebCard = (props) => {
               <div className="media">
                 <div className="media-body" style={{ textAlign: "start" }}>
                   <Link to={`/profile/${props.regName}`}>
-                    <h3 className="my-0 fs-5 fw-bold text-2xl text-white d-block">
+                    <h3 className="my-0 fs-5  text-white d-block">
                       {props.fullName}
                     </h3>
                   </Link>

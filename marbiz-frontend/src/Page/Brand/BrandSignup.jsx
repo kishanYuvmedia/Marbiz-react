@@ -1,41 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import Select from "react-select";
 import { Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import Swal from "sweetalert2";
+import HeroBgGradient from '../../Components/HeroBgGradient';
+
+
 
 const BrandSignup = () => {
     const responseGoogle = (response) => {
         console.log(response);
     };
 
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        setValidated(true);
+    };
+
     return (
         <div>
             <Container className="py-5 d-grid align-content-center" style={{ minHeight: "100vh" }}>
                 {/* BG Gradient */}
-                <div className="position-absolute start-0 top-0 desktop-view" style={{ width: "500px", height: "800px" }}>
-                    <div
-                        className=" "
-                        style={{
-                            background: "radial-gradient(circle, rgb(252 110 144 / 32%) 0%, rgba(254, 96, 173, 0) 51%, rgba(0, 0, 0, 0) 100%)",
-                            width: "100%",
-                            height: "100%",
-                            top: "0%",
-                        }}
-                    ></div>
-                </div>
-                <div className="position-absolute top-50 end-0 desktop-view" style={{ width: "500px", height: "500px" }}>
-                    <div
-                        className=" "
-                        style={{
-                            background: "radial-gradient(circle, rgb(252 110 144 / 32%) 0%, rgba(254, 96, 173, 0) 51%, rgba(0, 0, 0, 0) 100%)",
-                            width: "100%",
-                            height: "100%",
-                            top: "0%",
-                        }}
-                    ></div>
-                </div>
+                <HeroBgGradient />
 
                 <Row className="justify-content-center">
                     <Col lg="6" md="8">
@@ -61,31 +55,33 @@ const BrandSignup = () => {
                                 <span className="">or</span>
                             </h2>
                         </div>
-                        <div className="inquiry-form rounded-3 p-3">
-                            <Form className="m-3 pb-3">
+
+                        {/* signup form */}
+                        <div className="inquiry-form signupForm rounded-3 p-3">
+                            <Form className="m-3 pb-3" noValidate validated={validated} onSubmit={handleSubmit} >
                                 {/* Full Name */}
                                 <Form.Group className="mb-3" controlId="fullName">
-                                    <Form.Control className="dark-bg" type="text" placeholder="Full Name" />
+                                    <Form.Control required className="dark-bg" type="text" placeholder="Full Name" />
                                 </Form.Group>
 
                                 {/* Brand Name */}
                                 <Form.Group className="mb-3" controlId="brandName">
-                                    <Form.Control className="dark-bg" type="text" placeholder="Brand Name" />
+                                    <Form.Control required className="dark-bg" type="text" placeholder="Brand Name" />
                                 </Form.Group>
 
                                 {/* Business Email */}
                                 <Form.Group className="mb-3" controlId="businessEmail">
-                                    <Form.Control className="dark-bg" type="email" placeholder="Business Email" />
+                                    <Form.Control required className="dark-bg" type="email" placeholder="Business Email" />
                                 </Form.Group>
 
                                 {/* Password */}
                                 <Form.Group className="mb-3" controlId="password">
-                                    <Form.Control className="dark-bg" type="password" placeholder="Password" />
+                                    <Form.Control required className="dark-bg" type="password" placeholder="Password" />
                                 </Form.Group>
 
                                 {/* How did you hear about us? Dropdown */}
                                 <Form.Select className="dark-bg mb-3" aria-label="howDidYouHear">
-                                    <option>How did you hear about us?</option>
+                                    <option disabled>How did you hear about us?</option>
                                     <option value="1">Youtube</option>
                                     <option value="2">Instagram</option>
                                     <option value="3">News Portal</option>
@@ -100,8 +96,9 @@ const BrandSignup = () => {
                                         isMulti
                                         name="category"
                                         id="category"
-                                        className="basic-multi-select mb-3"
-                                        classNamePrefix="select"
+                                        className="basic-multi-select  mb-3"
+                                        classNamePrefix="select a category"
+                                        required
                                     />
                                     <Form.Control.Feedback type="invalid">
                                         {/* {errors.category} */}
@@ -117,7 +114,7 @@ const BrandSignup = () => {
                             <div className="text-center my-2">
                                 <small className="text-secondary">
                                     By signing up, you agree to our
-                                    <Link to={`/#`} className="ms-1">
+                                    <Link to={`/#`} className="mx-1">
                                         Terms & conditions
                                     </Link>
                                     and
@@ -127,7 +124,7 @@ const BrandSignup = () => {
                                 </small>
                                 <div className="text-center text-white my-2">
                                     Already have an account?
-                                    <Link to={`/#`} className="ms-1">
+                                    <Link to={`/#`} className="ms-1 fw-bold">
                                         Login.
                                     </Link>
                                 </div>

@@ -44,21 +44,21 @@ function NavBar() {
               <div className="vr desktop-view" style={{backgroundColor: "#FC6E90"}}></div>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${activeNavItem === "howitworks" && "active"}`}
-                  to="/howitworks"
-                  onClick={() => handleNavItemClick("howitworks")}
+                  className={`nav-link text-center ${activeNavItem === "AboutUs" && "active"}`}
+                  to="/AboutUs"
+                  onClick={() => handleNavItemClick("AboutUs")}
                 >
-                  How it Works
+                  About Us
                 </Link>
               </li>
               <div className="vr desktop-view" style={{backgroundColor: "#FC6E90"}}></div>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${activeNavItem === "category" && "active"}`}
-                  to="/category"
-                  onClick={() => handleNavItemClick("category")}
+                  className={`nav-link text-center ${activeNavItem === "celebrity" && "active"}`}
+                  to="/celebrity"
+                  onClick={() => handleNavItemClick("celebrity")}
                 >
-                  Category
+                  Celebrity
                 </Link>
               </li>
             </ul>
@@ -75,7 +75,9 @@ function NavBar() {
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" style={{
+                width: "180px",
+              }}>
                 <Link to="/login">
                   <button className="btn-global w-50 fw-normal ms-2">
                     Login

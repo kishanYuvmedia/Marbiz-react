@@ -1,19 +1,40 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
-body {
+@tailwind utilities; */
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
+  padding: 0;
+  font-family: "SharpGrotesk1";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Coolvetica11";
 }
 
+Link {
+  /* font-family: "DM_Sans"; */
+}
 
+@font-face {
+  font-family: "SharpGrotesk1";
+  src: local("SharpGrotesk1"),
+    url("./Fonts/Sharp_Grotesk/SharpGrotesk-Book20.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Coolvetica11";
+  src: local("Coolvetica11"),
+    url("./Fonts/Coolvetica/coolvetica_rg.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DM_Sans1";
+  src: local("DM_Sans1"),
+    url("./Fonts/DM_Sans/DMSans_Regular.ttf") format("truetype");
+}

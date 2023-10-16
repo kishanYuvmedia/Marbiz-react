@@ -20,9 +20,9 @@ import Footer from "./Components/Footer";
 import InquiryForm from "./Page/InquiryForm";
 import CelebProfile from "./Page/CelebProfile";
 import GlobalLogin from "./Page/Login/GlobalLogin";
-import HowItWorks from "./Page/HowItWorks";
+import AboutUs from "./Page/AboutUs";
 import Explore from "./Page/Explore";
-import Category from "./Page/Category";
+import Celebrity from "./Page/Celebrity";
 
 
 // Creator routes
@@ -39,6 +39,7 @@ import BrandBooking from "./Components/BrandBooking";
 import BrandWishlist from "./Components/BrandWishlist";
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -50,9 +51,9 @@ function App() {
           <Route path="/inquiryform" element={<InquiryForm />} />
           <Route path="/profile/:regName" element={<CelebProfile />} />
           <Route path="/login" element={<GlobalLogin />} />
-          <Route path="/howitworks" element={<HowItWorks />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/explore" element={<Explore />} />
-          <Route path="/category" element={<Category />} />
+          <Route path="/celebrity" element={<Celebrity />} />
 
           {/* Creator Routes */}
           <Route path="/creator" element={<Creator />} />

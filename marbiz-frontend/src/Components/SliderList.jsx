@@ -29,7 +29,7 @@ const SliderList = (props) => {
           
 
           <Flicking
-            bound={true}
+            // bound={true}
             deceleration={0.0005}
             renderOnlyVisible={true}
           >
