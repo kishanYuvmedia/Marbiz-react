@@ -12,9 +12,14 @@ import {
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import { CardView } from "../ui-components"
-import { createPublicList, getPublicList } from "../../services/api/api-service"
+import {
+  createPublicList,
+  getPublicList,
+  deletePublicList,
+} from "../../services/api/api-service"
 import SweetAlert from "react-bootstrap-sweetalert"
 import { useEffect } from "react"
+import { FcCancel } from "react-icons/fc"
 export default function AddCategory() {
   //meta title
   document.title = "Add Category | Marbiz"
@@ -24,6 +29,7 @@ export default function AddCategory() {
     value: "",
   })
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
+  const [deleteStatus, setdeleteStatus] = useState(false)
   const [categoryList, setCategoryList] = useState([])
   const handleChange = event => {
     const { name, value } = event.target
@@ -40,12 +46,24 @@ export default function AddCategory() {
     }
     createPublicList(formData).then(data => {
       setIsButtonDisabled(true)
+      getdata()
     })
   }
-  useEffect(() => {
+  const deleteHander = id => {
+    deletePublicList(id).then(result => {
+      if (result.count) {
+        setdeleteStatus(true)
+        getdata()
+      }
+    })
+  }
+  function getdata() {
     getPublicList(formData.listType).then(list => {
       setCategoryList(list)
     })
+  }
+  useEffect(() => {
+    getdata()
   }, [formData.listType])
   return (
     <React.Fragment>
@@ -72,6 +90,7 @@ export default function AddCategory() {
                           <option>Platform</option>
                           <option>Document</option>
                           <option>occasion</option>
+                          <option>Category</option>
                         </Input>
                       </div>
                     </Col>
@@ -141,7 +160,11 @@ export default function AddCategory() {
                             {item.label}
                           </Badge>
                         </td>
-                        <td></td>
+                        <td>
+                          <Button onClick={() => deleteHander(item.id)}>
+                            <FcCancel style={{ fontSize: 20 }} />
+                          </Button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -153,8 +176,18 @@ export default function AddCategory() {
       </div>
       {isButtonDisabled && (
         <SweetAlert
+          style={{ backgroundColor: "black", color: "white" }}
           title="Category Add Successfully"
           onConfirm={() => setIsButtonDisabled(false)}
+        >
+          If you close this popup click "Ok" button
+        </SweetAlert>
+      )}
+      {deleteStatus && (
+        <SweetAlert
+          style={{ backgroundColor: "black", color: "white" }}
+          title="Delete Category Successfully"
+          onConfirm={() => setdeleteStatus(false)}
         >
           If you close this popup click "Ok" button
         </SweetAlert>

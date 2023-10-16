@@ -45,7 +45,29 @@ export const getInfluencersFeturedList = (limit, type) => {
     });
   });
 };
-
+export const getInfluencersFetured = (limit) => {
+  return new Promise((resolve, reject) => {
+    find("MtProfiles", {
+      limit: limit,
+      where: { Fetured: "A" },
+      order: "fullName asc",
+    }).then((data) => {
+      resolve(data);
+    });
+  });
+};
+export const getInfluencersAll = (platform, category) => {
+  const filter = {
+    where: { status: "A" },
+    order: "id desc",
+  };
+  if (platform) {
+    filter.where.and = platform
+      ? [{ status: "A" }, { categoryType: platform }]
+      : [{ category: category }];
+  }
+  return find("MtProfiles", filter);
+};
 export const createProfileListing = (data) => {
   return create("MtProfiles", data);
 };
@@ -69,23 +91,6 @@ export const findRegisterProfile = (emailaddress) => {
 export const checkPublicName = (name) => {
   return count("MtProfiles", null, { regName: name });
 };
-
-// export const getPublicList = (type) => {
-//   return new Promise((resolve, reject) => {
-//     find("MtPublicLists", {
-//       where: { listType: type },
-//       order: "label asc",
-//     })
-//       .then((data) => {
-//         // storeCachedData(`${type}List`, data)
-//         resolve(data);
-//       })
-//       .catch((error) => {
-//         reject(error); // Reject the promise with the error
-//       });
-//   });
-// };
-
 // async-await method
 export const getPublicList = async (type) => {
   try {
@@ -112,34 +117,14 @@ export const uploadFile = (fileData, bucketName, folder = "") => {
   return apiKit.post(`https://portfolio.yuvmedia.in/api/upload.php`, formData);
 };
 
-// export const getInfluencersProfile = (name) => {
-//   return findOne("MtProfiles", {
-//     where: { status: "A", and: [{ regName: name }] },
-//   });
-// };
-
-// export const getImagesList = (id) => {
-//   return find(`MtProfiles/${id}/Images`, {
-//     where: { status: "A" },
-//   });
-// };
-
-export const getInfluencersProfile = async (name) => {
-  try {
-    return await findOne("MtProfiles", {
-      where: { status: "A", and: [{ regName: name }] },
-    });
-  } catch (error) {
-    throw error;
-  }
+export const getInfluencersProfile = (name) => {
+  return findOne("MtProfiles", {
+    where: { status: "A", and: [{ regName: name }] },
+  });
 };
 
-export const getImagesList = async (id) => {
-  try {
-    return await find(`MtProfiles/${id}/Images`, {
-      where: { status: "A" },
-    });
-  } catch (error) {
-    throw error;
-  }
+export const getImagesList = (id) => {
+  return find(`MtProfiles/${id}/Images`, {
+    where: { status: "A" },
+  });
 };

@@ -29,7 +29,6 @@ import Celebrity from "./Page/Celebrity";
 import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Verify from "./Page/CreatorAuth/Verify";
-
 // Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
@@ -37,15 +36,11 @@ import BrandDashboard from "./Page/Brand/BrandDashboard";
 import BrandHome from "./Components/BrandHome";
 import BrandBooking from "./Components/BrandBooking";
 import BrandWishlist from "./Components/BrandWishlist";
-
-
-
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<NavBar />}>
-
           {/* Public Routes */}
           <Route index element={<Home />} />
           <Route path="/inquiryform" element={<InquiryForm />} />
@@ -59,21 +54,15 @@ function App() {
           <Route path="/creator" element={<Creator />} />
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
-          
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
-
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />
-
           <Route path="/brand-dashboard" element={<BrandDashboard />}>
             <Route path="brandHome" element={<BrandHome />} />
             <Route path="brandBooking" element={<BrandBooking />} />
             <Route path="brandWishlist" element={<BrandWishlist />} />
-            
           </Route>
-
-
         </Route>
       </Routes>
       <Footer />

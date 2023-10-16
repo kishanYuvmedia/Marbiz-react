@@ -151,7 +151,6 @@ const SidebarContent = props => {
                 <span>{props.t("Dashboards")}</span>
               </Link>
             </li>
-
             <li>
               <Link to="/#" className="has-arrow">
                 <i className="bx bx-store"></i>
@@ -161,6 +160,24 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/settings/add-category">
                     {props.t("Add Category")}
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link to="/#" className="has-arrow">
+                <i className="bx bx-store"></i>
+                <span>{props.t("Influencer")}</span>
+              </Link>
+              <ul className="sub-menu">
+                <li>
+                  <Link to="/influencer/add-influencer">
+                    {props.t("Add Influencer")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/influencer/influencer-list">
+                    {props.t("Influencer List")}
                   </Link>
                 </li>
               </ul>

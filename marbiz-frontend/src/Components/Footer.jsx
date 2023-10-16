@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import logo from "../Images/marbiz-logo.png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -129,10 +129,9 @@ const Footer = () => {
             <div className=' pb-5 mobile-view'>
                 <hr />
             </div>
-        </footer >
+        </footer>
 
 
     );
 }
-
-export default Footer
+export default Footer;

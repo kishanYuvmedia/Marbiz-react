@@ -3,7 +3,6 @@ import logo from "../Images/marbiz-logo.png";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { BsSearch, BsBriefcase, BsPeople, BsStar } from "react-icons/bs";
 
-
 function NavBar() {
   const location = useLocation();
   const [activeNavItem, setActiveNavItem] = useState("explore");
@@ -34,14 +33,18 @@ function NavBar() {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${activeNavItem === "explore" && "active"}`}
+                  className={`nav-link text-center ${activeNavItem === "explore" && "active"
+                    }`}
                   to="/explore"
                   onClick={() => handleNavItemClick("explore")}
                 >
                   Explore
                 </Link>
               </li>
-              <div className="vr desktop-view" style={{backgroundColor: "#FC6E90"}}></div>
+              <div
+                className="vr desktop-view"
+                style={{ backgroundColor: "#FC6E90" }}
+              ></div>
               <li className="nav-item">
                 <Link
                   className={`nav-link text-center ${activeNavItem === "AboutUs" && "active"}`}
@@ -51,7 +54,7 @@ function NavBar() {
                   About Us
                 </Link>
               </li>
-              <div className="vr desktop-view" style={{backgroundColor: "#FC6E90"}}></div>
+              <div className="vr desktop-view" style={{ backgroundColor: "#FC6E90" }}></div>
               <li className="nav-item">
                 <Link
                   className={`nav-link text-center ${activeNavItem === "celebrity" && "active"}`}
@@ -64,13 +67,19 @@ function NavBar() {
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link d-flex align-items-center" to="/brand">
+                <Link
+                  className="nav-link d-flex align-items-center"
+                  to="/brand"
+                >
                   Join as Brand
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link d-flex align-items-center" to="/creator">
+                <Link
+                  className="nav-link d-flex align-items-center"
+                  to="/creator"
+                >
                   Join as creator
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
@@ -93,54 +102,48 @@ function NavBar() {
       <div className="position-relative mobile-view">
         <nav class="bottom-nav">
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "explore" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "explore" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("explore")}
           >
             <Link className="bottom-nav-link" to="/explore">
-              
               <BsSearch />
               <span class="">Explore</span>
             </Link>
           </div>
-          
+
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "brand" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "brand" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("brand")}
           >
             <Link className="bottom-nav-link" to="/brand">
-            <BsBriefcase />
+              <BsBriefcase />
               <span class="">Brand</span>
             </Link>
           </div>
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "creator" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "creator" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("creator")}
           >
             <Link className="bottom-nav-link" to="/creator">
-            <BsStar />
+              <BsStar />
               <span class="">Creator</span>
             </Link>
           </div>
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "login" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "login" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("login")}
           >
             <Link to="/login" className="bottom-nav-link">
-            <BsPeople />
+              <BsPeople />
               <span class="">Login</span>
             </Link>
           </div>
         </nav>
       </div>
-
 
       <Outlet />
     </>
