@@ -10,13 +10,13 @@ const Footer = () => {
 
 
             <section className="">
-                <div className="container-fluid text-start mt-5 mx-1 mx-md-5">
+                <div className="container-fluid text-start mt-5  ">
                     {/* <!-- Grid row --> */}
-                    <div className="row mt-3">
+                    <div className="row justify-content-center ">
                         {/* <!-- Grid column --> */}
                         <div className="col-md-4 d-flex">
                             {/* <!-- Content --> */}
-                            <div className='pe-0 pe-md-5'>
+                            <div className='pe-md-3'>
                                 <img src={logo} alt="Logo" />
                                 <div className='my-3 text-secondary' style={{
                                     fontSize: "20px",

@@ -35,9 +35,9 @@ const CelebCard = (props) => {
               <div className="media">
                 <div className="media-body" style={{ textAlign: "start" }}>
                   <Link to={`/profile/${props.regName}`}>
-                    <h3 className="my-0 fs-5  text-white d-block">
+                    <h5 className="text-white text-capitalize d-block">
                       {props.fullName}
-                    </h3>
+                    </h5>
                   </Link>
                 </div>
               </div>

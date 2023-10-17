@@ -17,7 +17,7 @@ const SliderList = (props) => {
       >
         <div className="d-grid  justify-content-center mt-5">
           <h3 className="section-heading  text-center ">{title}</h3>
-          <span className="text-secondary">{subtitle}</span>
+          <span className="text-secondary text-center">{subtitle}</span>
         </div>
         <hr className="border border-danger border-1 opacity-50" />
       </div>
