@@ -10,4 +10,6 @@ export default {
   linkTextColor: "#556ee6",
   // apiUrl: "http://localhost:3000/api",
   apiUrl: "http://api.marbiz.in:3000/api",
+  googleAuthclientKey:
+    "1090533324282-3plmt3d51hvqn63nncas5todn2p4m0g2.apps.googleusercontent.com",
 };

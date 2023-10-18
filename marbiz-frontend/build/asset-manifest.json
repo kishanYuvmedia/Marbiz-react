@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.58e34e46.css",
+    "main.js": "/static/js/main.353a1a65.js",
+    "static/js/787.4514dbfe.chunk.js": "/static/js/787.4514dbfe.chunk.js",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.016b4a6cdced82ab3aa1.ttf",
+    "static/media/coolvetica_rg.ttf": "/static/media/coolvetica_rg.42f59941755a61fca2d0.ttf",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.b6879d41b0852f01ed5b.woff2",
+    "static/media/loadimage.webp": "/static/media/loadimage.973a8e40b4faf4ddb176.webp",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.878f31251d960bd6266f.woff2",
+    "static/media/SharpGrotesk-Book20.ttf": "/static/media/SharpGrotesk-Book20.60f0f0032c7cf21499af.ttf",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.50701fbb8177c2dde530.ttf",
+    "static/media/DMSans_Regular.ttf": "/static/media/DMSans_Regular.2c8600ab0e9535150736.ttf",
+    "static/media/woman-bg-image.webp": "/static/media/woman-bg-image.2c995f4f12aba88cb577.webp",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.b041b1fa4fe241b23445.woff2",
+    "static/media/man-bg-image.webp": "/static/media/man-bg-image.7c943594ad041251ed64.webp",
+    "static/media/artist_1.webp": "/static/media/artist_1.4139249f2e531288f152.webp",
+    "static/media/artist_4.webp": "/static/media/artist_4.1c0160574ed1bbb30454.webp",
+    "static/media/celeb-2.webp": "/static/media/celeb-2.3afc80f89ec102d05698.webp",
+    "static/media/artist_3.webp": "/static/media/artist_3.95a949e81f4762813882.webp",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.c6a0c95b0a95c4553700.ttf",
+    "static/media/artist_2.webp": "/static/media/artist_2.9d6661ee10b36beb4e4a.webp",
+    "static/media/celeb-1.webp": "/static/media/celeb-1.eab27a7e09e0a8167f9b.webp",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
+    "index.html": "/index.html",
+    "main.58e34e46.css.map": "/static/css/main.58e34e46.css.map",
+    "main.353a1a65.js.map": "/static/js/main.353a1a65.js.map",
+    "787.4514dbfe.chunk.js.map": "/static/js/787.4514dbfe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58e34e46.css",
+    "static/js/main.353a1a65.js"
+  ]
+}
