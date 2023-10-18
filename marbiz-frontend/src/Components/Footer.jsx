@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../Images/marbiz-logo.png";
+import logo from "../Images/marbiz-logo.webp";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -17,7 +17,11 @@ const Footer = () => {
                         <div className="col-md-4 d-flex">
                             {/* <!-- Content --> */}
                             <div className='pe-md-3'>
-                                <img src={logo} alt="Logo" />
+                                <div className="footer-brand ">
+                                    <Link className="" to="/">
+                                        <img src={logo} alt="Logo" className="img-fluid " />
+                                    </Link>
+                                </div>
                                 <div className='my-3 text-secondary' style={{
                                     fontSize: "20px",
                                     fontWeight: "400",

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../Images/marbiz-logo.png";
+import logo from "../Images/marbiz-logo.webp";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { BsSearch, BsBriefcase, BsPeople, BsStar } from "react-icons/bs";
 
@@ -32,9 +32,11 @@ function NavBar() {
     <>
       <nav className="navbar navbar-expand-md navbar-dark sticky-top">
         <div className="container-fluid mx-lg-5">
-          <Link className="navbar-brand" to="/">
-            <img src={logo} alt="Logo" />
+        <div className="navbar-brand">
+          <Link className="" to="/">
+            <img src={logo} alt="Logo" className="img-fluid "/>
           </Link>
+        </div>
           <button
             className="navbar-toggler"
             type="button"

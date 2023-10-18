@@ -76,3 +76,8 @@
 .info-box {
   background-color: #141414;
 }
+
+.icon-box p {
+  font-size: 20px;
+  color: white;
+}
