@@ -1,7 +1,6 @@
 body {
   background-color: #000000;
   min-height: 100vh;
-
 }
 
 .App {
@@ -308,7 +307,7 @@ body {
   cursor: pointer;
   display: inline-block;
   /* font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, */
-    /* sans-serif; */
+  /* sans-serif; */
   height: 40px;
   line-height: 40px;
   outline: 0;
@@ -349,7 +348,7 @@ body {
     #6a0101
   ); /* For Safari and older versions of Chrome */
   background: -o-linear-gradient(#8f0808, #00a100); /* For Opera */
-  background: linear-gradient(#9e32ef, #f054b9); /* Standard syntax */
+  background: linear-gradient(#f5615f, #f054b9); /* Standard syntax */
 
   -webkit-background-clip: text;
   background-clip: text;
@@ -361,6 +360,13 @@ body {
   .celeb2 {
     transform: none;
   }
+}
+
+.navbar-brand {
+  width: 10%;
+}
+.footer-brand {
+  width: 40%;
 }
 
 .nav-item {
@@ -470,7 +476,6 @@ body {
   font-weight: 400;
   line-height: 73px;
   /* font-family: Coolvetica1; */
-
 }
 
 .section-featured {
@@ -693,9 +698,9 @@ body {
   box-shadow: 0px 0px 14px -7px #f09819;
   background-image: linear-gradient(
     45deg,
-    #F5615F 0%,
-    #FC396E 51%,
-    #F5615F 100%
+    #f5615f 0%,
+    #fc396e 51%,
+    #f5615f 100%
   );
   cursor: pointer;
   -webkit-user-select: none;
@@ -800,7 +805,7 @@ body {
 
 /* Input focus styles */
 .dark-bg:focus {
-  border-color: #f5615f; 
+  border-color: #f5615f;
   color: #fff; /* White text color on focus */
   background-color: rgb(29, 29, 29);
   box-shadow: inset 0 0 0 0px #f5615f;
@@ -949,15 +954,11 @@ body {
 }
 
 .signupForm .basic-multi-select {
-  
   border: 2px solid #333333;
   border-radius: 10px;
 }
 
-
-
 .signupForm .basic-multi-select .category__control--menu-is-open {
-  
   border: 2px solid #f5615f;
   /* border-radius: 10px; */
 }
@@ -1222,9 +1223,116 @@ body {
   overflow: hidden;
   border-radius: 50%;
 }
-.user-image-container img{
+.user-image-container img {
   width: 100%;
   height: 100%;
   object-position: center;
   object-fit: cover;
+}
+
+.steps-box p {
+  margin: 0 10px;
+}
+.steps-box h3 {
+  /* border: 2px solid red;   */
+  padding: 5px 15px;
+  border-radius: 50%;
+  background-color: #f55f5f;
+}
+
+.celeb-profile-list {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.celeb-profile-list .celeb-profile img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.new-brand-box .unlock-door-popup {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  background-color: #fff;
+  height: 465px;
+  padding: 40px 40px 15px;
+  opacity: 0.94;
+  border-radius: 38px;
+  box-shadow: 0 40px 110px 0 rgb(63 65 67 / 25%);
+  width: 50%;
+}
+
+.new-brand-box .unlock-door-content .celeb-business-note {
+  /* font-family: 'Minion Semibold'; */
+  font-size: 36px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: normal;
+  text-align: center;
+  color: #f55f5f;
+  margin-top: 25px;
+  padding: 0px 15px;
+}
+
+.new-brand-box .unlock-door-content .celeb-updates {
+  /* font-family: 'SourceSansPro-Regular'; */
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4e4e4e;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.new-brand-box .brands-mail {
+  font-size: 15px;
+  padding-top: 40px;
+  color: #536b94;
+  /* font-family: 'SourceSansPro-Regular'; */
+}
+
+.new-brand-box .modern-heading {
+  font-family: "Verveine-Regular";
+  font-size: 46px;
+  font-weight: normal;
+  line-height: 45px;
+  padding-bottom: 10px;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.new-brand-box .modern-para {
+  font-family: "SourceSansPro-Regular";
+  font-size: 24px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.new-brand-box .modern-img img {
+  position: absolute;
+  width: 60%;
+  right: -7%;
+  top: 50%;
+}
+
+.new-brand-box .get-touch-img img {
+  width: 100%;
+}
+
+
+.left-content-sec h1{
+  font-size: 70px;
+  color: #f55f5f;
 }

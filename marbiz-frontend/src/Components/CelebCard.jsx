@@ -14,9 +14,8 @@ const CelebCard = (props) => {
         className="card card-bg mx-2 card-has-bg click-col pt-3"
         style={{
           backgroundColor: "#00000000",
-          transform: `translateY(${
-            props.index === 0 ? 10 : props.index % 2 !== 0 ? -10 : 10
-          }px)`,
+          transform: `translateY(${props.index === 0 ? 10 : props.index % 2 !== 0 ? -10 : 10
+            }px)`,
         }}
       >
         <div
@@ -43,7 +42,10 @@ const CelebCard = (props) => {
               </div>
             </div>
           </div>
+
+
         </div>
+
       </div>
       <div
         className="mt-2 ps-2 card-base"

@@ -36,6 +36,25 @@
   .username-text {
     width: 100%;
   }
+
+  .new-brand-box .celeb-profile-list {
+    opacity: 0.7;
+    mix-blend-mode: luminosity;
+    overflow-x: hidden;
+  
+  }
+
+  .new-brand-box .unlock-door-popup {
+    width: 90%;
+  }
+
+  .navbar-brand {
+    width: 50%;
+  }
+  .footer-brand {
+    width: 50%;
+  }
+
 }
 @media only screen and (max-width: 575px) {
   .username-holder {
@@ -75,6 +94,21 @@
     padding-top: 50px;
     /* min-height: 800px; */
   }
+
+  .left-content-sec h1 {
+    font-size: 40px;
+  }
+
+  .new-brand-box .unlock-door-content .celeb-business-note {
+    font-size: 20px;
+  }
+
+  .new-brand-box .modern-img img {
+    position: absolute;
+    width: 50%;
+    right: -3%;
+    top: 50%;
+}
 }
 @media only screen and (max-width: 375px) {
   .bottom-nav-item {
