@@ -10,6 +10,7 @@ import {
   getInfluencersList,
 } from "../services/api/api-service";
 import SearchBar from "../Components/SearchBar";
+import Howitworks from "../Components/Howitworks";
 
 // Placeholder data (example)
 const placeholderData = [
@@ -123,6 +124,9 @@ function HomePage() {
         list={ugclist ? ugclist : placeholderData}
         marginbottom="50px"
       />
+
+      <Howitworks />
+
     </div>
   );
 }
