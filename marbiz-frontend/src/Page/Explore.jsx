@@ -7,10 +7,21 @@ import { isEmpty } from "lodash";
 import HeroBgGradient from "../Components/HeroBgGradient";
 
 const Explore = () => {
+  const searchParams = new URLSearchParams(document.location.search);
   const [list, setList] = useState([]);
   const [getPlatform, setPlatform] = useState(null);
   const [getCategory, setCategory] = useState([]);
   useEffect(() => {
+    if (searchParams.size > 0) {
+      const cParam = searchParams.get("c");
+      setPlatform(searchParams.get("p"));
+      const d = [];
+      const cDataArray = cParam.split("-").map((item) => d.push(item.trim()));
+      setCategory(d);
+      getlist();
+    }
+  }, []);
+  function getlist() {
     getInfluencersAll(getPlatform, getCategory)
       .then((result) => {
         if (Array.isArray(result) && result.length > 0) {
@@ -25,6 +36,11 @@ const Explore = () => {
       .catch((error) => {
         console.error("Error fetching data from the API:", error);
       });
+  }
+  useEffect(() => {
+    setTimeout(() => {
+      getlist();
+    }, 1000);
   }, [getPlatform, getCategory]);
   return (
     <div>
