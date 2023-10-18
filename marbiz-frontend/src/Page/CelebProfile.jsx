@@ -65,7 +65,7 @@ const CelebProfile = () => {
           {/* profile section */}
           <div className="container main-body">
             <div className="row my-3">
-              <div className="col-4 col-md-2 d-flex justify-content-center align-items-center">
+              <div className=" col-md-2 col-4 d-flex justify-content-center align-items-center">
                 <div className="profile-image-container">
                   <img
                     src={profileData.coverImage}
@@ -74,14 +74,14 @@ const CelebProfile = () => {
                   />
                 </div>
               </div>
-              <div className="col-md-4 col-8 d-flex justify-content-between ">
+              <div className="col-md-4 col-8 d-grid justify-content-between ">
+                <div className="">
+                  <h1 className="text-white text-capitalize">{profileData.fullName}</h1>
+                </div>
                 <div>
-                  <div className="fs-1 fw-bold">
-                    <h1 className="text-white  bold">{profileData.fullName}</h1>
-                  </div>
                   <h4 className="text-white fs-6">
                     {profileData.category.map((list, index) => (
-                      <span key={index}>{list},</span>
+                      <span key={index}>{list}, </span>
                     ))}
                   </h4>
                   <h6 className="text-secondary">
@@ -91,9 +91,9 @@ const CelebProfile = () => {
                   </h6>
                 </div>
               </div>
-              <div className="col-12 col-md-4 justify-content-center align-content-center">
+              <div className="col-12 col-md-4 d-grid justify-content-center align-content-center">
                 <Link to={`/inquiryform/${profileData.regName}`}>
-                  <button className="button-87 my-3">See Price and Book</button>
+                  <button className="btn-global px-3 my-3">See Price and Book</button>
                 </Link>
               </div>
             </div>
@@ -167,7 +167,7 @@ const CelebProfile = () => {
               <div className="col">
                 {/* <NavTabs images={images} /> */}
                 <div className="">
-                  <h4 className="text-white ">
+                  <h4 className="text-white text-capitalize">
                     {profileData.fullName} is a top creator
                   </h4>
                   <p className="text-secondary">
@@ -183,7 +183,7 @@ const CelebProfile = () => {
 
             <div className="d-flex justify-content-start">
               <Link to={`/inquiryform/${profileData.regName}`}>
-                <button className="button-87 my-3">See Price and Book</button>
+                <button className="btn-global px-3 my-3">See Price and Book</button>
               </Link>
             </div>
           </div>
@@ -197,17 +197,19 @@ const CelebProfile = () => {
               </div>
               <NavTabs />
               <div className="my-3">
-                <span className="text-secondary fs-6">
-                  Have a different request?
-                </span>
+                <Link to="/#" >
+                  <span className="text-secondary fs-6">
+                    Have a different request?
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
         </>
       )}
       {regName && (
-        <div className="p-5 text-center bg-body-tertiary hero">
-          <div className="container py-5">
+        <div className="text-center bg-body-tertiary hero">
+          <div className="container py-3">
             <SliderList
               title={type}
               subtitle="Hire top Celebrities & Influencer all platforms see All"

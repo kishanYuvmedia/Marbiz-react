@@ -17,7 +17,7 @@ const SliderList = (props) => {
       >
         <div className="d-grid  justify-content-center mt-5">
           <h3 className="section-heading  text-center ">{title}</h3>
-          <span className="text-secondary">{subtitle}</span>
+          <span className="text-secondary text-center">{subtitle}</span>
         </div>
         <hr className="border border-danger border-1 opacity-50" />
       </div>
@@ -26,11 +26,16 @@ const SliderList = (props) => {
         <div className="row">
           {!isEmpty(list) && (
             <Flicking
-              bound={true}
+              // defaultIndex={1}
+              bound={false}
               deceleration={0.0005}
               circular={true}
               align={"prev"}
               renderOnlyVisible={true}
+              // duration={500}
+              inputType={["touch", "mouse"]}
+              moveType={["strict", { count: 4 }]}
+            // panelsPerView={4}
             >
               {list.map((item, index) => (
                 <div key={index}>

@@ -3,12 +3,29 @@ import logo from "../Images/marbiz-logo.png";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { BsSearch, BsBriefcase, BsPeople, BsStar } from "react-icons/bs";
 
+import artist_1 from "../Images/artist_1.webp"
+
+
+
 function NavBar() {
   const location = useLocation();
   const [activeNavItem, setActiveNavItem] = useState("explore");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleNavItemClick = (item) => {
     setActiveNavItem(item);
+  };
+
+  // Function to handle login
+  const handleLogin = () => {
+    // Perform login logic here, and then set isLoggedIn to true
+    setIsLoggedIn(true);
+  };
+
+  // Function to handle logout
+  const handleLogout = () => {
+    // Perform logout logic here, and then set isLoggedIn to false
+    setIsLoggedIn(false);
   };
 
   return (
@@ -93,6 +110,14 @@ function NavBar() {
                   </button>
                 </Link>
               </li>
+              <li className="nav-item">
+                <div className="d-flex align-items-center ">
+                  <div class="user-image-container">
+                    <img src={artist_1} alt="user-img" className="img-fluid rounded-circle border border-danger border-3" />
+                  </div>
+                  <div className="text-white text-capitalize ms-2">username</div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -142,6 +167,13 @@ function NavBar() {
               <span class="">Login</span>
             </Link>
           </div>
+            <div className="d-grid justify-content-center align-items-center">
+              <div class="user-image-container">
+                <img src={artist_1} alt="user-img" className="img-fluid rounded-circle border border-danger border-3" />
+              </div>
+              {/* <div className="text-white text-capitalize ms-2">username</div> */}
+            </div>
+
         </nav>
       </div>
 

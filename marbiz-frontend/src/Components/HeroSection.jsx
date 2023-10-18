@@ -120,11 +120,16 @@ const HeroSection = (props) => {
         }}>
 
           <Flicking
-            bound={true}
+            // defaultIndex={1}
+            bound={false}
             deceleration={0.0005}
             circular={true}
             align={"prev"}
             renderOnlyVisible={true}
+            // duration={500}
+            inputType={["touch", "mouse"]}
+            moveType={["strict", { count: 4 }]}
+            // panelsPerView={4}
           >
             {list.map((item, index) => (
               <div>

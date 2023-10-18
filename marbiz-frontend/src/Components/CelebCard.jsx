@@ -35,9 +35,9 @@ const CelebCard = (props) => {
               <div className="media">
                 <div className="media-body" style={{ textAlign: "start" }}>
                   <Link to={`/profile/${props.regName}`}>
-                    <h3 className="my-0 fs-5  text-white d-block">
+                    <h5 className="text-white text-capitalize d-block">
                       {props.fullName}
-                    </h3>
+                    </h5>
                   </Link>
                 </div>
               </div>
@@ -46,7 +46,7 @@ const CelebCard = (props) => {
         </div>
       </div>
       <div
-        className="mt-2 card-base"
+        className="mt-2 ps-2 card-base"
         style={{
           zIndex: "5",
           width: "300px",
@@ -55,7 +55,7 @@ const CelebCard = (props) => {
         <div className="d-flex justify-content-start flex-wrap">
           {listcategory &&
             listcategory.map((value) => (
-              <span key={value} className="badge badge-danger m-1">
+              <span key={value} className="badge badge-secondary rounded-pil m-1">
                 {value}
               </span>
             ))}
