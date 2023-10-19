@@ -195,8 +195,21 @@ function NavBar() {
                 </div>
               </div>
             )}
+            <div
+            className={`bottom-nav-item ${
+              activeNavItem === "login" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("login")}
+          >
+            {isEmpty(loginUser) && (
+              <Link to="/login" className="bottom-nav-link">
+                <BsPeople />
+                <span class="">Login</span>
+              </Link>
+            )}
           </div>
-
+          </div>
+          
           <div
             className={`bottom-nav-item ${
               activeNavItem === "creator" ? "active" : ""
@@ -219,19 +232,7 @@ function NavBar() {
               <span class="">Celebrity</span>
             </Link>
           </div>
-          <div
-            className={`bottom-nav-item ${
-              activeNavItem === "login" ? "active" : ""
-            }`}
-            onClick={() => setActiveNavItem("login")}
-          >
-            {isEmpty(loginUser) && (
-              <Link to="/login" className="bottom-nav-link">
-                <BsPeople />
-                <span class="">Login</span>
-              </Link>
-            )}
-          </div>
+          
         </nav>
       </div>
 
