@@ -72,7 +72,7 @@ export default function Creator() {
   }, []);
   return (
     <>
-        <HeroBgGradient />
+      <HeroBgGradient />
 
       {status === false && (
         <div>
@@ -92,9 +92,9 @@ export default function Creator() {
                   Instagram, TikTok, YouTube, and UGC brand deals
                 </p>
               </div>
-              <div className="username-holder p-2 my-3">
+              <div className="username-holder flex-wrap justify-content-lg-between justify-content-sm-center p-2 my-3">
                 <div className="d-inline-flex ms-3 align-items-center">
-                  <div className="username-domain">www.marbiz.in/@</div>
+                  <div className="username-domain">marbiz.in/</div>
                   <div className="username-input-holder">
                     <input
                       type="text"
@@ -105,10 +105,11 @@ export default function Creator() {
                   </div>
                 </div>
                 <div
-                  className="btn-global"
+                  type="button"
+                  className="btn-global mx-auto mx-md-0 mt-2 mt-lg-0 "
                   onClick={headlerclaim}
                   style={{
-                    width: "70px",
+                    width: "90px",
                   }}
                 >
                   Claim

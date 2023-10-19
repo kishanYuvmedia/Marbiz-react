@@ -80,7 +80,7 @@ const Footer = () => {
                             <p >
                                 <Link to={"mailto:info@marbiz.com"} className='text-secondary'>
                                     <i className="fas fa-envelope me-3"></i>
-                                    info@marbiz.com
+                                    info@marbiz.in
                                 </Link>
 
                             </p>
@@ -103,7 +103,7 @@ const Footer = () => {
                 </div>
 
                 <div className="text-center p-3 bottom-footer" >
-                    © 2023 Copyright: Marbiz.com
+                    © 2023 Copyright: Marbiz.in
                     <Link className="text-reset fw-bold" to='/'></Link>
                 </div>
 

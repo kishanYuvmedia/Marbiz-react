@@ -114,4 +114,9 @@
   .bottom-nav-item {
     max-width: 92px;
   }
+
+  .multi-select-category .css-13cymwt-control,
+  .multi-select-category .css-t3ipsp-control {
+    width: 290px;
+  }
 }

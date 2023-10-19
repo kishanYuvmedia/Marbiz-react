@@ -226,7 +226,7 @@ export default function InfluencerList() {
             to={`/influencer/add-Images-Vedio/${viewdata.id}`}
             className="btn btn-info mt-3"
           >
-            Add Images and vedio
+            Add Images and video
           </Link>
           <Button
             onClick={() => deleteprofile(viewdata.id)}

@@ -3,24 +3,29 @@ import { Button, Container, Row } from "react-bootstrap";
 import Select from "react-select";
 import { BsSearch } from "react-icons/bs";
 import { getPublicList } from "../services/api/api-service";
+
 const SearchBar = (props) => {
+
     const [getPlatform, setPlatform] = useState([]);
     const [getCategory, setCategory1] = useState([]);
+
     useEffect(() => {
-      getPublicList("Platform").then((result) => {
-        setPlatform(result);
-      });
-      getPublicList("Category").then((result) => {
-        setCategory1(result);
-      });
+        getPublicList("Platform").then((result) => {
+            setPlatform(result);
+        });
+        getPublicList("Category").then((result) => {
+            setCategory1(result);
+        });
     }, []);
+    
     function handleMulti(selectedMulti) {
-      const filter = [];
-      selectedMulti.map((list) => {
-        filter.push(list.label);
-      });
-      props.setCategory(filter);
+        const filter = [];
+        selectedMulti.map((list) => {
+            filter.push(list.label);
+        });
+        props.setCategory(filter);
     }
+
     return (
         <div>
             {/* Search filters */}
@@ -32,7 +37,7 @@ const SearchBar = (props) => {
                                 <button
                                     type="submit"
                                     className="search-btn fs-2 rounded-pill align-items-center d-flex"
-                                    // onClick={searchHanlder}
+                                // onClick={searchHanlder}
                                 >
                                     <BsSearch />
                                 </button>
@@ -77,7 +82,7 @@ const SearchBar = (props) => {
                                 <button
                                     type="submit"
                                     className="search-btn-mobile justify-content-center align-items-center d-flex"
-                                    // onClick={searchHanlder}
+                                // onClick={searchHanlder}
                                 >
                                     <BsSearch className="me-2" />
                                     Search
