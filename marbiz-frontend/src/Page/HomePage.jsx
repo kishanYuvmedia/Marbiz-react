@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "../Components/HeroSection";
 import SliderList from "../Components/SliderList";
-// import { MainListing, ModalListing } from "../Components/MainListing";
-import Promotions from "../Components/Promotions";
 import "../App.css";
+import { Link, useNavigate } from "react-router-dom";
 import PopularCategories from "../Components/PopularCategories";
 import {
   getInfluencersFetured,
   getInfluencersList,
+  getInfluencersAll,
 } from "../services/api/api-service";
 import SearchBar from "../Components/SearchBar";
 import Howitworks from "../Components/Howitworks";
@@ -52,10 +52,13 @@ const placeholderData = [
 ];
 
 function HomePage() {
+  const navigate = useNavigate();
   const [list, setList] = useState([]);
   const [instagramlist, setInstagramlist] = useState([]);
   const [ugclist, setugclist] = useState([]);
   const [Youtubelist, setYoutubeList] = useState([]);
+  const [getPlatform, setPlatform] = useState(null);
+  const [getCategory, setCategory] = useState([]);
   useEffect(() => {
     getInfluencersFetured(8)
       .then((result) => {
@@ -77,6 +80,11 @@ function HomePage() {
     getlist("Instagram", setInstagramlist);
     getlist("Youtube", setYoutubeList);
   }, []);
+  const searchhandler = () => {
+    navigate(`/explore?p=${getPlatform}&c=${getCategory.join("-")}`, {
+      replace: true,
+    });
+  };
   function getlist(type, valueSetter) {
     getInfluencersList(6, type)
       .then((result) => {
@@ -99,7 +107,11 @@ function HomePage() {
     <div>
       <HeroSection />
 
-      <SearchBar />
+      <SearchBar
+        setPlatform={setPlatform}
+        setCategory={setCategory}
+        handlerSearch={searchhandler}
+      />
 
       <PopularCategories title={"Popular Categories to explore"} />
 
@@ -126,7 +138,6 @@ function HomePage() {
       />
 
       <Howitworks />
-
     </div>
   );
 }
