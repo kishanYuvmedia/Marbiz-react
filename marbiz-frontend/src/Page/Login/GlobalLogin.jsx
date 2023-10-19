@@ -53,7 +53,7 @@ const GlobalLogin = () => {
                 </div>
                 <div className="mt-3 mb-2">
                   <Link to="/#">
-                    <div className="text-secondary float-end">
+                    <div className="text-secondary text-center">
                       Forgot Password?
                     </div>
                   </Link>
