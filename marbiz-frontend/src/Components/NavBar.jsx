@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import logo from "../Images/marbiz-logo.webp";
 import { Outlet, Link, useLocation } from "react-router-dom";
-import { BsSearch, BsBriefcase, BsPeople, BsStar } from "react-icons/bs";
+import {
+  BsSearch,
+  BsBriefcase,
+  BsPeople,
+  BsStar,
+  BsIncognito,
+} from "react-icons/bs";
 
 import artist_1 from "../Images/icon.png";
 import { isEmpty } from "lodash";
@@ -174,6 +180,25 @@ function NavBar() {
           </div>
           <div
             className={`bottom-nav-item ${
+              activeNavItem === "profile" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("profile")}
+          >
+            {!isEmpty(loginUser) && (
+              <div className="d-grid justify-content-center align-items-center">
+                <div class="user-image-container">
+                  <img
+                    src={loginUser.profile ? loginUser.profile : artist_1}
+                    alt="user-img"
+                    className="img-fluid rounded-circle border border-danger border-3"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div
+            className={`bottom-nav-item ${
               activeNavItem === "creator" ? "active" : ""
             }`}
             onClick={() => setActiveNavItem("creator")}
@@ -181,6 +206,17 @@ function NavBar() {
             <Link className="bottom-nav-link" to="/creator">
               <BsStar />
               <span class="">Creator</span>
+            </Link>
+          </div>
+          <div
+            className={`bottom-nav-item ${
+              activeNavItem === "Celebrity" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("Celebrity")}
+          >
+            <Link className="bottom-nav-link" to="/celebrity">
+              <BsIncognito />
+              <span class="">Celebrity</span>
             </Link>
           </div>
           <div
@@ -194,17 +230,6 @@ function NavBar() {
                 <BsPeople />
                 <span class="">Login</span>
               </Link>
-            )}
-            {!isEmpty(loginUser) && (
-              <div className="d-grid justify-content-center align-items-center">
-                <div class="user-image-container">
-                  <img
-                    src={loginUser.profile ? loginUser.profile : artist_1}
-                    alt="user-img"
-                    className="img-fluid rounded-circle border border-danger border-3"
-                  />
-                </div>
-              </div>
             )}
           </div>
         </nav>
