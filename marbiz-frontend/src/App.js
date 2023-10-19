@@ -24,7 +24,6 @@ import AboutUs from "./Page/AboutUs";
 import Explore from "./Page/Explore";
 import Celebrity from "./Page/Celebrity";
 
-
 // Creator routes
 import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
@@ -44,7 +43,7 @@ function App() {
           {/* Public Routes */}
           <Route index element={<Home />} />
           <Route path="/inquiryform" element={<InquiryForm />} />
-          <Route path="/profile/:regName" element={<CelebProfile />} />
+          <Route path="/:regName" element={<CelebProfile />} />
           <Route path="/login" element={<GlobalLogin />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/explore" element={<Explore />} />

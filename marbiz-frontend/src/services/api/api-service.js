@@ -1,14 +1,6 @@
-import {
-  create,
-  find,
-  upsertPatch,
-  findOne,
-  deleteById,
-  count,
-} from "./core-service";
-import { getLocalData } from "../global-storage";
-import { retry } from "redux-saga/effects";
-import apiKit, { axiosRequest } from "./axios-base";
+import { create, find, upsertPatch, findOne, count } from "./core-service";
+import { storeLocalData } from "../global-storage";
+import apiKit from "./axios-base";
 
 export const getSystemList = (type) => {
   return new Promise((resolve, reject) => {
@@ -132,5 +124,22 @@ export const getInfluencersProfile = (name) => {
 export const getImagesList = (id) => {
   return find(`MtProfiles/${id}/Images`, {
     where: { status: "A" },
+  });
+};
+export const loginUser = (username, password) => {
+  return new Promise((resolve, reject) => {
+    apiKit
+      .post("/MtUsers/login?include=user", { username, password })
+      .then(function (response) {
+        console.log(response);
+        storeLocalData("accessToken", response.data.id);
+        storeLocalData("userId", response.data.userId);
+        storeLocalData("authUser", JSON.stringify(response.data.user));
+        resolve(response.data.id);
+      })
+      .catch(function (error) {
+        console.error(`Error:${error}`);
+        reject(error);
+      });
   });
 };

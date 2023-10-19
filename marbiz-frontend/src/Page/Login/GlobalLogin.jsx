@@ -1,20 +1,67 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-document.title = "MARBIZ | Login";
-
+import { Col, Container, Form, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
+import { loginUser } from "../../services/api/api-service";
 const GlobalLogin = () => {
+  document.title = "Login | MARBIZ ";
   const [validated, setValidated] = useState(false);
-
+  const initialFormData = {
+    username: "",
+    password: "",
+  };
+  const [formData, setFormData] = useState(initialFormData);
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
+    } else {
+      // Validation passed, check if the username is a valid email
+      if (isEmailValid(formData.username)) {
+        console.log(formData);
+        loginUser(formData.username, formData.password)
+          .then((result) => {
+            console.log(result);
+            Swal.fire({
+              title: "Wellcome Marbiz",
+              width: 600,
+              padding: "3em",
+              color: "#fff",
+              border: "1px solid red",
+              background: "#dc4c64",
+            });
+          })
+          .catch((e) => {
+            Swal.fire({
+              title: "User Not Valid",
+              width: 600,
+              padding: "3em",
+              color: "#fff",
+              border: "1px solid red",
+              background: "#6824b4",
+            });
+          });
+      } else {
+        Swal.fire({
+          title: "User Not Valid",
+          width: 600,
+          padding: "3em",
+          color: "#fff",
+          border: "1px solid #6824b4",
+          background: "#6824b4",
+        });
+      }
     }
 
     setValidated(true);
+  };
+  const isEmailValid = (email) => {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
   };
   return (
     <div>
@@ -30,7 +77,10 @@ const GlobalLogin = () => {
                     required
                     className="dark-bg"
                     type="email"
+                    name="username"
                     placeholder="Enter Email"
+                    value={formData.username}
+                    onChange={handleInputChange}
                   />
                   <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
@@ -40,24 +90,27 @@ const GlobalLogin = () => {
                   <Form.Label className="text-white">Password</Form.Label>
                   <Form.Control
                     required
-                    className="dark-bg "
+                    className="dark-bg"
                     type="password"
+                    name="password"
+                    minLength={6}
                     placeholder="Password"
+                    value={formData.password}
+                    onChange={handleInputChange}
                   />
                 </Form.Group>
-
                 <div className="d-flex align-items-center justify-content-between">
                   <button type="submit" className="btn-global px-5 w-100">
                     Login
                   </button>
                 </div>
-                <div className="mt-3 mb-2">
+                {/* <div className="mt-3 mb-2">
                   <Link to="/#">
                     <div className="text-secondary text-center">
                       Forgot Password?
                     </div>
                   </Link>
-                </div>
+                </div> */}
               </Form>
             </div>
           </Col>

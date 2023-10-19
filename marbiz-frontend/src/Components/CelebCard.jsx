@@ -14,8 +14,9 @@ const CelebCard = (props) => {
         className="card card-bg mx-2 card-has-bg click-col pt-3"
         style={{
           backgroundColor: "#00000000",
-          transform: `translateY(${props.index === 0 ? 10 : props.index % 2 !== 0 ? -10 : 10
-            }px)`,
+          transform: `translateY(${
+            props.index === 0 ? 10 : props.index % 2 !== 0 ? -10 : 10
+          }px)`,
         }}
       >
         <div
@@ -33,7 +34,10 @@ const CelebCard = (props) => {
             <div className="card-footer p-0">
               <div className="media">
                 <div className="media-body" style={{ textAlign: "start" }}>
-                  <Link to={`/profile/${props.regName}`}>
+                  <Link
+                    to={`/
+${props.regName}`}
+                  >
                     <h5 className="text-white text-capitalize d-block">
                       {props.fullName}
                     </h5>
@@ -42,10 +46,7 @@ const CelebCard = (props) => {
               </div>
             </div>
           </div>
-
-
         </div>
-
       </div>
       <div
         className="mt-2 ps-2 card-base"
@@ -57,7 +58,10 @@ const CelebCard = (props) => {
         <div className="d-flex justify-content-start flex-wrap">
           {listcategory &&
             listcategory.map((value) => (
-              <span key={value} className="badge badge-secondary rounded-pil m-1">
+              <span
+                key={value}
+                className="badge badge-secondary rounded-pil m-1"
+              >
                 {value}
               </span>
             ))}

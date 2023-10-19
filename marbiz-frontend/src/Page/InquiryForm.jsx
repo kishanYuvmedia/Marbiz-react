@@ -368,7 +368,11 @@ const InquiryForm = () => {
               </div>
 
               <div className="d-grid justify-content-center">
-                <button type="submit" className="button-87 btn-block mb-4">
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="button-87 btn-block mb-4"
+                >
                   Place order
                 </button>
               </div>

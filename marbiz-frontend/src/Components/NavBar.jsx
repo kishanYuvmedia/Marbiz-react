@@ -1,25 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../Images/marbiz-logo.webp";
 import { Outlet, Link, useLocation } from "react-router-dom";
-import { BsSearch, BsBriefcase, BsPeople, BsStar } from "react-icons/bs";
+import {
+  BsSearch,
+  BsBriefcase,
+  BsPeople,
+  BsStar,
+  BsIncognito,
+} from "react-icons/bs";
 
-import artist_1 from "../Images/artist_1.webp"
-
-
+import artist_1 from "../Images/icon.png";
+import { isEmpty } from "lodash";
 
 function NavBar() {
   const location = useLocation();
   const [activeNavItem, setActiveNavItem] = useState("explore");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [loginUser, setLoginUser] = useState([]);
   const handleNavItemClick = (item) => {
     setActiveNavItem(item);
-  };
-
-  // Function to handle login
-  const handleLogin = () => {
-    // Perform login logic here, and then set isLoggedIn to true
-    setIsLoggedIn(true);
   };
 
   // Function to handle logout
@@ -27,16 +26,23 @@ function NavBar() {
     // Perform logout logic here, and then set isLoggedIn to false
     setIsLoggedIn(false);
   };
+  useEffect(() => {
+    if (localStorage.getItem("authUser")) {
+      const obj = JSON.parse(localStorage.getItem("authUser"));
+      console.log("login user", obj);
+      setLoginUser(obj);
+    }
+  }, []);
 
   return (
     <>
       <nav className="navbar navbar-expand-md navbar-dark sticky-top">
         <div className="container-fluid mx-lg-5">
-        <div className="navbar-brand">
-          <Link className="" to="/">
-            <img src={logo} alt="Logo" className="img-fluid "/>
-          </Link>
-        </div>
+          <div className="navbar-brand">
+            <Link className="" to="/">
+              <img src={logo} alt="Logo" className="img-fluid " />
+            </Link>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -52,8 +58,9 @@ function NavBar() {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${activeNavItem === "explore" && "active"
-                    }`}
+                  className={`nav-link text-center ${
+                    activeNavItem === "explore" && "active"
+                  }`}
                   to="/explore"
                   onClick={() => handleNavItemClick("explore")}
                 >
@@ -66,17 +73,24 @@ function NavBar() {
               ></div>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${activeNavItem === "AboutUs" && "active"}`}
+                  className={`nav-link text-center ${
+                    activeNavItem === "AboutUs" && "active"
+                  }`}
                   to="/AboutUs"
                   onClick={() => handleNavItemClick("AboutUs")}
                 >
                   About Us
                 </Link>
               </li>
-              <div className="vr desktop-view" style={{ backgroundColor: "#FC6E90" }}></div>
+              <div
+                className="vr desktop-view"
+                style={{ backgroundColor: "#FC6E90" }}
+              ></div>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${activeNavItem === "celebrity" && "active"}`}
+                  className={`nav-link text-center ${
+                    activeNavItem === "celebrity" && "active"
+                  }`}
                   to="/celebrity"
                   onClick={() => handleNavItemClick("celebrity")}
                 >
@@ -103,23 +117,36 @@ function NavBar() {
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
               </li>
-              <li className="nav-item" style={{
-                width: "180px",
-              }}>
-                <Link to="/login">
-                  <button className="btn-global w-50 fw-normal ms-2">
-                    Login
-                  </button>
-                </Link>
+              <li
+                className="nav-item"
+                style={{
+                  width: "180px",
+                }}
+              >
+                {isEmpty(loginUser) && (
+                  <Link to="/login">
+                    <button className="btn-global w-50 fw-normal ms-2">
+                      Login
+                    </button>
+                  </Link>
+                )}
               </li>
-              <li className="nav-item">
-                <div className="d-flex align-items-center ">
-                  <div class="user-image-container">
-                    <img src={artist_1} alt="user-img" className="img-fluid rounded-circle border border-danger border-3" />
+              {!isEmpty(loginUser) && (
+                <li className="nav-item">
+                  <div className="d-flex align-items-center ">
+                    <div class="user-image-container">
+                      <img
+                        src={loginUser.profile ? loginUser.profile : artist_1}
+                        alt="user-img"
+                        className="img-fluid rounded-circle border border-danger border-3"
+                      />
+                    </div>
+                    <div className="text-white text-capitalize ms-2">
+                      {loginUser.realm}
+                    </div>
                   </div>
-                  <div className="text-white text-capitalize ms-2">username</div>
-                </div>
-              </li>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -129,8 +156,9 @@ function NavBar() {
       <div className="position-relative mobile-view">
         <nav class="bottom-nav">
           <div
-            className={`bottom-nav-item ${activeNavItem === "explore" ? "active" : ""
-              }`}
+            className={`bottom-nav-item ${
+              activeNavItem === "explore" ? "active" : ""
+            }`}
             onClick={() => setActiveNavItem("explore")}
           >
             <Link className="bottom-nav-link" to="/explore">
@@ -140,8 +168,9 @@ function NavBar() {
           </div>
 
           <div
-            className={`bottom-nav-item ${activeNavItem === "brand" ? "active" : ""
-              }`}
+            className={`bottom-nav-item ${
+              activeNavItem === "brand" ? "active" : ""
+            }`}
             onClick={() => setActiveNavItem("brand")}
           >
             <Link className="bottom-nav-link" to="/brand">
@@ -150,8 +179,28 @@ function NavBar() {
             </Link>
           </div>
           <div
-            className={`bottom-nav-item ${activeNavItem === "creator" ? "active" : ""
-              }`}
+            className={`bottom-nav-item ${
+              activeNavItem === "profile" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("profile")}
+          >
+            {!isEmpty(loginUser) && (
+              <div className="d-grid justify-content-center align-items-center">
+                <div class="user-image-container">
+                  <img
+                    src={loginUser.profile ? loginUser.profile : artist_1}
+                    alt="user-img"
+                    className="img-fluid rounded-circle border border-danger border-3"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div
+            className={`bottom-nav-item ${
+              activeNavItem === "creator" ? "active" : ""
+            }`}
             onClick={() => setActiveNavItem("creator")}
           >
             <Link className="bottom-nav-link" to="/creator">
@@ -160,22 +209,29 @@ function NavBar() {
             </Link>
           </div>
           <div
-            className={`bottom-nav-item ${activeNavItem === "login" ? "active" : ""
-              }`}
-            onClick={() => setActiveNavItem("login")}
+            className={`bottom-nav-item ${
+              activeNavItem === "Celebrity" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("Celebrity")}
           >
-            <Link to="/login" className="bottom-nav-link">
-              <BsPeople />
-              <span class="">Login</span>
+            <Link className="bottom-nav-link" to="/celebrity">
+              <BsIncognito />
+              <span class="">Celebrity</span>
             </Link>
           </div>
-            <div className="d-grid justify-content-center align-items-center">
-              <div class="user-image-container">
-                <img src={artist_1} alt="user-img" className="img-fluid rounded-circle border border-danger border-3" />
-              </div>
-              {/* <div className="text-white text-capitalize ms-2">username</div> */}
-            </div>
-
+          <div
+            className={`bottom-nav-item ${
+              activeNavItem === "login" ? "active" : ""
+            }`}
+            onClick={() => setActiveNavItem("login")}
+          >
+            {isEmpty(loginUser) && (
+              <Link to="/login" className="bottom-nav-link">
+                <BsPeople />
+                <span class="">Login</span>
+              </Link>
+            )}
+          </div>
         </nav>
       </div>
 
