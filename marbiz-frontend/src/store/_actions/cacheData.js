@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 export function loadCacheData(cachedData) {
   return {
@@ -9,15 +9,12 @@ export function loadCacheData(cachedData) {
 
 export function getCacheData() {
   return {
-    type: actionTypes.GET_CACHE_DATA
+    type: actionTypes.GET_CACHE_DATA,
   };
 }
 
 export function clearCacheData() {
   return {
-    type: actionTypes.CLEAR_CACHE_DATA
+    type: actionTypes.CLEAR_CACHE_DATA,
   };
 }
-
-
-
