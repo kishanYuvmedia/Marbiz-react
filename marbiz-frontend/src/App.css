@@ -1136,7 +1136,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  /* max-width: 100px; */
+  min-width: 60px;
   justify-content: center;
   text-align: center;
   /* font-size: 0.8rem;
@@ -1337,4 +1337,16 @@ body {
 .left-content-sec h1{
   font-size: 70px;
   color: #f55f5f;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title) {
+  font-weight: 400 !important;
+}
+
+.css-wsp0cs-MultiValueGeneric {
+  color: #f5615f !important;
+}
+
+.css-1p3m7a8-multiValue {
+  background-color: #242225 !important;
 }

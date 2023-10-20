@@ -11,6 +11,7 @@ import SliderList from "../../Components/SliderList";
 
 import HeroBgGradient from "../../Components/HeroBgGradient";
 import Howitworks from "../../Components/Howitworks";
+import { Link } from "react-router-dom";
 
 
 
@@ -114,6 +115,11 @@ export default function Creator() {
                 >
                   Claim
                 </div>
+              </div>
+              <div>
+                <Link to="/creatorDashboard">
+                  <button className="btn-global px-3">Creator Dashboard</button>
+                </Link>
               </div>
             </div>
           </div>

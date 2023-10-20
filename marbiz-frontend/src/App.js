@@ -28,6 +28,8 @@ import Celebrity from "./Page/Celebrity";
 import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Verify from "./Page/CreatorAuth/Verify";
+import CreatorDashboard from "./Page/CreatorAuth/CreatorDashboard";
+
 // Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
@@ -54,6 +56,7 @@ function App() {
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
+          <Route path="/CreatorDashboard" element={<CreatorDashboard />} />
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />

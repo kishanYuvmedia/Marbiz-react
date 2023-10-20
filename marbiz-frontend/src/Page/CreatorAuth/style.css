@@ -54,9 +54,9 @@
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
     45deg,
-    #fe62ac 0%,
-    #8726ff 51%,
-    #fe5ab0 100%
+    #fc396e 0%,
+    #f55f5f 51%,
+    #fc396e 100%  
   );
 }
 
@@ -80,4 +80,109 @@
 .icon-box p {
   font-size: 20px;
   color: white;
+}
+
+/* dashboard css */
+
+.creator-dashboard-wrap {
+	min-height: calc(100vh - 82px);
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+div#MobNav {
+	display: block;
+}
+
+a.mobNavigation {
+	display: none;
+}
+
+.creator-dashboard-nav {
+	display: block;
+	border-radius: 6px;
+	padding-bottom: 30px;
+	z-index: 1;
+	background: #fff;
+  position: -webkit-sticky;
+	position: sticky;
+	top: 110px;
+  width: 250px;
+}
+
+.creator-dashboard-inner {
+	display: block;
+	padding: 10px 0 25px 0;
+  position: relative;
+}
+
+.creator-dashboard-nav ul:first-child {
+	margin: 30px 0 0 0;
+}
+
+.creator-dashboard-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 17px 0 0 0;
+}
+
+.creator-dashboard-nav ul::before {
+	content: attr(data-submenu-title);
+	padding: 0 30px;
+	margin-bottom: 5px;
+	display: block;
+	color: #172228;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.craetor-dashboard-nav ul li.active, .creator-dashboard-nav ul li:hover {
+	border-color: #F41b3b;
+	background-color: rgba(244, 27, 59,0.1);
+}
+
+.creator-dashboard-nav ul li {
+	display: block;
+	border-left: 3px solid transparent;
+	transition: 0.3s;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+.creator-dashboard-nav ul li {
+	display: block;
+	border-left: 3px solid transparent;
+	transition: 0.3s;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+.creator-dashboard-nav ul li.active a, .creator-dashboard-nav ul li:hover a {
+	color: #F41b3b;
+}
+
+.creator-dashboard-nav ul li a {
+	color: #555962;
+	display: block;
+	padding: 12px 25px;
+	transition: 0.3s;
+	cursor: pointer;
+	font-weight: 400;
+	position: relative;
+	font-size: 15px;
+	letter-spacing: 0.5px;
+}
+
+/* dashboard content */
+
+.creator-dashboard-content {
+	padding: 0px 45px;
+	padding-bottom: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.creator-dashboard-content, .creator-dashboard-nav {
+	flex: 1;
 }

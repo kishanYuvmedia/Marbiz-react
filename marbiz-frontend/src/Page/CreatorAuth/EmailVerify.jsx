@@ -20,6 +20,7 @@ export default function EmailVerify(props) {
   });
 
   const [errors, setErrors] = useState({});
+  
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const fieldValue = type === "checkbox" ? checked : value;
@@ -190,6 +191,7 @@ export default function EmailVerify(props) {
                       </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} controlId="formGridState">
+                    <label htmlFor="formGridState" className="text-secondary">Select a platform!</label>
                       <Form.Select
                         name="userType"
                         className="dark-bg"
@@ -197,7 +199,7 @@ export default function EmailVerify(props) {
                         onChange={handleChange}
                         isInvalid={!!errors.userType}
                       >
-                        <option disabled>How did you hear about us?</option>
+                        <option default disabled>Select a platform!</option>
                         {categoryList.map((list) => (
                           <option key={list.label}>{list.label}</option>
                         ))}
@@ -223,13 +225,13 @@ export default function EmailVerify(props) {
                     </Form.Group>
                     <Button
                       variant="primary"
-                      className="srch-btn w-100 fs-6"
+                      className="btn-global w-100 py-2"
                       type="submit"
                     >
                       Sign Up
                     </Button>
                   </Form>
-                  <p style={{ textAlign: "center", color: "gray" }}>
+                  <p className="text-center text-secondary mt-2" >
                     By signing up, you agree to our Terms and Privacy Policy.
                   </p>
                 </Col>

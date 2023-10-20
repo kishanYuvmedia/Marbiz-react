@@ -118,14 +118,15 @@ export default function CreateProfile(props) {
   }, []);
 
   return (
-    <div>
-      <div className="p-3 text-center bg-body-tertiary hero">
-        <div className="container ">
-          <h1 className="fw-bold text-white mb-3">Make Your Profile </h1>
+    <>
+      <div className=" text-center bg-body-tertiary hero">
+        {/* <div className=""> */}
+          <h1 className="text-white mb-3">Make Your Profile </h1>
           <Row className="justify-content-md-center ">
             <Col xs lg="6" style={{ textAlign: "left" }}>
               <Form onSubmit={handleSubmit} id="myForm">
                 <Form.Group as={Col} controlId="formUserType">
+                <label htmlFor="formUserType" className="text-secondary">Select category</label>
                   <Select
                     defaultValue={formData.category}
                     isMulti
@@ -133,7 +134,7 @@ export default function CreateProfile(props) {
                     id="category"
                     options={categoryList}
                     onChange={(e) => setUserType(e)}
-                    className="basic-multi-select  mb-3"
+                    className="basic-multi-select border rounded-3 border-dark border-2 mb-3"
                     classNamePrefix="select"
                   />
                   <Form.Control.Feedback type="invalid">
@@ -237,7 +238,7 @@ export default function CreateProfile(props) {
                       onChange={handleChange}
                       isInvalid={!!errors.idProofType}
                     >
-                      <option disabled>Select</option>
+                      <option disabled>Select ID Proof Document</option>
                       {IdCategory.map((list) => (
                         <option key={list.label}>{list.label}</option>
                       ))}
@@ -268,7 +269,7 @@ export default function CreateProfile(props) {
                     type="checkbox"
                     name="checked"
                     label="Check me out"
-                    style={{ color: "white" }}
+                    style={{ color: "gray" }}
                     checked={formData.checked}
                     onChange={handleChange}
                     isInvalid={!!errors.checked}
@@ -278,20 +279,20 @@ export default function CreateProfile(props) {
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Button
-                  variant="primary"
-                  className="srch-btn fs-6 w-100"
+                  // variant="primary"
+                  className="btn-global w-100 py-2"
                   type="submit"
                 >
                   Create Profile
                 </Button>
               </Form>
-              <p style={{ textAlign: "center", color: "#fff" }}>
+              <p className="text-center text-secondary mt-2" >
                 By signing up, you agree to our Terms and Privacy Policy.
               </p>
             </Col>
           </Row>
-        </div>
+        {/* </div> */}
       </div>
-    </div>
+    </>
   );
 }
