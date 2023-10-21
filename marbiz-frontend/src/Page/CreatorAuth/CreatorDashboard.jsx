@@ -37,7 +37,7 @@ const CreatorDashboard = () => {
                                     </Link>
                                 </li> */}
                                 <li className={activeNavItem === 'Enquires' ? 'active' : ''}>
-                                    <Link to="/creatorDashboard/enquires" onClick={() => handleNavItemClick('Enquires')}>
+                                    <Link to="/creatorDashboard/CreatorEnquiries" onClick={() => handleNavItemClick('Enquires')}>
                                         <i class="lni lni-files me-2"></i>
                                         Enquires
                                     </Link>
@@ -52,13 +52,13 @@ const CreatorDashboard = () => {
 
                             <ul data-submenu-title="My Accounts">
                                 <li className={activeNavItem === 'MyProfile' ? 'active' : ''}>
-                                    <Link to="/creatorDashboard/CreatorPage" onClick={() => handleNavItemClick('MyProfile')}>
+                                    <Link to="/creatorDashboard/CreatorMyProfile" onClick={() => handleNavItemClick('MyProfile')}>
                                         <i class="lni lni-user me-2"></i>
                                         My Profile
                                     </Link>
                                 </li>
                                 <li className={activeNavItem === 'ChangePassword' ? 'active' : ''}>
-                                    <Link to="/creatorDashboard/changepassword" onClick={() => handleNavItemClick('ChangePassword')}>
+                                    <Link to="/creatorDashboard/CreatorPassword" onClick={() => handleNavItemClick('ChangePassword')}>
                                         <i class="lni lni-lock-alt me-2"></i>
                                         Change Password
                                     </Link>

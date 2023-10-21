@@ -11,7 +11,7 @@ import _ from "lodash";
 
 
 
-const CreatorPage = ({ pagetitle }) => {
+const CreatorMyProfile = ({ pagetitle }) => {
 
     let { regName } = useParams();
     const [profileData, setprofile] = useState(null);
@@ -189,4 +189,4 @@ const CreatorPage = ({ pagetitle }) => {
     )
 }
 
-export default CreatorPage
+export default CreatorMyProfile

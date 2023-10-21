@@ -131,9 +131,10 @@
   text-transform: uppercase;
 }
 
-.craetor-dashboard-nav ul li.active, .creator-dashboard-nav ul li:hover {
-	border-color: #f55f5f;
-	background-color: rgba(244, 27, 59,0.1);
+.creator-dashboard-nav ul li.active, .creator-dashboard-nav ul li:hover {
+	border-color: #f55f5f !important;
+	background-color: rgba(244, 27, 59,0.1) !important;
+  font-weight: 700;
 }
 
 .creator-dashboard-nav ul li {
@@ -154,7 +155,6 @@
 
 .creator-dashboard-nav ul li.active a, .creator-dashboard-nav ul li:hover a {
 	color: #f55f5f;
-  font-weight: 600;
 }
 
 .creator-dashboard-nav ul li a {

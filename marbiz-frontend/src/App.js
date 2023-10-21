@@ -29,8 +29,10 @@ import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Verify from "./Page/CreatorAuth/Verify";
 import CreatorDashboard from "./Page/CreatorAuth/CreatorDashboard";
-import CreatorPage from "./Page/CreatorAuth/CreatorPage";
+import CreatorMyProfile from "./Page/CreatorAuth/CreatorMyProfile";
 import CreatorPackages from "./Page/CreatorAuth/CreatorPackages";
+import CreatorEnquiries from "./Page/CreatorAuth/CreatorEnquiries";
+import CreatorPassword from "./Page/CreatorAuth/CreatorPassword";
 
 // Brand routes
 import Brand from "./Page/Brand/Brand";
@@ -60,8 +62,10 @@ function App() {
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
 
           <Route path="/CreatorDashboard" element={<CreatorDashboard pagetitle="Dashboard" />} >
-            <Route path="CreatorPage" element={<CreatorPage pagetitle="My Profile" />} />
+            <Route path="CreatorMyProfile" element={<CreatorMyProfile pagetitle="My Profile" />} />
             <Route path="CreatorPackages" element={<CreatorPackages pagetitle="My Packages" />} />
+            <Route path="CreatorEnquiries" element={<CreatorEnquiries pagetitle="My Enquiries" />} />
+            <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
           </Route>
 
 
