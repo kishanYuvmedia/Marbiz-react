@@ -98,7 +98,7 @@ const NavTabs = (props) => {
                 >
                     {/* <LightBoxGallery images={props.images} /> */}
 
-                    <div className="container ">
+                    <div className="container-fluid ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
                                 <PackageCard title={"3 Instagram Video"} cost={"100"} icon={insta_icon} />

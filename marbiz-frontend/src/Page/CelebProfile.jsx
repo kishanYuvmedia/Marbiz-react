@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CelebCard from "../Components/CelebCard";
 import NavTabs from "../Components/NavTabs";
-import Accordion from "../Components/Accordion";
 import { useParams, Link } from "react-router-dom";
 import {
   getInfluencersProfile,
@@ -10,12 +8,14 @@ import {
 } from "../services/api/api-service";
 import _ from "lodash";
 import SliderList from "../Components/SliderList";
+
 const CelebProfile = () => {
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [images, setImages] = useState([]);
   const [list, setList] = useState([]);
   const [type, settype] = useState("");
+
   function getlist(type, valueSetter) {
     getInfluencersList(6, type)
       .then((result) => {
@@ -31,6 +31,7 @@ const CelebProfile = () => {
         console.error("Error fetching data from the API:", error);
       });
   }
+
   useEffect(() => {
     getInfluencersProfile(regName)
       .then((result) => {
@@ -52,12 +53,13 @@ const CelebProfile = () => {
       .catch((err) => {
         console.error("Error fetching profile data:", err);
       });
-  }, [regName]);
+  }, [images, regName]);
 
   // Render nothing if profileData is still null
   if (profileData === null) {
     return null;
   }
+  
   return (
     <>
       {profileData && (

@@ -91,20 +91,12 @@
 }
 
 
-div#MobNav {
-	display: block;
-}
-
-a.mobNavigation {
-	display: none;
-}
-
 .creator-dashboard-nav {
 	display: block;
 	border-radius: 6px;
 	padding-bottom: 30px;
 	z-index: 1;
-	background: #fff;
+	background: #333333;
   position: -webkit-sticky;
 	position: sticky;
 	top: 110px;
@@ -132,13 +124,15 @@ a.mobNavigation {
 	padding: 0 30px;
 	margin-bottom: 5px;
 	display: block;
-	color: #172228;
+	color: #fc396e;
 	font-weight: 500;
 	font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .craetor-dashboard-nav ul li.active, .creator-dashboard-nav ul li:hover {
-	border-color: #F41b3b;
+	border-color: #f55f5f;
 	background-color: rgba(244, 27, 59,0.1);
 }
 
@@ -159,11 +153,12 @@ a.mobNavigation {
 }
 
 .creator-dashboard-nav ul li.active a, .creator-dashboard-nav ul li:hover a {
-	color: #F41b3b;
+	color: #f55f5f;
+  font-weight: 600;
 }
 
 .creator-dashboard-nav ul li a {
-	color: #555962;
+	color: #dadada;
 	display: block;
 	padding: 12px 25px;
 	transition: 0.3s;

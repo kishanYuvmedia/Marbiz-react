@@ -29,6 +29,8 @@ import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Verify from "./Page/CreatorAuth/Verify";
 import CreatorDashboard from "./Page/CreatorAuth/CreatorDashboard";
+import CreatorPage from "./Page/CreatorAuth/CreatorPage";
+import CreatorPackages from "./Page/CreatorAuth/CreatorPackages";
 
 // Brand routes
 import Brand from "./Page/Brand/Brand";
@@ -56,10 +58,18 @@ function App() {
           <Route path="/emailverify" element={<Verify />} />
           <Route path="/UploadImage" element={<UploadImage />} />
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
-          <Route path="/CreatorDashboard" element={<CreatorDashboard />} />
+
+          <Route path="/CreatorDashboard" element={<CreatorDashboard pagetitle="Dashboard" />} >
+            <Route path="CreatorPage" element={<CreatorPage pagetitle="My Profile" />} />
+            <Route path="CreatorPackages" element={<CreatorPackages pagetitle="My Packages" />} />
+          </Route>
+
+
+
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />
+          
           <Route path="/brand-dashboard" element={<BrandDashboard />}>
             <Route path="brandHome" element={<BrandHome />} />
             <Route path="brandBooking" element={<BrandBooking />} />

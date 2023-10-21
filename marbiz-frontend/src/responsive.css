@@ -1,6 +1,13 @@
 @media only screen and (max-width: 1500px) {
 }
 @media only screen and (min-width: 1200px) {
+  div#MobNav {
+    display: block;
+  }
+
+  a.mobNavigation {
+    display: none;
+  }
 }
 @media only screen and (max-width: 1200px) {
 }
@@ -8,8 +15,52 @@
   .mobile-view {
     display: none;
   }
+
 }
 @media only screen and (max-width: 992px) {
+  
+  a.mobNavigation {
+    width: 100%;
+    margin: auto;
+    background: #27272e;
+    padding: 12px 25px;
+    border-radius: 2px;
+    color: #ffffff;
+    display: block;
+  }
+
+  div#MobNav {
+    width: 100%;
+  }
+  .creator-dashboard-nav {
+    position: relative;
+    overflow: auto;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    display: block;
+    box-shadow: none;
+    top: 0;
+  }
+
+  .creator-dashboard-inner {
+    max-height: initial;
+    width: 100%;
+    overflow-y: scroll;
+    position: relative;
+    display: initial;
+    padding: 0;
+  }
+  .creator-dashboard-nav ul:first-child {
+    margin-top: 10px;
+  }
+
+  .creator-dashboard-content {
+    margin: 0;
+    padding: 0;
+    margin-top: 2rem;
+  }
+  
 }
 
 @media only screen and (max-width: 767px) {
@@ -121,9 +172,9 @@
     font-size: 18px;
   }
 
-.bottom-nav-link {
-  font-size: 14px;
-}
+  .bottom-nav-link {
+    font-size: 14px;
+  }
 
   .multi-select-category .css-13cymwt-control,
   .multi-select-category .css-t3ipsp-control {
