@@ -9,7 +9,7 @@ import insta_icon from "../Images/insta_icon.png"
 
 
 
-const NavTabs = (props) => {
+const PackagesTabs = (props) => {
     console.log("final", props.images);
     return (
         <div>
@@ -118,7 +118,7 @@ const NavTabs = (props) => {
                     aria-labelledby="instagram-package"
                 >
                     
-                    <div className="container ">
+                    <div className="container-fluid ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
 
@@ -141,7 +141,7 @@ const NavTabs = (props) => {
                     aria-labelledby="youtube-package"
                 >
                     
-                    <div className="container ">
+                    <div className="container-fluid ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
 
@@ -164,7 +164,7 @@ const NavTabs = (props) => {
                     aria-labelledby="ugc-packages"
                 >
                     
-                    <div className="container ">
+                    <div className="container-fluid ">
                         <div className="row py-3">
                             <div className="col-md-6 ">
 
@@ -186,4 +186,4 @@ const NavTabs = (props) => {
     );
 };
 
-export default NavTabs;
+export default PackagesTabs;

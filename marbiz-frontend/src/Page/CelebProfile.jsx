@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NavTabs from "../Components/NavTabs";
+import PackagesTabs from "../Components/PackagesTabs";
 import { useParams, Link } from "react-router-dom";
 import {
   getInfluencersProfile,
@@ -8,6 +8,7 @@ import {
 } from "../services/api/api-service";
 import _ from "lodash";
 import SliderList from "../Components/SliderList";
+import Portfolio from "../Components/Portfolio";
 
 const CelebProfile = () => {
   let { regName } = useParams();
@@ -197,7 +198,7 @@ const CelebProfile = () => {
                 <span className="text-white fs-3 me-3">Packages</span>
                 <span className="text-secondary fs-6">How does it work</span>
               </div>
-              <NavTabs />
+              <PackagesTabs />
               <div className="my-3">
                 <Link to="/#" >
                   <span className="text-secondary fs-6">
@@ -205,6 +206,18 @@ const CelebProfile = () => {
                   </span>
                 </Link>
               </div>
+            </div>
+          </div>
+
+          {/* Portfolio section */}
+          <div className="container">
+            <div className="row">
+              <div className="my-3">
+                <span className="text-white fs-3 me-3">Portfolio</span>
+                {/* <span className="text-secondary fs-6">How does it work</span> */}
+              </div>
+              <Portfolio />
+              
             </div>
           </div>
         </>

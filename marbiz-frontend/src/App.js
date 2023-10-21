@@ -38,9 +38,9 @@ import CreatorPassword from "./Page/CreatorAuth/CreatorPassword";
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
 import BrandDashboard from "./Page/Brand/BrandDashboard";
-import BrandHome from "./Components/BrandHome";
-import BrandBooking from "./Components/BrandBooking";
-import BrandWishlist from "./Components/BrandWishlist";
+import BrandHome from "./Page/Brand/BrandHome";
+import BrandBooking from "./Page/Brand/BrandBooking";
+import BrandWishlist from "./Page/Brand/BrandWishlist";
 function App() {
   return (
     <BrowserRouter>

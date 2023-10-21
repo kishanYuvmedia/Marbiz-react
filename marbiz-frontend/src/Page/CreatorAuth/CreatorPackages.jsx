@@ -1,20 +1,18 @@
 import React from 'react'
-import NavTabs from '../../Components/NavTabs'
-import { Link } from 'react-router-dom'
-
+import PackagesTabs from '../../Components/PackagesTabs'
 
 
 const CreatorPackages = ({ pagetitle }) => {
     return (
         <>
             {/* Packages section */}
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
                     <h1 className="text-center">{pagetitle}</h1>
                     <hr className="hr hr-blurry border border-danger border-2" />
 
 
-                    <NavTabs />
+                    <PackagesTabs />
 
                 </div>
             </div>

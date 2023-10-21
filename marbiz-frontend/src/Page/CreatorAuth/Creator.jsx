@@ -117,8 +117,8 @@ export default function Creator() {
                 </div>
               </div>
               <div>
-                <Link to="/creatorDashboard">
-                  <button className="btn-global px-3">Creator Dashboard</button>
+                <Link to="/creatorDashboard/CreatorMyProfile">
+                  <button className="btn-global px-5 py-3">Creator Dashboard</button>
                 </Link>
               </div>
             </div>
