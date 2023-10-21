@@ -58,9 +58,8 @@ function NavBar() {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${
-                    activeNavItem === "explore" && "active"
-                  }`}
+                  className={`nav-link text-center ${activeNavItem === "explore" && "active"
+                    }`}
                   to="/explore"
                   onClick={() => handleNavItemClick("explore")}
                 >
@@ -73,9 +72,8 @@ function NavBar() {
               ></div>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${
-                    activeNavItem === "AboutUs" && "active"
-                  }`}
+                  className={`nav-link text-center ${activeNavItem === "AboutUs" && "active"
+                    }`}
                   to="/AboutUs"
                   onClick={() => handleNavItemClick("AboutUs")}
                 >
@@ -88,9 +86,8 @@ function NavBar() {
               ></div>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-center ${
-                    activeNavItem === "celebrity" && "active"
-                  }`}
+                  className={`nav-link text-center ${activeNavItem === "celebrity" && "active"
+                    }`}
                   to="/celebrity"
                   onClick={() => handleNavItemClick("celebrity")}
                 >
@@ -117,34 +114,54 @@ function NavBar() {
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
                 </Link>
               </li>
-              <li
-                className="nav-item"
-                style={{
-                  width: "180px",
-                }}
-              >
-                {isEmpty(loginUser) && (
+              {isEmpty(loginUser) && (
+                <li className="nav-item" style={{ width: "180px", }} >
                   <Link to="/login">
                     <button className="btn-global w-50 fw-normal ms-2">
                       Login
                     </button>
                   </Link>
-                )}
-              </li>
+                </li>
+              )}
+
               {!isEmpty(loginUser) && (
-                <li className="nav-item">
-                  <div className="d-flex align-items-center ">
-                    <div class="user-image-container">
-                      <img
-                        src={loginUser.profile ? loginUser.profile : artist_1}
-                        alt="user-img"
-                        className="img-fluid rounded-circle border border-danger border-3"
-                      />
+                <li className="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle"
+                    href="/#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <div className="d-flex align-items-center ">
+                      <div class="user-image-container">
+                        <img
+                          src={loginUser.profile ? loginUser.profile : artist_1}
+                          alt="user-img"
+                          className="img-fluid rounded-circle border border-danger border-3"
+                        />
+                      </div>
+                      <div className="text-white text-capitalize ms-2">
+                        {loginUser.realm}
+                      </div>
                     </div>
-                    <div className="text-white text-capitalize ms-2">
-                      {loginUser.realm}
-                    </div>
-                  </div>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+
+                    <li>
+                      <Link to="" class="dropdown-item">
+                        My Profile
+                      </Link>
+                    </li>
+
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <Link to="" class="dropdown-item">
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
               )}
             </ul>
@@ -156,9 +173,8 @@ function NavBar() {
       <div className="position-relative mobile-view">
         <nav class="bottom-nav">
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "explore" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "explore" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("explore")}
           >
             <Link className="bottom-nav-link" to="/explore">
@@ -168,9 +184,8 @@ function NavBar() {
           </div>
 
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "brand" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "brand" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("brand")}
           >
             <Link className="bottom-nav-link" to="/brand">
@@ -179,41 +194,52 @@ function NavBar() {
             </Link>
           </div>
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "profile" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "profile" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("profile")}
           >
             {!isEmpty(loginUser) && (
-              <div className="d-grid justify-content-center align-items-center">
-                <div class="user-image-container">
+              <div className="d-grid justify-content-center align-items-center dropup">
+                <div class="user-image-container dropdown-toggle" data-bs-toggle="dropdown">
                   <img
                     src={loginUser.profile ? loginUser.profile : artist_1}
                     alt="user-img"
                     className="img-fluid rounded-circle border border-danger border-3"
                   />
                 </div>
+                <ul class="dropdown-menu">
+                  <li>
+                    <Link to="" class="dropdown-item">
+                      My Profile
+                    </Link>
+                  </li>
+
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <Link to="" class="dropdown-item">
+                      Logout
+                    </Link>
+                  </li>
+                </ul>
+
               </div>
             )}
-            <div
-            className={`bottom-nav-item ${
-              activeNavItem === "login" ? "active" : ""
-            }`}
-            onClick={() => setActiveNavItem("login")}
-          >
             {isEmpty(loginUser) && (
-              <Link to="/login" className="bottom-nav-link">
-                <BsPeople />
-                <span class="">Login</span>
-              </Link>
+              <div className={`bottom-nav-item ${activeNavItem === "login" ? "active" : ""
+                }`}
+                onClick={() => setActiveNavItem("login")}
+              >
+                <Link to="/login" className="bottom-nav-link">
+                  <BsPeople />
+                  <span class="">Login</span>
+                </Link>
+              </div>
             )}
           </div>
-          </div>
-          
+
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "creator" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "creator" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("creator")}
           >
             <Link className="bottom-nav-link" to="/creator">
@@ -222,9 +248,8 @@ function NavBar() {
             </Link>
           </div>
           <div
-            className={`bottom-nav-item ${
-              activeNavItem === "Celebrity" ? "active" : ""
-            }`}
+            className={`bottom-nav-item ${activeNavItem === "Celebrity" ? "active" : ""
+              }`}
             onClick={() => setActiveNavItem("Celebrity")}
           >
             <Link className="bottom-nav-link" to="/celebrity">
@@ -232,7 +257,7 @@ function NavBar() {
               <span class="">Celebrity</span>
             </Link>
           </div>
-          
+
         </nav>
       </div>
 

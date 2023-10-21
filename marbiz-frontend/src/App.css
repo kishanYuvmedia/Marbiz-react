@@ -373,6 +373,22 @@ body {
   /* width: 160px; */
   text-align: center;
   margin: 0 10px;
+  display: grid;
+  align-items: center;
+}
+.dropdown-menu {
+  background-color: black;
+  border: 1px solid #f5615f;
+}
+.dropdown-menu li a {
+  color: #f5615f !important;
+  font-weight: 600;
+}
+.dropdown-menu li a:hover {
+  color: #ffffff !important;
+  font-weight: 600;
+  background-color: #f5615f;
+
 }
 
 .nav-link {
@@ -1349,4 +1365,8 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 
 .css-1p3m7a8-multiValue {
   background-color: #242225 !important;
+}
+
+.dropdown-toggle:after {
+  display: none;
 }
