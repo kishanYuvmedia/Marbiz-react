@@ -3,7 +3,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
 
-const CreatorDashboard = () => {
+const CreatorNavigation = () => {
 
     const [activeNavItem, setActiveNavItem] = useState('Dashboard');
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const CreatorDashboard = () => {
 
     const handleNavItemClick = (item) => {
         setActiveNavItem(item);
-        navigate(`/creatorDashboard/${item.toLowerCase()}`);
+        navigate(`/CreatorNavigation/${item.toLowerCase()}`);
     };
     return (
         <>
@@ -80,4 +80,4 @@ const CreatorDashboard = () => {
     )
 }
 
-export default CreatorDashboard
+export default CreatorNavigation

@@ -28,7 +28,7 @@ import Celebrity from "./Page/Celebrity";
 import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
 import Verify from "./Page/CreatorAuth/Verify";
-import CreatorDashboard from "./Page/CreatorAuth/CreatorDashboard";
+import CreatorNavigation from "./Page/CreatorAuth/CreatorNavigation";
 import CreatorMyProfile from "./Page/CreatorAuth/CreatorMyProfile";
 import CreatorPackages from "./Page/CreatorAuth/CreatorPackages";
 import CreatorEnquiries from "./Page/CreatorAuth/CreatorEnquiries";
@@ -37,10 +37,14 @@ import CreatorPassword from "./Page/CreatorAuth/CreatorPassword";
 // Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
-import BrandDashboard from "./Page/Brand/BrandDashboard";
+import BrandNavigation from "./Page/Brand/BrandNavigation";
 import BrandHome from "./Page/Brand/BrandHome";
 import BrandBooking from "./Page/Brand/BrandBooking";
 import BrandWishlist from "./Page/Brand/BrandWishlist";
+import BrandPassword from "./Page/Brand/BrandPassword";
+import BrandProfile from "./Page/Brand/BrandProfile";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -61,7 +65,7 @@ function App() {
           <Route path="/UploadImage" element={<UploadImage />} />
           <Route path="/inquiryform/:regName" element={<InquiryForm />} />
 
-          <Route path="/CreatorDashboard" element={<CreatorDashboard pagetitle="Dashboard" />} >
+          <Route path="/CreatorDashboard" element={<CreatorNavigation pagetitle="Dashboard" />} >
             <Route path="CreatorMyProfile" element={<CreatorMyProfile pagetitle="My Profile" />} />
             <Route path="CreatorPackages" element={<CreatorPackages pagetitle="My Packages" />} />
             <Route path="CreatorEnquiries" element={<CreatorEnquiries pagetitle="My Enquiries" />} />
@@ -74,10 +78,12 @@ function App() {
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />
           
-          <Route path="/brand-dashboard" element={<BrandDashboard />}>
+          <Route path="/brand-dashboard" element={<BrandNavigation />}>
             <Route path="brandHome" element={<BrandHome />} />
             <Route path="brandBooking" element={<BrandBooking />} />
             <Route path="brandWishlist" element={<BrandWishlist />} />
+            <Route path="brandProfile" element={<BrandProfile />} />
+            <Route path="brandPassword" element={<BrandPassword />} />
           </Route>
         </Route>
       </Routes>
