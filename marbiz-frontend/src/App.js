@@ -33,6 +33,7 @@ import CreatorMyProfile from "./Page/CreatorAuth/CreatorMyProfile";
 import CreatorPackages from "./Page/CreatorAuth/CreatorPackages";
 import CreatorEnquiries from "./Page/CreatorAuth/CreatorEnquiries";
 import CreatorPassword from "./Page/CreatorAuth/CreatorPassword";
+import AddPackage from "./Page/CreatorAuth/AddPackage";
 
 // Brand routes
 import Brand from "./Page/Brand/Brand";
@@ -68,6 +69,7 @@ function App() {
           <Route path="/CreatorDashboard" element={<CreatorNavigation pagetitle="Dashboard" />} >
             <Route path="CreatorMyProfile" element={<CreatorMyProfile pagetitle="My Profile" />} />
             <Route path="CreatorPackages" element={<CreatorPackages pagetitle="My Packages" />} />
+            <Route path="AddPackage" element={<AddPackage pagetitle="My Packages" />} />
             <Route path="CreatorEnquiries" element={<CreatorEnquiries pagetitle="My Enquiries" />} />
             <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
           </Route>

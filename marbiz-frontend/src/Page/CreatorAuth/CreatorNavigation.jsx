@@ -21,30 +21,30 @@ const CreatorNavigation = () => {
             }}>
 
                 {/* mobile sidebar navMenu */}
-                <a class="mobNavigation collapsed" data-bs-toggle="collapse" href="#MobNav" role="button" aria-expanded="false" aria-controls="MobNav">
-                    <i class="fas fa-bars me-2"></i>Dashboard Navigation
+                <a className="mobNavigation collapsed" data-bs-toggle="collapse" href="#MobNav" role="button" aria-expanded="false" aria-controls="MobNav">
+                    <i className="fas fa-bars me-2"></i>Dashboard Navigation
                 </a>
 
                 {/*sidebar navMenu */}
-                <div class="collapse" id="MobNav" >
-                    <div class="creator-dashboard-nav ">
-                        <div class="creator-dashboard-inner">
+                <div className="collapse" id="MobNav" >
+                    <div className="creator-dashboard-nav ">
+                        <div className="creator-dashboard-inner">
                             <ul data-submenu-title="Main Navigation" className="fw-bold">
                                 {/* <li className={activeNavItem === 'Dashboard' ? 'active' : ''}>
                                     <Link to="/creatorDashboard" onClick={() => handleNavItemClick('Dashboard')}>
-                                        <i class="lni lni-dashboard me-2"></i>
+                                        <i className="lni lni-dashboard me-2"></i>
                                         Dashboard
                                     </Link>
                                 </li> */}
                                 <li className={activeNavItem === 'Enquires' ? 'active' : ''}>
                                     <Link to="/creatorDashboard/CreatorEnquiries" onClick={() => handleNavItemClick('Enquires')}>
-                                        <i class="lni lni-files me-2"></i>
+                                        <i className="lni lni-files me-2"></i>
                                         Enquires
                                     </Link>
                                 </li>
                                 <li className={activeNavItem === 'CreatorPackages' ? 'active' : ''}>
                                     <Link to="/creatorDashboard/CreatorPackages" onClick={() => handleNavItemClick('CreatorPackages')}>
-                                        <i class="lni lni-add-files me-2"></i>
+                                        <i className="lni lni-add-files me-2"></i>
                                         Packages
                                     </Link>
                                 </li>
@@ -53,13 +53,13 @@ const CreatorNavigation = () => {
                             <ul data-submenu-title="My Accounts">
                                 <li className={activeNavItem === 'MyProfile' ? 'active' : ''}>
                                     <Link to="/creatorDashboard/CreatorMyProfile" onClick={() => handleNavItemClick('MyProfile')}>
-                                        <i class="lni lni-user me-2"></i>
+                                        <i className="lni lni-user me-2"></i>
                                         My Profile
                                     </Link>
                                 </li>
                                 <li className={activeNavItem === 'ChangePassword' ? 'active' : ''}>
                                     <Link to="/creatorDashboard/CreatorPassword" onClick={() => handleNavItemClick('ChangePassword')}>
-                                        <i class="lni lni-lock-alt me-2"></i>
+                                        <i className="lni lni-lock-alt me-2"></i>
                                         Change Password
                                     </Link>
                                 </li>
@@ -69,8 +69,8 @@ const CreatorNavigation = () => {
                 </div>
 
                 {/* body content */}
-                <div class="creator-dashboard-content">
-                    <div class="row">
+                <div className="creator-dashboard-content">
+                    <div className="row">
                         <Outlet />
                     </div>
 

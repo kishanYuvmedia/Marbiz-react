@@ -126,7 +126,7 @@ function NavBar() {
 
               {!isEmpty(loginUser) && (
                 <li className="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle"
+                  <a className="nav-link dropdown-toggle"
                     href="/#"
                     id="navbarDropdownMenuLink"
                     role="button"
@@ -134,7 +134,7 @@ function NavBar() {
                     aria-expanded="false"
                   >
                     <div className="d-flex align-items-center ">
-                      <div class="user-image-container">
+                      <div className="user-image-container">
                         <img
                           src={loginUser.profile ? loginUser.profile : artist_1}
                           alt="user-img"
@@ -146,18 +146,18 @@ function NavBar() {
                       </div>
                     </div>
                   </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
 
                     <li>
-                      <Link to="" class="dropdown-item">
+                      <Link to="" className="dropdown-item">
                         My Profile
                       </Link>
                     </li>
 
-                    <li><hr class="dropdown-divider" /></li>
+                    <li><hr className="dropdown-divider" /></li>
                     <li>
-                      <Link to="" class="dropdown-item">
+                      <Link to="" className="dropdown-item">
                         Logout
                       </Link>
                     </li>
@@ -171,7 +171,7 @@ function NavBar() {
 
       {/* mobile navigation */}
       <div className="position-relative mobile-view">
-        <nav class="bottom-nav">
+        <nav className="bottom-nav">
           <div
             className={`bottom-nav-item ${activeNavItem === "explore" ? "active" : ""
               }`}
@@ -179,7 +179,7 @@ function NavBar() {
           >
             <Link className="bottom-nav-link" to="/explore">
               <BsSearch />
-              <span class="">Explore</span>
+              <span className="">Explore</span>
             </Link>
           </div>
 
@@ -190,7 +190,7 @@ function NavBar() {
           >
             <Link className="bottom-nav-link" to="/brand">
               <BsBriefcase />
-              <span class="">Brand</span>
+              <span className="">Brand</span>
             </Link>
           </div>
           <div
@@ -200,23 +200,23 @@ function NavBar() {
           >
             {!isEmpty(loginUser) && (
               <div className="d-grid justify-content-center align-items-center dropup">
-                <div class="user-image-container dropdown-toggle" data-bs-toggle="dropdown">
+                <div className="user-image-container dropdown-toggle" data-bs-toggle="dropdown">
                   <img
                     src={loginUser.profile ? loginUser.profile : artist_1}
                     alt="user-img"
                     className="img-fluid rounded-circle border border-danger border-3"
                   />
                 </div>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li>
-                    <Link to="" class="dropdown-item">
+                    <Link to="" className="dropdown-item">
                       My Profile
                     </Link>
                   </li>
 
-                  <li><hr class="dropdown-divider" /></li>
+                  <li><hr className="dropdown-divider" /></li>
                   <li>
-                    <Link to="" class="dropdown-item">
+                    <Link to="" className="dropdown-item">
                       Logout
                     </Link>
                   </li>
@@ -231,7 +231,7 @@ function NavBar() {
               >
                 <Link to="/login" className="bottom-nav-link">
                   <BsPeople />
-                  <span class="">Login</span>
+                  <span className="">Login</span>
                 </Link>
               </div>
             )}
@@ -244,7 +244,7 @@ function NavBar() {
           >
             <Link className="bottom-nav-link" to="/creator">
               <BsStar />
-              <span class="">Creator</span>
+              <span className="">Creator</span>
             </Link>
           </div>
           <div
@@ -254,7 +254,7 @@ function NavBar() {
           >
             <Link className="bottom-nav-link" to="/celebrity">
               <BsIncognito />
-              <span class="">Celebrity</span>
+              <span className="">Celebrity</span>
             </Link>
           </div>
 
