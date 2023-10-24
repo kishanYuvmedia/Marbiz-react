@@ -125,14 +125,14 @@ const InquiryForm = () => {
     <div>
       <div className="container main-body my-5">
         <div className="row">
-          <div className="col-md-4 col-sm-12 justify-content-center d-grid">
-            <div>
+          <div className="col-md-4 col-sm-12 justify-content-center d-grid position-relative">
+            <div className="celeb-container">
               <img
                 src={profileData.coverImage}
                 className="img-fluid celeb-img"
-                alt="Sanam Image1"
+                alt="Celeb Images"
               />
-              <h3 className="mt-3 text-white">{profileData.fullName}</h3>
+              <h3 className="mt-3 text-white text-capitalize">{profileData.fullName}</h3>
             </div>
           </div>
           <div className="col-md-6 col-sm-12 mx-auto my-3">
@@ -366,9 +366,9 @@ const InquiryForm = () => {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="button-87 btn-block mb-4"
+                  className="btn-global px-3 mb-4"
                 >
-                  Place order
+                  Send Inquiry
                 </button>
               </div>
             </form>

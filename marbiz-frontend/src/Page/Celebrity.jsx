@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Container, Row } from 'react-bootstrap'
+import React from 'react'
+import { Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { BsStopwatch } from "react-icons/bs";
 import { PiShootingStar, PiWallet } from "react-icons/pi";
@@ -9,14 +9,15 @@ import artist_3 from "../Images/artist_3.webp";
 import artist_4 from "../Images/artist_4.webp";
 import CelebBox from '../Components/CelebBox';
 
+import CelebritySlider from '../Components/CelebritySlider';
+
 const Celebrity = () => {
 
-
   return (
-    <div className='new-brand-box'>
+    <div className='new-brand-box' >
 
       {/* Search filters */}
-      <section className='brand-banner position-relative'>
+      <section className='brand-banner position-relative' >
 
         <Container className='py-5'>
           <Row className=''>
@@ -50,32 +51,10 @@ const Celebrity = () => {
             </div>
 
             <div className="col-md-6 col-12">
-              <div className="text-center p-3">
-                <img
-                  src={artist_3}
-                  alt="artist_3"
-                  className="rounded-3 img-fluid"
-                />
-                {/* <div class="new-slider owl-carousel owl-loaded owl-drag">
-                  <div class="owl-stage-outer owl-height" style={{ height: "419px" }}><div class="owl-stage" style={{ transition: "all 0.25s ease 0s", width: "2852px", transform: "translate3d(-1247px, 0px, 0px)" }}>
-                    <div class="owl-item cloned" style={{"width: 316.5px; margin-right: 40px;"}}><div class="new-img owl-slide-img"> <video class="banner-video" id="video-3" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/shivaji_satam_b2b.png?tr=q-80" style={{objectFit: "fill"}}>
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/shivaji_satam_b2b.mp4" type="video/mp4" />
-                    </video></div></div><div class="owl-item cloned" style={{ width: "316.5px", marginRight: "40px" }}><div class="new-img owl-slide-img"> <video class="banner-video" id="video-4" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/Sopphie_Chowdhary.jpg?tr=q-80" style="object-fit: fill">
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/sophie_choudhary_b2b.mp4" type="video/mp4" />
-                    </video></div></div><div class="owl-item" style="width: 316.5px; margin-right: 40px;"><div class="new-img owl-slide-img"> <video class="banner-video" id="video-72" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/daisy_shah_b2b.png?tr=q-80" style="object-fit: fill">
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/daisy_shah_b2b.mp4" type="video/mp4" />
-                    </video></div></div><div class="owl-item" style="width: 316.5px; margin-right: 40px;"><div class="new-img owl-slide-img"> <video class="banner-video" id="video-73" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/satyayani_b2b.png?tr=q-80" style="object-fit: fill">
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/shayantani_b2b.mp4" type="video/mp4" />
-                    </video></div></div><div class="owl-item active center" style="width: 316.5px; margin-right: 40px;"><div class="new-img owl-slide-img"> <video class="banner-video" id="video-74" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/shivaji_satam_b2b.png?tr=q-80" style="object-fit: fill">
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/shivaji_satam_b2b.mp4" type="video/mp4" />
-                    </video></div></div><div class="owl-item active" style="width: 316.5px; margin-right: 40px;"><div class="new-img owl-slide-img"> <video class="banner-video" id="video-71" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/Sopphie_Chowdhary.jpg?tr=q-80" style="object-fit: fill">
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/sophie_choudhary_b2b.mp4" type="video/mp4" />
-                    </video></div></div><div class="owl-item cloned" style="width: 316.5px; margin-right: 40px;"><div class="new-img owl-slide-img"> <video class="banner-video" id="video-1" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/daisy_shah_b2b.png?tr=q-80" style="object-fit: fill">
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/daisy_shah_b2b.mp4" type="video/mp4" />
-                    </video></div></div><div class="owl-item cloned" style="width: 316.5px; margin-right: 40px;"><div class="new-img owl-slide-img"> <video class="banner-video" id="video-2" width="100%" loop="" muted="" autoplay="autoplay" playsinline="" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/satyayani_b2b.png?tr=q-80" style="object-fit: fill">
-                      <source class="video-sec" src="https://cdn.tring.co.in/img/shayantani_b2b.mp4" type="video/mp4" />
-                    </video></div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div>
-                    </div>*/}
+              <div className="">
+
+                <CelebritySlider />
+
               </div>
             </div>
           </Row>
@@ -192,7 +171,7 @@ const Celebrity = () => {
         </div>
       </div>
 
-    </div>
+    </div >
   )
 }
 

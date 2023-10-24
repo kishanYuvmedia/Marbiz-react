@@ -37,18 +37,18 @@ const BrandNavigation = () => {
                                         Home
                                     </Link>
                                 </li>
-                                {/* <li className={activeNavItem === 'Bookings' ? 'active' : ''}>
+                                <li className={activeNavItem === 'Bookings' ? 'active' : ''}>
                                     <Link to="/brand-dashboard/brandBooking" onClick={() => handleNavItemClick('Bookings')}>
                                         <i className="lni lni-dashboard me-2"></i>
                                         Bookings
                                     </Link>
-                                </li> */}
-                                {/* <li className={activeNavItem === 'Wishlist' ? 'active' : ''}>
+                                </li>
+                                <li className={activeNavItem === 'Wishlist' ? 'active' : ''}>
                                     <Link to="/brand-dashboard/brandWishlist" onClick={() => handleNavItemClick('Wishlist')}>
                                         <i className="lni lni-files me-2"></i>
                                         Wishlist
                                     </Link>
-                                </li> */}
+                                </li>
                                 
                             </ul>
 

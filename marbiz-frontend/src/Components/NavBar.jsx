@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../Images/marbiz-logo.webp";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, NavLink } from "react-router-dom";
 import {
   BsSearch,
   BsBriefcase,
@@ -16,11 +16,10 @@ import { useNavigate } from "react-router-dom";
 function NavBar() {
   const navigate = useNavigate();
   const [activeNavItem, setActiveNavItem] = useState("explore");
+  const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loginUser, setLoginUser] = useState([]);
-  const handleNavItemClick = (item) => {
-    setActiveNavItem(item);
-  };
+
 
   // Function to handle logout
   const handleLogout = () => {
@@ -54,14 +53,16 @@ function NavBar() {
     }
   }, []);
 
+
+
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-dark sticky-top">
+      <nav id="navbar" className="navbar navbar-expand-md navbar-dark sticky-top">
         <div className="container-fluid mx-lg-5">
           <div className="navbar-brand">
-            <Link className="" to="/">
+            <NavLink className="" to="/">
               <img src={logo} alt="Logo" className="img-fluid " />
-            </Link>
+            </NavLink>
           </div>
           <button
             className="navbar-toggler"
@@ -77,70 +78,69 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link
-                  className={`nav-link text-center ${activeNavItem === "explore" && "active"
-                    }`}
+                <NavLink
                   to="/explore"
-                  onClick={() => handleNavItemClick("explore")}
+                  className="nav-link text-center"
+                  activeClassName="active"
                 >
                   Explore
-                </Link>
+                </NavLink>
               </li>
               <div
                 className="vr desktop-view"
                 style={{ backgroundColor: "#FC6E90" }}
               ></div>
               <li className="nav-item">
-                <Link
-                  className={`nav-link text-center ${activeNavItem === "AboutUs" && "active"
-                    }`}
+                <NavLink
                   to="/AboutUs"
-                  onClick={() => handleNavItemClick("AboutUs")}
+                  className="nav-link text-center"
+                  activeClassName="active"
                 >
                   About Us
-                </Link>
+                </NavLink>
               </li>
               <div
                 className="vr desktop-view"
                 style={{ backgroundColor: "#FC6E90" }}
               ></div>
               <li className="nav-item">
-                <Link
-                  className={`nav-link text-center ${activeNavItem === "celebrity" && "active"
-                    }`}
+                <NavLink
                   to="/celebrity"
-                  onClick={() => handleNavItemClick("celebrity")}
+                  className="nav-link text-center"
+                  activeClassName="active"
                 >
                   Celebrity
-                </Link>
+                </NavLink>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex align-items-center"
+                <NavLink
                   to="/brand"
+                  className="nav-link d-flex align-items-center"
+                  activeClassName="active"
                 >
                   Join as Brand
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link d-flex align-items-center"
+                <NavLink
                   to="/creator"
+                  className="nav-link d-flex align-items-center"
+                  activeClassName="active"
                 >
                   Join as creator
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
-                </Link>
+                </NavLink>
               </li>
               {isEmpty(loginUser) && (
                 <li className="nav-item" style={{ width: "180px", }} >
-                  <Link to="/login">
+                  <NavLink to="/login">
                     <button className="btn-global w-50 fw-normal ms-2">
                       Login
                     </button>
-                  </Link>
+                  </NavLink>
                 </li>
               )}
 
@@ -150,7 +150,7 @@ function NavBar() {
                     href="/#"
                     id="navbarDropdownMenuLink"
                     role="button"
-                    data-bs-toggle="dropdown"
+                    data-mdb-toggle="dropdown"
                     aria-expanded="false"
                   >
                     <div className="d-flex align-items-center ">
@@ -167,25 +167,78 @@ function NavBar() {
                     </div>
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  {loginUser.userType ==="Business" &&
-                  <li>
-                  <Link to="/brand-dashboard/brandHome" className="dropdown-item">
-                    My Profile
-                  </Link>
-                </li>
-                  }
-                    {loginUser.userType !="Business" &&
-                 <li>
-                 <Link to="/creatorDashboard/CreatorMyProfile" className="dropdown-item">
-                   My Profile
-                 </Link>
-               </li>
-                  }
+
+                    {/* profile */}
+                    {loginUser.userType === "Business" &&
+                      <li>
+                        <NavLink to="/brand-dashboard/brandHome"
+                          className={`dropdown-item ${location.pathname === "/brand-dashboard/brandHome" ? "active" : ""
+                            }`}
+                        >
+                          Profile
+                        </NavLink>
+                      </li>
+                    }
+                    {loginUser.userType !== "Business" &&
+                      <li>
+                        <NavLink to="/creatorDashboard/CreatorMyProfile"
+                          className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorMyProfile" ? "active" : ""
+                            }`}
+                        >
+                          Profile
+                        </NavLink>
+                      </li>
+                    }
+
+                    {/* Wishlist / Enquiries */}
+                    {loginUser.userType === "Business" &&
+                      <li>
+                        <NavLink to="/brand-dashboard/brandWishlist"
+                          className={`dropdown-item ${location.pathname === "/brand-dashboard/brandWishlist" ? "active" : ""
+                            }`}
+                        >
+                          Wishlist
+                        </NavLink>
+                      </li>
+                    }
+
+                    {loginUser.userType !== "Business" &&
+                      <li>
+                        <NavLink to="/creatorDashboard/CreatorEnquiries"
+                          className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorEnquiries" ? "active" : ""
+                            }`}
+                        >
+                          Enquiries
+                        </NavLink>
+                      </li>
+                    }
+
+                    {/* Packages / bookings */}
+                    {loginUser.userType === "Business" &&
+                      <li>
+                        <NavLink to="/brand-dashboard/brandBooking"
+                          className={`dropdown-item ${location.pathname === "/brand-dashboard/brandBooking" ? "active" : ""
+                            }`}>
+                          Bookings
+                        </NavLink>
+                      </li>
+                    }
+                    {loginUser.userType !== "Business" &&
+
+                      <li>
+                        <NavLink to="/creatorDashboard/CreatorPackages"
+                          className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorPackages" ? "active" : ""
+                            }`}>
+                          Packages
+                        </NavLink>
+                      </li>
+                    }
+
                     <li><hr className="dropdown-divider" /></li>
                     <li>
-                      <button onClick={handleLogout} className="dropdown-item text-white">
+                      <NavLink to="/#" className="dropdown-item" onClick={handleLogout}>
                         Logout
-                      </button>
+                      </NavLink>
                     </li>
                   </ul>
                 </li>
@@ -199,98 +252,145 @@ function NavBar() {
       <div className="position-relative mobile-view">
         <nav className="bottom-nav">
           <div
-            className={`bottom-nav-item ${activeNavItem === "explore" ? "active" : ""
+            className={`bottom-nav-item ${location.pathname === "/explore" ? "active" : ""
               }`}
-            onClick={() => setActiveNavItem("explore")}
           >
-            <Link className="bottom-nav-link" to="/explore">
+            <NavLink className="bottom-nav-link" to="/explore">
               <BsSearch />
               <span className="">Explore</span>
-            </Link>
+            </NavLink>
           </div>
 
           <div
-            className={`bottom-nav-item ${activeNavItem === "brand" ? "active" : ""
+            className={`bottom-nav-item ${location.pathname === "/brand" ? "active" : ""
               }`}
-            onClick={() => setActiveNavItem("brand")}
           >
-            <Link className="bottom-nav-link" to="/brand">
+            <NavLink className="bottom-nav-link" to="/brand">
               <BsBriefcase />
               <span className="">Brand</span>
-            </Link>
+            </NavLink>
           </div>
           <div
-            className={`bottom-nav-item ${activeNavItem === "profile" ? "active" : ""
+            className={`bottom-nav-item ${location.pathname === "/profile" ? "active" : ""
               }`}
-            onClick={() => setActiveNavItem("profile")}
           >
             {!isEmpty(loginUser) && (
-              <div className="d-grid justify-content-center align-items-center dropup">
-                <div className="user-image-container dropdown-toggle" data-bs-toggle="dropdown">
+              <div className="d-grid justify-content-center align-items-center dropup dropdown-center">
+                <div className="user-image-container dropdown-toggle" data-mdb-toggle="dropdown">
                   <img
                     src={loginUser.profile ? loginUser.profile : artist_1}
                     alt="user-img"
                     className="img-fluid rounded-circle border border-danger border-3"
                   />
                 </div>
-                <ul className="dropdown-menu">
-                  
-                  {loginUser.userType ==="Business" &&
-                  <li>
-                  <Link to="/brand-dashboard/brandHome" className="dropdown-item">
-                    My Profile
-                  </Link>
-                </li>
+
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                  {/* profile */}
+                  {loginUser.userType === "Business" &&
+                    <li>
+                      <NavLink to="/brand-dashboard/brandHome"
+                        className={`dropdown-item ${location.pathname === "/brand-dashboard/brandHome" ? "active" : ""
+                          }`}
+                      >
+                        Profile
+                      </NavLink>
+                    </li>
                   }
-                    {loginUser.userType !="Business" &&
-                 <li>
-                 <Link to="/creatorDashboard/CreatorMyProfile" className="dropdown-item">
-                   My Profile
-                 </Link>
-               </li>
+                  {loginUser.userType !== "Business" &&
+                    <li>
+                      <NavLink to="/creatorDashboard/CreatorMyProfile"
+                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorMyProfile" ? "active" : ""
+                          }`}
+                      >
+                        Profile
+                      </NavLink>
+                    </li>
                   }
+
+                  {/* Wishlist / Enquiries */}
+                  {loginUser.userType === "Business" &&
+                    <li>
+                      <NavLink to="/brand-dashboard/brandWishlist"
+                        className={`dropdown-item ${location.pathname === "/brand-dashboard/brandWishlist" ? "active" : ""
+                          }`}
+                      >
+                        Wishlist
+                      </NavLink>
+                    </li>
+                  }
+
+                  {loginUser.userType !== "Business" &&
+                    <li>
+                      <NavLink to="/creatorDashboard/CreatorEnquiries"
+                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorEnquiries" ? "active" : ""
+                          }`}
+                      >
+                        Enquiries
+                      </NavLink>
+                    </li>
+                  }
+
+                  {/* Packages / bookings */}
+                  {loginUser.userType === "Business" &&
+                    <li>
+                      <NavLink to="/brand-dashboard/brandBooking"
+                        className={`dropdown-item ${location.pathname === "/brand-dashboard/brandBooking" ? "active" : ""
+                          }`}>
+                        Bookings
+                      </NavLink>
+                    </li>
+                  }
+                  {loginUser.userType !== "Business" &&
+
+                    <li>
+                      <NavLink to="/creatorDashboard/CreatorPackages"
+                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorPackages" ? "active" : ""
+                          }`}>
+                        Packages
+                      </NavLink>
+                    </li>
+                  }
+
                   <li><hr className="dropdown-divider" /></li>
                   <li>
-                  <button onClick={handleLogout} className="dropdown-item text-white">
-                        Logout
-                      </button>
+                    <NavLink to="/#" className="dropdown-item" onClick={handleLogout}>
+                      Logout
+                    </NavLink>
                   </li>
                 </ul>
 
               </div>
             )}
             {isEmpty(loginUser) && (
-              <div className={`bottom-nav-item ${activeNavItem === "login" ? "active" : ""
+              <div className={`bottom-nav-item ${location.pathname === "login" ? "active" : ""
                 }`}
-                onClick={() => setActiveNavItem("login")}
               >
-                <Link to="/login" className="bottom-nav-link">
+                <NavLink to="/login" className="bottom-nav-link">
                   <BsPeople />
                   <span className="">Login</span>
-                </Link>
+                </NavLink>
               </div>
             )}
           </div>
 
           <div
-            className={`bottom-nav-item ${activeNavItem === "creator" ? "active" : ""
+            className={`bottom-nav-item ${location.pathname === "/creator" ? "active" : ""
               }`}
-            onClick={() => setActiveNavItem("creator")}
           >
-            <Link className="bottom-nav-link" to="/creator">
+            <NavLink className="bottom-nav-link" to="/creator">
               <BsStar />
               <span className="">Creator</span>
-            </Link>
+            </NavLink>
           </div>
           <div
-            className={`bottom-nav-item ${activeNavItem === "Celebrity" ? "active" : ""
+            className={`bottom-nav-item ${location.pathname === "/celebrity" ? "active" : ""
               }`}
-            onClick={() => setActiveNavItem("Celebrity")}
           >
-            <Link className="bottom-nav-link" to="/celebrity">
+            <NavLink className="bottom-nav-link" to="/celebrity">
               <BsIncognito />
               <span className="">Celebrity</span>
-            </Link>
+            </NavLink>
           </div>
 
         </nav>
