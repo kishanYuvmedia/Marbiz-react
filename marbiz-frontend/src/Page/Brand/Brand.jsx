@@ -48,14 +48,18 @@ const Brand = () => {
           <div className="d-flex justify-content-center">
             <div className="me-3">
               <Link to="/brand-signup">
-                <Button className="btn-global fs-6 px-5 py-3">
+                <button className="btn-global px-4 py-2">
                   Start For Free
-                </Button>
+                </button>
+
               </Link>
             </div>
             <div className="desktop-view">
               <Link to="/brand-dashboard/brandHome">
-                <Button className="btn-global fs-6 px-5 py-3">Dashboard</Button>
+                <button className="btn-global px-4 py-2">
+                  Dashboard
+                </button>
+
               </Link>
             </div>
           </div>

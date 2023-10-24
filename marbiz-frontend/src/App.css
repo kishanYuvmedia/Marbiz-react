@@ -1149,7 +1149,7 @@ body {
 }
 
 /* header navigation */
-.nav-link.active {
+#navbar .nav-link.active {
   color: #ffffff; /* Specify your active link text color here */
   /* -o-transition: all 0.2s ease-in-out; */
   /* -webkit-transition: all 0.2s ease-in-out; */

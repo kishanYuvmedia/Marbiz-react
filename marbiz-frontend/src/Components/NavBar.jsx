@@ -35,7 +35,7 @@ function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-dark sticky-top">
+      <nav id="navbar" className="navbar navbar-expand-md navbar-dark sticky-top">
         <div className="container-fluid mx-lg-5">
           <div className="navbar-brand">
             <NavLink className="" to="/">

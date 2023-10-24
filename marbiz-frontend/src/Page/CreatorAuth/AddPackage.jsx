@@ -35,6 +35,7 @@ const AddPackage = () => {
                             required
                             data-mdb-showcounter="true"
                             maxLength="20"
+                            placeholder='Package name...'
                         />
                         <div className="form-helper"></div>
                     </div>
@@ -74,19 +75,28 @@ const AddPackage = () => {
                         <label htmlFor="customRange3" className="form-label text-white">
                             Content Quantity
                         </label>
-                        <div className="range w-50">
-                            <input
-                                type="range"
-                                className="form-range"
-                                min="1"
-                                max="10"
-                                step="1"
-                                id="customRange3"
-                                name="contentQuantity"
-                                value={contentQuantity}
-                                onChange={handleContentQuantityChange}
-                            />
-                            <span className="range-value">{contentQuantity}</span>
+                        <div className="range w-50 dark-bg">
+                            <div className="d-flex text-secondary">
+
+                                <span>1</span>
+                                <input
+                                    type="range"
+                                    className="form-range px-2 "
+                                    min="1"
+                                    max="10"
+                                    step="1"
+                                    id="customRange3"
+                                    name="contentQuantity"
+                                    value={contentQuantity}
+                                    onChange={handleContentQuantityChange}
+                                />
+                                <span>10</span>
+                            </div>
+
+                            <span className='text-secondary me-2'>
+                                No. of content:
+                            </span>
+                            <span className="range-value btn-global px-2">{contentQuantity}</span>
                         </div>
                     </div>
                     <div className="mb-3">
