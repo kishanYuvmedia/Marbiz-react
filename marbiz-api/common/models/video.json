@@ -1,5 +1,5 @@
 {
-    "name": "Images",
+    "name": "Video",
     "base": "PersistedModel",
     "idInjection": true,
     "strictObjectIDCoercion": true,
@@ -14,14 +14,6 @@
         "original": {
             "type": "string",
             "required": true
-        },
-        "width": {
-            "type": "number",
-            "default": 1080
-        },
-        "height": {
-            "type": "number",
-            "default": 1080
         },
         "tags": {
             "type": "array"

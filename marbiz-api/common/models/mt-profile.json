@@ -85,6 +85,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "Video": {
+      "type": "hasMany",
+      "model": "Video",
+      "foreignKey": "profileId",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [

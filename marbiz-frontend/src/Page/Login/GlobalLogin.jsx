@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { loginUser } from "../../services/api/api-service";
+import { useNavigate } from "react-router-dom";
 const GlobalLogin = () => {
+  const navigate = useNavigate();
   document.title = "Login | MARBIZ ";
   const [validated, setValidated] = useState(false);
   const initialFormData = {
@@ -29,6 +31,10 @@ const GlobalLogin = () => {
               color: "#fff",
               border: "1px solid red",
               background: "#dc4c64",
+            });
+            window.location.reload(false);
+            navigate(`/`, {
+              replace: true,
             });
           })
           .catch((e) => {

@@ -147,14 +147,20 @@ function NavBar() {
                     </div>
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-
-                    <li>
-                      <Link to="" className="dropdown-item">
-                        My Profile
-                      </Link>
-                    </li>
-
+                  {loginUser.userType ==="Business" &&
+                  <li>
+                  <Link to="/brand-dashboard/brandHome" className="dropdown-item">
+                    My Profile
+                  </Link>
+                </li>
+                  }
+                    {loginUser.userType !="Business" &&
+                 <li>
+                 <Link to="/creatorDashboard/CreatorMyProfile" className="dropdown-item">
+                   My Profile
+                 </Link>
+               </li>
+                  }
                     <li><hr className="dropdown-divider" /></li>
                     <li>
                       <Link to="" className="dropdown-item">

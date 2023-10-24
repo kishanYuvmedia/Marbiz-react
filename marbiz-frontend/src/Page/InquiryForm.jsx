@@ -4,7 +4,9 @@ import {
   getInfluencersProfile,
   createEnquiry,
 } from "../services/api/api-service";
+import Swal from "sweetalert2";
 import { useParams, Link } from "react-router-dom";
+import { isEmpty } from "lodash";
 const InquiryForm = () => {
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
@@ -37,52 +39,65 @@ const InquiryForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Handler", formData);
     const newErrors = {};
     // Validation according to data types
     if (formData.occasion === "Choose...") {
       newErrors.occasion = "Please select an occasion.";
-    }
-    if (!formData.eventDate) {
-      newErrors.eventDate = "Please select an event date.";
+      console.log("Handler1");
     }
     if (!formData.venueCity) {
       newErrors.venueCity = "Please enter the venue city.";
+      console.log("Handler2");
     }
     if (
       isNaN(parseFloat(formData.budget)) ||
       parseFloat(formData.budget) <= 0
     ) {
+      console.log("Handler3");
       newErrors.budget = "Please enter a valid budget.";
     }
     if (isNaN(parseInt(formData.people)) || parseInt(formData.people) <= 0) {
+      console.log("Handler4");
       newErrors.people = "Please enter a valid number of people.";
     }
     if (!formData.name) {
+      console.log("Handler5");
       newErrors.name = "Please enter your full name.";
     }
     if (!isValidEmail(formData.email)) {
+      console.log("Handler6");
       newErrors.email = "Please enter a valid email address.";
     }
     if (!isValidMobileNumber(formData.mobile)) {
+      console.log("Handler7");
       newErrors.mobile = "Please enter a valid mobile number.";
     }
-
+    console.log(Object.keys(newErrors).length);
     // Check if there are any errors, and if so, update the state
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      createEnquiry(formData).then((result) => {
-        console.log("submit", result);
+      console.log("Handler 2");
+      const data = { ...formData, ...{ profileId: profileData.id } };
+      console.log("final", data);
+      createEnquiry(data).then((result) => {
+        if (!isEmpty(result)) {
+          Swal.fire({
+            title: "Enquiry Successfuly Submit",
+            width: 600,
+            padding: "3em",
+            color: "#fff",
+            border: "1px solid red",
+            background: "#dc4c64",
+          });
+        }
       });
     }
   };
-
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-
   const isValidMobileNumber = (mobile) => {
     const mobileRegex = /^\d{10}$/; // Assumes a 10-digit mobile number
     return mobileRegex.test(mobile);
@@ -92,11 +107,8 @@ const InquiryForm = () => {
       setTimeout(() => {
         setOccasionCategory(result);
       }, 1000);
-      setOccasionCategory(result);
-      console.log("occasionCategory", occasionCategory);
     });
-  }, []);
-  useEffect(() => {
+    console.log("Occasion", occasionCategory);
     getInfluencersProfile(regName || null)
       .then((result) => {
         setprofile(result);
@@ -113,16 +125,16 @@ const InquiryForm = () => {
     <div>
       <div className="container main-body my-5">
         <div className="row">
-          <div className="col-md-4 col-sm-12">
-            <img
-              src={profileData.coverImage}
-              className="img-fluid celeb-img"
-              alt="Sanam Image1"
-            />
-
-            <h3 className="mt-3 text-white ">Celeb Name</h3>
+          <div className="col-md-4 col-sm-12 justify-content-center d-grid">
+            <div>
+              <img
+                src={profileData.coverImage}
+                className="img-fluid celeb-img"
+                alt="Sanam Image1"
+              />
+              <h3 className="mt-3 text-white">{profileData.fullName}</h3>
+            </div>
           </div>
-
           <div className="col-md-6 col-sm-12 mx-auto my-3">
             <form>
               <div className="mb-4">
@@ -138,22 +150,20 @@ const InquiryForm = () => {
                   onChange={handleInputChange}
                 >
                   <option defaultValue>Choose...</option>
-                  {occasionCategory.map((item, key) => {
+                  {occasionCategory.map((item, key) => (
                     <option key={key} value={item.value}>
                       {item.label}
-                    </option>;
-                  })}
+                    </option>
+                  ))}
                 </select>
                 <div className="mb-4">
                   {errors.occasion && (
-                    <div className="invalid-feedback text-white">
-                      {errors.occasion}
-                    </div>
+                    <div className="text-danger">{errors.occasion}</div>
                   )}
                 </div>
               </div>
               <div className="row mb-3">
-                <div className="col-md-6 mb-3">
+                <div className="col-md-6">
                   <label className="form-label text-white" for="eventDate">
                     Event Date
                   </label>
@@ -167,14 +177,12 @@ const InquiryForm = () => {
                   />
                   <div className="mb-4">
                     {errors.eventDate && (
-                      <div className="invalid-feedback text-white">
-                        {errors.eventDate}
-                      </div>
+                      <div className="text-danger">{errors.eventDate}</div>
                     )}
                   </div>
                 </div>
 
-                <div className="mb-4">
+                <div className="col-md-6">
                   <label className="form-label text-white" for="venueCity">
                     Venue City*
                   </label>
@@ -188,9 +196,7 @@ const InquiryForm = () => {
                   />
                   <div className="mb-4">
                     {errors.venueCity && (
-                      <div className="invalid-feedback text-white">
-                        {errors.venueCity}
-                      </div>
+                      <div className="text-danger">{errors.venueCity}</div>
                     )}
                   </div>
                 </div>
@@ -198,7 +204,7 @@ const InquiryForm = () => {
 
               <div className="row mb-3">
                 <div className="col-md-6">
-                  <label className="form-label text-white" for="budget">
+                  <label className="form-label text-white" htmlFor="budget">
                     Budget*
                   </label>
                   <input
@@ -211,14 +217,12 @@ const InquiryForm = () => {
                   />
                   <div className="mb-4">
                     {errors.budget && (
-                      <div className="invalid-feedback text-white">
-                        {errors.budget}
-                      </div>
+                      <div className="text-danger">{errors.budget}</div>
                     )}
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <label className="form-label text-white" for="people">
+                  <label className="form-label text-white" htmlFor="people">
                     How many people will attend?*
                   </label>
                   <input
@@ -231,16 +235,14 @@ const InquiryForm = () => {
                   />
                   <div className="mb-4">
                     {errors.people && (
-                      <div className="invalid-feedback text-white">
-                        {errors.people}
-                      </div>
+                      <div className="text-danger">{errors.people}</div>
                     )}
                   </div>
                 </div>
               </div>
 
               <div className="mb-4">
-                <label className="form-label text-white" for="name">
+                <label className="form-label text-white" htmlFor="name">
                   Full Name*
                 </label>
                 <input
@@ -253,16 +255,14 @@ const InquiryForm = () => {
                 />
                 <div className="mb-4">
                   {errors.name && (
-                    <div className="invalid-feedback text-white">
-                      {errors.name}
-                    </div>
+                    <div className="text-danger">{errors.name}</div>
                   )}
                 </div>
               </div>
 
               <div className="row mb-3">
                 <div className="col-md-6 mb-3">
-                  <label className="form-label text-white" for="email">
+                  <label className="form-label text-white" htmlFor="email">
                     Email Address (No Spam!)*
                   </label>
                   <input
@@ -275,15 +275,13 @@ const InquiryForm = () => {
                   />
                   <div className="mb-4">
                     {errors.email && (
-                      <div className="invalid-feedback text-white">
-                        {errors.email}
-                      </div>
+                      <div className="text-danger">{errors.email}</div>
                     )}
                   </div>
                 </div>
 
                 <div className="col-md-6 mb-3">
-                  <label className="form-label text-white" for="mobile">
+                  <label className="form-label text-white" htmlFor="mobile">
                     Mobile Number*
                   </label>
                   <input
@@ -296,16 +294,14 @@ const InquiryForm = () => {
                   />
                   <div className="mb-4">
                     {errors.mobile && (
-                      <div className="invalid-feedback text-white">
-                        {errors.mobile}
-                      </div>
+                      <div className="text-danger">{errors.mobile}</div>
                     )}
                   </div>
                 </div>
               </div>
 
               <div className="mb-3">
-                <label className="form-label text-white" for="message">
+                <label className="form-label text-white" htmlFor="message">
                   Tell us more (we love to listen)
                 </label>
                 <textarea
@@ -313,18 +309,18 @@ const InquiryForm = () => {
                   name="message"
                   className="form-control dark-bg"
                   rows="4"
+                  value={formData.message}
+                  onChange={handleInputChange}
                 ></textarea>
                 <div className="mb-4">
                   {errors.message && (
-                    <div className="invalid-feedback text-white">
-                      {errors.message}
-                    </div>
+                    <div className="text-danger">{errors.message}</div>
                   )}
                 </div>
               </div>
 
               <div className="mb-3">
-                <label className="form-label text-white" for="options">
+                <label className="form-label text-white" htmlFor="options">
                   Send more options in my budget
                 </label>
                 <select
@@ -341,9 +337,7 @@ const InquiryForm = () => {
                 </select>
                 <div className="mb-4">
                   {errors.options && (
-                    <div className="invalid-feedback text-white">
-                      {errors.options}
-                    </div>
+                    <div className="text-danger">{errors.options}</div>
                   )}
                 </div>
               </div>
@@ -354,8 +348,9 @@ const InquiryForm = () => {
                     className="form-check-input"
                     type="checkbox"
                     role="switch"
+                    name="whatsappCheck"
                     id="whatsappCheck"
-                    value={formData.name}
+                    value={formData.whatsappCheck}
                     onChange={handleInputChange}
                   />
                   <label

@@ -53,11 +53,11 @@ const Brand = () => {
                 </Button>
               </Link>
             </div>
-            <div className="desktop-view">
+            {/* <div className="desktop-view">
               <Link to="/brand-dashboard/brandHome">
                 <Button className="btn-global fs-6 px-5 py-3">Dashboard</Button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </Row>
       </Container>
