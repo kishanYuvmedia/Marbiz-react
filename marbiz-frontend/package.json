@@ -20,6 +20,7 @@
     "lodash": "^4.17.21",
     "mdb-react-ui-kit": "^6.3.0",
     "mdb-ui-kit": "^6.4.1",
+    "owl.carousel": "^2.3.4",
     "popper.js": "^1.16.1",
     "postcss-loader": "^7.3.3",
     "react": "^18.2.0",
