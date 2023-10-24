@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddPackage = () => {
+const AddPackages = () => {
     const [validated, setValidated] = useState(false);
     const [contentQuantity, setContentQuantity] = useState(1); // Initialize contentQuantity with a default value
 
@@ -121,4 +121,4 @@ const AddPackage = () => {
     );
 };
 
-export default AddPackage;
+export default AddPackages;

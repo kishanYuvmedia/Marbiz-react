@@ -54,14 +54,14 @@ const Brand = () => {
 
               </Link>
             </div>
-            <div className="desktop-view">
+            {/* <div className="desktop-view">
               <Link to="/brand-dashboard/brandHome">
                 <button className="btn-global px-4 py-2">
                   Dashboard
                 </button>
 
               </Link>
-            </div>
+            </div> */}
           </div>
         </Row>
       </Container>

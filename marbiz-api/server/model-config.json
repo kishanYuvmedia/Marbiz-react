@@ -71,5 +71,9 @@
   "Enquiry": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Video": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }

@@ -144,32 +144,73 @@ function NavBar() {
                       </div>
                     </div>
                   </a>
-                  <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                      <NavLink to="/creatorDashboard/CreatorMyProfile"
-                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorMyProfile" ? "active" : ""
-                          }`}
-                      >
-                        Profile
-                      </NavLink>
-                    </li>
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                    <li>
-                      <NavLink to="/creatorDashboard/CreatorEnquiries"
-                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorEnquiries" ? "active" : ""
-                          }`}
-                      >
-                        Enquiries
-                      </NavLink>
-                    </li>
+                    {/* profile */}
+                    {loginUser.userType === "Business" &&
+                      <li>
+                        <NavLink to="/brand-dashboard/brandHome"
+                          className={`dropdown-item ${location.pathname === "/brand-dashboard/brandHome" ? "active" : ""
+                            }`}
+                        >
+                          Profile
+                        </NavLink>
+                      </li>
+                    }
+                    {loginUser.userType !== "Business" &&
+                      <li>
+                        <NavLink to="/creatorDashboard/CreatorMyProfile"
+                          className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorMyProfile" ? "active" : ""
+                            }`}
+                        >
+                          Profile
+                        </NavLink>
+                      </li>
+                    }
 
-                    <li>
-                      <NavLink to="/creatorDashboard/CreatorPackages"
-                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorPackages" ? "active" : ""
-                          }`}>
-                        Packages
-                      </NavLink>
-                    </li>
+                    {/* Wishlist / Enquiries */}
+                    {loginUser.userType === "Business" &&
+                      <li>
+                        <NavLink to="/brand-dashboard/brandWishlist"
+                          className={`dropdown-item ${location.pathname === "/brand-dashboard/brandWishlist" ? "active" : ""
+                            }`}
+                        >
+                          Wishlist
+                        </NavLink>
+                      </li>
+                    }
+
+                    {loginUser.userType !== "Business" &&
+                      <li>
+                        <NavLink to="/creatorDashboard/CreatorEnquiries"
+                          className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorEnquiries" ? "active" : ""
+                            }`}
+                        >
+                          Enquiries
+                        </NavLink>
+                      </li>
+                    }
+
+                    {/* Packages / bookings */}
+                    {loginUser.userType === "Business" &&
+                      <li>
+                        <NavLink to="/brand-dashboard/brandBooking"
+                          className={`dropdown-item ${location.pathname === "/brand-dashboard/brandBooking" ? "active" : ""
+                            }`}>
+                          Bookings
+                        </NavLink>
+                      </li>
+                    }
+                    {loginUser.userType !== "Business" &&
+
+                      <li>
+                        <NavLink to="/creatorDashboard/CreatorPackages"
+                          className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorPackages" ? "active" : ""
+                            }`}>
+                          Packages
+                        </NavLink>
+                      </li>
+                    }
 
                     <li><hr className="dropdown-divider" /></li>
                     <li>
@@ -220,32 +261,74 @@ function NavBar() {
                     className="img-fluid rounded-circle border border-danger border-3"
                   />
                 </div>
-                <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <li>
-                    <NavLink to="/creatorDashboard/CreatorMyProfile"
-                      className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorMyProfile" ? "active" : ""
-                        }`}
-                    >
-                      Profile
-                    </NavLink>
-                  </li>
 
-                  <li>
-                    <NavLink to="/creatorDashboard/CreatorEnquiries"
-                      className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorEnquiries" ? "active" : ""
-                        }`}
-                    >
-                      Enquiries
-                    </NavLink>
-                  </li>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                  <li>
-                    <NavLink to="/creatorDashboard/CreatorPackages"
-                      className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorPackages" ? "active" : ""
-                        }`}>
-                      Packages
-                    </NavLink>
-                  </li>
+                  {/* profile */}
+                  {loginUser.userType === "Business" &&
+                    <li>
+                      <NavLink to="/brand-dashboard/brandHome"
+                        className={`dropdown-item ${location.pathname === "/brand-dashboard/brandHome" ? "active" : ""
+                          }`}
+                      >
+                        Profile
+                      </NavLink>
+                    </li>
+                  }
+                  {loginUser.userType !== "Business" &&
+                    <li>
+                      <NavLink to="/creatorDashboard/CreatorMyProfile"
+                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorMyProfile" ? "active" : ""
+                          }`}
+                      >
+                        Profile
+                      </NavLink>
+                    </li>
+                  }
+
+                  {/* Wishlist / Enquiries */}
+                  {loginUser.userType === "Business" &&
+                    <li>
+                      <NavLink to="/brand-dashboard/brandWishlist"
+                        className={`dropdown-item ${location.pathname === "/brand-dashboard/brandWishlist" ? "active" : ""
+                          }`}
+                      >
+                        Wishlist
+                      </NavLink>
+                    </li>
+                  }
+
+                  {loginUser.userType !== "Business" &&
+                    <li>
+                      <NavLink to="/creatorDashboard/CreatorEnquiries"
+                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorEnquiries" ? "active" : ""
+                          }`}
+                      >
+                        Enquiries
+                      </NavLink>
+                    </li>
+                  }
+
+                  {/* Packages / bookings */}
+                  {loginUser.userType === "Business" &&
+                    <li>
+                      <NavLink to="/brand-dashboard/brandBooking"
+                        className={`dropdown-item ${location.pathname === "/brand-dashboard/brandBooking" ? "active" : ""
+                          }`}>
+                        Bookings
+                      </NavLink>
+                    </li>
+                  }
+                  {loginUser.userType !== "Business" &&
+
+                    <li>
+                      <NavLink to="/creatorDashboard/CreatorPackages"
+                        className={`dropdown-item ${location.pathname === "/creatorDashboard/CreatorPackages" ? "active" : ""
+                          }`}>
+                        Packages
+                      </NavLink>
+                    </li>
+                  }
 
                   <li><hr className="dropdown-divider" /></li>
                   <li>
