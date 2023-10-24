@@ -234,7 +234,7 @@ body {
       background: linear-gradient(
         0deg,
         #000000 0%,
-        #f5625f76 25%,
+        #4a007ea1 25%,
         #8725fe00 100%
       );
     }
@@ -376,19 +376,35 @@ body {
   display: grid;
   align-items: center;
 }
+
+.user-image-container .dropdown-menu.show {
+  transform: translate3d(-45px, -65px, 0px) !important;
+}
+
+
 .dropdown-menu {
   background-color: black;
-  border: 1px solid #f5615f;
+  border: 2px solid #f5615f;
 }
+
 .dropdown-menu li a {
   color: #f5615f !important;
   font-weight: 600;
 }
+
 .dropdown-menu li a:hover {
   color: #ffffff !important;
-  font-weight: 600;
+  /* font-weight: 600; */
   background-color: #f5615f;
+}
 
+.dropdown-item.active, 
+.dropdown-item:active, 
+.dropdown-item:focus, 
+.dropdown-item:hover {
+  background-color: #f5615f;
+  color: #ffffff !important;
+  font-weight: 400;
 }
 
 .nav-link {
@@ -1132,6 +1148,26 @@ body {
   border-radius: 20px;
 }
 
+/* header navigation */
+.nav-link.active {
+  color: #ffffff; /* Specify your active link text color here */
+  /* -o-transition: all 0.2s ease-in-out; */
+  /* -webkit-transition: all 0.2s ease-in-out; */
+  /* transition: all 0.2s ease-in-out; */
+  transition: all 0s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #fc396e,
+    #f5615f,
+    #f5615f,
+    #fc396e
+  );
+  background-image: 0 4px 15px 0 rgb(49, 22, 19);
+  box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
 /* mobile navigation */
 .bottom-nav {
   display: flex;
@@ -1152,7 +1188,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  min-width: 60px;
+  min-width: 70px;
   justify-content: center;
   text-align: center;
   /* font-size: 0.8rem;
@@ -1188,7 +1224,7 @@ body {
     #fc396e
   );
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
-  box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+  /* box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75); */
 }
 .bottom-nav-item.active a {
   color: #ffffff; /* Specify your active link text color here */
