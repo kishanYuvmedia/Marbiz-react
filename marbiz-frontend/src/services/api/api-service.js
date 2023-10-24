@@ -1,5 +1,5 @@
 import { create, find, upsertPatch, findOne, count } from "./core-service";
-import { storeLocalData } from "../global-storage";
+import { storeLocalData,getLocalData,removeLocalData } from "../global-storage";
 import apiKit from "./axios-base";
 
 export const getSystemList = (type) => {
@@ -120,7 +120,11 @@ export const getInfluencersProfile = (name) => {
     where: { status: "A", and: [{ regName: name }] },
   });
 };
-
+export const getInfluencersProfilebyId = (userId) => {
+  return findOne("MtProfiles", {
+    where:{mtUserId:userId},
+  });
+};
 export const getImagesList = (id) => {
   return find(`MtProfiles/${id}/Images`, {
     where: { status: "A" },
@@ -143,3 +147,34 @@ export const loginUser = (username, password) => {
       });
   });
 };
+export const loginOut = () => {
+  return new Promise((resolve, reject) => {
+    apiKit
+    .post("/MtUsers/logout?access_token=" + getLocalData("accessToken"))
+    .then(function (response) {
+      console.log("logout");
+      removeLocalData("accessToken");
+      removeLocalData("authUser");
+      removeLocalData("userId");
+      removeLocalData("auth_token");
+      resolve(response);
+    })
+    .catch(function (error) {
+      console.error(`Error:${error}`);
+      reject(error);
+    });
+  });
+};
+
+export const getProfile = profileid => {
+  return new Promise((resolve, reject) => {
+    findOne("MtProfiles", {
+      where: { id: profileid },
+    }).then(data => {
+      resolve(data)
+    })
+  })
+}
+export const UpdateProfile = data => {
+  return upsertPatch("MtProfiles", data)
+}

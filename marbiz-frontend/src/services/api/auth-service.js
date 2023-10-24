@@ -54,6 +54,7 @@ const signup = (
   });
 };
 const logout = () => {
+  console.log("second call");
   return new Promise((resolve, reject) => {
     apiKit
       .post("/MtUsers/logout?access_token=" + getLocalData("accessToken"))

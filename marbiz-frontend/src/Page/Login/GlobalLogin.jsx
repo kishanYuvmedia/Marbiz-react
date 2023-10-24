@@ -32,10 +32,10 @@ const GlobalLogin = () => {
               border: "1px solid red",
               background: "#dc4c64",
             });
-            window.location.reload(false);
-            navigate(`/`, {
+            navigate(`/home`, {
               replace: true,
             });
+            window.location.reload(false);
           })
           .catch((e) => {
             Swal.fire({

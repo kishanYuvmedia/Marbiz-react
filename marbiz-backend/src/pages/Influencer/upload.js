@@ -30,7 +30,6 @@ import "react-image-lightbox/style.css"
 import classnames from "classnames"
 import defaultImges from "../../assets/image/default-image.jpg"
 import _, { isEmpty } from "lodash"
-import { composeInitialProps } from "react-i18next"
 export default function Upload() {
   const [profile, setprofile] = useState(null)
   const [selectedImage1, setSelectedImage1] = useState(null)
@@ -69,7 +68,7 @@ export default function Upload() {
     for (const file of selectedFiles) {
       const formDataImage = new FormData()
       formDataImage.append("image", file, "compressed-image.jpg")
-      const uploadPromise = fetch("https://marbiz.yuvmedia.in/upload.php", {
+      const uploadPromise = fetch("https://marbizimages.yuvmedia.in/upload.php", {
         method: "POST",
         body: formDataImage,
       })
@@ -225,7 +224,7 @@ export default function Upload() {
       const formDataImage = new FormData()
       formDataImage.append("image", file, "compressed-image.jpg")
       try {
-        const response = await fetch("https://marbiz.yuvmedia.in/upload.php", {
+        const response = await fetch("https://marbizimages.yuvmedia.in/upload.php", {
           method: "POST",
           body: formDataImage,
         })

@@ -1,192 +1,443 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-
+import Swal from "sweetalert2"
 import {
-    getInfluencersProfile,
-    getImagesList,
-    getInfluencersList,
+  Col,
+  Row,
+  Button
+} from "reactstrap"
+import {
+  getInfluencersProfilebyId,
+  getImagesList,
+  getInfluencersList,
+  UpdateProfile, getProfile
 } from "../../services/api/api-service";
-
-import _ from "lodash";
-
-
-
+import _, { isEmpty } from "lodash"
+import defaultImage from '../../Images/default-image.jpg'
 const CreatorMyProfile = ({ pagetitle }) => {
-
-    let { regName } = useParams();
-    const [profileData, setprofile] = useState(null);
-    const [images, setImages] = useState([]);
-    const [list, setList] = useState([]);
-    const [type, settype] = useState("");
-
-    function getlist(type, valueSetter) {
-        getInfluencersList(6, type)
-            .then((result) => {
-                if (Array.isArray(result) && result.length > 0) {
-                    setTimeout(() => {
-                        valueSetter(result);
-                    }, 1000);
-                } else {
-                    console.error("API response is empty or invalid:", result);
-                }
-            })
-            .catch((error) => {
-                console.error("Error fetching data from the API:", error);
-            });
+  const [profileId, setprofileId] = useState(null);
+  const [images, setImages] = useState([]);
+  const [selectedImage1, setSelectedImage1] = useState(null);
+  const [selectedImage2, setSelectedImage2] = useState(null);
+  const [selectedImage3, setSelectedImage3] = useState(null);
+  const [selectedImage4, setSelectedImage4] = useState(null);
+  const [selectedfile1, setSelectedfile1] = useState(null);
+  const [selectedfile2, setSelectedfile2] = useState(null);
+  const [selectedfile3, setSelectedfile3] = useState(null);
+  const [selectedfile4, setSelectedfile4] = useState(null);
+  const [user,setUser] = useState(null);
+  const [profileData, setprofile] = useState(null);
+  const [list, setList] = useState([]);
+  const [type, settype] = useState("");
+  function getlist(type, valueSetter) {
+    getInfluencersList(6, type)
+      .then((result) => {
+        if (Array.isArray(result) && result.length > 0) {
+          setTimeout(() => {
+            valueSetter(result);
+          }, 1000);
+        } else {
+          console.error("API response is empty or invalid:", result);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data from the API:", error);
+      });
+  }
+  useEffect(() => {
+    if (localStorage.getItem("authUser")) {
+      const obj = JSON.parse(localStorage.getItem("authUser"));
+      setUser(obj);
+      getInfluencersProfilebyId(obj.id)
+      .then((result) => {
+        console.log("get the influencers profile", result)
+        setprofile(result);
+        setprofileId(result.id)
+        getlist(result.categoryType, setList);
+        settype(result.categoryType);
+        getImagedata()
+      })
+      .catch((err) => {
+        console.error("Error fetching profile data:", err);
+      });
     }
-
-    useEffect(() => {
-        getInfluencersProfile(regName)
-            .then((result) => {
-                setprofile(result);
-                getlist(result.categoryType, setList);
-                settype(result.categoryType);
-                getImagesList(result.id)
-                    .then((resultdb) => {
-                        setTimeout(() => {
-                            setImages(resultdb); // Use placeholder data
-                        }, 1000);
-
-                        console.log("images", images);
-                    })
-                    .catch((err) => {
-                        console.error("Error fetching profile data:", err);
-                    });
-            })
-            .catch((err) => {
-                console.error("Error fetching profile data:", err);
-            });
-    }, [images, regName]);
-
-    // Render nothing if profileData is still null
-    if (profileData === null) {
-        return null;
+   
+  }, []);
+  const getImagedata = () => {
+    getImagesList(profileId)
+      .then(resultdb => {
+        setTimeout(() => {
+          setImages(resultdb) // Use placeholder data
+        }, 1000)
+        console.log("images", images)
+      })
+      .catch(err => {
+        console.error("Error fetching profile data:", err)
+      })
+    getProfile(profileId)
+      .then(resultdb => {
+        console.log("image Profile", resultdb)
+        setprofile(resultdb)
+        setSelectedImage1(
+          _.get(resultdb, "image1") ? resultdb.image1 : defaultImage
+        )
+        setSelectedImage2(
+          _.get(resultdb, "image2") ? resultdb.image2 : defaultImage
+        )
+        setSelectedImage3(
+          _.get(resultdb, "image3") ? resultdb.image3 : defaultImage
+        )
+        setSelectedImage4(
+          _.get(resultdb, "image4") ? resultdb.image4 : defaultImage
+        )
+      })
+      .catch(err => {
+        console.error("Error fetching profile data:", err)
+      })
+  }
+  
+  const handleImageChange1 = e => {
+    const file = e.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = e => {
+        setSelectedImage1(e.target.result)
+        setSelectedfile1(file)
+      }
+      reader.readAsDataURL(file)
+    } else {
+      setSelectedImage1(null)
+      setSelectedfile1(null)
     }
+  }
+  const handleImageChange2 = e => {
+    const file = e.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = e => {
+        setSelectedImage2(e.target.result)
+        setSelectedfile2(file)
+      }
+      reader.readAsDataURL(file)
+    } else {
+      setSelectedImage2(null)
+      setSelectedfile2(null)
+    }
+  }
+  const handleImageChange3 = e => {
+    const file = e.target.files[0]
 
-    return (
-        <>
-            {/* profile section */}
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = e => {
+        setSelectedImage3(e.target.result)
+        setSelectedfile3(file)
+      }
+      reader.readAsDataURL(file)
+    } else {
+      setSelectedImage3(null)
+      setSelectedfile3(null)
+    }
+  }
+  const handleImageChange4 = e => {
+    const file = e.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = e => {
+        setSelectedfile4(file)
+        setSelectedImage4(e.target.result)
+      }
+      reader.readAsDataURL(file)
+    } else {
+      setSelectedImage4(null)
+      setSelectedfile4(null)
+    }
+  }
+  const uploadfile = async (file, setSelectedImage) => {
+    if (file) {
+      const formDataImage = new FormData()
+      formDataImage.append("image", file, "compressed-image.jpg")
+      try {
+        const response = await fetch("https://marbizimages.yuvmedia.in/upload.php", {
+          method: "POST",
+          body: formDataImage,
+        })
+        const data = await response.json()
+        if (data) {
+          console.log(data)
+          setSelectedImage(data.imageUrl)
+          return true
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong please Retry uploading Image",
+          })
+          return false
+        }
+      } catch (error) {
+        // Handle any errors
+        console.error(error)
+        return false
+      }
+    }
+    return false // Return false if there's no file to upload
+  }
 
-            <div className="container main-body">
-                <div className="row my-3">
-                    <h1 className="text-center">{pagetitle}</h1>
-                    <hr className="hr hr-blurry border-danger border border-2" />
+  const handleUpload = async () => {
+    const promises = [
+      uploadfile(selectedfile1, setSelectedImage1),
+      uploadfile(selectedfile2, setSelectedImage2),
+      uploadfile(selectedfile3, setSelectedImage3),
+      uploadfile(selectedfile4, setSelectedImage4),
+    ]
+    const results = await Promise.all(promises)
+    console.log("results", results)
 
-                    <div className=" col-md-2 col-4 d-flex justify-content-center align-items-center">
-                        <div className="profile-image-container">
-                            <img
-                                src={profileData.coverImage}
-                                alt="Generic placeholder"
-                                className="img-fluid rounded-circle border border-danger border-3"
-                            />
-                        </div>
-                    </div>
-                    <div className="col-md-4 col-8 d-grid justify-content-between ">
-                        <div className="">
-                            <h1 className="text-white text-capitalize">{profileData.fullName}</h1>
-                        </div>
-                        <div>
-                            <h4 className="text-white fs-6">
-                                {profileData.category.map((list, index) => (
-                                    <span key={index}>{list}, </span>
-                                ))}
-                            </h4>
-                            <h6 className="text-secondary">
-                                {_.get(profileData, "location")
-                                    ? profileData.location
-                                    : "India"}
-                            </h6>
-                        </div>
-                    </div>
+    if (results.every(result => result === true)) {
+      const data = {
+        ...profileData,
+        image1: selectedImage1,
+        image2: selectedImage2,
+        image3: selectedImage3,
+        image4: selectedImage4,
+      }
+      console.log("images data",data)
+      UpdateProfile(data).then(result => {
+        if (!isEmpty(result)) {
+          Swal.fire(
+            "Upload successfully",
+            "Cover Page Images added successfully",
+            "success"
+          )
+          getImagedata()
+        }
+      })
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong. Please retry uploading images.",
+      })
+    }
+  }
 
-                </div>
+  return (
+    <>
+      {/* profile section */}
+
+      <div className="container main-body">
+        <div className="row my-3">
+          <h1 className="text-center">{pagetitle}</h1>
+          <hr className="hr hr-blurry border-danger border border-2" />
+          {profileData && 
+          <>
+           <div className=" col-md-2 col-4 d-flex justify-content-center align-items-center">
+            <div className="profile-image-container">
+              <img
+                src={_.get(profileData,"coverImage")?profileData.coverImage:defaultImage}
+                alt="Generic placeholder"
+                className="img-fluid rounded-circle border border-danger border-3"
+              />
             </div>
+          </div>
+          <div className="col-md-4 col-8 d-grid justify-content-between ">
+            <div className="">
+              <h1 className="text-white text-capitalize">{_.get(profileData,"fullName")?profileData.fullName:"User"}</h1>
+            </div>
+            <div>
+              <h4 className="text-white fs-6">
+                {profileData.category.map((list, index) => (
+                  <span key={index}>{list}, </span>
+                ))}
+              </h4>
+              <h6 className="text-secondary">
+                {_.get(profileData, "location")
+                  ? profileData.location
+                  : "India"}
+              </h6>
+            </div>
+          </div>
+</>
+          }
+         
+        </div>
+      </div>
 
-            {/* gallery section */}
-            <div className="container my-5">
-                <div className="row align-items-center">
-                    <div className="col-md-6 col-lg-6 col-xl-6 d-none d-md-block">
-                        {/* Large image for medium and larger screens */}
-                        <div className="text-center gallery-container-one  ">
-                            <img
-                                src={profileData.image1 || profileData.coverImage}
+      {/* gallery section */}
+      <div className="container my-5">
+      <Button
+                          type="submit"
+                          onClick={handleUpload}
+                          style={{ marginBottom: 10 }}
+                        >
+                         Upload cover Images
+                        </Button>
+      <Row>
+                          <Col
+                            sm="6"
+                            style={{
+                              paddingTop: 10,
+                              paddingBottom: 10,
+                            }}
+                          >
+                            {" "}
+                            <input
+                              accept="image/*"
+                              id="icon-image-1-file"
+                              type="file"
+                              name="image-1"
+                              style={{ display: "none" }}
+                              onChange={handleImageChange1}
+                            />
+                            <label
+                              htmlFor="icon-image-1-file"
+                              style={{ height: "100%" }}
+                            >
+                               <div className="text-center gallery-container-one">
+                              <img
+                                src={
+                                  isEmpty(selectedImage1)
+                                    ? defaultImage
+                                    : selectedImage1
+                                }
                                 alt=""
-                                className="rounded-3"
-                            />
-                        </div>
-                    </div>
-                    <div className="col-12 d-md-none">
-                        {/* Large image for mobile devices (hidden on medium and larger screens) */}
-                        <div className="text-center gallery-container-one  ">
-                            <img
-                                src={profileData.image1 || profileData.coverImage}
-                                alt=""
-                                className="rounded-3"
-                            />
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-lg-6 col-xl-6">
-                        <div className="row py-2">
-                            <div className="col-6 col-md-6">
-                                {/* Small images for all screen sizes */}
-                                <div className="text-center gallery-container-two  ">
-                                    <img
-                                        src={profileData.image2 || profileData.coverImage}
-                                        alt=""
-                                        className="rounded-3"
+                                 className="rounded-3"
+                              />
+                              </div>
+                            </label>
+                          </Col>
+                          <Col sm="6">
+                            <Row>
+                              <Col sm="12">
+                                <Row>
+                                  <Col
+                                    sm="6"
+                                    lg="6"
+                                    style={{
+                                    
+                                      paddingTop: 10,
+                                      paddingBottom: 10,
+                                    }}
+                                  >
+                                    <input
+                                      accept="image/*"
+                                      id="icon-image-2-file"
+                                      type="file"
+                                      name="image-2"
+                                      style={{ display: "none" }}
+                                      onChange={handleImageChange2}
                                     />
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-6">
-                                {/* Small images for all screen sizes */}
-                                <div className="text-center gallery-container-two  ">
-                                    <img
-                                        src={profileData.image3 || profileData.coverImage}
-                                        alt=""
-                                        className="rounded-3"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row pt-2">
-                            <div className="col-12">
-                                {/* Small image for all screen sizes */}
-                                <div className="text-center gallery-container-three  ">
-                                    <img
-                                        src={profileData.image4 || profileData.coverImage}
-                                        alt=""
-                                        className="rounded-3"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    <label
+                                      htmlFor="icon-image-2-file"
+                                      style={{ height: "100%" }}
 
-            {/* about section */}
-            <div className="container my-5">
-                <div className="row">
-                    <div className="col">
-                        {/* <NavTabs images={images} /> */}
-                        <div className="">
-                            <h4 className="text-white text-capitalize">
-                                {profileData.fullName} is a top creator
-                            </h4>
-                            <p className="text-secondary">
-                                {" "}
-                                Top creators have completed multiple orders and have a high
-                                rating from brands
-                            </p>
-                        </div>
-                        <hr className="text-secondary" />
-                        <p className="text-white">{profileData.bio}</p>
-                    </div>
-                </div>
+                                    ><div className="text-center gallery-container-two">
+                                      <img
+                                        src={
+                                          isEmpty(selectedImage2)
+                                            ? defaultImage
+                                            : selectedImage2
+                                        }
+                                        alt=""
+                                        className="rounded-3"
+                                      />
+                                      </div>
+                                    </label>
+                                  </Col>
+                                  <Col
+                                     sm="6"
+                                     lg="6"
+                                    style={{
+                                      
+                                      paddingTop: 10,
+                                      paddingBottom: 10,
+                                    }}
+                                  >
+                                    <input
+                                      accept="image/*"
+                                      id="icon-image-3-file"
+                                      type="file"
+                                      name="image-3"
+                                      style={{ display: "none" }}
+                                      onChange={handleImageChange3}
+                                    />
+                                    <label
+                                      htmlFor="icon-image-3-file"
+                                      style={{ height: "100%" }}
+                                    ><div className="text-center gallery-container-two">
+                                      <img
+                                        src={
+                                          isEmpty(selectedImage3)
+                                            ? defaultImage
+                                            : selectedImage3
+                                        }
+                                        className="rounded-3"
+                                        alt=""
+                                      /></div>
+                                    </label>
+                                  </Col>
+                                </Row>
+                              </Col>
+                              <Col
+                                sm="12"
+                                style={{
+                                 
+                                  paddingTop: 10,
+                                  paddingBottom: 10,
+                                }}
+                              >
+                                <input
+                                  accept="image/*"
+                                  id="icon-image-4-file"
+                                  type="file"
+                                  name="image-4"
+                                  style={{ display: "none" }}
+                                  onChange={handleImageChange4}
+                                />
+                                <label
+                                  htmlFor="icon-image-4-file"
+                                  style={{ height: "100%" }}
+                                >
+                                  <div className="text-center gallery-container-three">
+                                  <img
+                                    src={
+                                      isEmpty(selectedImage4)
+                                        ? defaultImage
+                                        : selectedImage4
+                                    }
+                                    alt=""
+                                    className="rounded-3"
+                                  /></div>
+                                </label>
+                              </Col>
+                            </Row>
+                          </Col>
+                        </Row>
+     
+      </div>
 
+      {/* about section */}
+      <div className="container my-5">
+        <div className="row">
+          <div className="col">
+            {/* <NavTabs images={images} /> */}
+            <div className="">
+              <h4 className="text-white text-capitalize">
+              {_.get(profileData,"fullName")?profileData.fullName:"User"} is a top creator
+              </h4>
+              <p className="text-secondary">
+                {" "}
+                Top creators have completed multiple orders and have a high
+                rating from brands
+              </p>
             </div>
-        </>
-    )
+            <hr className="text-secondary" />
+            <p className="text-white">{_.get(profileData,"bio")?profileData.bio:"User"}</p>
+          </div>
+        </div>
+
+      </div>
+    </>
+  )
 }
-
 export default CreatorMyProfile

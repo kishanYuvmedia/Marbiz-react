@@ -8,11 +8,11 @@ import "./App.css";
 import "../src/Page/CreatorAuth/style.css";
 import "./responsive.css";
 import "bs5-lightbox";
+
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 // public routes
 import NavBar from "./Components/NavBar";
 import Home from "./Page/HomePage";
@@ -53,6 +53,7 @@ function App() {
         <Route path="/" element={<NavBar />}>
           {/* Public Routes */}
           <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/inquiryform" element={<InquiryForm />} />
           <Route path="/:regName" element={<CelebProfile />} />
           <Route path="/login" element={<GlobalLogin />} />

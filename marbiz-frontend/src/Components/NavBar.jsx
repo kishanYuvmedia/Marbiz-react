@@ -8,12 +8,13 @@ import {
   BsStar,
   BsIncognito,
 } from "react-icons/bs";
-
+import Swal from "sweetalert2";
 import artist_1 from "../Images/icon.png";
 import { isEmpty } from "lodash";
-
+import { loginOut } from "../services/api/api-service";
+import { useNavigate } from "react-router-dom";
 function NavBar() {
-  const location = useLocation();
+  const navigate = useNavigate();
   const [activeNavItem, setActiveNavItem] = useState("explore");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loginUser, setLoginUser] = useState([]);
@@ -23,8 +24,27 @@ function NavBar() {
 
   // Function to handle logout
   const handleLogout = () => {
-    // Perform logout logic here, and then set isLoggedIn to false
+    console.log("logout");
     setIsLoggedIn(false);
+   
+    Swal.fire({
+      title: "Logout Your account",
+      width: 600,
+      padding: "3em",
+      customClass: {
+        title: 'my-swal-title',
+      },
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logout",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        loginOut()
+      }
+    });
+   
   };
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
@@ -163,9 +183,9 @@ function NavBar() {
                   }
                     <li><hr className="dropdown-divider" /></li>
                     <li>
-                      <Link to="" className="dropdown-item">
+                      <button onClick={handleLogout} className="dropdown-item text-white">
                         Logout
-                      </Link>
+                      </button>
                     </li>
                   </ul>
                 </li>
@@ -214,17 +234,26 @@ function NavBar() {
                   />
                 </div>
                 <ul className="dropdown-menu">
+                  
+                  {loginUser.userType ==="Business" &&
                   <li>
-                    <Link to="" className="dropdown-item">
-                      My Profile
-                    </Link>
-                  </li>
-
+                  <Link to="/brand-dashboard/brandHome" className="dropdown-item">
+                    My Profile
+                  </Link>
+                </li>
+                  }
+                    {loginUser.userType !="Business" &&
+                 <li>
+                 <Link to="/creatorDashboard/CreatorMyProfile" className="dropdown-item">
+                   My Profile
+                 </Link>
+               </li>
+                  }
                   <li><hr className="dropdown-divider" /></li>
                   <li>
-                    <Link to="" className="dropdown-item">
-                      Logout
-                    </Link>
+                  <button onClick={handleLogout} className="dropdown-item text-white">
+                        Logout
+                      </button>
                   </li>
                 </ul>
 

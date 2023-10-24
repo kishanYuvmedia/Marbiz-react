@@ -35,28 +35,28 @@ const Footer = () => {
               <div className="vr desktop-view"></div>
             </div>
             <div className="col-md-3 ">
-              <h4 className="  mb-4">Category</h4>
+              <h4 className="  mb-4">Platform</h4>
               <p>
-                <Link to="/celebrities-influencer" className="group-item">
-                  Celebrities & Influencer
+                <Link to="/Instagram" className="group-item">
+                Instagram
                 </Link>
               </p>
               <p>
-                <Link to="/spokespersons-models" className="group-item">
-                  Spokespersons & Models
-                </Link>
+                <Link to="/Youtube" className="group-item">
+                  Youtube
+                 </Link>
               </p>
               <p>
-                <Link to="/news-articles-blogs" className="group-item">
-                  News Articles & Blogs
+                <Link to="/UGC" className="group-item">
+                  UGC
                 </Link>
               </p>
               <p>
                 <Link
-                  to="/micro-influencer-content-creators"
+                  to="/Linkedin"
                   className="group-item"
                 >
-                  Micro Influencer & Content Creators
+              Linkedin
                 </Link>
               </p>
             </div>
@@ -64,17 +64,17 @@ const Footer = () => {
             <div className="col-md-2  ">
               <h4 className="  mb-4">Discover</h4>
               <p>
-                <Link to="/find-influencers" className="group-item">
+                <Link to="/explore" className="group-item">
                   Find Influencers
                 </Link>
               </p>
               <p>
-                <Link to="/top-influencers" className="group-item">
+                <Link to="/explore" className="group-item">
                   Top Influencers
                 </Link>
               </p>
               <p>
-                <Link to="/hire-an-influencer" className="group-item">
+                <Link to="/explore" className="group-item">
                   Hire an Influencer
                 </Link>
               </p>

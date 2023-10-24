@@ -11,6 +11,7 @@ import {
 } from "../services/api/api-service";
 import SearchBar from "../Components/SearchBar";
 import Howitworks from "../Components/Howitworks";
+import Swal from "sweetalert2";
 
 // Placeholder data (example)
 const placeholderData = [
@@ -81,9 +82,20 @@ function HomePage() {
     getlist("Youtube", setYoutubeList);
   }, []);
   const searchhandler = () => {
-    navigate(`/explore?p=${getPlatform}&c=${getCategory.join("-")}`, {
-      replace: true,
-    });
+    if(getPlatform){
+      navigate(`/explore?p=${getPlatform}&c=${getCategory.join("-")}`, {
+        replace: true,
+      });
+    }else{
+      Swal.fire({
+        title: "Value not valid !",
+        width: 600,
+        padding: "3em",
+        color: "#fff",
+        border: "1px solid red",
+        background: "#6824b4",
+      });
+    }
   };
   function getlist(type, valueSetter) {
     getInfluencersList(6, type)
