@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect  } from 'react'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -80,8 +80,7 @@ const CelebHoverSlider = () => {
       ];
       
     const [activeVideoIndex, setActiveVideoIndex] = useState(null);
-
-    
+    const videoRefs = videoData.map(() => useRef(null));
 
     const settings = {
         dots: false,
@@ -95,9 +94,21 @@ const CelebHoverSlider = () => {
         setActiveVideoIndex(index);
     };
 
-    const handleVideoPlay = (index) => {
-        setActiveVideoIndex(index);
+    const handleVideoPause = () => {
+        setActiveVideoIndex(null);
     };
+
+    useEffect(() => {
+        videoRefs.forEach((videoRef, index) => {
+            if (videoRef.current) {
+                if (activeVideoIndex === index) {
+                    videoRef.current.play();
+                } else {
+                    videoRef.current.pause();
+                }
+            }
+        });
+    }, [activeVideoIndex]);
 
     return (
         <>
@@ -107,14 +118,15 @@ const CelebHoverSlider = () => {
                         key={video.id} 
                         className={`vd-box m${video.index + 1}`}
                         onMouseEnter={() => handleVideoHover(index)}
-                        onMouseLeave={() => handleVideoHover(null)}
-                        onClick={() => handleVideoPlay(index)}
+                        onMouseLeave={handleVideoPause}
                     >
                         <video 
                             className="clip" 
                             poster={video.poster}
                             autoPlay={activeVideoIndex === index}
                             muted
+                            loop
+                            ref={videoRefs[index]}
                         >
 
                             <source src={video.src} type="video/mp4" />
