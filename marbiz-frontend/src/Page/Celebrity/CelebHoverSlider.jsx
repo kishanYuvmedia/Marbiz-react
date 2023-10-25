@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
+
 const CelebHoverSlider = () => {
 
     const videoData = [
@@ -79,8 +81,12 @@ const CelebHoverSlider = () => {
         }
       ];
       
-    const [activeVideoIndex, setActiveVideoIndex] = useState(null);
-    const videoRefs = videoData.map(() => useRef(null));
+
+      
+    //   const videoRefArray = Array.from({ length: videoData.length }, () => useRef(null));
+      const [activeVideoIndex, setActiveVideoIndex] = useState(null);
+    
+
 
     const settings = {
         dots: false,
@@ -92,23 +98,23 @@ const CelebHoverSlider = () => {
 
     const handleVideoHover = (index) => {
         setActiveVideoIndex(index);
-    };
-
-    const handleVideoPause = () => {
+      };
+    
+      const handleVideoPause = () => {
         setActiveVideoIndex(null);
-    };
-
-    useEffect(() => {
-        videoRefs.forEach((videoRef, index) => {
-            if (videoRef.current) {
-                if (activeVideoIndex === index) {
-                    videoRef.current.play();
-                } else {
-                    videoRef.current.pause();
-                }
-            }
-        });
-    }, [activeVideoIndex]);
+      };
+    
+    //   useEffect(() => {
+    //     videoRefArray.forEach((videoRef, index) => {
+    //       if (videoRef.current) {
+    //         if (activeVideoIndex === index) {
+    //           videoRef.current.play();
+    //         } else {
+    //           videoRef.current.pause();
+    //         }
+    //       }
+    //     });
+    //   }, [activeVideoIndex]);
 
     return (
         <>
@@ -126,7 +132,7 @@ const CelebHoverSlider = () => {
                             autoPlay={activeVideoIndex === index}
                             muted
                             loop
-                            ref={videoRefs[index]}
+                            // ref={videoRefArray[index]}
                         >
 
                             <source src={video.src} type="video/mp4" />
