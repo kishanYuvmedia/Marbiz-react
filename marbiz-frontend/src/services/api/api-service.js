@@ -59,7 +59,7 @@ export const getInfluencersAll = (platform, category1) => {
       { status: "A" },
       { categoryType: platform },
     ];
-  } else if (platform != null) {
+  } else if (platform != null && category1.length === 0) {
     filter.where.and = platform
       ? [{ status: "A" }, { categoryType: platform }]
       : [{ status: "A" }];
@@ -109,7 +109,6 @@ export const uploadFile = (fileData, bucketName, folder = "") => {
   formData.append("myFile", fileData, folder + datestring + fileData.name);
   return apiKit.post(`https://portfolio.yuvmedia.in/api/upload.php`, formData);
 };
-
 export const getInfluencersProfile = (name) => {
   return findOne("MtProfiles", {
     where: { status: "A", and: [{ regName: name }] },
@@ -160,11 +159,10 @@ export const loginOut = () => {
     });
   });
 };
-
 export const getProfile = profileid => {
   return new Promise((resolve, reject) => {
     findOne("MtProfiles", {
-      where: { id: profileid },
+      where: { mtUserId: profileid },
     }).then(data => {
       resolve(data)
     })

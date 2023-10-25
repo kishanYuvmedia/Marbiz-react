@@ -15,7 +15,6 @@ import _, { isEmpty } from "lodash"
 import defaultImage from '../../Images/default-image.jpg'
 const CreatorMyProfile = ({ pagetitle }) => {
   const [profileId, setprofileId] = useState(null);
-  const [images, setImages] = useState([]);
   const [selectedImage1, setSelectedImage1] = useState(null);
   const [selectedImage2, setSelectedImage2] = useState(null);
   const [selectedImage3, setSelectedImage3] = useState(null);
@@ -26,23 +25,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
   const [selectedfile4, setSelectedfile4] = useState(null);
   const [user,setUser] = useState(null);
   const [profileData, setprofile] = useState(null);
-  const [list, setList] = useState([]);
   const [type, settype] = useState("");
-  function getlist(type, valueSetter) {
-    getInfluencersList(6, type)
-      .then((result) => {
-        if (Array.isArray(result) && result.length > 0) {
-          setTimeout(() => {
-            valueSetter(result);
-          }, 1000);
-        } else {
-          console.error("API response is empty or invalid:", result);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data from the API:", error);
-      });
-  }
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"));
@@ -52,7 +35,6 @@ const CreatorMyProfile = ({ pagetitle }) => {
         console.log("get the influencers profile", result)
         setprofile(result);
         setprofileId(result.id)
-        getlist(result.categoryType, setList);
         settype(result.categoryType);
         getImagedata()
       })
@@ -60,20 +42,9 @@ const CreatorMyProfile = ({ pagetitle }) => {
         console.error("Error fetching profile data:", err);
       });
     }
-   
   }, []);
   const getImagedata = () => {
-    getImagesList(profileId)
-      .then(resultdb => {
-        setTimeout(() => {
-          setImages(resultdb) // Use placeholder data
-        }, 1000)
-        console.log("images", images)
-      })
-      .catch(err => {
-        console.error("Error fetching profile data:", err)
-      })
-    getProfile(profileId)
+    getInfluencersProfilebyId(profileId)
       .then(resultdb => {
         console.log("image Profile", resultdb)
         setprofile(resultdb)
@@ -182,7 +153,6 @@ const CreatorMyProfile = ({ pagetitle }) => {
     }
     return false // Return false if there's no file to upload
   }
-
   const handleUpload = async () => {
     const promises = [
       uploadfile(selectedfile1, setSelectedImage1),
@@ -220,7 +190,6 @@ const CreatorMyProfile = ({ pagetitle }) => {
       })
     }
   }
-
   return (
     <>
       {/* profile section */}

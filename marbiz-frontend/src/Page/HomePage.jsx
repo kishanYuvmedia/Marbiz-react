@@ -84,7 +84,7 @@ function HomePage() {
   const searchhandler = () => {
     if(getPlatform){
       navigate(`/explore?p=${getPlatform}&c=${getCategory.join("-")}`, {
-        replace: true,
+        replace: false,
       });
     }else{
       Swal.fire({

@@ -31,7 +31,7 @@ const SearchBar = (props) => {
                         <div className="d-flex flex-column flex-md-row align-items-center rounded-6 border-2 border">
                             <div className="me-3 desktop-view">
                                 <button
-                                    type="submit"
+                                    type="button"
                                     className="search-btn fs-2 rounded-pill align-items-center d-flex"
                                     onClick={props.handlerSearch}
                                 >
@@ -75,7 +75,7 @@ const SearchBar = (props) => {
                             </div>
                             <div className=" mobile-view">
                                 <button
-                                    type="submit"
+                                    type="button"
                                     className="search-btn-mobile justify-content-center align-items-center d-flex"
                                     onClick={props.handlerSearch}
                                 >
