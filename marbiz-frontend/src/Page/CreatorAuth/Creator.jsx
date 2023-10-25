@@ -116,11 +116,11 @@ export default function Creator() {
                   Claim
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <Link to="/creatorDashboard/CreatorMyProfile">
                   <button className="btn-global px-4 py-2">Creator Dashboard</button>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

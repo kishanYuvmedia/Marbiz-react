@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { updateProfile } from "../../services/api/api-service";
+import { UpdateProfile } from "../../services/api/api-service";
 import { useNavigate } from "react-router-dom";
 
 export default function UploadImage() {
@@ -55,7 +55,7 @@ export default function UploadImage() {
               id: searchParams.get("id"),
               coverImage: data.imageUrl,
             });
-            updateProfile(dataImage).then((result) => {
+            UpdateProfile(dataImage).then((result) => {
               if (result) {
                 Swal.fire(
                   "Cover Image",

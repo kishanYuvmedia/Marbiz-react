@@ -1,0 +1,59 @@
+
+/* table-style */
+/* Style the data table container */
+.dataTable {
+  margin: 7px;
+  padding: 10px;
+  border: 1px solid #444343;
+  background-color: #f0f0f0;
+}
+
+/* Style the table itself */
+.dataTable table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #363535;
+}
+
+/* Style table header (th) */
+.dataTable th {
+  background-color: #000000;
+  color: #fff;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style table rows (tr) */
+.dataTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.dataTable tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+/* Style table cells (td) */
+.dataTable td {
+  padding: 8px;
+}
+
+/* Style buttons inside the table */
+.dataTable .btn {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style specific button classes (e.g., btn-danger and btn-info) */
+.dataTable .btn-danger {
+  background-color: #ff4444;
+  color: #fff;
+}
+
+.dataTable .btn-info {
+  background-color: #44aaff;
+  color: #fff;
+}
+label,.dataTables_info{
+  color: #fff;
+}

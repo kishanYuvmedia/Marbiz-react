@@ -1,4 +1,4 @@
-import { create, find, upsertPatch, findOne, count } from "./core-service";
+import { create, find, upsertPatch, findOne, count,deleteById } from "./core-service";
 import { storeLocalData,getLocalData,removeLocalData } from "../global-storage";
 import apiKit from "./axios-base";
 
@@ -101,11 +101,6 @@ export const getPublicList = async (type) => {
     throw error;
   }
 };
-
-export const updateProfile = (data) => {
-  return upsertPatch("MtProfiles", data);
-};
-
 export const uploadFile = (fileData, bucketName, folder = "") => {
   const formData = new FormData();
   const today = new Date();
@@ -177,4 +172,21 @@ export const getProfile = profileid => {
 }
 export const UpdateProfile = data => {
   return upsertPatch("MtProfiles", data)
+}
+export const UpdateMtUser = data => {
+  return upsertPatch("MtUsers", data)
+}
+export const getUserBooking= async (id)=>{
+  try {
+    const data = await find("Enquiries", {
+      where: { email: id },
+      order: "createdAt asc",
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+export const deleteEnquiry = id => {
+  return deleteById("Enquiries", id)
 }

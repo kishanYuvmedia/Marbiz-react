@@ -63,7 +63,6 @@ export const updateAttributes = (model, id, data) => {
         { id }
     )
 }
-
 export const upsertPatch = (model,data = {}) => {
     return axiosRequest(
         'PATCH',

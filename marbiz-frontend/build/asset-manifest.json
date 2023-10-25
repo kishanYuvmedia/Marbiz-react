@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.50350c72.css",
-    "main.js": "/static/js/main.be1a83ff.js",
+    "main.css": "/static/css/main.104200ce.css",
+    "main.js": "/static/js/main.0dd2fcbf.js",
     "static/js/787.4514dbfe.chunk.js": "/static/js/787.4514dbfe.chunk.js",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.016b4a6cdced82ab3aa1.ttf",
@@ -13,6 +13,7 @@
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.50701fbb8177c2dde530.ttf",
     "static/media/DMSans_Regular.ttf": "/static/media/DMSans_Regular.2c8600ab0e9535150736.ttf",
     "static/media/woman-bg-image.webp": "/static/media/woman-bg-image.2c995f4f12aba88cb577.webp",
+    "static/media/icon.png": "/static/media/icon.ce74886c44d3f0e8f9ab.png",
     "static/media/marbiz-logo.webp": "/static/media/marbiz-logo.72436678ab8d25a25fc9.webp",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.b041b1fa4fe241b23445.woff2",
     "static/media/man-bg-image.webp": "/static/media/man-bg-image.7c943594ad041251ed64.webp",
@@ -23,12 +24,12 @@
     "static/media/artist_2.webp": "/static/media/artist_2.9d6661ee10b36beb4e4a.webp",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/index.html",
-    "main.50350c72.css.map": "/static/css/main.50350c72.css.map",
-    "main.be1a83ff.js.map": "/static/js/main.be1a83ff.js.map",
+    "main.104200ce.css.map": "/static/css/main.104200ce.css.map",
+    "main.0dd2fcbf.js.map": "/static/js/main.0dd2fcbf.js.map",
     "787.4514dbfe.chunk.js.map": "/static/js/787.4514dbfe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50350c72.css",
-    "static/js/main.be1a83ff.js"
+    "static/css/main.104200ce.css",
+    "static/js/main.0dd2fcbf.js"
   ]
 }

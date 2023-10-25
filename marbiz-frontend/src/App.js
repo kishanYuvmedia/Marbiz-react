@@ -7,9 +7,6 @@ import "./App.css";
 import "../src/Page/CreatorAuth/style.css";
 import "./responsive.css";
 import "bs5-lightbox";
-
-// import "bootstrap/dist/css/bootstrap.min.css";
-
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // public routes
@@ -43,8 +40,6 @@ import BrandBooking from "./Page/Brand/BrandBooking";
 import BrandWishlist from "./Page/Brand/BrandWishlist";
 import BrandPassword from "./Page/Brand/BrandPassword";
 import BrandProfile from "./Page/Brand/BrandProfile";
-
-
 function App() {
   return (
     <BrowserRouter>

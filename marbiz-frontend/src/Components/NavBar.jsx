@@ -52,9 +52,6 @@ function NavBar() {
       setLoginUser(obj);
     }
   }, []);
-
-
-
   return (
     <>
       <nav id="navbar" className="navbar navbar-expand-md navbar-dark sticky-top">
@@ -190,8 +187,7 @@ function NavBar() {
                       </li>
                     }
 
-                    {/* Wishlist / Enquiries */}
-                    {loginUser.userType === "Business" &&
+                    {/* {loginUser.userType === "Business" &&
                       <li>
                         <NavLink to="/brand-dashboard/brandWishlist"
                           className={`dropdown-item ${location.pathname === "/brand-dashboard/brandWishlist" ? "active" : ""
@@ -200,7 +196,7 @@ function NavBar() {
                           Wishlist
                         </NavLink>
                       </li>
-                    }
+                    } */}
 
                     {loginUser.userType !== "Business" &&
                       <li>
@@ -309,7 +305,7 @@ function NavBar() {
                   }
 
                   {/* Wishlist / Enquiries */}
-                  {loginUser.userType === "Business" &&
+                  {/* {loginUser.userType === "Business" &&
                     <li>
                       <NavLink to="/brand-dashboard/brandWishlist"
                         className={`dropdown-item ${location.pathname === "/brand-dashboard/brandWishlist" ? "active" : ""
@@ -318,7 +314,7 @@ function NavBar() {
                         Wishlist
                       </NavLink>
                     </li>
-                  }
+                  } */}
 
                   {loginUser.userType !== "Business" &&
                     <li>

@@ -1465,3 +1465,6 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 .new-brand-box .video-sec {
   border-radius: 15px;
 }
+.form-label{
+  color: '#fff';
+}
