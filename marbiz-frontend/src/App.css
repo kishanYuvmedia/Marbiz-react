@@ -1611,10 +1611,10 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 }
 
 .hover-vd .m3, .hover-vd .m6, .hover-vd .m9 {
-	margin-top: 60px;
+	margin-top: 65px;
 }
 .hover-vd .m10, .hover-vd .m5, .hover-vd .m8 {
-	margin-top: 0;
+	margin-top: 0px;
 }
 
 .hover-vd .m4, {
