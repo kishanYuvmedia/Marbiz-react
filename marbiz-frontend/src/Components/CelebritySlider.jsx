@@ -38,7 +38,7 @@ const CelebritySlider = () => {
                     {...options}
                     
                 >
-                    <div class="item">
+                    <div className="item">
                         <video
                             className="banner-video"
                             id="video-1"
@@ -46,25 +46,25 @@ const CelebritySlider = () => {
                             loop={true}
                             muted={true}
                             autoPlay={true}
-                            playsinline
+                            playsInline={true}
                             poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/shivaji_satam_b2b.png?tr=q-80"
 
                         >
                             <source className="video-sec" src="https://cdn.tring.co.in/img/shivaji_satam_b2b.mp4" type="video/mp4" />
                         </video>
                     </div>
-                    <div class="item">
-                        <video className="banner-video" id="video-2" width="100%" loop={true} muted={true} autoPlay={true} playsinline poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/Sopphie_Chowdhary.jpg?tr=q-80" >
+                    <div className="item">
+                        <video className="banner-video" id="video-2" width="100%" loop={true} muted={true} autoPlay={true} playsInline={true} poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/Sopphie_Chowdhary.jpg?tr=q-80" >
                             <source className="video-sec" src="https://cdn.tring.co.in/img/sophie_choudhary_b2b.mp4" type="video/mp4" />
                         </video>
                     </div>
-                    <div class="item">
-                        <video className="banner-video" id="video-3" width="100%" loop={true} muted={true} autoPlay={true} playsinline poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/daisy_shah_b2b.png?tr=q-80" >
+                    <div className="item">
+                        <video className="banner-video" id="video-3" width="100%" loop={true} muted={true} autoPlay={true} playsInline={true} poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/daisy_shah_b2b.png?tr=q-80" >
                             <source className="video-sec" src="https://cdn.tring.co.in/img/daisy_shah_b2b.mp4" type="video/mp4" />
                         </video>
                     </div>
-                    <div class="item">
-                        <video className="banner-video" id="video-4" width="100%" loop={true} muted={true} autoPlay={true} playsinline poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/satyayani_b2b.png?tr=q-80" >
+                    <div className="item">
+                        <video className="banner-video" id="video-4" width="100%" loop={true} muted={true} autoPlay={true} playsInline={true} poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/satyayani_b2b.png?tr=q-80" >
                             <source className="video-sec" src="https://cdn.tring.co.in/img/shayantani_b2b.mp4" type="video/mp4" />
                         </video>
                     </div>

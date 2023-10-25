@@ -25,7 +25,7 @@ const PopularCategories = ({ title }) => {
         </div>
 
         <div className="my-2">
-          <Flicking moveType="freeScroll" bound={true} >
+          <Flicking moveType="freeScroll" bound={true} circular={false} >
 
             {categoryList.map((category, index) => (
               <span key={index} className="btn-global px-4 m-2" style={{

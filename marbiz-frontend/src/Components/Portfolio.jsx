@@ -6,6 +6,24 @@ import artist_3 from "../Images/artist_3.webp";
 import artist_4 from "../Images/artist_4.webp";
 
 const Portfolio = () => {
+
+    const flikingOption = {
+        // defaultIndex: 1,
+        // bound: true,
+        deceleration: 0.0005,
+        circular: true,
+        align: "prev",
+        // renderOnlyVisible: true,
+        // duration: 500,
+        inputType: ["touch", "mouse", "pointer"],
+        // moveType: 'freeScroll',
+        // moveType: "snap",
+        panelsPerView: 4,
+        resizeOnContentsReady: true,
+        preventDefaultOnDrag: true,
+        bounce: "20%"
+    }
+
     return (
         <>
 
@@ -99,16 +117,7 @@ const Portfolio = () => {
                             <div className="col-md-12 ">
                                 <h1>Posts</h1>
                                 <Flicking
-                                    // defaultIndex={1}
-                                    // bound={true}
-                                    // deceleration={0.0005}
-                                    circular={true}
-                                    align={"prev"}
-                                // renderOnlyVisible={true}
-                                // duration={500}
-                                // inputType={["touch", "mouse"]}
-                                // moveType={["strict", { count: 4 }]}
-                                // panelsPerView={4}
+                                    {...flikingOption}
                                 >
                                     {/* {list.map((item, index) => ( */}
                                     <div className='p-3'>
@@ -144,16 +153,7 @@ const Portfolio = () => {
                             <div className="col-md-12 ">
                                 <h1>Video</h1>
                                 <Flicking
-                                    // defaultIndex={1}
-                                    // bound={true}
-                                    // deceleration={0.0005}
-                                    circular={true}
-                                    align={"prev"}
-                                // renderOnlyVisible={true}
-                                // duration={500}
-                                // inputType={["touch", "mouse"]}
-                                // moveType={["strict", { count: 4 }]}
-                                // panelsPerView={4}
+                                    {...flikingOption}
                                 >
                                     {/* {list.map((item, index) => ( */}
                                     <div className='p-3'>
@@ -190,16 +190,7 @@ const Portfolio = () => {
                             <div className="col-md-12 ">
                                 <h1>Reels</h1>
                                 <Flicking
-                                    // defaultIndex={1}
-                                    // bound={true}
-                                    // deceleration={0.0005}
-                                    circular={true}
-                                    align={"prev"}
-                                // renderOnlyVisible={true}
-                                // duration={500}
-                                // inputType={["touch", "mouse"]}
-                                // moveType={["strict", { count: 4 }]}
-                                // panelsPerView={4}
+                                    {...flikingOption}
                                 >
                                     {/* {list.map((item, index) => ( */}
                                     <div className='p-3'>
@@ -236,16 +227,7 @@ const Portfolio = () => {
                             <div className="col-md-12 ">
                                 <h1>Stories</h1>
                                 <Flicking
-                                    // defaultIndex={1}
-                                    // bound={true}
-                                    // deceleration={0.0005}
-                                    circular={true}
-                                    align={"prev"}
-                                // renderOnlyVisible={true}
-                                // duration={500}
-                                // inputType={["touch", "mouse"]}
-                                // moveType={["strict", { count: 4 }]}
-                                // panelsPerView={4}
+                                    {...flikingOption}
                                 >
                                     {/* {list.map((item, index) => ( */}
                                     <div className='p-3'>

@@ -5,6 +5,7 @@ import Flicking from "@egjs/react-flicking";
 import { isEmpty } from "lodash";
 import { Placeholder, Card } from "react-bootstrap";
 import image from "../Images/loadimage.webp";
+
 const SliderList = (props) => {
   const { title, subtitle, list, displayHeading } = props;
   return (
@@ -27,15 +28,16 @@ const SliderList = (props) => {
           {!isEmpty(list) && (
             <Flicking
               // defaultIndex={1}
-              bound={false}
+              // bound={false}
               deceleration={0.0005}
-              circular={true}
+              // circular={true}
               align={"prev"}
               renderOnlyVisible={true}
-              // duration={500}
-              inputType={["touch", "mouse"]}
-              moveType={["strict", { count: 4 }]}
+              duration={500}
+              inputType={["touch", "mouse", "pointer"]}
+              // moveType={["strict", { count: 4 }]}
             // panelsPerView={4}
+            // preventDefaultOnDrag={true}
             >
               {list.map((item, index) => (
                 <div key={index}>

@@ -132,9 +132,9 @@ const HeroSection = (props) => {
             // panelsPerView={4}
           >
             {list.map((item, index) => (
-              <div>
+              <div key={item.id}>
                 <CelebCard
-                  key={item.id}
+                  // key={item.id}
                   fullName={item.fullName}
                   image={item.coverImage}
                   // category={item.category}
