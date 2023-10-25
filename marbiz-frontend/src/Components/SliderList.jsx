@@ -3,11 +3,10 @@ import CelebCard from "./CelebCard";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Flicking from "@egjs/react-flicking";
 import { isEmpty } from "lodash";
-import { Placeholder, Card } from "react-bootstrap";
-import image from "../Images/loadimage.webp";
 
 const SliderList = (props) => {
   const { title, subtitle, list, displayHeading } = props;
+  
   return (
     <>
       <div

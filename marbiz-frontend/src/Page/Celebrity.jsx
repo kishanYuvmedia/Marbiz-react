@@ -10,6 +10,7 @@ import artist_4 from "../Images/artist_4.webp";
 import CelebBox from '../Components/CelebBox';
 
 import CelebritySlider from '../Components/CelebritySlider';
+import CelebFilterGallery from '../Components/CelebFilterGallery';
 
 const Celebrity = () => {
 
@@ -59,6 +60,13 @@ const Celebrity = () => {
             </div>
           </Row>
         </Container>
+      </section>
+
+      <section id="our-work" className='youtube_embed_videos_wrap our-latest-work'>
+        <div className="container">
+            <h2 className='text-white text-center'>Out Latest Work</h2>
+            <CelebFilterGallery />
+        </div>
       </section>
 
       <section className='celeb-list-section'>
