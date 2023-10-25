@@ -1526,3 +1526,109 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   border-radius: 20px;
   
 }
+
+/* slick slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-slider .slick-list, .slick-slider .slick-track {
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.video-slider .slick-list {
+	width: 80%;
+	margin: auto;
+  height: 360px;
+}
+
+.hover-vd .celebrity-name {
+	text-align: center;
+	margin: 10px 0 0;
+	font-size: 36px;
+	color: #fff;
+	/* font-family: RedHatDisplay-Regular; */
+	animation: 1.5s forwards slideLeft;
+}
+
+.brand-nm {
+	text-align: center;
+	font-family: Verveine-Regular;
+	font-size: 28px;
+	color: #f9f9f9;
+}
+
+/* .hover-vd .vd-box {
+	width: 80px !important;
+	height: 279px;
+	color: #000;
+	margin: 8px;
+	transition: width .8s;
+	position: relative;
+} */
+
+.hover-vd .slick-slide {
+  width: 80px !important;
+  height: 279px;
+  color: #000;
+  margin: 8px;
+  transition: width .8s;
+  position: relative;
+}
+
+.hover-vd .m1 {
+	background-repeat: round;
+	background-size: cover;
+}
+
+.vd-box video {
+	position: absolute;
+	width: 100%;
+	height: 279px;
+	filter: grayscale(1);
+	object-position: top;
+	object-fit: cover;
+}
+
+.hover-vd .m2, .hover-vd .m7 {
+	margin-top: 40px;
+}
+
+.hover-vd .m3, .hover-vd .m6, .hover-vd .m9 {
+	margin-top: 60px;
+}
+.hover-vd .m10, .hover-vd .m5, .hover-vd .m8 {
+	margin-top: 0;
+}
+
+.hover-vd .m4, {
+	margin-top: 20px;
+}
+
+.vd-box:hover video {
+	filter: grayscale(0);
+}
+.vd-box:hover {
+	width: 180px !important;
+	cursor: pointer;
+}
+.hover-vd .slick-slide:hover {
+	width: 180px !important;
+	cursor: pointer;
+}

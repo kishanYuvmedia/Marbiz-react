@@ -1,3 +1,16 @@
+@media only screen and (min-width: 1920px) {
+  /* .video-slider {
+    width: 63%;
+    margin: auto;
+  } */
+}
+
+@media only screen and (min-width: 1600px) {
+  /* .video-slider {
+    width: 78%;
+    margin: auto;
+  } */
+}
 @media only screen and (max-width: 1500px) {
 }
 @media only screen and (min-width: 1200px) {
@@ -15,10 +28,8 @@
   .mobile-view {
     display: none;
   }
-
 }
 @media only screen and (max-width: 992px) {
-  
   a.mobNavigation {
     width: 100%;
     margin: auto;
@@ -60,7 +71,6 @@
     padding: 0;
     margin-top: 2rem;
   }
-  
 }
 
 @media only screen and (max-width: 767px) {
