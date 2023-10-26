@@ -10,7 +10,7 @@ import {
   NavLink,
   Row,
   TabContent,
-  TabPane,
+  TabPane,Input
 } from "reactstrap"
 import Dropzone from "react-dropzone"
 //Import Breadcrumb
@@ -23,6 +23,7 @@ import {
   UpdateProfile,
   getProfile,
   deleteImages,
+  getPublicList
 } from "services/api/api-service"
 import Lightbox from "react-image-lightbox"
 import { useParams, Link } from "react-router-dom"
@@ -31,6 +32,8 @@ import classnames from "classnames"
 import defaultImges from "../../assets/image/default-image.jpg"
 import _, { isEmpty } from "lodash"
 export default function Upload() {
+  const [typelist,setTypeList]=useState([]);
+  const [selectedType,setSelectedType]=useState([]);
   const [profile, setprofile] = useState(null)
   const [selectedImage1, setSelectedImage1] = useState(null)
   const [selectedImage2, setSelectedImage2] = useState(null)
@@ -78,7 +81,7 @@ export default function Upload() {
             return UploadbulkImages({
               src: data.imageUrl,
               original: data.imageUrl,
-              caption: "Image",
+              caption: "Images",
               profileId: profileId,
               status: "A",
             }).then(data => {
@@ -155,6 +158,9 @@ export default function Upload() {
   }
   useEffect(() => {
     getImagedata()
+    getPublicList("Content Type").then((result) => {
+      setTypeList(result);
+  });
   }, [])
   const toggle = tab => {
     if (activeTab !== tab) {
@@ -335,6 +341,20 @@ export default function Upload() {
                     <Row>
                       <Col sm="12">
                         <Form>
+                        {/* <Input
+                            id="type"
+                            name="type"
+                            className="mb-2 w-50"
+                            type="select"
+                            value={selectedType}
+                            onChange={e => {
+                              setSelectedType(e.target.value)
+                            }}
+                          >
+                            {typelist.map(list => (
+                              <option key={list.label}>{list.label}</option>
+                            ))}
+                          </Input> */}
                           <Dropzone
                             onDrop={acceptedFiles => {
                               handleAcceptedFiles(acceptedFiles)

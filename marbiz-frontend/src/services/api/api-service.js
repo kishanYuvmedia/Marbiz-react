@@ -117,11 +117,6 @@ export const getInfluencersProfilebyId = (userId) => {
     where:{mtUserId:userId},
   });
 };
-export const getImagesList = (id) => {
-  return find(`MtProfiles/${id}/Images`, {
-    where: { status: "A" },
-  });
-};
 export const loginUser = (username, password) => {
   return new Promise((resolve, reject) => {
     apiKit
@@ -233,5 +228,17 @@ export const PackageByIdAndType =(type,id)=>{
     }).then(data => {
       resolve(data)
     })
+  })
+}
+export const getImagesList = id => {
+  return find(`MtProfiles/${id}/Images`, {
+    where: { status: "A" },
+    limit: 6,
+  })
+}
+export const getImagesListType = (id,type) => {
+  return find(`MtProfiles/${id}/Images`, {
+    where: { status: "A", and: [{ caption:type}] },
+    limit: 6,
   })
 }

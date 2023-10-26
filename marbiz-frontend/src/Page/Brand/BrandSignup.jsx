@@ -101,7 +101,7 @@ const BrandSignup = () => {
             <div className="text-center mb-3 text-white fw-bold">
               <h2>Create Your Account</h2>
             </div>
-            <div className="d-grid p-2 justify-content-center">
+            {/* <div className="d-grid p-2 justify-content-center">
               <GoogleLogin
                 clientId={config.googleAuthclientKey}
                 buttonText="Sign Up With Google"
@@ -118,7 +118,7 @@ const BrandSignup = () => {
               <h2 className="text-divider">
                 <span className="">or</span>
               </h2>
-            </div>
+            </div> */}
 
             {/* signup form */}
             <div className="inquiry-form signupForm rounded-3 p-3">

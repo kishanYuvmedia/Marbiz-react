@@ -16,7 +16,6 @@ const CelebProfile = () => {
   const [images, setImages] = useState([]);
   const [list, setList] = useState([]);
   const [type, settype] = useState("");
-
   function getlist(type, valueSetter) {
     getInfluencersList(6, type)
       .then((result) => {
@@ -32,7 +31,6 @@ const CelebProfile = () => {
         console.error("Error fetching data from the API:", error);
       });
   }
-
   useEffect(() => {
     getInfluencersProfile(regName)
       .then((result) => {
@@ -216,7 +214,7 @@ const CelebProfile = () => {
                 <span className="text-white fs-3 me-3">Portfolio</span>
                 {/* <span className="text-secondary fs-6">How does it work</span> */}
               </div>
-              <Portfolio />
+              <Portfolio userId={profileData.id} />
               
             </div>
           </div>
