@@ -4,7 +4,7 @@ import { Card, CardTitle, Row, Button, CardHeader, CardBody, Col, FormGroup, Lab
 import { UpdateMtUser ,loginOut} from '../../services/api/api-service';
 import { isEmpty } from 'lodash';
 import Swal from "sweetalert2";
-const BrandPassword = () => {
+const BrandPassword = ({pagetitle}) => {
   const [errorPassword, seterrorPassword] = useState(null)
   const [formData, setFormData] = useState({});
   const [formDatanew, setFormDataNew] = useState({cpassword:"",password:""});
@@ -68,59 +68,51 @@ const BrandPassword = () => {
     }
   }, [])
   return (
-    <Card
-      body
-      className="my-2"
-      style={{
-        width: '18rem', backgroundColor: '#000',
-      }}
-    >
-      <CardHeader>
-        <CardTitle tag="h4">
-          My Profile
-        </CardTitle>
-      </CardHeader>
-      <CardBody>
-        <form>
-          <Row>
-            <Col md={4}>
-              <FormGroup>
-                <Label for="exampleName" style={{ color: 'white' }}>
-                  Password:
-                </Label>
-                <Input
-                  type="text"
-                  id="password"
-                  name="password"
-                  placeholder='New Password'
-                  value={formDatanew.password}
-                  onChange={handleChange}
-                />
-              </FormGroup>
-            </Col><Col md={4}>
-              <FormGroup>
-                <Label for="cpassword" style={{ color: 'white' }}>
-                  Confirm Password:
-                </Label>
-                <Input
-                  type="text"
-                  id="cpassword"
-                  name="cpassword"
-                  placeholder='Confirm Password'
-                  value={formDatanew.cpassword}
-                  onChange={handleChange}
-                />
-              </FormGroup>
-              <label style={{ color: 'red' }}>{errorPassword}</label>
-            </Col><Col md={12}>
-              <Button onClick={handleSubmit} className='btn-global px-3 my-3'>
-                Update Password
-              </Button> </Col>
-          </Row>
-        </form>
-      </CardBody>
-
-    </Card>
+    <div className="container-fluid">
+    <div className="row">
+      <div className='d-inline-flex justify-content-between my-2'>
+        <h1 className="text-center">{pagetitle}</h1>
+      </div>
+      <hr className="hr hr-blurry border border-danger border-2" />
+    </div>
+    <form>
+      <Row>
+        <Col md={4}>
+          <FormGroup>
+            <Label for="exampleName" style={{ color: 'white' }}>
+              Password:
+            </Label>
+            <Input
+              type="text"
+              id="password"
+              name="password"
+              placeholder='New Password'
+              value={formDatanew.password}
+              onChange={handleChange}
+            />
+          </FormGroup>
+        </Col><Col md={4}>
+          <FormGroup>
+            <Label for="cpassword" style={{ color: 'white' }}>
+              Confirm Password:
+            </Label>
+            <Input
+              type="text"
+              id="cpassword"
+              name="cpassword"
+              placeholder='Confirm Password'
+              value={formDatanew.cpassword}
+              onChange={handleChange}
+            />
+          </FormGroup>
+          <label style={{ color: 'red' }}>{errorPassword}</label>
+        </Col><Col md={12}>
+          <Button onClick={handleSubmit} className='btn-global px-3 my-3'>
+            Update Password
+          </Button> </Col>
+      </Row>
+    </form>
+  </div>
   )
 }
 

@@ -105,7 +105,7 @@ const BrandBooking = () => {
                     <table className="table table-hover mb-0">
                         <tr>
                             <th>Occasion</th>
-                            <td>{viewData.regName}</td>
+                            <td>{viewData.occasion}</td>
                         </tr>
                         <tr>
                             <th>EventDate</th>
@@ -121,7 +121,7 @@ const BrandBooking = () => {
                         </tr>
                         <tr>
                             <th>People Attend</th>
-                            <td>{viewData.peopleAttend}</td>
+                            <td>{viewData.people}</td>
                         </tr>
                         <tr>
                             <th>name</th>
@@ -129,11 +129,11 @@ const BrandBooking = () => {
                         </tr>
                         <tr>
                             <th>Mobile Number</th>
-                            <td>{viewData.mobileNumber}</td>
+                            <td>{viewData.mobile}</td>
                         </tr>
                         <tr>
                             <th>Details</th>
-                            <td>{viewData.details}</td>
+                            <td>{viewData.message}</td>
                         </tr>
                         <tr>
                             <th>More Options Budget</th>

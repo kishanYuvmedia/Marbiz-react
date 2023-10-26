@@ -75,5 +75,9 @@
   "Video": {
     "dataSource": "mongoDB",
     "public": true
+  },
+  "Package": {
+    "dataSource": "mongoDB",
+    "public": true
   }
 }

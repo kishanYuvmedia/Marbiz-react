@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../Images/marbiz-logo.webp";
-import { Outlet, Link, useLocation, NavLink } from "react-router-dom";
+import { Outlet, useLocation, NavLink } from "react-router-dom";
 import {
   BsSearch,
   BsBriefcase,
@@ -78,7 +78,7 @@ function NavBar() {
                 <NavLink
                   to="/explore"
                   className="nav-link text-center"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   Explore
                 </NavLink>
@@ -91,7 +91,7 @@ function NavBar() {
                 <NavLink
                   to="/AboutUs"
                   className="nav-link text-center"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   About Us
                 </NavLink>
@@ -104,7 +104,7 @@ function NavBar() {
                 <NavLink
                   to="/celebrity"
                   className="nav-link text-center"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   Celebrity
                 </NavLink>
@@ -115,7 +115,7 @@ function NavBar() {
                 <NavLink
                   to="/brand"
                   className="nav-link d-flex align-items-center"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   Join as Brand
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>
@@ -125,7 +125,7 @@ function NavBar() {
                 <NavLink
                   to="/creator"
                   className="nav-link d-flex align-items-center"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   Join as creator
                   <i className="fa-solid fa-arrow-right-long ms-2"></i>

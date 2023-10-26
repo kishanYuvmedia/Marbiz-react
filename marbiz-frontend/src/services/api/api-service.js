@@ -79,13 +79,11 @@ export const createEnquiry = (data) => {
 export const createProfile = (data) => {
   return create("MtProfiles", data);
 };
-
 export const findRegisterProfile = (emailaddress) => {
   return find("MtUsers", {
     where: { status: "I", and: [{ email: emailaddress }] },
   });
 };
-
 export const checkPublicName = (name) => {
   return count("MtProfiles", null, { regName: name });
 };
@@ -187,4 +185,14 @@ export const getUserBooking= async (id)=>{
 }
 export const deleteEnquiry = id => {
   return deleteById("Enquiries", id)
+}
+export const enquiryListById =()=>{
+  const obj = JSON.parse(localStorage.getItem("authUser"));
+  return new Promise((resolve, reject) => {
+    find("Enquiries", {
+      where: {mtUserId:obj.id},
+    }).then(data => {
+      resolve(data)
+    })
+  })
 }

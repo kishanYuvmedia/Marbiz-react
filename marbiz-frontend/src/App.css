@@ -1468,3 +1468,169 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 .form-label{
   color: '#fff';
 }
+
+/* our work filter gallery */
+.youtube_embed_videos_wrap {
+  margin-bottom: 30px;
+}
+
+.youtube-card {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+}
+
+.youtube-thumb {
+  width: 100%;
+  /* height: 35vh; */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.youtube-card .play_icon {
+  width: 30px;
+  height: 30px;
+  background-image: url(https://ik.imagekit.io/j83rchiauw/play_icon_brands_page.svg?updatedAt=1696577821261);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.youtube-video-title {
+  font-size: 14px;
+}
+
+.filter-container .tab_title.active {
+  background-image: linear-gradient(55deg,#ff893b,#f02828);
+  border: 2px solid #fff;
+
+  
+}
+
+.filter-container .tab_title {
+  font-size: 16px;
+  background-image: black;
+  background-color: black;
+  color: #fff;
+  padding: 12px 20px;
+  border: 2px solid #fff;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 10px;
+  border-radius: 20px;
+  
+}
+
+/* slick slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-slider .slick-list, .slick-slider .slick-track {
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.video-slider .slick-list {
+	width: 80%;
+	margin: auto;
+  height: 360px;
+}
+
+.hover-vd .celebrity-name {
+	text-align: center;
+	margin: 10px 0 0;
+	font-size: 36px;
+	color: #fff;
+	/* font-family: RedHatDisplay-Regular; */
+	animation: 1.5s forwards slideLeft;
+}
+
+.brand-nm {
+	text-align: center;
+	font-family: Verveine-Regular;
+	font-size: 28px;
+	color: #f9f9f9;
+}
+
+/* .hover-vd .vd-box {
+	width: 80px !important;
+	height: 279px;
+	color: #000;
+	margin: 8px;
+	transition: width .8s;
+	position: relative;
+} */
+
+.hover-vd .slick-slide {
+  width: 80px !important;
+  height: 279px;
+  color: #000;
+  margin: 8px;
+  transition: width .8s;
+  position: relative;
+}
+
+.hover-vd .m1 {
+	background-repeat: round;
+	background-size: cover;
+}
+
+.vd-box video {
+	position: absolute;
+	width: 100%;
+	height: 279px;
+	filter: grayscale(1);
+	object-position: top;
+	object-fit: cover;
+}
+
+.hover-vd .m2, .hover-vd .m7 {
+	margin-top: 40px;
+}
+
+.hover-vd .m3, .hover-vd .m6, .hover-vd .m9 {
+	margin-top: 65px;
+}
+.hover-vd .m10, .hover-vd .m5, .hover-vd .m8 {
+	margin-top: 0px;
+}
+
+.hover-vd .m4 {
+	margin-top: 20px;
+}
+
+.vd-box:hover video {
+	filter: grayscale(0);
+}
+.vd-box:hover {
+	width: 180px !important;
+	cursor: pointer;
+}
+.hover-vd .slick-slide:hover {
+	width: 180px !important;
+	cursor: pointer;
+}

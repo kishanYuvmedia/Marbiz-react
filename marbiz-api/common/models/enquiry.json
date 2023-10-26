@@ -48,6 +48,9 @@
         "sendWhatsApp": {
             "type": "string",
             "default": "N"
+        }, 
+        "mtUserId": {
+            "type": "string"
         },
         "createdAt": {
             "type": "date",
@@ -61,10 +64,10 @@
             "accessType": "*",
             "principalType": "ROLE",
             "principalId": "$everyone",
-            "permission": "DENY"
+            "permission": "ALLOW"
         },
         {
-            "accessType": "WRITE",
+            "accessType": "READ",
             "principalType": "ROLE",
             "principalId": "$everyone",
             "permission": "ALLOW"
@@ -77,21 +80,5 @@
         }
     ],
     "methods": {
-        "pingMe": {
-            "accepts": [],
-            "returns": [
-                {
-                    "arg": "response",
-                    "type": "string"
-                }
-            ],
-            "description": "ping service",
-            "http": [
-                {
-                    "path": "/pingMe",
-                    "verb": "get"
-                }
-            ]
-        }
     }
 }

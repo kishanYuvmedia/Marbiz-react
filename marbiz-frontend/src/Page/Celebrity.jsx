@@ -3,13 +3,19 @@ import { Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { BsStopwatch } from "react-icons/bs";
 import { PiShootingStar, PiWallet } from "react-icons/pi";
+
+// images
 import artist_1 from "../Images/artist_1.webp";
 import artist_2 from "../Images/artist_2.webp";
 import artist_3 from "../Images/artist_3.webp";
 import artist_4 from "../Images/artist_4.webp";
-import CelebBox from '../Components/CelebBox';
 
-import CelebritySlider from '../Components/CelebritySlider';
+// components
+import CelebBox from './Celebrity/CelebBox';
+import CelebritySlider from './Celebrity/CelebritySlider';
+import CelebFilterGallery from './Celebrity/CelebFilterGallery';
+import CelebHoverSlider from './Celebrity/CelebHoverSlider';
+
 
 const Celebrity = () => {
 
@@ -59,6 +65,13 @@ const Celebrity = () => {
             </div>
           </Row>
         </Container>
+      </section>
+
+      <section id="our-work" className='youtube_embed_videos_wrap our-latest-work'>
+        <div className="container">
+          <h1 className='text-white text-center'>Out Latest Work</h1>
+          <CelebFilterGallery />
+        </div>
       </section>
 
       <section className='celeb-list-section'>
@@ -126,6 +139,12 @@ const Celebrity = () => {
         </div>
       </section>
 
+      <section className='hover-vd container py-5' id="hover-video-section">
+        <h1 className='text-white text-center'>Celebrity Brand Shoutouts</h1>
+
+        <CelebHoverSlider />
+      </section>
+
       <div className="container">
         <div className="row py-5">
           <div className="col-md-6">
@@ -171,7 +190,7 @@ const Celebrity = () => {
         </div>
       </div>
 
-    </div >
+    </div>
   )
 }
 

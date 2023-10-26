@@ -91,6 +91,7 @@ export default function AddCategory() {
                           <option>Document</option>
                           <option>occasion</option>
                           <option>Category</option>
+                          <option>Content Type</option>
                         </Input>
                       </div>
                     </Col>

@@ -59,6 +59,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "enquiries": {
+      "type": "hasMany",
+      "model": "Enquiry",
+      "foreignKey": "mtUserId",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [

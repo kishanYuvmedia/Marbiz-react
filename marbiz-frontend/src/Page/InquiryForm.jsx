@@ -78,7 +78,7 @@ const InquiryForm = () => {
       setErrors(newErrors);
     } else {
       console.log("Handler 2");
-      const data = { ...formData, ...{ profileId: profileData.id } };
+      const data = { ...formData, ...{ profileId: profileData.id,mtUserId: profileData.mtUserId  } };
       console.log("final", data);
       createEnquiry(data).then((result) => {
         if (!isEmpty(result)) {

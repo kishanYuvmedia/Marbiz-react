@@ -1,0 +1,81 @@
+{
+    "name": "Package",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "profileId": {
+            "type": "string",
+            "required": true
+        },
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "platform": {
+            "type": "string",
+            "required": true
+        },
+        "contentType": {
+            "type": "string",
+            "required": true
+        },
+        "contentQuantity": {
+            "type": "number",
+            "required": true
+        },
+        "Description": {
+            "type": "string",
+            "required": true
+        },
+        "mtUserId": {
+            "type": "string"
+        },
+        "createdAt": {
+            "type": "date",
+            "defaultFn": "now"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+        },
+        {
+            "accessType": "WRITE",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW"
+        },
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$authenticated",
+            "permission": "ALLOW"
+        }
+    ],
+    "methods": {
+        "pingMe": {
+            "accepts": [],
+            "returns": [
+                {
+                    "arg": "response",
+                    "type": "string"
+                }
+            ],
+            "description": "ping service",
+            "http": [
+                {
+                    "path": "/pingMe",
+                    "verb": "get"
+                }
+            ]
+        }
+    }
+}
