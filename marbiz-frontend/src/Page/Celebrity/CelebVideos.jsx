@@ -16,7 +16,7 @@ const CelebVideos = ({ movie }) => {
                 alt={movie.title}
                 className="youtube-thumb"
             />
-            <span class="play_icon"></span>
+            <span className="play_icon"></span>
             <p className="youtube-video-title">{movie.title}</p>
         </div>
 
