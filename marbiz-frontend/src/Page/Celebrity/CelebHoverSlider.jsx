@@ -84,7 +84,7 @@ const CelebHoverSlider = () => {
 
 
   const [activeVideoIndex, setActiveVideoIndex] = useState(null);
-  
+
 
 
 
@@ -137,7 +137,7 @@ const CelebHoverSlider = () => {
               poster={video.poster}
               autoPlay={activeVideoIndex === index}
               muted
-              loop 
+              loop
               id={`video-${index}`}
             >
 
@@ -150,8 +150,11 @@ const CelebHoverSlider = () => {
 
 
       {videoData.map((video, index) => (
-        <div className={`celebrity-name ${video.id}`}
-          style={{ display: activeVideoIndex === index ? "block" : "none" }}>
+        <div
+          key={video.id}
+          className={`celebrity-name ${video.id}`}
+          style={{ display: activeVideoIndex === index ? "block" : "none" }}
+        >
           <h3 className="text-danger">{video.title}</h3>
         </div>
       ))}
