@@ -98,27 +98,30 @@ const CelebHoverSlider = () => {
 
   const handleVideoHover = (index) => {
     setActiveVideoIndex(index);
-    playVideo(index);
+    // playVideo(index);
   };
 
-  const handleVideoPause = () => {
-    setActiveVideoIndex(null);
-    pauseVideo(activeVideoIndex);
-  };
+  // const handleVideoPause = () => {
+  //   setActiveVideoIndex(null);
+  //   pauseVideo(activeVideoIndex);
+  // };
 
-  const playVideo = (index) => {
-    const video = document.getElementById(`video-${index}`);
-    if (video) {
-      video.play();
-    }
-  };
+  // const playVideo = (index) => {
+  //   const video = document.getElementById(`video-${index}`);
+  //   if (video) {
+  //     video.play();
+  //   }
+  // };
 
-  const pauseVideo = (index) => {
-    const video = document.getElementById(`video-${index}`);
-    if (video) {
-      video.pause();
-    }
-  };
+  // const pauseVideo = (index) => {
+  //   const video = document.getElementById(`video-${index}`);
+  //   if (video) {
+  //     video.pause();
+  //   }
+  // };
+
+
+
   return (
     <>
       <Slider className='video-slider' {...settings}>
@@ -126,16 +129,20 @@ const CelebHoverSlider = () => {
           <div
             key={video.id}
             className={`vd-box m${video.index + 1}`}
-            onMouseEnter={() => handleVideoHover(index)}
-            onMouseLeave={handleVideoPause}
+            // onMouseEnter={() => handleVideoHover(index)}
+            // onMouseLeave={handleVideoPause}
           >
             <video
               className="clip"
               poster={video.poster}
               autoPlay={activeVideoIndex === index}
+              // autoPlay
               muted
               loop
               id={`video-${index}`}
+              onMouseEnter={() => document.getElementById(`video-${index}`).play()}
+              onMouseLeave={() => document.getElementById(`video-${index}`).pause()}
+            
             >
 
               <source src={video.src} type="video/mp4" />
