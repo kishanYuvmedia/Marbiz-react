@@ -2,6 +2,7 @@
     "name": "Package",
     "base": "PersistedModel",
     "idInjection": true,
+    "strictObjectIDCoercion": true,
     "options": {
         "validateUpsert": true
     },
@@ -31,7 +32,8 @@
             "required": true
         },
         "mtUserId": {
-            "type": "string"
+            "type": "string",
+            "required": true
         },
         "createdAt": {
             "type": "date",
@@ -45,10 +47,10 @@
             "accessType": "*",
             "principalType": "ROLE",
             "principalId": "$everyone",
-            "permission": "DENY"
+            "permission": "ALLOW"
         },
         {
-            "accessType": "WRITE",
+            "accessType": "READ",
             "principalType": "ROLE",
             "principalId": "$everyone",
             "permission": "ALLOW"
@@ -61,21 +63,6 @@
         }
     ],
     "methods": {
-        "pingMe": {
-            "accepts": [],
-            "returns": [
-                {
-                    "arg": "response",
-                    "type": "string"
-                }
-            ],
-            "description": "ping service",
-            "http": [
-                {
-                    "path": "/pingMe",
-                    "verb": "get"
-                }
-            ]
-        }
+      
     }
 }

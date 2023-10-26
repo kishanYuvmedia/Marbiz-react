@@ -196,3 +196,42 @@ export const enquiryListById =()=>{
     })
   })
 }
+export const createPackage = (data) => {
+  return create("Packages", data);
+};
+export const PackageById =(id)=>{
+  let userId=null;
+  let obj=null;
+  if(id===0){
+    obj= JSON.parse(localStorage.getItem("authUser"));
+    userId=obj.id;
+  }
+  else{
+    userId=id;
+  }
+  return new Promise((resolve, reject) => {
+    find("Packages", {
+      where: {mtUserId:userId},
+    }).then(data => {
+      resolve(data)
+    })
+  })
+}
+export const PackageByIdAndType =(type,id)=>{
+  let userId=null;
+  let obj=null;
+  if(id===0){
+    obj= JSON.parse(localStorage.getItem("authUser"));
+    userId=obj.id;
+  }
+  else{
+    userId=id;
+  }
+  return new Promise((resolve, reject) => {
+    find("Packages", {
+      where: { platform:type, and: [{ mtUserId:userId}] },
+    }).then(data => {
+      resolve(data)
+    })
+  })
+}

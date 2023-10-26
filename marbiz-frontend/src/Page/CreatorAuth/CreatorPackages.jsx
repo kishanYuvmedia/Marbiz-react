@@ -1,8 +1,6 @@
 import React from 'react'
 import PackagesTabs from '../../Components/PackagesTabs'
 import { Link } from 'react-router-dom'
-
-
 const CreatorPackages = ({ pagetitle }) => {
     return (
         <>
@@ -16,11 +14,10 @@ const CreatorPackages = ({ pagetitle }) => {
                         </Link>
                     </div>
                     <hr className="hr hr-blurry border border-danger border-2" />
-                    <PackagesTabs />
+                    <PackagesTabs userId={0} />
                 </div>
             </div>
         </>
     )
 }
-
 export default CreatorPackages

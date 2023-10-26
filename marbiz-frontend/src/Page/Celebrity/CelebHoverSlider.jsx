@@ -119,9 +119,6 @@ const CelebHoverSlider = () => {
       video.pause();
     }
   };
-
-
-
   return (
     <>
       <Slider className='video-slider' {...settings}>

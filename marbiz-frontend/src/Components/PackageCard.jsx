@@ -1,15 +1,15 @@
 import React from 'react'
 
-const PackageCard = ({ title, cost, icon }) => {
+const PackageCard = ({ title, cost, icon,details }) => {
     return (
         <div className='mb-3'>
             <div className="border border-danger package-card p-4">
                 <div className="d-flex text-white justify-content-between">
                     <h3>{title}</h3>
-                    <h3>$ {cost}</h3>
+                    <h3>₹ {cost}</h3>
                 </div>
                 <div>
-                    <p className="text-secondary"> Top creators have completed multiple orders and have a high rating from brands Top creators have completed multiple orders and have a high rating fromTop creators have completed multiple orders and have a high rating from</p>
+                    <p className="text-secondary">{details} </p>
                 </div>
                 <div className="d-flex text-white justify-content-between align-items-center">
                     <div className="">

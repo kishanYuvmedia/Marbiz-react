@@ -67,6 +67,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "packages": {
+      "type": "hasMany",
+      "model": "Package",
+      "foreignKey": "mtUserId",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "acls": [

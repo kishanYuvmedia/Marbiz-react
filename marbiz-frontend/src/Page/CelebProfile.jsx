@@ -198,7 +198,7 @@ const CelebProfile = () => {
                 <span className="text-white fs-3 me-3">Packages</span>
                 <span className="text-secondary fs-6">How does it work</span>
               </div>
-              <PackagesTabs />
+              <PackagesTabs userId={profileData.mtUserId} />
               <div className="my-3">
                 <Link to="/#" >
                   <span className="text-secondary fs-6">
