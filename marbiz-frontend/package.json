@@ -72,6 +72,8 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "autoprefixer": "^10.4.15",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.52.0",
     "postcss": "^8.4.29"
   }
 }

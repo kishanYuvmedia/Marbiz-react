@@ -455,9 +455,9 @@ body {
   border-bottom: 1px solid #4d4d4d;
 }
 
-.bottom-footer {
-  /* background: linear-gradient(60deg, #8e3afc, #ff67aa); */
-}
+/* .bottom-footer {
+  background: linear-gradient(60deg, #8e3afc, #ff67aa);
+} */
 
 .navbar {
   /* border-bottom: 2px solid #8A2DFC; */
@@ -1617,7 +1617,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 	margin-top: 0px;
 }
 
-.hover-vd .m4, {
+.hover-vd .m4 {
 	margin-top: 20px;
 }
 
