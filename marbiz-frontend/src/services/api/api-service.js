@@ -85,6 +85,11 @@ export const findRegisterProfile = (emailaddress) => {
     where: { status: "I", and: [{ email: emailaddress }] },
   });
 };
+export const findUserbyemail = (emailaddress) => {
+  return count("MtUsers", {
+    where: { status: "A", and: [{ username: emailaddress }] },
+  });
+};
 export const checkPublicName = (name) => {
   return count("MtProfiles", null, { regName: name });
 };

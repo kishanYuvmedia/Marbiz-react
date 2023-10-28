@@ -6,7 +6,8 @@ import { GoogleLogin } from "react-google-login";
 import Swal from "sweetalert2";
 import HeroBgGradient from "../../Components/HeroBgGradient";
 import config from "../../constants/config";
-import { getPublicList, createMtUsers } from "../../services/api/api-service";
+import { getPublicList, createMtUsers,findUserbyemail } from "../../services/api/api-service";
+import { result } from "lodash";
 const BrandSignup = () => {
   const navigate = useNavigate();
   document.title = "Create Account | Marbiz";
@@ -43,42 +44,65 @@ const BrandSignup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-    } else {
-      // Access the form data here
-      console.log(formData);
-      const data = [];
-      data.push({
-        phoneVerified: false,
-        isTermsAgreed: false,
-        contactName: formData.fullName,
-        userType: "Business",
-        country: "IN",
-        status: "A",
-        realm: formData.fullName,
-        username: formData.businessEmail,
-        password: formData.password,
-        email: formData.businessEmail,
-        howDidYouHear: formData.howDidYouHear,
-        interestedCategories: formData.interestedCategories,
-        emailVerified: true,
-      });
-      createMtUsers(data).then((result) => {
-        if (result) {
-          Swal.fire(
-            "Congratulations",
-            "Your Marbiz accunt is created",
-            "success"
-          );
-          setValidated(true);
-          navigate(`/login`, {
-            replace: true,
+    if(checkemail(formData.businessEmail)){
+      if (form.checkValidity() === false) {
+      } else {
+        // Access the form data here
+        console.log(formData);
+        const data = [];
+        data.push({
+          phoneVerified: false,
+          isTermsAgreed: false,
+          contactName: formData.fullName,
+          userType: "Business",
+          country: "IN",
+          status: "A",
+          realm: formData.fullName,
+          username: formData.businessEmail,
+          password: formData.password,
+          email: formData.businessEmail,
+          howDidYouHear: formData.howDidYouHear,
+          interestedCategories: formData.interestedCategories,
+          emailVerified: true,
+        });
+        createMtUsers(data)
+          .then((result) => {
+            if (result) {
+              Swal.fire(
+                "Congratulations",
+                "Your Marbiz account is created",
+                "success"
+              );
+              setValidated(true);
+              navigate(`/login`, {
+                replace: true,
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Error creating Marbiz account", error);
+            Swal.fire(
+              "Error",
+              "There was an error creating your Marbiz account. Please try again.",
+              "error"
+            );
           });
-        }
-      });
+      }
     }
+    else{
+      Swal.fire(
+        "Already Register",
+        "Email already register on marbiz",
+        "error"
+      );
+    }
+   
   };
+  function checkemail(email){
+    findUserbyemail(email).then(result=>{
+      return result.count;
+    })
+  }
   useEffect(() => {
     getPublicList("Category").then((result) => {
       setCategory(result);
@@ -238,12 +262,13 @@ const BrandSignup = () => {
                 </small>
                 <div className="text-center text-white my-2">
                   Already have an account?
-                  <Link to={`/#`} className="ms-1 fw-bold">
+                  <Link to={`/login`} className="ms-1 fw-bold">
                     Login.
                   </Link>
                 </div>
               </div>
             </div>
+           
           </Col>
         </Row>
       </Container>

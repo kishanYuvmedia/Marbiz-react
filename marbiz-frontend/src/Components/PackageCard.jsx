@@ -1,6 +1,6 @@
 import React from 'react'
-
-const PackageCard = ({ title, cost, icon,details }) => {
+import { Link } from 'react-router-dom'
+const PackageCard = ({ title, cost, icon,details,regname }) => {
     return (
         <div className='mb-3'>
             <div className="border border-danger package-card p-4">
@@ -19,7 +19,9 @@ const PackageCard = ({ title, cost, icon,details }) => {
                         }}/>
                     </div>
                     <div>
-                        <button className="btn-global px-3 ">Start</button>
+                        {regname!="self" &&
+                        <Link to={`/inquiryform/${regname}`} className="btn-global px-3 ">Start</Link>
+                        }
                     </div>
                 </div>
             </div>

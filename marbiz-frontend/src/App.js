@@ -16,6 +16,8 @@ import Footer from "./Components/Footer";
 import InquiryForm from "./Page/InquiryForm";
 import CelebProfile from "./Page/CelebProfile";
 import GlobalLogin from "./Page/Login/GlobalLogin";
+import ForgetPassword from "./Page/Login/forget-password"
+import ChangePassword from "./Page/Login/change-password";
 import AboutUs from "./Page/AboutUs";
 import Explore from "./Page/Explore";
 import Celebrity from "./Page/Celebrity";
@@ -51,6 +53,8 @@ function App() {
           <Route path="/inquiryform" element={<InquiryForm />} />
           <Route path="/:regName" element={<CelebProfile />} />
           <Route path="/login" element={<GlobalLogin />} />
+          <Route path="/forgetpassword" element={<ForgetPassword />} />
+          <Route path="/ChangePassword/:id" element={<ChangePassword/>}/>
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/celebrity" element={<Celebrity />} />

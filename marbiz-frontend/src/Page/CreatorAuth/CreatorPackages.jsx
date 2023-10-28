@@ -14,7 +14,7 @@ const CreatorPackages = ({ pagetitle }) => {
                         </Link>
                     </div>
                     <hr className="hr hr-blurry border border-danger border-2" />
-                    <PackagesTabs userId={0} />
+                    <PackagesTabs userId={0} regname={"self"} />
                 </div>
             </div>
         </>

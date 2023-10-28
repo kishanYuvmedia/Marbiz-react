@@ -8,7 +8,7 @@ import youtubeIcon from "../Images/insta_icon.png"
 import LinkedIcon from "../Images/link.png"
 import {PackageById,PackageByIdAndType} from "../services/api/api-service"
 import { isEmpty, result } from "lodash";
-const PackagesTabs = ({userId}) => {
+const PackagesTabs = ({userId,regname}) => {
     const [list,setList]=useState([]);
     const [Category,setCategory]=useState(null);
     const [user,setUser]=useState(userId);
@@ -90,7 +90,7 @@ const PackagesTabs = ({userId}) => {
               <div className="row py-3">
                 {list.map((item,index)=>
                 <div className="col-md-6" key={index}>
-                <PackageCard title={item.title} cost={item.price} details={item.Description} icon={item.platform==="Instagram"?instaIcon:item.platform==="LinkedIn"?LinkedIcon:item.platform==="Youtube"?youtubeIcon:ugcIcon} />
+                <PackageCard regname={regname} title={item.title} cost={item.price} details={item.Description} icon={item.platform==="Instagram"?instaIcon:item.platform==="LinkedIn"?LinkedIcon:item.platform==="Youtube"?youtubeIcon:ugcIcon} />
               </div>
                 )}
               </div>

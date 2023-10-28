@@ -42,6 +42,7 @@ function NavBar() {
       if (result.isConfirmed) {
         loginOut()
       }
+      window.location.reload(true);
     });
    
   };

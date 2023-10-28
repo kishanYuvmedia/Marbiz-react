@@ -130,7 +130,7 @@ const Celebrity = () => {
                 <span>1000+</span>Brands
                 <span>• 850 mn+</span> Reach
               </p>
-              <Link>
+              <Link to={"/creator"}>
                 <button className="btn-global px-3">Explore Now</button>
               </Link>
               <p className="brands-mail">For users outside India, email us at <a href="mailto:support@marbiz.in">support@marbiz.in</a></p>
@@ -157,7 +157,7 @@ const Celebrity = () => {
               <p className='mordern-para'>Put your brand under the spotlight</p>
 
               <div>
-                <Link>
+                <Link to={"/creator"}>
                   <button className='btn-global px-3'>Start Now!</button>
                 </Link>
               </div>
@@ -179,11 +179,10 @@ const Celebrity = () => {
               <p className='mordern-para'>Get in touch with us and we will share the best celebrities to help promote your brand.</p>
 
               <div>
-                <Link>
+              <Link to={"/creator"}>
                   <button className='btn-global px-3'>Start Now!</button>
                 </Link>
               </div>
-
             </div>
           </div>
 

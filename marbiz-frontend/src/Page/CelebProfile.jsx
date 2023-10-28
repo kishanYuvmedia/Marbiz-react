@@ -167,14 +167,12 @@ const CelebProfile = () => {
                 <p className="text-white">{profileData.bio}</p>
               </div>
             </div>
-
             <div className="d-flex justify-content-start">
               <Link to={`/inquiryform/${profileData.regName}`}>
                 <button className="btn-global px-3 my-3">See Price and Book</button>
               </Link>
             </div>
           </div>
-
           {/* Packages section */}
           <div className="container">
             <div className="row">
@@ -182,7 +180,7 @@ const CelebProfile = () => {
                 <span className="text-white fs-3 me-3">Packages</span>
                 <span className="text-secondary fs-6">How does it work</span>
               </div>
-              <PackagesTabs userId={profileData.mtUserId} />
+              <PackagesTabs userId={profileData.mtUserId} regname={profileData.regName} />
               <div className="my-3">
                 <Link to="/#" >
                   <span className="text-secondary fs-6">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { loginUser } from "../../services/api/api-service";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 const GlobalLogin = () => {
   const navigate = useNavigate();
   document.title = "Login | MARBIZ ";
@@ -110,13 +110,13 @@ const GlobalLogin = () => {
                     Login
                   </button>
                 </div>
-                {/* <div className="mt-3 mb-2">
-                  <Link to="/#">
+                <div className="mt-3 mb-2">
+                  <Link to="/forgetpassword">
                     <div className="text-secondary text-center">
                       Forgot Password?
                     </div>
                   </Link>
-                </div> */}
+                </div>
               </Form>
             </div>
           </Col>
