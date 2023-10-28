@@ -69,7 +69,7 @@ const AddPackages = () => {
                             Give a Name to Your Package
                         </label>
                         <input
-                            type="text"
+                            type=""
                             className="form-control dark-bg"
                             name="title"
                             required

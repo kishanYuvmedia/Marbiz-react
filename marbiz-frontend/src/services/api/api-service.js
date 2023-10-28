@@ -52,6 +52,7 @@ export const getInfluencersAll = (platform, category1) => {
   let filter = {
     where: {},
     order: "id desc",
+    limit:30,
   };
   if (platform != null && category1.length > 0) {
     filter.where.and = [
@@ -241,4 +242,7 @@ export const getImagesListType = (id,type) => {
     where: { status: "A", and: [{ caption:type}] },
     limit: 6,
   })
+}
+export const UploadImages = data => {
+  return create("Images", data)
 }

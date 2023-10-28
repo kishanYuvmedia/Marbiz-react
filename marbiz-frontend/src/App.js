@@ -19,7 +19,6 @@ import GlobalLogin from "./Page/Login/GlobalLogin";
 import AboutUs from "./Page/AboutUs";
 import Explore from "./Page/Explore";
 import Celebrity from "./Page/Celebrity";
-
 // Creator routes
 import Creator from "./Page/CreatorAuth/Creator";
 import UploadImage from "./Page/CreatorAuth/UploadImage";
@@ -30,7 +29,8 @@ import CreatorPackages from "./Page/CreatorAuth/CreatorPackages";
 import CreatorEnquiries from "./Page/CreatorAuth/CreatorEnquiries";
 import CreatorPassword from "./Page/CreatorAuth/CreatorPassword";
 import AddPackages from "./Page/CreatorAuth/AddPackages";
-
+import CreatorUpload from "./Page/CreatorAuth/CreatorUpload";
+import PortfolioList from "./Page/CreatorAuth/PortfolioList";
 // Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
@@ -54,7 +54,6 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/celebrity" element={<Celebrity />} />
-
           {/* Creator Routes */}
           <Route path="/creator" element={<Creator />} />
           <Route path="/emailverify" element={<Verify />} />
@@ -67,10 +66,10 @@ function App() {
             <Route path="AddPackages" element={<AddPackages pagetitle="My Packages" />} />
             <Route path="CreatorEnquiries" element={<CreatorEnquiries pagetitle="My Enquiries" />} />
             <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
+            <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
+            <Route path="CreatorUpload" element={<CreatorUpload pagetitle="Add Portfolio" />} />
+            <Route path="PortfolioList" element={<PortfolioList pagetitle="Portfolio List"/>}/>
           </Route>
-
-
-
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />

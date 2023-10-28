@@ -3,7 +3,6 @@ import PackagesTabs from "../Components/PackagesTabs";
 import { useParams, Link } from "react-router-dom";
 import {
   getInfluencersProfile,
-  getImagesList,
   getInfluencersList,
 } from "../services/api/api-service";
 import _ from "lodash";
@@ -13,7 +12,6 @@ import Portfolio from "../Components/Portfolio";
 const CelebProfile = () => {
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
-  const [images, setImages] = useState([]);
   const [list, setList] = useState([]);
   const [type, settype] = useState("");
   function getlist(type, valueSetter) {
@@ -37,23 +35,11 @@ const CelebProfile = () => {
         setprofile(result);
         getlist(result.categoryType, setList);
         settype(result.categoryType);
-        getImagesList(result.id)
-          .then((resultdb) => {
-            setTimeout(() => {
-              setImages(resultdb); // Use placeholder data
-            }, 1000);
-
-            console.log("images", images);
-          })
-          .catch((err) => {
-            console.error("Error fetching profile data:", err);
-          });
       })
       .catch((err) => {
         console.error("Error fetching profile data:", err);
       });
-  }, [images, regName]);
-
+  }, [regName]);
   // Render nothing if profileData is still null
   if (profileData === null) {
     return null;

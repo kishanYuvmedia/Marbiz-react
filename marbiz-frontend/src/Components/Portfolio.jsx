@@ -1,56 +1,43 @@
 import React, { useEffect, useState } from "react";
 import Flicking from '@egjs/react-flicking'
 import { isEmpty, result } from "lodash";
-import { getImagesList,getPublicList,getImagesListType } from "../services/api/api-service"
+import { Modal, Button } from "react-bootstrap";
+import { getPublicList, getImagesListType } from "../services/api/api-service"
 const Portfolio = ({ userId }) => {
-    const flikingOption = {
-        // defaultIndex: 1,
-        // bound: true,
-        deceleration: 0.0005,
-        circular: true,
-        align: "prev",
-        // renderOnlyVisible: true,
-        // duration: 500,
-        inputType: ["touch", "mouse", "pointer"],
-        // moveType: 'freeScroll',
-        // moveType: "snap",
-        panelsPerView: 4,
-        resizeOnContentsReady: true,
-        preventDefaultOnDrag: true,
-        bounce: "20%"
-    }
+    console.log("userId", userId);
     const [list, setList] = useState([]);
-    const [Category, setCategory] = useState(null);
+    const [show, setShow] = useState(false);
+    const [videoSrc, setVideoSrc] = useState("");
+    const handleShow = (src) => {
+        setVideoSrc(src);
+        setShow(true);
+    };
+
+    const handleClose = () => {
+        setVideoSrc("");
+        setShow(false);
+    };
+
+    const [Category, setCategory] = useState('Image');
     const [user, setUser] = useState(userId);
     const [contenttype, setContentType] = useState(null);
-    useEffect(() => {
-        getPackage(Category)
-    }, [Category])
     useEffect(() => {
         getPublicList("Content Type").then((result) => {
             setContentType(result);
         });
+        getPackage(Category);
     }, [])
     function getPackage(type) {
+        setCategory(type);
         setList([]);
-        if (type == null) {
-            getImagesList(user).then(result => {
-                if (!isEmpty(result)) {
-                    setList(result);
-                }
-            }).catch((e) => {
-                setList([]);
-            })
-        }
-        else{
-            getImagesListType(user,type).then(result => {
-                if (!isEmpty(result)) {
-                    setList(result);
-                }
-            }).catch((e) => {
-                setList([]);
-            })
-        }
+        getImagesListType(userId, type).then(result => {
+            if (!isEmpty(result)) {
+                setList(result);
+                console.log(result);
+            }
+        }).catch((e) => {
+            setList([]);
+        })
     }
     return (
         <>
@@ -61,9 +48,9 @@ const Portfolio = ({ userId }) => {
                         <button
                             className={`nav-link px-2 ${Category == item.value ? 'active' : ''}`}
                             id={`all-${item.value}`}
-                            onClick={() => setCategory(item.value )}
+                            onClick={() => getPackage(item.value)}
                         >
-                          { item.value}
+                            {item.value}
                         </button>
                     </li>
                 )}
@@ -75,24 +62,35 @@ const Portfolio = ({ userId }) => {
                     role="tabpanel"
                     aria-labelledby="all-post"
                 >
-                    {/* <LightBoxGallery images={props.images} /> */}
-
                     <div className="container-fluid ">
                         <div className="row py-3">
-                            <div className="col-md-12 ">
-                                <h2>{Category}</h2>
-                                <Flicking
-                                    {...flikingOption}
-                                >
-                                    {list.map((item, index) =>
-                                        <div className='p-3' key={index}>
-                                            <img src={item.src} alt={item.caption} className="rounded-3 img-fluid" />
+                            <h2>{Category}</h2>
+                            {list.map((item, index) =>
+                                <div className='col-md-3 col-6 mb-3' key={index}>
+                                    {item.caption === "Image" &&
+
+                                        <img src={item.src} alt={item.caption} style={{ objectFit: 'cover', height: '100%', width: '100%' }} className="rounded-3 img-fluid" />
+
+
+                                    } {item.caption != "Image" &&
+                                        <div className="position-relative">
+                                            <a
+                                                onClick={() =>
+                                                    handleShow(item.sourceUrl)
+                                                }
+                                            >
+                                                <img
+                                                    src={item.src}
+                                                    alt={item.caption}
+                                                    className="youtube-thumb"
+                                                />
+                                                <span className="play_icon"></span>
+                                            </a>
                                         </div>
-                                    )}
+                                    }
 
-                                </Flicking>
-                            </div>
-
+                                </div>
+                            )}
                         </div>
 
 
@@ -100,7 +98,19 @@ const Portfolio = ({ userId }) => {
                 </div>
             </div>
             {/* <!-- Tabs content --> */}
-
+            <Modal show={show} onHide={handleClose} centered closeButton size="lg" class="youtube-mobal-box" id="youtube-mobal-box">
+                {/* <Modal.Header  /> */}
+                <Modal.Body  >
+                    <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>
+                    <div className="ratio ratio-16x9">
+                        <iframe
+                            className="embed-responsive-item"
+                            src={`https://www.youtube.com/embed/${videoSrc}?si=2jZjY79pliCugrnY`}
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </Modal.Body>
+            </Modal>
         </>
     )
 }

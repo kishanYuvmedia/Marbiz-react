@@ -13,7 +13,6 @@ const Explore = () => {
   const [list, setList] = useState([]);
   const [getPlatform, setPlatform] = useState(null);
   const [getCategory, setCategory] = useState([]);
-  
   function getlist(p,c) {
       getInfluencersAll(p,c)
       .then((result) => {

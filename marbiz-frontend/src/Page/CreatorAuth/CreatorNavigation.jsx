@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import { Link, Outlet, useNavigate } from "react-router-dom";
-
-
-
 const CreatorNavigation = () => {
 
     const [activeNavItem, setActiveNavItem] = useState('Dashboard');
@@ -40,6 +37,18 @@ const CreatorNavigation = () => {
                                     <Link to="/creatorDashboard/CreatorEnquiries" onClick={() => handleNavItemClick('Enquires')}>
                                         <i className="lni lni-files me-2"></i>
                                         Enquires
+                                    </Link>
+                                </li>
+                                <li className={activeNavItem === 'CreatorUpload' ? 'active' : ''}>
+                                    <Link to="/creatorDashboard/CreatorUpload" onClick={() => handleNavItemClick('CreatorUpload')}>
+                                        <i className="lni lni-image me-2"></i>
+                                        Add Portfolio
+                                    </Link>
+                                </li>
+                                <li className={activeNavItem === 'PortfolioList' ? 'active' : ''}>
+                                    <Link to="/creatorDashboard/PortfolioList" onClick={() => handleNavItemClick('PortfolioList')}>
+                                        <i className="lni lni-image me-2"></i>
+                                         Portfolio List
                                     </Link>
                                 </li>
                                 <li className={activeNavItem === 'CreatorPackages' ? 'active' : ''}>
