@@ -91,9 +91,9 @@ const CelebHoverSlider = () => {
   const settings = {
     dots: false,
     infinite: false,
-    draggable: false,
+    draggable: true,
     arrows: false,
-
+    centerMode: true,
   };
 
   const handleVideoHover = (index) => {
@@ -122,6 +122,7 @@ const CelebHoverSlider = () => {
 
 
 
+
   return (
     <>
       <Slider className='video-slider' {...settings}>
@@ -129,13 +130,13 @@ const CelebHoverSlider = () => {
           <div
             key={video.index}
             className={`vd-box m${video.index + 1}`}
-            // onMouseEnter={() => handleVideoHover(index)}
-            // onMouseLeave={handleVideoPause}
+            onMouseEnter={() => handleVideoHover(index)}
+            onMouseLeave={() => handleVideoHover(null)}
           >
             <video
               className="clip"
               poster={video.poster}
-              autoPlay={activeVideoIndex === index}
+              // autoPlay={activeVideoIndex === index}
               // autoPlay
               muted
               loop
@@ -164,7 +165,7 @@ const CelebHoverSlider = () => {
       ))}
 
       <div className="celebrity-name celeb-list"
-      // style={{ display: activeVideoIndex === null ? "block" : "none" }}
+      style={{ display: activeVideoIndex === null ? "block" : "none" }}
       >
         <div className="celeb-nm">1000+ brands <span>•</span> 850 mn+ reach</div>
       </div>
