@@ -123,6 +123,11 @@
     /* max-width: 110px; */
   }
 
+  .owl-carousel.owl-drag .owl-item {
+    width: 360px !important;
+  
+  }
+
   .bottom-nav-item .bottom-nav-link svg {
     font-size: 23px;
   }

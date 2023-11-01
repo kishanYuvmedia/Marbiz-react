@@ -148,7 +148,7 @@ const Celebrity = () => {
       <div className="container">
         <div className="row py-5">
           <div className="col-md-6">
-            <video class="video video-sec rounded-3" id="myvideo" width="100%" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/video_b2b_thmbnail.png?tr=q-80" loop="">
+            <video className="video video-sec rounded-3" id="myvideo" width="100%" poster="https://ik.imagekit.io/j83rchiauw/brand-enquiry/video_b2b_thmbnail.png?tr=q-80" loop="">
             </video>
           </div>
           <div className="col-12 col-md-6">
@@ -161,7 +161,7 @@ const Celebrity = () => {
                   <button className='btn-global px-3'>Start Now!</button>
                 </Link>
               </div>
-              <div class="modern-img">
+              <div className="modern-img">
                 <img src="https://ik.imagekit.io/j83rchiauw/brand-enquiry/person-6.png?tr=q-80" alt="modern-img" />
               </div>
             </div>
@@ -169,7 +169,7 @@ const Celebrity = () => {
         </div>
         <div className="row py-5">
           <div className="col-md-6">
-            <div class="get-touch-img">
+            <div className="get-touch-img">
               <img src="https://ik.imagekit.io/j83rchiauw/brand-enquiry/getintouch-web1.png?tr=q-80" alt="modern-img" />
             </div>
           </div>

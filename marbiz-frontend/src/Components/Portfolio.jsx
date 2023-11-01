@@ -98,7 +98,7 @@ const Portfolio = ({ userId }) => {
                 </div>
             </div>
             {/* <!-- Tabs content --> */}
-            <Modal show={show} onHide={handleClose} centered closeButton size="lg" class="youtube-mobal-box" id="youtube-mobal-box">
+            <Modal show={show} onHide={handleClose} centered closeButton size="lg" className="youtube-mobal-box" id="youtube-mobal-box">
                 {/* <Modal.Header  /> */}
                 <Modal.Body  >
                     <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>

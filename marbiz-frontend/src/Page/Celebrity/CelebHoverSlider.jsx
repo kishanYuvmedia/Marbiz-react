@@ -127,7 +127,7 @@ const CelebHoverSlider = () => {
       <Slider className='video-slider' {...settings}>
         {videoData.map((video, index) => (
           <div
-            key={video.id}
+            key={video.index}
             className={`vd-box m${video.index + 1}`}
             // onMouseEnter={() => handleVideoHover(index)}
             // onMouseLeave={handleVideoPause}
