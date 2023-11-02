@@ -1422,7 +1422,9 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 }
 
 .owl-carousel.owl-drag .owl-item.active.center {
-  width: 260px !important;
+  /* width: 260px !important; */
+  display: flex;
+  justify-content: center;
 }
 
 

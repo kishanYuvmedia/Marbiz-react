@@ -4,8 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
 import HoverVideoPlayer from 'react-hover-video-player';
 
 const CelebHoverSlider = () => {
@@ -83,12 +81,7 @@ const CelebHoverSlider = () => {
     }
   ];
 
-
-
   const [activeVideoIndex, setActiveVideoIndex] = useState(null);
-
-
-
 
   const settings = {
     dots: false,
@@ -100,48 +93,36 @@ const CelebHoverSlider = () => {
 
   const handleVideoHover = (index) => {
     setActiveVideoIndex(index);
-    
   };
-
-  
-
 
   return (
     <>
-      
 
       <Slider className='video-slider' {...settings}>
         {videoData.map((video, index) => (
           <div
             key={video.index}
             className={`vd-box m${video.index + 1}`}
-            // className="vd-box"
-            ontouchstart={() => handleVideoHover(index)}
-            ontouchend={() => handleVideoHover(null)}
+
+            // ontouchstart={() => handleVideoHover(index)}
+            // ontouchend={() => handleVideoHover(null)}
             onMouseEnter={() => handleVideoHover(index)}
             onMouseLeave={() => handleVideoHover(null)}
           >
             <HoverVideoPlayer
               id={`video-${index}`}
               className="clip"
-              // className={`clip m${video.index + 1}`}
               type="video/mp4"
               videoSrc={video.src}
-
               poster={video.poster}
-
               style={{
                 width: '100%',
                 transition: 'width 0.8s ease',
                 width: activeVideoIndex === index ? '180px' : '80px',
               }}
-
             />
-
           </div>
-
         ))}
-
       </Slider>
 
       {videoData.map((video, index) => (
@@ -159,9 +140,6 @@ const CelebHoverSlider = () => {
       >
         <div className="celeb-nm">1000+ brands <span>•</span> 850 mn+ reach</div>
       </div>
-
-
-
 
     </>
   )
