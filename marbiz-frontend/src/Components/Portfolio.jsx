@@ -3,6 +3,7 @@ import Flicking from '@egjs/react-flicking'
 import { isEmpty, result } from "lodash";
 import { Modal, Button } from "react-bootstrap";
 import { getPublicList, getImagesListType } from "../services/api/api-service"
+
 const Portfolio = ({ userId }) => {
     console.log("userId", userId);
     const [list, setList] = useState([]);
@@ -21,12 +22,14 @@ const Portfolio = ({ userId }) => {
     const [Category, setCategory] = useState('Image');
     const [user, setUser] = useState(userId);
     const [contenttype, setContentType] = useState(null);
+
     useEffect(() => {
         getPublicList("Content Type").then((result) => {
             setContentType(result);
         });
         getPackage(Category);
     }, [])
+
     function getPackage(type) {
         setCategory(type);
         setList([]);
@@ -39,6 +42,7 @@ const Portfolio = ({ userId }) => {
             setList([]);
         })
     }
+
     return (
         <>
             {/* <!-- Tabs navs --> */}
@@ -66,42 +70,59 @@ const Portfolio = ({ userId }) => {
                         <div className="row py-3">
                             <h2>{Category}</h2>
                             {list.map((item, index) =>
-                                <div className='col-md-3 col-6 mb-3' key={index}>
-                                    {item.caption === "Image" &&
-
-                                        <img src={item.src} alt={item.caption} style={{ objectFit: 'cover', height: '100%', width: '100%' }} className="rounded-3 img-fluid" />
-
-
-                                    } {item.caption != "Image" &&
-                                        <div className="position-relative">
-                                            <a
-                                                onClick={() =>
-                                                    handleShow(item.sourceUrl)
-                                                }
-                                            >
-                                                <img
-                                                    src={item.src}
-                                                    alt={item.caption}
-                                                    className="youtube-thumb"
-                                                />
-                                                <span className="play_icon"></span>
-                                            </a>
-                                        </div>
-                                    }
-
+                                <div className='col-md-3 col-6 mb-3 ' key={index}>
+                                    <div className="reel-card">
+                                        {item.caption === "Image" &&
+                                            <img
+                                                className="rounded-3 img-fluid"
+                                                src={item.src}
+                                                alt={item.caption}
+                                                style={{
+                                                    objectFit: 'cover',
+                                                    height: '100%',
+                                                    width: '100%'
+                                                }}
+                                            />
+                                        } {item.caption != "Image" &&
+                                            <div className="position-relative ">
+                                                <a
+                                                    onClick={() =>
+                                                        handleShow(item.sourceUrl)
+                                                    }
+                                                >
+                                                    <img
+                                                        src={item.src}
+                                                        alt={item.caption}
+                                                        className="youtube-thumb"
+                                                    />
+                                                    <span className="play_icon"></span>
+                                                </a>
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             )}
                         </div>
-
-
                     </div>
                 </div>
             </div>
             {/* <!-- Tabs content --> */}
-            <Modal show={show} onHide={handleClose} centered closeButton size="lg" className="youtube-mobal-box" id="youtube-mobal-box">
+            <Modal
+                show={show}
+                onHide={handleClose}
+                centered
+                closeButton
+                size="lg"
+                className="youtube-mobal-box"
+                id="youtube-mobal-box"
+            >
                 {/* <Modal.Header  /> */}
                 <Modal.Body  >
-                    <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>
+                    <Button
+                        variant="danger"
+                        className="btn-close px-2"
+                        onClick={handleClose}>
+                    </Button>
                     <div className="ratio ratio-16x9">
                         <iframe
                             className="embed-responsive-item"

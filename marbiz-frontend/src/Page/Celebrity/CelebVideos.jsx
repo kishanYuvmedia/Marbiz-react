@@ -19,7 +19,7 @@ const CelebVideos = ({ movie }) => {
 
     return (
         <>
-            <motion.div
+            <motion.div 
                 layout
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}

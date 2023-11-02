@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import PackagesTabs from "../Components/PackagesTabs";
 import { useParams, Link } from "react-router-dom";
-import {
-  getInfluencersProfile,
-  getInfluencersList,
-} from "../services/api/api-service";
+import { getInfluencersProfile, getInfluencersList } from "../services/api/api-service";
 import _ from "lodash";
 import SliderList from "../Components/SliderList";
 import Portfolio from "../Components/Portfolio";
 
 const CelebProfile = () => {
+
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [list, setList] = useState([]);
   const [type, settype] = useState("");
+
   function getlist(type, valueSetter) {
     getInfluencersList(6, type)
       .then((result) => {
@@ -40,6 +39,7 @@ const CelebProfile = () => {
         console.error("Error fetching profile data:", err);
       });
   }, [regName]);
+
   // Render nothing if profileData is still null
   if (profileData === null) {
     return null;
@@ -173,6 +173,7 @@ const CelebProfile = () => {
               </Link>
             </div>
           </div>
+
           {/* Packages section */}
           <div className="container">
             <div className="row">
