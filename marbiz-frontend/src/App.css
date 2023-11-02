@@ -1131,11 +1131,11 @@ body {
   color: white;
   font-size: 16px;
   border-bottom: 0;
-  width: 130px;
+  /* width: 130px; */
 }
 
 .package-navigation .nav-item {
-  /* width: 50%; */
+  width: 11%;
   margin: 10px;
 }
 .package-navigation .nav-item a {
@@ -1562,7 +1562,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 }
 
 .video-slider .slick-list {
-	width: 80%;
+	width: 90%;
 	margin: auto;
   height: 360px;
 }
@@ -1597,7 +1597,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   height: 279px;
   color: #000;
   margin: 8px;
-  transition: width .8s;
+  transition: width .8s ease-in-out;
   position: relative;
 }
 
@@ -1613,6 +1613,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 	filter: grayscale(1);
 	object-position: top;
 	object-fit: cover;
+  transition: filter 0.3s ease-in-out;
 }
 
 .hover-vd .m2, .hover-vd .m7 {

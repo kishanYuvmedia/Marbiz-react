@@ -40,7 +40,7 @@ const CelebritySlider = () => {
     const options = {
         loop: true,
         lazyLoad: true,
-        video:true,
+        video: true,
         margin: 10,
         nav: false,
         dots: false,
@@ -62,12 +62,12 @@ const CelebritySlider = () => {
         },
     }
 
-    
+
     return (
         <>
 
             <OwlCarousel className="owl-theme new-slider" {...options}
-                
+
             >
                 {videoData.map((video, index) => (
 
