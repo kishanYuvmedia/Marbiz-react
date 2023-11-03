@@ -1051,12 +1051,14 @@ body {
 .gallery-container-one {
   height: 515px;
   position: relative;
-  
 }
 
 .gallery-container-one img,
 .gallery-container-two img,
 .gallery-container-three img {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -1073,20 +1075,26 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  color: #fff;
-  display: none;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  color: #fff;
   font-size: 12px;
+
 }
 
 .gallery-container-one:hover .gallery-overlay,
 .gallery-container-two:hover .gallery-overlay,
 .gallery-container-three:hover .gallery-overlay {
-  display: flex;
+  /* display: flex; */
+  opacity: 1;
+  z-index: 5;
 }
 
 .gallery-container-one .gallery-overlay span,

@@ -345,7 +345,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
                 style={{ display: "none" }}
                 onChange={handleImageChange1}
               />
-              <label htmlFor="icon-image-1-file" style={{ height: "100%", objectFit: "cover" }}>
+              <label htmlFor="icon-image-1-file" >
                 <img
                   src={
                     isEmpty(selectedImage1)
@@ -353,12 +353,12 @@ const CreatorMyProfile = ({ pagetitle }) => {
                       : selectedImage1
                   }
                   alt={_.get(profileData, "fullName") ? profileData.fullName : "User"}
-                  className="rounded-3"
+                  className="rounded-3 img-fluid"
                 />
+              </label>
                 <div className="gallery-overlay fs-6">
                   <span>Update Image</span>
                 </div>
-              </label>
             </div>
           </Col>
 
