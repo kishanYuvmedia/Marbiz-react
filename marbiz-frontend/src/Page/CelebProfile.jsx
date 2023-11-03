@@ -158,7 +158,7 @@ const CelebProfile = () => {
                     {profileData.fullName} is a top creator
                   </h4>
                   <p className="text-secondary">
-                    {" "}
+                     
                     Top creators have completed multiple orders and have a high
                     rating from brands
                   </p>

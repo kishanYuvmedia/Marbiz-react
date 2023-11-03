@@ -1001,20 +1001,50 @@ body {
 .navbar-collapse {
   display: grid;
 }
-
 .profile-image-container {
-  border-radius: 50%;
-  overflow: hidden; /* This is important to ensure the image stays within the circular container */
-  width: 100px; /* Set your desired width */
-  height: 100px; /* Set your desired height */
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
 
-/* Add additional styling for the image if needed */
+.profile-image-container .image-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .profile-image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This ensures the image fills the circular container */
+  object-fit: cover;
   object-position: center;
+  transition: all 0.3s ease;
+}
+
+.profile-image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #fff;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image-container:hover .overlay {
+  display: flex;
+}
+
+.profile-image-container .overlay span {
+  display: inline-block;
+  padding: 10px;
 }
 
 .gallery-container-one {
@@ -1069,7 +1099,7 @@ body {
     #fc396e,
     #f5615f
   );
-  transition: .4s ease;
+  transition: 0.4s ease;
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
   /* box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75); */
 }
@@ -1096,7 +1126,7 @@ body {
     #fc396e
   );
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
-  transition: .4s ease;
+  transition: 0.4s ease;
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
 }
 
@@ -1125,7 +1155,6 @@ body {
   );
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
-  
 }
 
 .nav-tabs .nav-link {
@@ -1431,8 +1460,6 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   justify-content: center;
 }
 
-
-
 .new-brand-box .new-slider .owl-item {
   /* -webkit-mask-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,1), rgba(0,0,0,0)); */
   -webkit-mask-image: -webkit-linear-gradient(
@@ -1478,8 +1505,8 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 .new-brand-box .video-sec {
   border-radius: 15px;
 }
-.form-label{
-  color: '#fff';
+.form-label {
+  color: "#fff";
 }
 
 /* our work filter gallery */
@@ -1503,7 +1530,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   margin-bottom: 0.2rem;
 }
 
-.youtube-card .play_icon, 
+.youtube-card .play_icon,
 .reel-card .play_icon {
   width: 30px;
   height: 30px;
@@ -1525,10 +1552,8 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 }
 
 .filter-container .tab_title.active {
-  background-image: linear-gradient(55deg,#ff893b,#f02828);
+  background-image: linear-gradient(55deg, #ff893b, #f02828);
   border: 2px solid #fff;
-
-  
 }
 
 .filter-container .tab_title {
@@ -1542,7 +1567,6 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   cursor: pointer;
   margin: 0 10px;
   border-radius: 20px;
-  
 }
 
 /* slick slider */
@@ -1562,34 +1586,35 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   -webkit-tap-highlight-color: transparent;
 }
 
-.slick-slider .slick-list, .slick-slider .slick-track {
-  -webkit-transform: translate3d(0,0,0);
-  -moz-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  -o-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+.slick-slider .slick-list,
+.slick-slider .slick-track {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .video-slider .slick-list {
-	width: 90%;
-	margin: auto;
+  width: 90%;
+  margin: auto;
   height: 360px;
 }
 
 .hover-vd .celebrity-name {
-	text-align: center;
-	margin: 10px 0 0;
-	font-size: 36px;
-	color: #fff;
-	/* font-family: RedHatDisplay-Regular; */
-	animation: 1.5s forwards slideLeft;
+  text-align: center;
+  margin: 10px 0 0;
+  font-size: 36px;
+  color: #fff;
+  /* font-family: RedHatDisplay-Regular; */
+  animation: 1.5s forwards slideLeft;
 }
 
 .brand-nm {
-	text-align: center;
-	font-family: Verveine-Regular;
-	font-size: 28px;
-	color: #f9f9f9;
+  text-align: center;
+  font-family: Verveine-Regular;
+  font-size: 28px;
+  color: #f9f9f9;
 }
 
 /* .hover-vd .vd-box {
@@ -1606,48 +1631,53 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   height: 279px;
   color: #000;
   margin: 8px;
-  transition: width .8s ease-in-out;
+  transition: width 0.8s ease-in-out;
   position: relative;
 }
 
 .hover-vd .m1 {
-	background-repeat: round;
-	background-size: cover;
+  background-repeat: round;
+  background-size: cover;
 }
 
 .vd-box video {
-	position: absolute;
-	width: 100%;
-	height: 279px;
-	filter: grayscale(1);
-	object-position: top;
-	object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 279px;
+  filter: grayscale(1);
+  object-position: top;
+  object-fit: cover;
   transition: filter 0.3s ease-in-out;
 }
 
-.hover-vd .m2, .hover-vd .m7 {
-	margin-top: 40px;
+.hover-vd .m2,
+.hover-vd .m7 {
+  margin-top: 40px;
 }
 
-.hover-vd .m3, .hover-vd .m6, .hover-vd .m9 {
-	margin-top: 65px;
+.hover-vd .m3,
+.hover-vd .m6,
+.hover-vd .m9 {
+  margin-top: 65px;
 }
-.hover-vd .m10, .hover-vd .m5, .hover-vd .m8 {
-	margin-top: 0px;
+.hover-vd .m10,
+.hover-vd .m5,
+.hover-vd .m8 {
+  margin-top: 0px;
 }
 
 .hover-vd .m4 {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .vd-box:hover video {
-	filter: grayscale(0);
+  filter: grayscale(0);
 }
 .vd-box:hover {
-	width: 180px !important;
-	cursor: pointer;
+  width: 180px !important;
+  cursor: pointer;
 }
 .hover-vd .slick-slide:hover {
-	width: 180px !important;
-	cursor: pointer;
+  width: 180px !important;
+  cursor: pointer;
 }

@@ -4,7 +4,7 @@ const CreatorNavigation = () => {
 
     const [activeNavItem, setActiveNavItem] = useState('Dashboard');
     const navigate = useNavigate();
-    
+
 
     const handleNavItemClick = (item) => {
         setActiveNavItem(item);
@@ -48,7 +48,7 @@ const CreatorNavigation = () => {
                                 <li className={activeNavItem === 'PortfolioList' ? 'active' : ''}>
                                     <Link to="/creatorDashboard/PortfolioList" onClick={() => handleNavItemClick('PortfolioList')}>
                                         <i className="lni lni-image me-2"></i>
-                                         Portfolio List
+                                        Portfolio List
                                     </Link>
                                 </li>
                                 <li className={activeNavItem === 'CreatorPackages' ? 'active' : ''}>

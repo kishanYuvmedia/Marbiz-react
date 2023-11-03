@@ -213,7 +213,7 @@ const CreatorUpload = ({ pagetitle }) => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="sourceUrl" className="form-label text-white">
-                            Source Url <strong>User Youtube Video link  {" "}<a style={{color:'red'}}
+                            Source Url <strong>User Youtube Video link   <a style={{color:'red'}}
                                                 onClick={() =>
                                                     handleShow()
                                                 }

@@ -424,7 +424,7 @@ export default function AddInfluencer(props) {
                         </div>
                       </Col>
                       <Col md={3}>
-                        {" "}
+                         
                         {imagePreview && (
                           <img
                             src={imagePreview}

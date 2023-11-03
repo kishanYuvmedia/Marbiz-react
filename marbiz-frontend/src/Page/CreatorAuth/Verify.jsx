@@ -43,10 +43,10 @@ export default function Verify() {
         <div className="p-5 text-center bg-body-tertiary hero">
           <div className="container py-5">
             <h1>
-              Don't refresh{" "}
+              Don't refresh 
               <strong style={{ color: "#9a73ff" }}>
-                {searchParams.get("email")}{" "}
-              </strong>{" "}
+                {searchParams.get("email")} 
+              </strong> 
               page wait for verify your account
             </h1>
             <Spinner animation="border" variant="primary" />

@@ -454,7 +454,7 @@ export default function Upload() {
                               paddingBottom: 10,
                             }}
                           >
-                            {" "}
+                             
                             <input
                               accept="image/*"
                               id="icon-image-1-file"

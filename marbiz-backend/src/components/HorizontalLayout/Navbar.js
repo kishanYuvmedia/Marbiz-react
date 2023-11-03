@@ -307,7 +307,7 @@ const Navbar = props => {
                               setemail(!email)
                             }}
                           >
-                            <span key="t-email-templates">Templates</span>{" "}
+                            <span key="t-email-templates">Templates</span>
                             <div className="arrow-down"></div>
                           </Link>
                           <div
@@ -346,7 +346,7 @@ const Navbar = props => {
                           setecommerce(!ecommerce)
                         }}
                       >
-                        {props.t(" Ecommerce")}{" "}
+                        {props.t(" Ecommerce")}
                         <div className="arrow-down"></div>
                       </Link>
                       <div
@@ -589,7 +589,7 @@ const Navbar = props => {
                               setCandidate(!candidate)
                             }}
                           >
-                            <span key="t-candidate">Candidate</span>{" "}
+                            <span key="t-candidate">Candidate</span>
                             <div className="arrow-down"></div>
                           </Link>
                           <div
@@ -661,7 +661,7 @@ const Navbar = props => {
                           {props.t("Form Editors")}
                         </Link>
                         <Link to="/form-uploads" className="dropdown-item">
-                          {props.t("Form File Upload")}{" "}
+                          {props.t("Form File Upload")}
                         </Link>
                         <Link to="/form-repeater" className="dropdown-item">
                           {props.t("Form Repeater")}
@@ -717,15 +717,15 @@ const Navbar = props => {
                         className={classname("dropdown-menu", { show: chart })}
                       >
                         <Link to="/apex-charts" className="dropdown-item">
-                          {" "}
+
                           {props.t("Apex charts")}
                         </Link>
                         <Link to="/chartjs-charts" className="dropdown-item">
-                          {" "}
+
                           {props.t("E Chart")}
                         </Link>
                         <Link to="/e-charts" className="dropdown-item">
-                          {" "}
+
                           {props.t("Chartjs Chart")}
                         </Link>
 
@@ -736,7 +736,7 @@ const Navbar = props => {
                           {props.t("Re Chart")}
                         </Link>
                         <Link to="/sparkline-charts" className="dropdown-item">
-                          {" "}
+
                           {props.t("Sparkline Chart")}
                         </Link>
                       </div>
@@ -768,7 +768,7 @@ const Navbar = props => {
                           {props.t("Dripicons")}
                         </Link>
                         <Link to="/icons-fontawesome" className="dropdown-item">
-                          {props.t("Font awesome")}{" "}
+                          {props.t("Font awesome")}
                         </Link>
                       </div>
                     </div>
@@ -787,13 +787,13 @@ const Navbar = props => {
                         className={classname("dropdown-menu", { show: map })}
                       >
                         <Link to="/maps-google" className="dropdown-item">
-                          {props.t("Google Maps")}{" "}
+                          {props.t("Google Maps")}
                         </Link>
                         {/* <Link to="#" className="dropdown-item">
-                          {props.t("Vector Maps")}{" "}
+                          {props.t("Vector Maps")} 
                         </Link>
                         <Link to="#" className="dropdown-item">
-                          {props.t("Leaflet Maps")}{" "}
+                          {props.t("Leaflet Maps")} 
                         </Link> */}
                       </div>
                     </div>
@@ -847,7 +847,7 @@ const Navbar = props => {
                           setauth(!auth)
                         }}
                       >
-                        {props.t("Authentication")}{" "}
+                        {props.t("Authentication")}
                         <div className="arrow-down"></div>
                       </Link>
                       <div

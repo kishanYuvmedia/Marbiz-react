@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
-import {
-  Col,
-  Row,
-  Button
-} from "reactstrap"
-import {
-  getInfluencersProfilebyId,
-  UpdateProfile,
-} from "../../services/api/api-service";
+import { Col, Row, Button } from "reactstrap"
+import { getInfluencersProfilebyId, UpdateProfile } from "../../services/api/api-service";
 import _, { isEmpty } from "lodash"
 import defaultImage from '../../Images/default-image.jpg'
+
 const CreatorMyProfile = ({ pagetitle }) => {
+
   const [profileId, setprofileId] = useState(null);
   const [coverImages, setConverImages] = useState(null);
   const [coverImagesfile, setConverImagesfile] = useState(null);
@@ -26,7 +21,9 @@ const CreatorMyProfile = ({ pagetitle }) => {
   const [user, setUser] = useState(null);
   const [profileData, setprofile] = useState(null);
   const [type, settype] = useState("");
+
   useEffect(() => {
+
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"));
       setUser(obj);
@@ -55,6 +52,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
         });
     }
   }, []);
+
   const handleCoverImage = e => {
     const file = e.target.files[0]
     if (file) {
@@ -69,6 +67,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       setConverImagesfile(null)
     }
   }
+
   const handleImageChange1 = e => {
     const file = e.target.files[0]
     if (file) {
@@ -83,6 +82,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       setSelectedfile1(null)
     }
   }
+
   const handleImageChange2 = e => {
     const file = e.target.files[0]
     if (file) {
@@ -97,6 +97,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       setSelectedfile2(null)
     }
   }
+
   const handleImageChange3 = e => {
     const file = e.target.files[0]
 
@@ -112,6 +113,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       setSelectedfile3(null)
     }
   }
+
   const handleImageChange4 = e => {
     const file = e.target.files[0]
     if (file) {
@@ -126,6 +128,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       setSelectedfile4(null)
     }
   }
+
   const uploadfile = async (file, setSelectedImage) => {
     if (file) {
       const formDataImage = new FormData()
@@ -156,6 +159,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
     }
     return false // Return false if there's no file to upload
   }
+
   const handleUploadCoverPage = async () => {
     const promises = [
       uploadfile(coverImagesfile, setConverImages),
@@ -187,6 +191,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       })
     }
   }
+
   const handleUpload = async () => {
     const promises = [
       uploadfile(selectedfile1, setSelectedImage1),
@@ -224,6 +229,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       })
     }
   }
+
   return (
     <>
       {/* profile section */}
@@ -235,26 +241,35 @@ const CreatorMyProfile = ({ pagetitle }) => {
           {profileData &&
             <>
               <div className=" col-md-2 col-4 d-flex justify-content-center align-items-center">
+
                 <div className="profile-image-container">
                   <label
-                    htmlFor="icon-coverImge-file"
+                    htmlFor="icon-coverImage-file"
                     style={{ height: "100%", width: '100%' }}
                   >
-                    <img
-                      src={coverImages}
-                      alt="Generic placeholder"
-                      className="img-fluid rounded-circle border border-danger border-3"
-                    />
+                    <div className="image-overlay"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img
+                        src={coverImages}
+                        alt="Generic placeholder"
+                        className="img-fluid profile-pic rounded-circle border border-danger border-3"
+                      />
+                      <div className="overlay">
+                        <span>Update image</span>
+                      </div>
+                    </div>
                   </label>
                   <input
                     accept="image/*"
-                    id="icon-coverImge-file"
+                    id="icon-coverImage-file"
                     type="file"
                     name="coverimage"
                     style={{ display: "none" }}
                     onChange={handleCoverImage}
                   />
                 </div>
+
               </div>
               <div className="col-md-4 col-8 d-grid justify-content-between ">
                 <div className="">
@@ -273,26 +288,33 @@ const CreatorMyProfile = ({ pagetitle }) => {
                   </h6>
                 </div>
               </div>
-                      
+              <div className='col d-grid justify-content-center justify-content-md-end align-content-center'>
+                <button type="submit"
+                  onClick={handleUploadCoverPage}
+                  className="btn-global mt-2 px-3"
+                >
+                  Save Changes
+                </button>
+              </div>
+
             </>
           }
-          <div className='row'> 
-          <div className='col-md-2'>
-          <Button
-          type="submit"
-          onClick={handleUploadCoverPage}
-          className="btn-global px-3 py-1 mt-2 w-100"
-        >
-          Update Images
-        </Button>
-          </div>
-          </div>
+          {/* <div className='row'>
+            <div className='col-md-2'>
+              <button type="submit"
+                onClick={handleUploadCoverPage}
+                className="btn-global  mt-2 px-3"
+              >
+                save
+              </button>
+            </div>
+          </div> */}
         </div>
       </div>
 
       {/* gallery section */}
       <div className="container my-5">
-       
+
         <Row>
           <Col
             sm="6"
@@ -301,7 +323,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
               paddingBottom: 10,
             }}
           >
-            {" "}
+
             <input
               accept="image/*"
               id="icon-image-1-file"
@@ -453,7 +475,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
                 {_.get(profileData, "fullName") ? profileData.fullName : "User"} is a top creator
               </h4>
               <p className="text-secondary">
-                {" "}
+
                 Top creators have completed multiple orders and have a high
                 rating from brands
               </p>
