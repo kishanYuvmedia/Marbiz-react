@@ -26,7 +26,7 @@ const CelebFilterGallery = ({ userId }) => {
 
     const getPackage = (type) => {
         setCategory(type);
-        setList([]);
+        // setList([]);
     };
     useEffect(() => {
 

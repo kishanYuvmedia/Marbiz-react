@@ -1037,7 +1037,6 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 12px;
-  
 }
 
 .profile-image-container:hover .overlay {
@@ -1051,30 +1050,62 @@ body {
 
 .gallery-container-one {
   height: 515px;
+  position: relative;
+  
 }
-.gallery-container-one img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.gallery-container-two {
-  height: 250px;
-}
-.gallery-container-three {
-  height: 250px;
-}
-.gallery-container-two img {
-  height: 100%;
-  width: 100%;
 
-  object-fit: cover;
-  object-position: center;
-}
+.gallery-container-one img,
+.gallery-container-two img,
 .gallery-container-three img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
 
+.gallery-container-one .gallery-overlay,
+.gallery-container-two .gallery-overlay,
+.gallery-container-three .gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #fff;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.gallery-container-one:hover .gallery-overlay,
+.gallery-container-two:hover .gallery-overlay,
+.gallery-container-three:hover .gallery-overlay {
+  display: flex;
+}
+
+.gallery-container-one .gallery-overlay span,
+.gallery-container-two .gallery-overlay span,
+.gallery-container-three .gallery-overlay span {
+  display: inline-block;
+  padding: 10px;
+}
+
+.gallery-container-two,
+.gallery-container-three {
+  height: 250px;
+  position: relative;
+
+}
+
+.gallery-container-three img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   object-position: top;
 }

@@ -44,7 +44,7 @@ const CelebProfile = () => {
   if (profileData === null) {
     return null;
   }
-  
+
   return (
     <>
       {profileData && (
@@ -89,7 +89,7 @@ const CelebProfile = () => {
           {/* gallery section */}
           <div className="container my-5">
             <div className="row align-items-center">
-              <div className="col-md-6 col-lg-6 col-xl-6 d-none d-md-block">
+              <div className="col-md-6 d-none d-md-block">
                 {/* Large image for medium and larger screens */}
                 <div className="text-center gallery-container-one  ">
                   <img
@@ -158,7 +158,7 @@ const CelebProfile = () => {
                     {profileData.fullName} is a top creator
                   </h4>
                   <p className="text-secondary">
-                     
+
                     Top creators have completed multiple orders and have a high
                     rating from brands
                   </p>
@@ -200,7 +200,7 @@ const CelebProfile = () => {
                 {/* <span className="text-secondary fs-6">How does it work</span> */}
               </div>
               <Portfolio userId={profileData.id} />
-              
+
             </div>
           </div>
         </>

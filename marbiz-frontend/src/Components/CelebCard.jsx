@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 const CelebCard = (props) => {
   const [listcategory, setCategory] = useState(
     Array.isArray(props.category) ? props.category : []
   );
+  
   return (
     <div
       style={{
