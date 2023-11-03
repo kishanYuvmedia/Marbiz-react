@@ -256,7 +256,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
                         className="img-fluid profile-pic rounded-circle border border-danger border-3"
                       />
                       <div className="overlay">
-                        <span>Update image</span>
+                        <span>Update Image</span>
                       </div>
                     </div>
                   </label>

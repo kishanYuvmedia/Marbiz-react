@@ -1036,6 +1036,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
+  
 }
 
 .profile-image-container:hover .overlay {

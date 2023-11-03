@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Modal, Button } from "react-bootstrap";
 import { getPublicList } from "../../services/api/api-service";
-import { wrap } from "lodash";
+
 
 const CelebFilterGallery = ({ userId }) => {
-    const [workData, setWorkData] = useState([]);
+
     const [Category, setCategory] = useState("Celebrity");
     const [list, setList] = useState([]);
     const [show, setShow] = useState(false);
     const [videoSrc, setVideoSrc] = useState("");
 
 
-    const uniqueListTypes = Array.from(new Set(workData.map((item) => item.listType)));
+    const [uniqueListTypes, setUniqueListType] = useState([]);
 
     const handleShow = (src) => {
         setVideoSrc(src);
@@ -27,23 +27,23 @@ const CelebFilterGallery = ({ userId }) => {
     const getPackage = (type) => {
         setCategory(type);
         setList([]);
-
-        // Filter the workData array to get only items with the matching listType
-        const filteredList = workData.filter((item) => item.listType === type);
-
-        setList(filteredList);
     };
+    useEffect(() => {
 
+        getPublicList(Category)
+            .then((results) => {
+                setList(results)
+            })
+            .catch((err) => {
+                console.error("Error fetching data:", err);
+            });
+    }, [Category]);
 
     useEffect(() => {
-        // Combine data from "spokesperson" and "Celebrity" into one array
-        Promise.all([getPublicList("spokesperson"), getPublicList("Celebrity")])
-            .then((results) => {
-                const combinedData = [...results[0], ...results[1]];
-                setWorkData(combinedData);
 
-                // Show "Celebrity" data on page load
-                getPackage("Celebrity");
+        getPublicList('VideoType')
+            .then((results) => {
+                setUniqueListType(results)
             })
             .catch((err) => {
                 console.error("Error fetching data:", err);
@@ -51,23 +51,24 @@ const CelebFilterGallery = ({ userId }) => {
     }, []);
 
 
+
     return (
         <>
             <ul className="nav justify-content-center nav-tabs my-3" role="tablist">
-                {uniqueListTypes.map((listType, index) => (
+                {uniqueListTypes.map((list, index) => (
                     <li className="nav-item" key={index}>
                         <button
-                            className={`nav-link px-3 ${Category === listType ? "active" : ""}`}
-                            id={`all-${listType}`}
-                            onClick={() => getPackage(listType)}
+                            className={`nav-link text-capitalize px-3 ${Category === list.label ? "active" : ""}`}
+                            id={`all-${list.label}`}
+                            onClick={() => getPackage(list.label)}
                         >
-                            {listType}
+                            {list.label}
                         </button>
                     </li>
                 ))}
             </ul>
 
-            
+
             <div className="container-fluid">
                 <div className="row py-3 ">
                     <h3 className="text-capitalize text-danger text-center mb-3">All {Category} work</h3>
@@ -75,12 +76,12 @@ const CelebFilterGallery = ({ userId }) => {
 
                     <motion.div layout className="reel-card" style={{
                         display: "flex",
-                        justifyContent: "start",
+                        // justifyContent: "center",
                         flexWrap: "wrap",
                     }}>
                         <AnimatePresence>
                             {list.map((item, index) => (
-                                <div className="col-md-3 col-12 m-0 m-md-3" key={index}>
+                                <div className="col-12 col-md-3" key={index}>
                                     <motion.div
                                         layout
                                         animate={{ opacity: 1 }}
@@ -88,12 +89,12 @@ const CelebFilterGallery = ({ userId }) => {
                                         exit={{ opacity: 0 }}
                                     >
 
-                                        <div className="position-relative">
+                                        <div className="position-relative m-1">
                                             <a onClick={() => handleShow(item.videoSRC)}>
                                                 <img
                                                     src={item.thumbnailSRC}
                                                     alt={item.label}
-                                                    className="youtube-thumb"
+                                                    className="youtube-thumb "
 
                                                 />
                                                 <span className="play_icon"></span>
