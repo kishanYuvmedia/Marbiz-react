@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 const CelebCard = (props) => {
   const [listcategory, setCategory] = useState(
     Array.isArray(props.category) ? props.category : []
   );
+  
   return (
     <div
       style={{
@@ -14,39 +16,38 @@ const CelebCard = (props) => {
         className="card card-bg mx-2 card-has-bg click-col pt-3"
         style={{
           backgroundColor: "#00000000",
-          transform: `translateY(${
-            props.index === 0 ? 10 : props.index % 2 !== 0 ? -10 : 10
-          }px)`,
+          transform: `translateY(${props.index === 0 ? 10 : props.index % 2 !== 0 ? -10 : 10
+            }px)`,
         }}
       >
-        <div
-          className="card card-img pt-3"
-          style={{
-            backgroundImage: `url("${props.image}")`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-
-            height: `${props.cardHeight}px`,
-          }}
+        <Link
+          to={`/${props.regName}`}
         >
-          <div className="card-img-overlay d-flex flex-column">
-            <div className="card-body"></div>
-            <div className="card-footer p-0">
-              <div className="media">
-                <div className="media-body" style={{ textAlign: "start" }}>
-                  <Link
-                    to={`/
-${props.regName}`}
-                  >
+          <div
+            className="card card-img pt-3"
+            style={{
+              backgroundImage: `url("${props.image}")`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+
+              height: `${props.cardHeight}px`,
+            }}
+          >
+            <div className="card-img-overlay d-flex flex-column">
+              <div className="card-body"></div>
+              <div className="card-footer p-0">
+                <div className="media">
+                  <div className="media-body" style={{ textAlign: "start" }}>
                     <h5 className="text-white text-capitalize d-block">
                       {props.fullName}
                     </h5>
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
+
       </div>
       <div
         className="mt-2 ps-2 card-base"

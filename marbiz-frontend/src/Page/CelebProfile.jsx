@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import PackagesTabs from "../Components/PackagesTabs";
 import { useParams, Link } from "react-router-dom";
-import {
-  getInfluencersProfile,
-  getInfluencersList,
-} from "../services/api/api-service";
+import { getInfluencersProfile, getInfluencersList } from "../services/api/api-service";
 import _ from "lodash";
 import SliderList from "../Components/SliderList";
 import Portfolio from "../Components/Portfolio";
 
 const CelebProfile = () => {
+
   let { regName } = useParams();
   const [profileData, setprofile] = useState(null);
   const [list, setList] = useState([]);
   const [type, settype] = useState("");
+
   function getlist(type, valueSetter) {
     getInfluencersList(6, type)
       .then((result) => {
@@ -40,11 +39,12 @@ const CelebProfile = () => {
         console.error("Error fetching profile data:", err);
       });
   }, [regName]);
+
   // Render nothing if profileData is still null
   if (profileData === null) {
     return null;
   }
-  
+
   return (
     <>
       {profileData && (
@@ -89,7 +89,7 @@ const CelebProfile = () => {
           {/* gallery section */}
           <div className="container my-5">
             <div className="row align-items-center">
-              <div className="col-md-6 col-lg-6 col-xl-6 d-none d-md-block">
+              <div className="col-md-6 d-none d-md-block">
                 {/* Large image for medium and larger screens */}
                 <div className="text-center gallery-container-one  ">
                   <img
@@ -158,7 +158,7 @@ const CelebProfile = () => {
                     {profileData.fullName} is a top creator
                   </h4>
                   <p className="text-secondary">
-                    {" "}
+
                     Top creators have completed multiple orders and have a high
                     rating from brands
                   </p>
@@ -173,6 +173,7 @@ const CelebProfile = () => {
               </Link>
             </div>
           </div>
+
           {/* Packages section */}
           <div className="container">
             <div className="row">
@@ -199,7 +200,7 @@ const CelebProfile = () => {
                 {/* <span className="text-secondary fs-6">How does it work</span> */}
               </div>
               <Portfolio userId={profileData.id} />
-              
+
             </div>
           </div>
         </>

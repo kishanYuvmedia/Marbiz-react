@@ -133,7 +133,7 @@ export default function EmailVerify(props) {
           <div className="p-3 text-center bg-body-tertiary hero">
             <div className="container py-5">
               <h1 className="text-body-emphasis text-white">
-                {" "}
+                 
                 Hello <strong className="gtext">@{props.userClaim} </strong>
                 Create Your Own Profile
               </h1>

@@ -19,7 +19,7 @@ const CelebVideos = ({ movie }) => {
 
     return (
         <>
-            <motion.div
+            <motion.div 
                 layout
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
@@ -43,7 +43,7 @@ const CelebVideos = ({ movie }) => {
                     <p className="youtube-video-title">{movie.title}</p>
                 </div>
 
-                <Modal show={show} onHide={handleClose} centered closeButton size="lg" class="youtube-mobal-box" id="youtube-mobal-box">
+                <Modal show={show} onHide={handleClose} centered closeButton size="lg" className="youtube-mobal-box" id="youtube-mobal-box">
                     {/* <Modal.Header  /> */}
                     <Modal.Body  >
                         <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>

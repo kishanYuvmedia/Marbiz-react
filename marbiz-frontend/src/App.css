@@ -1001,48 +1001,119 @@ body {
 .navbar-collapse {
   display: grid;
 }
-
 .profile-image-container {
-  border-radius: 50%;
-  overflow: hidden; /* This is important to ensure the image stays within the circular container */
-  width: 100px; /* Set your desired width */
-  height: 100px; /* Set your desired height */
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
 
-/* Add additional styling for the image if needed */
+.profile-image-container .image-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .profile-image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This ensures the image fills the circular container */
+  object-fit: cover;
   object-position: center;
+  transition: all 0.3s ease;
+}
+
+.profile-image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #fff;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.profile-image-container:hover .overlay {
+  display: flex;
+}
+
+.profile-image-container .overlay span {
+  display: inline-block;
+  padding: 10px;
 }
 
 .gallery-container-one {
   height: 515px;
+  position: relative;
 }
-.gallery-container-one img {
+
+.gallery-container-one img,
+.gallery-container-two img,
+.gallery-container-three img {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: center;
+  z-index: 1;
+  transition: all 0.3s ease;
 }
-.gallery-container-two {
-  height: 250px;
+
+.gallery-container-one .gallery-overlay,
+.gallery-container-two .gallery-overlay,
+.gallery-container-three .gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+
 }
+
+.gallery-container-one:hover .gallery-overlay,
+.gallery-container-two:hover .gallery-overlay,
+.gallery-container-three:hover .gallery-overlay {
+  /* display: flex; */
+  opacity: 1;
+  z-index: 5;
+}
+
+.gallery-container-one .gallery-overlay span,
+.gallery-container-two .gallery-overlay span,
+.gallery-container-three .gallery-overlay span {
+  display: inline-block;
+  padding: 10px;
+}
+
+.gallery-container-two,
 .gallery-container-three {
   height: 250px;
-}
-.gallery-container-two img {
-  height: 100%;
-  width: 100%;
+  position: relative;
 
-  object-fit: cover;
-  object-position: center;
 }
+
 .gallery-container-three img {
   height: 100%;
   width: 100%;
-
   object-fit: cover;
   object-position: top;
 }
@@ -1069,6 +1140,7 @@ body {
     #fc396e,
     #f5615f
   );
+  transition: 0.4s ease;
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
   /* box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75); */
 }
@@ -1095,6 +1167,7 @@ body {
     #fc396e
   );
   background-image: 0 4px 15px 0 rgb(49, 22, 19);
+  transition: 0.4s ease;
   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
 }
 
@@ -1131,11 +1204,11 @@ body {
   color: white;
   font-size: 16px;
   border-bottom: 0;
-  width: 130px;
+  /* width: 130px; */
 }
 
 .package-navigation .nav-item {
-  /* width: 50%; */
+  width: 11%;
   margin: 10px;
 }
 .package-navigation .nav-item a {
@@ -1205,6 +1278,7 @@ body {
   padding: 0.8rem 0;
   /* width: 80px; */
   align-self: center;
+  transition: 0.3s ease;
 }
 .bottom-nav-link:hover {
   color: #f5615f;
@@ -1349,7 +1423,7 @@ body {
 
 .new-brand-box .brands-mail {
   font-size: 15px;
-  padding-top: 40px;
+  padding-top: 20px;
   color: #536b94;
   /* font-family: 'SourceSansPro-Regular'; */
 }
@@ -1418,6 +1492,13 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   border-radius: 15px;
   height: 412px;
   object-fit: fill;
+  /* width: 200px; */
+}
+
+.owl-carousel.owl-drag .owl-item.active.center {
+  /* width: 260px !important; */
+  display: flex;
+  justify-content: center;
 }
 
 .new-brand-box .new-slider .owl-item {
@@ -1465,8 +1546,8 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 .new-brand-box .video-sec {
   border-radius: 15px;
 }
-.form-label{
-  color: '#fff';
+.form-label {
+  color: "#fff";
 }
 
 /* our work filter gallery */
@@ -1486,11 +1567,12 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   /* height: 35vh; */
   height: 200px;
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 10px;
   margin-bottom: 0.2rem;
 }
 
-.youtube-card .play_icon {
+.youtube-card .play_icon,
+.reel-card .play_icon {
   width: 30px;
   height: 30px;
   background-image: url(https://ik.imagekit.io/j83rchiauw/play_icon_brands_page.svg?updatedAt=1696577821261);
@@ -1499,20 +1581,20 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   background-size: contain;
   cursor: pointer;
   position: absolute;
-  top: calc(50% - 25px);
+  top: calc(50% - 15px);
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .youtube-video-title {
   font-size: 14px;
+  /* text-align: center; */
+  margin-top: 5px;
 }
 
 .filter-container .tab_title.active {
-  background-image: linear-gradient(55deg,#ff893b,#f02828);
+  background-image: linear-gradient(55deg, #ff893b, #f02828);
   border: 2px solid #fff;
-
-  
 }
 
 .filter-container .tab_title {
@@ -1526,7 +1608,6 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   cursor: pointer;
   margin: 0 10px;
   border-radius: 20px;
-  
 }
 
 /* slick slider */
@@ -1546,34 +1627,35 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   -webkit-tap-highlight-color: transparent;
 }
 
-.slick-slider .slick-list, .slick-slider .slick-track {
-  -webkit-transform: translate3d(0,0,0);
-  -moz-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  -o-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+.slick-slider .slick-list,
+.slick-slider .slick-track {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .video-slider .slick-list {
-	width: 80%;
-	margin: auto;
+  width: 90%;
+  margin: auto;
   height: 360px;
 }
 
 .hover-vd .celebrity-name {
-	text-align: center;
-	margin: 10px 0 0;
-	font-size: 36px;
-	color: #fff;
-	/* font-family: RedHatDisplay-Regular; */
-	animation: 1.5s forwards slideLeft;
+  text-align: center;
+  margin: 10px 0 0;
+  font-size: 36px;
+  color: #fff;
+  /* font-family: RedHatDisplay-Regular; */
+  animation: 1.5s forwards slideLeft;
 }
 
 .brand-nm {
-	text-align: center;
-	font-family: Verveine-Regular;
-	font-size: 28px;
-	color: #f9f9f9;
+  text-align: center;
+  font-family: Verveine-Regular;
+  font-size: 28px;
+  color: #f9f9f9;
 }
 
 /* .hover-vd .vd-box {
@@ -1590,47 +1672,53 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   height: 279px;
   color: #000;
   margin: 8px;
-  transition: width .8s;
+  transition: width 0.8s ease-in-out;
   position: relative;
 }
 
 .hover-vd .m1 {
-	background-repeat: round;
-	background-size: cover;
+  background-repeat: round;
+  background-size: cover;
 }
 
 .vd-box video {
-	position: absolute;
-	width: 100%;
-	height: 279px;
-	filter: grayscale(1);
-	object-position: top;
-	object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 279px;
+  filter: grayscale(1);
+  object-position: top;
+  object-fit: cover;
+  transition: filter 0.3s ease-in-out;
 }
 
-.hover-vd .m2, .hover-vd .m7 {
-	margin-top: 40px;
+.hover-vd .m2,
+.hover-vd .m7 {
+  margin-top: 40px;
 }
 
-.hover-vd .m3, .hover-vd .m6, .hover-vd .m9 {
-	margin-top: 65px;
+.hover-vd .m3,
+.hover-vd .m6,
+.hover-vd .m9 {
+  margin-top: 65px;
 }
-.hover-vd .m10, .hover-vd .m5, .hover-vd .m8 {
-	margin-top: 0px;
+.hover-vd .m10,
+.hover-vd .m5,
+.hover-vd .m8 {
+  margin-top: 0px;
 }
 
 .hover-vd .m4 {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .vd-box:hover video {
-	filter: grayscale(0);
+  filter: grayscale(0);
 }
 .vd-box:hover {
-	width: 180px !important;
-	cursor: pointer;
+  width: 180px !important;
+  cursor: pointer;
 }
 .hover-vd .slick-slide:hover {
-	width: 180px !important;
-	cursor: pointer;
+  width: 180px !important;
+  cursor: pointer;
 }

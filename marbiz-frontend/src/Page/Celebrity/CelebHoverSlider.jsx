@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react'
+import React, { useState } from 'react'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
+import HoverVideoPlayer from 'react-hover-video-player';
 
 const CelebHoverSlider = () => {
 
@@ -81,77 +81,49 @@ const CelebHoverSlider = () => {
     }
   ];
 
-
-
   const [activeVideoIndex, setActiveVideoIndex] = useState(null);
-
-
-
 
   const settings = {
     dots: false,
     infinite: false,
-    draggable: false,
+    draggable: true,
     arrows: false,
-
+    centerMode: true,
   };
 
   const handleVideoHover = (index) => {
     setActiveVideoIndex(index);
-    // playVideo(index);
   };
-
-  // const handleVideoPause = () => {
-  //   setActiveVideoIndex(null);
-  //   pauseVideo(activeVideoIndex);
-  // };
-
-  // const playVideo = (index) => {
-  //   const video = document.getElementById(`video-${index}`);
-  //   if (video) {
-  //     video.play();
-  //   }
-  // };
-
-  // const pauseVideo = (index) => {
-  //   const video = document.getElementById(`video-${index}`);
-  //   if (video) {
-  //     video.pause();
-  //   }
-  // };
-
-
 
   return (
     <>
+
       <Slider className='video-slider' {...settings}>
         {videoData.map((video, index) => (
           <div
-            key={video.id}
+            key={video.index}
             className={`vd-box m${video.index + 1}`}
-            // onMouseEnter={() => handleVideoHover(index)}
-            // onMouseLeave={handleVideoPause}
+
+            // ontouchstart={() => handleVideoHover(index)}
+            // ontouchend={() => handleVideoHover(null)}
+            onMouseEnter={() => handleVideoHover(index)}
+            onMouseLeave={() => handleVideoHover(null)}
           >
-            <video
-              className="clip"
-              poster={video.poster}
-              autoPlay={activeVideoIndex === index}
-              // autoPlay
-              muted
-              loop
+            <HoverVideoPlayer
               id={`video-${index}`}
-              onMouseEnter={() => document.getElementById(`video-${index}`).play()}
-              onMouseLeave={() => document.getElementById(`video-${index}`).pause()}
-            
-            >
-
-              <source src={video.src} type="video/mp4" />
-            </video>
+              className="clip"
+              type="video/mp4"
+              videoSrc={video.src}
+              poster={video.poster}
+              style={{
+                width: '100%',
+                transition: 'width 0.8s ease',
+                width: activeVideoIndex === index ? '180px' : '80px',
+              }}
+            />
           </div>
-
         ))}
       </Slider>
-
 
       {videoData.map((video, index) => (
         <div
@@ -164,13 +136,10 @@ const CelebHoverSlider = () => {
       ))}
 
       <div className="celebrity-name celeb-list"
-      // style={{ display: activeVideoIndex === null ? "block" : "none" }}
+        style={{ display: activeVideoIndex === null ? "block" : "none" }}
       >
         <div className="celeb-nm">1000+ brands <span>•</span> 850 mn+ reach</div>
       </div>
-
-
-
 
     </>
   )

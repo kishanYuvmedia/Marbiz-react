@@ -7,6 +7,7 @@ import { getPublicList } from "../services/api/api-service";
 const SearchBar = (props) => {
     const [getPlatform, setPlatform] = useState([]);
     const [getCategory, setCategory1] = useState([]);
+
     useEffect(() => {
         getPublicList("Platform").then((result) => {
             setPlatform(result);
@@ -15,6 +16,7 @@ const SearchBar = (props) => {
             setCategory1(result);
         });
     }, []);
+
     function handleMulti(selectedMulti) {
         const filter = [];
         selectedMulti.map((list) => {
@@ -22,6 +24,7 @@ const SearchBar = (props) => {
         });
         props.setCategory(filter);
     }
+    
     return (
         <div>
             {/* Search filters */}

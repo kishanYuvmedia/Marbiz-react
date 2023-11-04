@@ -213,7 +213,7 @@ const CreatorUpload = ({ pagetitle }) => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="sourceUrl" className="form-label text-white">
-                            Source Url <strong>User Youtube Video link  {" "}<a style={{color:'red'}}
+                            Source Url <strong>User Youtube Video link   <a style={{color:'red'}}
                                                 onClick={() =>
                                                     handleShow()
                                                 }
@@ -233,7 +233,7 @@ const CreatorUpload = ({ pagetitle }) => {
                     </button>
                 </form>
             </div>
-            <Modal show={show} onHide={handleClose} centered closeButton size="lg" class="youtube-mobal-box" id="youtube-mobal-box">
+            <Modal show={show} onHide={handleClose} centered closeButton size="lg" className="youtube-mobal-box" id="youtube-mobal-box">
                 {/* <Modal.Header  /> */}
                 <Modal.Body  >
                     <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>

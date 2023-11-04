@@ -11,7 +11,7 @@ const CelebFilterTabs = ({ setActiveGenre, activeGenre, setFiltered, popular }) 
         );
 
         setFiltered(filtered);
-        console.log(filtered);
+        // console.log(filtered);
     }, [activeGenre]);
     
     return (
