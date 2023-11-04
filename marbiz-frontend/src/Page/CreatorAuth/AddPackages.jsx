@@ -16,7 +16,9 @@ const AddPackages = () => {
         price:'',
     });
     const handleContentQuantityChange = (event) => {
-        formData.contentQuantity = event.target.value;
+        setFormData({
+            contentQuantity: event.target.value
+        });
     };
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -33,7 +35,7 @@ const AddPackages = () => {
             if (!isEmpty(result)) {
                 Swal.fire(
                     "Congratulations",
-                    "Your Package successfully update !",
+                    "Your Package successfully updated !",
                     "success"
                 );
                 window.location.reload(true);
@@ -41,7 +43,7 @@ const AddPackages = () => {
             else {
                 Swal.fire(
                     "Oops !",
-                    "Package not upload successfully !",
+                    "Package not uploaded successfully !",
                     "success"
                 );
             }

@@ -1722,3 +1722,11 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   width: 180px !important;
   cursor: pointer;
 }
+
+
+.bio-container {
+  padding: 20px;
+  border: 2px dashed gray;
+  border-radius: 10px;
+  background-color: rgb(39, 39, 39);
+}

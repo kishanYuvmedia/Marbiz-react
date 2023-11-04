@@ -42,6 +42,10 @@ import BrandBooking from "./Page/Brand/BrandBooking";
 import BrandWishlist from "./Page/Brand/BrandWishlist";
 import BrandPassword from "./Page/Brand/BrandPassword";
 import BrandProfile from "./Page/Brand/BrandProfile";
+import ScrollToTop from "./Components/ScrollToTop";
+
+  
+
 function App() {
   return (
     <BrowserRouter>
@@ -88,6 +92,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
+      <ScrollToTop />
     </BrowserRouter>
   );
 }

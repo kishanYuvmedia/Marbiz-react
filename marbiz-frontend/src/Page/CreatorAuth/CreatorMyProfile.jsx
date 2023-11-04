@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
-import { Col, Row, Button } from "reactstrap"
+import { Col, Row, Input } from "reactstrap"
 import { getInfluencersProfilebyId, UpdateProfile } from "../../services/api/api-service";
 import _, { isEmpty } from "lodash"
 import defaultImage from '../../Images/default-image.jpg'
 import { Link } from "react-router-dom";
+
+
 
 const CreatorMyProfile = ({ pagetitle }) => {
 
@@ -23,16 +25,23 @@ const CreatorMyProfile = ({ pagetitle }) => {
   const [profileData, setprofile] = useState(null);
   const [type, settype] = useState("");
 
+  const [bio, setBio] = useState(null);
+  
+  
+
   useEffect(() => {
 
     if (localStorage.getItem("authUser")) {
+
       const obj = JSON.parse(localStorage.getItem("authUser"));
       setUser(obj);
+
       getInfluencersProfilebyId(obj.id)
         .then((result) => {
-          console.log("get the influencers profile", result)
+          // console.log("get the influencers profile", result)
           setprofile(result);
           setprofileId(result.id)
+          setBio(result.bio)
           setConverImages(_.get(result, "coverImage") ? result.coverImage : defaultImage)
           settype(result.categoryType);
           setSelectedImage1(
@@ -52,7 +61,10 @@ const CreatorMyProfile = ({ pagetitle }) => {
           console.error("Error fetching profile data:", err);
         });
     }
+
   }, []);
+
+
 
   const handleCoverImage = e => {
     const file = e.target.files[0]
@@ -141,7 +153,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
         })
         const data = await response.json()
         if (data) {
-          console.log(data)
+          // console.log(data)
           setSelectedImage(data.imageUrl)
           return true
         } else {
@@ -166,14 +178,14 @@ const CreatorMyProfile = ({ pagetitle }) => {
       uploadfile(coverImagesfile, setConverImages),
     ]
     const results = await Promise.all(promises)
-    console.log("results", results)
+    // console.log("results", results)
 
     if (results.every(result => result === true)) {
       const data = {
         ...profileData,
         coverImage: coverImages,
       }
-      console.log("images data", data)
+      // console.log("images data", data)
       UpdateProfile(data).then(result => {
         if (!isEmpty(result)) {
           Swal.fire(
@@ -193,6 +205,33 @@ const CreatorMyProfile = ({ pagetitle }) => {
     }
   }
 
+  const handleBioChange = (event) => {
+    setBio(event.target.value);
+    // console.log("updated bio", bio)
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted');
+
+    const dataToUpdate = { bio };
+    console.log('Data to update:', dataToUpdate);
+
+    UpdateProfile(dataToUpdate)
+    .then((result) => {
+      
+      if (result) {
+        Swal.fire(
+          "Congratulations",
+          "Your Bio was successfully updated!",
+          "success"
+        );
+      } else {
+        Swal.fire("Oops!", "Bio change failed!", "error");
+      }
+    });
+  };
+
   const handleUpload = async () => {
     const promises = [
       uploadfile(selectedfile1, setSelectedImage1),
@@ -201,7 +240,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
       uploadfile(selectedfile4, setSelectedImage4),
     ]
     const results = await Promise.all(promises)
-    console.log("results", results)
+    // console.log("results", results)
 
     if (results.every(result => result === true)) {
       const data = {
@@ -211,7 +250,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
         image3: selectedImage3,
         image4: selectedImage4,
       }
-      console.log("images data", data)
+      // console.log("images data", data)
       UpdateProfile(data).then(result => {
         if (!isEmpty(result)) {
           Swal.fire(
@@ -231,18 +270,19 @@ const CreatorMyProfile = ({ pagetitle }) => {
     }
   }
 
+
   return (
     <>
       {/* profile section */}
 
       <div className="container main-body">
         <div className="row my-3">
-          <h1 className="text-center">{pagetitle}</h1>
+          <h1 className="text-center">Edit {pagetitle}</h1>
           <hr className="hr hr-blurry border-danger border border-2" />
           {profileData &&
             <>
               <div className=" col-md-2 col-4 d-flex justify-content-center align-items-center">
-
+                {/* Profile picture */}
                 <div className="profile-image-container">
                   <label
                     htmlFor="icon-coverImage-file"
@@ -270,12 +310,14 @@ const CreatorMyProfile = ({ pagetitle }) => {
                     onChange={handleCoverImage}
                   />
                 </div>
-
               </div>
+
               <div className="col-md-4 col-8 d-grid justify-content-between ">
-                <div className="">
+                {/* Creator title */}
+                <div>
                   <h1 className="text-white text-capitalize">{_.get(profileData, "fullName") ? profileData.fullName : "User"}</h1>
                 </div>
+                {/* Creator categories */}
                 <div>
                   <h4 className="text-white fs-6">
                     {profileData.category.map((list, index) => (
@@ -295,11 +337,11 @@ const CreatorMyProfile = ({ pagetitle }) => {
 
                     className="btn-global fs-6 mt-2 px-3 w-100"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye me-1" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-eye me-1" viewBox="0 0 16 16">
                       <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                       <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                     </svg>
-                    View Profile
+                    Public Profile
                   </button>
                 </Link>
 
@@ -307,7 +349,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
                   onClick={handleUploadCoverPage}
                   className="btn-global fs-6 mt-2 px-3"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy me-1" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-floppy me-1" viewBox="0 0 16 16">
                     <path d="M11 2H9v3h2V2Z" />
                     <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0ZM1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5Zm3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4v4.5ZM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5V15Z" />
                   </svg>
@@ -317,25 +359,16 @@ const CreatorMyProfile = ({ pagetitle }) => {
 
             </>
           }
-          {/* <div className='row'>
-            <div className='col-md-2'>
-              <button type="submit"
-                onClick={handleUploadCoverPage}
-                className="btn-global  mt-2 px-3"
-              >
-                save
-              </button>
-            </div>
-          </div> */}
+
         </div>
       </div>
 
       {/* gallery section */}
-      <div className="container my-5">
+      <div className="container my-3">
 
         <Row>
+          {/* 1st img container */}
           <Col md="6" className=' py-2'>
-            {/* 1st img container */}
             <div className="text-center gallery-container-one">
               <input
                 accept="image/*"
@@ -356,14 +389,13 @@ const CreatorMyProfile = ({ pagetitle }) => {
                   className="rounded-3 img-fluid"
                 />
               </label>
-                <div className="gallery-overlay fs-6">
-                  <span>Update Image</span>
-                </div>
+              <div className="gallery-overlay fs-6">
+                <span>Update Image</span>
+              </div>
             </div>
           </Col>
 
           {/* 2rd container */}
-
           <Col sm="6">
             <Row>
               <Col md="6">
@@ -471,33 +503,56 @@ const CreatorMyProfile = ({ pagetitle }) => {
         >
           Upload cover Images
         </button>
-
       </div>
 
       {/* about section */}
-      <div className="container my-5" >
+      <div className="container my-3" >
         <div className="row">
           <div className="col">
-            {/* <NavTabs images={images} /> */}
-            <div className="">
+
+            <div>
               <h4 className="text-white text-capitalize">
                 {_.get(profileData, "fullName") ? profileData.fullName : "User"} is a top creator
               </h4>
               <p className="text-secondary">
-
                 Top creators have completed multiple orders and have a high
                 rating from brands
               </p>
             </div>
             <hr className="text-secondary" />
             <p className="text-white">{_.get(profileData, "bio") ? profileData.bio : "..."}</p>
-            <hr className="text-secondary" />
-            <p className="text-white">{_.get(profileData, "about") ? profileData.about : "..."}</p>
-          </div>
-        </div>
 
+            <div className='bio-container'>
+                <form onSubmit={handleFormSubmit} >
+                  <label htmlFor="description" className='mb-2 text-secondary'>Edit Description</label>
+                  <div>
+
+                    <textarea className='dark-bg form-control p-3 w-100'
+                      name="bio"
+                      id="bio"
+                      rows="5"
+                      value={bio || 'Write something...'}
+                      onChange={handleBioChange}
+                    />
+
+                  </div>
+
+                  <div>
+
+                    <button className="btn-global px-3 mt-3" type="submit">
+                      Update Bio
+                    </button>
+                  </div>
+                </form>
+              
+            </div>
+
+          </div>
+
+
+        </div>
       </div>
     </>
   )
 }
-export default CreatorMyProfile
+export default CreatorMyProfile;
