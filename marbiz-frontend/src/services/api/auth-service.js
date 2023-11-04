@@ -59,7 +59,7 @@ const logout = () => {
     apiKit
       .post("/MtUsers/logout?access_token=" + getLocalData("accessToken"))
       .then(function (response) {
-        console.log("logout");
+        console.log("logout----------------");
         removeLocalData("accessToken");
         removeLocalData("authUser");
         removeLocalData("userId");

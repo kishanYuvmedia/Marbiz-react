@@ -11,7 +11,7 @@ import {
 import Swal from "sweetalert2";
 import artist_1 from "../Images/icon.png";
 import { isEmpty } from "lodash";
-import { loginOut } from "../services/api/api-service";
+import {authenticationService} from "../services/api/auth-service";
 import { useNavigate } from "react-router-dom";
 function NavBar() {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ function NavBar() {
   const handleLogout = () => {
     console.log("logout");
     setIsLoggedIn(false);
-   
+    //loginOut()
     Swal.fire({
       title: "Logout Your account",
       width: 600,
@@ -40,9 +40,9 @@ function NavBar() {
       cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        loginOut()
+        authenticationService.logout();
       }
-      window.location.reload(true);
+      //window.location.reload(true);
     });
    
   };
