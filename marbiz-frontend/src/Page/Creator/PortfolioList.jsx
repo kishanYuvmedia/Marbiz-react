@@ -5,13 +5,15 @@ import { getInfluencersProfilebyId } from '../../services/api/api-service'
 
 const PortfolioList = ({ pagetitle }) => {
     const [userId, setUserId] = useState(null)
-    
+
     useEffect(() => {
         if (localStorage.getItem("authUser")) {
             const obj = JSON.parse(localStorage.getItem("authUser"));
+
             getInfluencersProfilebyId(obj.id)
                 .then((result) => {
                     setUserId(result.id)
+
                 })
                 .catch((err) => {
                     console.error("Error fetching profile data:", err);

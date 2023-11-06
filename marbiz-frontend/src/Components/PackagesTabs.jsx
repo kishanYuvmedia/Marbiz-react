@@ -43,6 +43,7 @@ const PackagesTabs = ({ userId, regname }) => {
   return (
     <div>
       <ul className="nav package-navigation nav-tabs mb-3" id="ex-with-icons" role="tablist">
+
         <li className="nav-item">
           <button
             className={`nav-link ${Category == null ? 'active' : ''}`}
@@ -95,7 +96,12 @@ const PackagesTabs = ({ userId, regname }) => {
             <div className="row py-3">
               {list.map((item, index) =>
                 <div className="col-md-6" key={index}>
-                  <PackageCard regname={regname} title={item.title} cost={item.price} details={item.Description} icon={item.platform === "Instagram" ? instaIcon : item.platform === "LinkedIn" ? LinkedIcon : item.platform === "Youtube" ? youtubeIcon : ugcIcon} />
+                  <PackageCard
+                    regname={regname}
+                    title={item.title}
+                    cost={item.price}
+                    details={item.Description}
+                    icon={item.platform === "Instagram" ? instaIcon : item.platform === "LinkedIn" ? LinkedIcon : item.platform === "Youtube" ? youtubeIcon : ugcIcon} />
                 </div>
               )}
             </div>

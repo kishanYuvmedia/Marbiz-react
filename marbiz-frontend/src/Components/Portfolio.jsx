@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Flicking from '@egjs/react-flicking'
+// import Flicking from '@egjs/react-flicking'
 import { isEmpty, result } from "lodash";
 import { Modal, Button } from "react-bootstrap";
 import { getPublicList, getImagesListType } from "../services/api/api-service"
 
 const Portfolio = ({ userId }) => {
-    // console.log("userId", userId);
+    // console.log("Current userId", userId);
     const [list, setList] = useState([]);
     const [show, setShow] = useState(false);
     const [videoSrc, setVideoSrc] = useState("");
@@ -24,34 +24,40 @@ const Portfolio = ({ userId }) => {
     const [contentType, setContentType] = useState(null);
 
     useEffect(() => {
-        getPublicList("Content Type").then((result) => {
-            setContentType(result);
-            
-        });
-        getPackage(Category)
-        
-    }, [Category])
+        if (userId !== null) {
+            getPublicList("Content Type").then((result) => {
+                setContentType(result);
+                // console.log("Content type result:", result);
+            });
+            getPackage(Category)
+        }
+    }, [Category, userId])
 
     function getPackage(type) {
-    setCategory(type);
-    console.log("Content Typesss:", type);
-    // setList([]);
-    getImagesListType(userId, type)
-        .then(result => {
-            if (!isEmpty(result)) {
-                setList(result);
-            } else {
-                console.error("API Response is empty or not as expected.");
-            }
-        })
-        .catch(error => {
-            console.error("API Error:", error);
-        });
-}
+        setCategory(type);
+        // console.log("Content Typessss:", type);
+        setList([]);
+
+        if (userId !== null) {
+            getImagesListType(userId, type)
+                .then(result => {
+                    if (!isEmpty(result)) {
+                        setList(result);
+                        // console.log("Content Types:", userId);
+
+                    } else {
+                        console.error("API Response is empty or not as expected.");
+                    }
+                })
+                .catch(error => {
+                    console.error("API Error:", error);
+                });
+        }
+    }
 
     return (
         <>
-            {/* <!-- Tabs navs --> */}
+            {/* Tabs navs */}
             <ul className="nav package-navigation nav-tabs mb-3" id="ex-with-icons" role="tablist">
                 {contentType?.map((item, index) =>
                     <li className="nav-item" key={index}>
@@ -91,11 +97,7 @@ const Portfolio = ({ userId }) => {
                                             />
                                         } {item.caption != "Image" &&
                                             <div className="position-relative ">
-                                                <a
-                                                    onClick={() =>
-                                                        handleShow(item.sourceUrl)
-                                                    }
-                                                >
+                                                <a onClick={() => handleShow(item.sourceUrl)}>
                                                     <img
                                                         src={item.src}
                                                         alt={item.caption}
@@ -112,7 +114,7 @@ const Portfolio = ({ userId }) => {
                     </div>
                 </div>
             </div>
-            {/* <!-- Tabs content --> */}
+            {/* Tabs content */}
             <Modal
                 show={show}
                 onHide={handleClose}
