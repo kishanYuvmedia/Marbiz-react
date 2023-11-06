@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Portfolio from '../../Components/Portfolio'
 import { Link } from 'react-router-dom'
 import { getInfluencersProfilebyId } from '../../services/api/api-service'
+
 const PortfolioList = ({ pagetitle }) => {
-    const [userId,setUserId]=useState(null)
-    useEffect(()=>{
+    const [userId, setUserId] = useState(null)
+    
+    useEffect(() => {
         if (localStorage.getItem("authUser")) {
             const obj = JSON.parse(localStorage.getItem("authUser"));
             getInfluencersProfilebyId(obj.id)
@@ -15,7 +17,8 @@ const PortfolioList = ({ pagetitle }) => {
                     console.error("Error fetching profile data:", err);
                 });
         }
-    },[])
+    }, [])
+
     return (
         <>
             {/* Packages section */}

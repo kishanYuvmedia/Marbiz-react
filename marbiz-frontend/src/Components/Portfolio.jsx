@@ -67,8 +67,8 @@ const Portfolio = ({ userId }) => {
                     aria-labelledby="all-post"
                 >
                     <div className="container-fluid ">
-                        <div className="row py-3">
-                            <h2>{Category}</h2>
+                        <div className="row py-2">
+                            <span className="fs-5 text-white mb-2">{Category}</span>
                             {list.map((item, index) =>
                                 <div className='col-md-3 col-6 mb-3 ' key={index}>
                                     <div className="reel-card">
