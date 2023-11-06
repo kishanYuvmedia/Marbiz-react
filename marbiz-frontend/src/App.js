@@ -86,7 +86,7 @@ function App() {
             <Route path="brandBooking" element={<BrandBooking />} />
             <Route path="brandWishlist" element={<BrandWishlist />} />
             <Route path="brandProfile" element={<BrandProfile />} />
-            <Route path="brandPassword" element={<BrandPassword />} />
+            <Route path="brandPassword" element={<BrandPassword pagetitle="Update Password" />} />
           </Route>
         </Route>
       </Routes>

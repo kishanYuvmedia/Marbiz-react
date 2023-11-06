@@ -101,7 +101,7 @@ const BrandPassword = ({ pagetitle }) => {
     <div className="container-fluid">
       <div className="row">
         <div className='d-inline-flex justify-content-between my-2'>
-          <h1 className="text-center">Update Password</h1>
+          <h1 className="text-center">{pagetitle}</h1>
         </div>
         <hr className="hr hr-blurry border border-danger border-2" />
       </div>
@@ -158,9 +158,9 @@ const BrandPassword = ({ pagetitle }) => {
               <label style={{ color: 'red' }}>{errorPassword}</label>
             </Col>
             <Col md={12}>
-              <Button onClick={handleSubmit} className='btn-global px-3 my-3'>
+              <button onClick={handleSubmit} className='btn-global px-3 fs-6'>
                 Update Password
-              </Button>
+              </button>
             </Col>
           </Row>
         </form>

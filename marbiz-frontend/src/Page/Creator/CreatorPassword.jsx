@@ -3,12 +3,17 @@ import { Card, CardTitle, Row, Button, CardHeader, CardBody, Col, FormGroup, Lab
 import { UpdateMtUser, loginOut } from '../../services/api/api-service';
 import { isEmpty } from 'lodash';
 import Swal from "sweetalert2";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
 const CreatorPassword = ({ pagetitle }) => {
 
   const [errorPassword, seterrorPassword] = useState(null)
   const [formData, setFormData] = useState({});
   const [formDatanew, setFormDataNew] = useState({ cpassword: "", password: "" });
+  const [type, setType] = useState('password');
+  const [confirmType, setConfirmType] = useState('password');
+  const [icon, setIcon] = useState(<BsEyeSlash />);
+  const [confirmIcon, setConfirmIcon] = useState(<BsEyeSlash />);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -65,6 +70,25 @@ const CreatorPassword = ({ pagetitle }) => {
 
   };
 
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(<BsEye />);
+      setType('text')
+    } else {
+      setIcon(<BsEyeSlash />)
+      setType('password')
+    }
+  }
+  const handleConfirmToggle = () => {
+    if (confirmType === 'password') {
+      setConfirmIcon(<BsEye />);
+      setConfirmType('text')
+    } else {
+      setConfirmIcon(<BsEyeSlash />)
+      setConfirmType('password')
+    }
+  }
+
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"));
@@ -83,12 +107,12 @@ const CreatorPassword = ({ pagetitle }) => {
       <form>
         <Row>
           <Col md={4}>
-            <FormGroup>
+            <FormGroup className='position-relative'>
               <Label for="exampleName" style={{ color: 'white' }}>
                 New Password:
               </Label>
               <Input
-                type="text"
+                type={type}
                 id="password"
                 name="password"
                 placeholder='New Password'
@@ -96,15 +120,22 @@ const CreatorPassword = ({ pagetitle }) => {
                 onChange={handleChange}
                 className='form-control dark-bg'
               />
+              <span className='text-white fs-4' onClick={handleToggle} style={{
+                position: "absolute",
+                top: "40px",
+                right: "20px",
+              }}>
+                {icon}
+              </span>
             </FormGroup>
           </Col>
           <Col md={4}>
-            <FormGroup>
+            <FormGroup className='position-relative'>
               <Label for="cpassword" style={{ color: 'white' }}>
                 Confirm Password:
               </Label>
               <Input
-                type="text"
+                type={confirmType}
                 id="cpassword"
                 name="cpassword"
                 placeholder='Confirm Password'
@@ -112,13 +143,20 @@ const CreatorPassword = ({ pagetitle }) => {
                 onChange={handleChange}
                 className='form-control dark-bg'
               />
+              <span className='text-white fs-4' onClick={handleConfirmToggle} style={{
+                position: "absolute",
+                top: "40px",
+                right: "20px",
+              }}>
+                {confirmIcon}
+              </span>
             </FormGroup>
             <label style={{ color: 'red' }}>{errorPassword}</label>
           </Col>
           <Col md={12}>
-            <Button onClick={handleSubmit} className='btn-global px-3 fs-6'>
-              Update
-            </Button>
+            <button onClick={handleSubmit} className='btn-global px-3 fs-6'>
+              Update Password
+            </button>
           </Col>
         </Row>
       </form>
