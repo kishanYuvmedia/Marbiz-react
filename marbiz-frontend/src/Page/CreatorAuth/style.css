@@ -29,9 +29,10 @@
   cursor: pointer;
 }
 
-.username-domain {
-  /* padding: 5px 0px; */
-}
+/* .username-domain {
+  padding: 5px 0px; 
+} */
+
 .username-text {
   border: none;
   /* padding: 5px 5px; */
@@ -42,9 +43,9 @@
   box-shadow: none;
   color: #f5615f;
 }
-.username-text:focus {
-  /* background-color: black; */
-}
+/* .username-text:focus {
+  background-color: black; 
+} */
 .gtext {
   font-size: 35px;
   /* background: -webkit-linear-gradient(#fe62ac 0%, #8726ff 51%); */

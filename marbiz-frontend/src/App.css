@@ -1532,7 +1532,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   align-items: center;
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch; */
 }
 
 .new-brand-box .owl-carousel .owl-stage-outer {
@@ -1624,7 +1624,8 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   user-select: none;
   -ms-touch-action: pan-y;
   touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
+  /* -webkit-tap-highlight-color: transparent; */
+
 }
 
 .slick-slider .slick-list,

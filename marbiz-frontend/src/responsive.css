@@ -48,7 +48,7 @@
     overflow: auto;
     min-width: 100%;
     max-width: 100%;
-    min-height: auto;
+    /* min-height: auto; */
     display: block;
     box-shadow: none;
     top: 0;
@@ -124,24 +124,25 @@
   .username-holder {
     width: 100%; /* Set to 100% for smaller screens */
   }
-  .bottom-nav-item {
-    /* max-width: 110px; */
+  /* .bottom-nav-item {
+    max-width: 110px; 
   }
 
   .owl-carousel.owl-drag .owl-item {
-    /* width: 360px !important; */
+    width: 360px !important; 
   }
 
   .owl-carousel.owl-drag .owl-item.active.center {
-    /* width: 360px !important; */
-  }
+    width: 360px !important; 
+  } */
 
   .bottom-nav-item .bottom-nav-link svg {
     font-size: 23px;
   }
-  .bottom-nav {
-    /* max-width: 412px; */
-  }
+  /* .bottom-nav {
+    max-width: 412px; 
+  } */
+  
   .typeWriterTextMove {
     text-align: center;
   }
@@ -187,9 +188,9 @@
   }
 }
 @media only screen and (max-width: 375px) {
-  .bottom-nav-item {
-    /* max-width: 92px; */
-  }
+  /* .bottom-nav-item {
+    max-width: 92px;
+  } */
 
   .bottom-nav-item .bottom-nav-link svg {
     font-size: 18px;

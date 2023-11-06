@@ -520,7 +520,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
               </p>
             </div>
             <hr className="text-secondary" />
-            <p className="text-white">{_.get(profileData, "bio") ? profileData.bio : "..."}</p>
+            {/* <p className="text-white">{_.get(profileData, "bio") ? profileData.bio : "..."}</p> */}
 
             <div className='bio-container'>
                 <form onSubmit={handleFormSubmit} >

@@ -22,9 +22,9 @@ p {
   color: white;
 }
 
-Link {
-  /* font-family: "DM_Sans"; */
-}
+/* Link {
+  font-family: "DM_Sans"; 
+} */
 
 @font-face {
   font-family: "SharpGrotesk1";
