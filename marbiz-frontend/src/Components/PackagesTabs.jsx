@@ -9,7 +9,7 @@ import LinkedIcon from "../Images/link.png"
 import { PackageById, PackageByIdAndType } from "../services/api/api-service"
 import { isEmpty, result } from "lodash";
 
-const PackagesTabs = ({ userId, regname }) => {
+const PackagesTabs = ({ userId, regName }) => {
 
   const [list, setList] = useState([]);
   const [Category, setCategory] = useState(null);
@@ -25,6 +25,7 @@ const PackagesTabs = ({ userId, regname }) => {
       PackageById(user).then(result => {
         if (!isEmpty(result)) {
           setList(result);
+          // console.log("package by id", result)
         }
       }).catch((e) => {
         setList([]);
@@ -97,10 +98,11 @@ const PackagesTabs = ({ userId, regname }) => {
               {list.map((item, index) =>
                 <div className="col-md-6" key={index}>
                   <PackageCard
-                    regname={regname}
+                    regName={regName}
                     title={item.title}
                     cost={item.price}
                     details={item.Description}
+                    packageId={item.id}
                     icon={item.platform === "Instagram" ? instaIcon : item.platform === "LinkedIn" ? LinkedIcon : item.platform === "Youtube" ? youtubeIcon : ugcIcon} />
                 </div>
               )}

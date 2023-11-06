@@ -12,9 +12,12 @@ const CreatorPackages = ({ pagetitle }) => {
                         <Link to="/creatorDashboard/AddPackages">
                             <button className="btn-global px-3" type="button">Add Package</button>
                         </Link>
+                        <Link to="/creatorDashboard/EditPackage">
+                            <button className="btn-global px-3" type="button">Edit Package</button>
+                        </Link>
                     </div>
                     <hr className="hr hr-blurry border border-danger border-2" />
-                    <PackagesTabs userId={0} regname={"self"} />
+                    <PackagesTabs userId={0} regName={"self"} />
                 </div>
             </div>
         </>

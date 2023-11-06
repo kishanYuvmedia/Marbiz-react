@@ -1,9 +1,9 @@
 import { isEmpty, result } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
-import { createPackage, getPublicList } from '../../services/api/api-service';
+import { createPackage, getPublicList, getPackageById  } from '../../services/api/api-service';
 
-const AddPackages = ({ pagetitle }) => {
+const EditPackage = ({ pagetitle, packageId  }) => {
 
     const [platformlist, setPlatform] = useState([]);
     const [contentTypelist, setContentType] = useState([]);
@@ -76,6 +76,29 @@ const AddPackages = ({ pagetitle }) => {
             setContentType(result);
         });
     }, [])
+
+    useEffect(() => {
+        if (packageId) {
+            getPackageById(packageId)
+                .then((packageData) => {
+                    // Populate the form fields with the retrieved data
+                    setFormData({
+                        title: packageData.title,
+                        platform: packageData.platform,
+                        contentType: packageData.contentType,
+                        contentQuantity: packageData.contentQuantity,
+                        Description: packageData.Description,
+                        mtUserId: packageData.mtUserId,
+                        profileId: packageData.profileId,
+                        price: packageData.price,
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error fetching package data:", error);
+                    // Handle the error
+                });
+        }
+    }, [packageId]);
 
     return (
         <>
@@ -200,4 +223,4 @@ const AddPackages = ({ pagetitle }) => {
     );
 };
 
-export default AddPackages;
+export default EditPackage;

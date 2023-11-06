@@ -181,7 +181,7 @@ const CelebProfile = () => {
                 <h2 className=" me-3">Packages</h2>
                 {/* <span className="text-secondary fs-6">How does it work?</span> */}
               </div>
-              <PackagesTabs userId={profileData.mtUserId} regname={profileData.regName} />
+              <PackagesTabs userId={profileData.mtUserId} regName={profileData.regName} />
               <div className="my-3">
                 <Link to="/#" >
                   <span className="text-secondary fs-6">
@@ -206,7 +206,7 @@ const CelebProfile = () => {
         </>
       )}
       {regName && (
-        
+
         <div className="text-center bg-body-tertiary hero">
           <div className="container py-3">
             <SliderList
