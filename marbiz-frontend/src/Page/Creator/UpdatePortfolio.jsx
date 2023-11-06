@@ -4,14 +4,17 @@ import Swal from "sweetalert2";
 import Imagyoutube from '../../Images/link-image.png';
 import { Modal, Button } from "react-bootstrap";
 import { getPublicList, UploadImages, getInfluencersProfilebyId } from '../../services/api/api-service';
-const CreatorUpload = ({ pagetitle }) => {
+
+const UpdatePortfolio = ({ pagetitle }) => {
     const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(true);
     };
+
     const handleClose = () => {
         setShow(false);
     };
+
     const [contentTypelist, setContentType] = useState([]);
     const [imagestatus, setImagestatus] = useState(false);
     const [formData, setFormData] = useState({
@@ -23,6 +26,7 @@ const CreatorUpload = ({ pagetitle }) => {
         mtUserId: '',
         sourceUrl: '',
     });
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -30,6 +34,7 @@ const CreatorUpload = ({ pagetitle }) => {
             [name]: value,
         });
     };
+
     function extractVideoId(url) {
         // Regular expressions to match YouTube URL patterns
         const youtubeShortPattern = /youtu\.be\/([\w-]+)/;
@@ -49,6 +54,7 @@ const CreatorUpload = ({ pagetitle }) => {
         // If no match is found, return null
         return null;
     }
+
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -92,26 +98,38 @@ const CreatorUpload = ({ pagetitle }) => {
             });
         }
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const videoId1 = extractVideoId(formData.sourceUrl);
-        const data = [];
-        data.push({
-            ...formData,
-            sourceUrl: videoId1,
-        })
-        console.log(data);
-        UploadImages(data).then(result => {
-            if (!isEmpty(result)) {
-                Swal.fire({
-                    icon: "success",
-                    title: "Upload Successfully",
-                    text: "Image upload successfully uploaded !",
-                })
-                window.location.reload(true)
-            }
-        })
+        // Check if sourceUrl is not empty before extracting videoId
+        if (formData.sourceUrl) {
+            const videoId1 = extractVideoId(formData.sourceUrl);
+            const data = [];
+            data.push({
+                ...formData,
+                sourceUrl: videoId1,
+            })
+            // console.log(data);
+            UploadImages(data).then(result => {
+                if (!isEmpty(result)) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Upload Successfully",
+                        text: "Image upload successfully uploaded !",
+                    })
+                    window.location.reload(true)
+                }
+            })
+        } else {
+            // Handle the case where sourceUrl is empty
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Source URL is empty. Please provide a valid URL.",
+            });
+        }
     };
+
     const uploadfile = async (file) => {
 
         if (file) {
@@ -141,12 +159,13 @@ const CreatorUpload = ({ pagetitle }) => {
         }
         return false // Return false if there's no file to upload
     }
+
     useEffect(() => {
         if (localStorage.getItem("authUser")) {
             const obj = JSON.parse(localStorage.getItem("authUser"));
             getInfluencersProfilebyId(obj.id)
                 .then((result) => {
-                    console.log("loginUser",{ mtUserId: obj.id, profileId: result.id })
+                    console.log("loginUser", { mtUserId: obj.id, profileId: result.id })
                     setFormData({ mtUserId: obj.id, profileId: result.id });
                 })
                 .catch((err) => {
@@ -157,6 +176,7 @@ const CreatorUpload = ({ pagetitle }) => {
             setContentType(result);
         });
     }, [])
+
     return (
         <>
             <div>
@@ -213,17 +233,17 @@ const CreatorUpload = ({ pagetitle }) => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="sourceUrl" className="form-label text-white">
-                            Source Url <strong>User Youtube Video link   <a style={{color:'red'}}
-                                                onClick={() =>
-                                                    handleShow()
-                                                }
-                                            >Check Demo</a></strong>
+                            Source Url <strong>User Youtube Video link   <a style={{ color: 'red' }}
+                                onClick={() =>
+                                    handleShow()
+                                }
+                            >Check Demo</a></strong>
                         </label>
                         <input
                             type="text"
                             className="form-control dark-bg"
                             name="sourceUrl"
-                            placeholder="sourceUrl"
+                            placeholder="https://www.youtube.com/watch?v=VIDEO-ID or https://youtu.be/VIDEO-ID?si=SESSION-ID"
                             value={formData.sourceUrl}
                             onChange={handleInputChange}
                         />
@@ -238,7 +258,7 @@ const CreatorUpload = ({ pagetitle }) => {
                 <Modal.Body  >
                     <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>
                     <div className="ratio ratio-16x9">
-                        <img src={Imagyoutube}/>
+                        <img src={Imagyoutube} />
                     </div>
                 </Modal.Body>
             </Modal>
@@ -246,4 +266,4 @@ const CreatorUpload = ({ pagetitle }) => {
     );
 };
 
-export default CreatorUpload;
+export default UpdatePortfolio;

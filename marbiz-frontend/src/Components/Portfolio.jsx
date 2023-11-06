@@ -5,7 +5,7 @@ import { Modal, Button } from "react-bootstrap";
 import { getPublicList, getImagesListType } from "../services/api/api-service"
 
 const Portfolio = ({ userId }) => {
-    console.log("userId", userId);
+    // console.log("userId", userId);
     const [list, setList] = useState([]);
     const [show, setShow] = useState(false);
     const [videoSrc, setVideoSrc] = useState("");
@@ -21,33 +21,39 @@ const Portfolio = ({ userId }) => {
 
     const [Category, setCategory] = useState('Image');
     const [user, setUser] = useState(userId);
-    const [contenttype, setContentType] = useState(null);
+    const [contentType, setContentType] = useState(null);
 
     useEffect(() => {
         getPublicList("Content Type").then((result) => {
             setContentType(result);
+            
         });
-        getPackage(Category);
-    }, [])
+        getPackage(Category)
+        
+    }, [Category])
 
     function getPackage(type) {
-        setCategory(type);
-        setList([]);
-        getImagesListType(userId, type).then(result => {
+    setCategory(type);
+    console.log("Content Typesss:", type);
+    // setList([]);
+    getImagesListType(userId, type)
+        .then(result => {
             if (!isEmpty(result)) {
                 setList(result);
-                console.log(result);
+            } else {
+                console.error("API Response is empty or not as expected.");
             }
-        }).catch((e) => {
-            setList([]);
         })
-    }
+        .catch(error => {
+            console.error("API Error:", error);
+        });
+}
 
     return (
         <>
             {/* <!-- Tabs navs --> */}
             <ul className="nav package-navigation nav-tabs mb-3" id="ex-with-icons" role="tablist">
-                {contenttype?.map((item, index) =>
+                {contentType?.map((item, index) =>
                     <li className="nav-item" key={index}>
                         <button
                             className={`nav-link px-2 ${Category == item.value ? 'active' : ''}`}

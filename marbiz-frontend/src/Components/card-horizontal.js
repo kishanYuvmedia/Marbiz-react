@@ -3,11 +3,12 @@ import './cardstyle.css';
 import image from '../Images/information.png';
 import ModelBox from "../Components/ModelBox"
 import _, { isEmpty } from "lodash"
+
 export const CardHorizontal = ({ details }) => {
     const [modelValue, modelSetValue] = useState(false);
     const [viewData, setviewdata] = useState({});
     const HandlerView = (data) => {
-        console.log("result",data)
+        console.log("result", data)
         if (!isEmpty(data)) {
             modelSetValue(true)
             setviewdata(data)
@@ -22,14 +23,16 @@ export const CardHorizontal = ({ details }) => {
                             <img src={image} class="card-img-top" alt="..." />
                             <div class="card-body">
                                 <div class="text-section">
-                                    <h5 class="card-title">{item.name}</h5>
+                                    <h5 class="">{item.name}</h5>
                                     <p class="card-text">{item.occasion}/{item.venueCity}</p>
                                 </div>
                                 <div class="cta-section">
-                                    <button onClick={() => HandlerView(item)} class="btn-global px-2" style={{ fontSize: 10 }}>View more</button>
+                                    <button onClick={() => HandlerView(item)} class="btn-global px-2" style={{ fontSize: 12 }}>View more</button>
                                 </div>
                             </div>
-                        </div></div>)}
+                        </div>
+                    </div>
+                )}
             </div>
 
             <ModelBox

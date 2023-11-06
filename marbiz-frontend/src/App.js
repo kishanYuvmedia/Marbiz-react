@@ -4,7 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "mdb-ui-kit/js/mdb.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./App.css";
-import "../src/Page/CreatorAuth/style.css";
+import "./Page/Creator/style.css";
 import "./responsive.css";
 import "bs5-lightbox";
 import React from "react";
@@ -22,17 +22,17 @@ import AboutUs from "./Page/AboutUs";
 import Explore from "./Page/Explore";
 import Celebrity from "./Page/Celebrity";
 // Creator routes
-import Creator from "./Page/CreatorAuth/Creator";
-import UploadImage from "./Page/CreatorAuth/UploadImage";
-import Verify from "./Page/CreatorAuth/Verify";
-import CreatorNavigation from "./Page/CreatorAuth/CreatorNavigation";
-import CreatorMyProfile from "./Page/CreatorAuth/CreatorMyProfile";
-import CreatorPackages from "./Page/CreatorAuth/CreatorPackages";
-import CreatorEnquiries from "./Page/CreatorAuth/CreatorEnquiries";
-import CreatorPassword from "./Page/CreatorAuth/CreatorPassword";
-import AddPackages from "./Page/CreatorAuth/AddPackages";
-import CreatorUpload from "./Page/CreatorAuth/CreatorUpload";
-import PortfolioList from "./Page/CreatorAuth/PortfolioList";
+import Creator from "./Page/Creator/Creator";
+import UploadImage from "./Page/Creator/UploadImage";
+import Verify from "./Page/Creator/Verify";
+import CreatorNavigation from "./Page/Creator/CreatorNavigation";
+import CreatorMyProfile from "./Page/Creator/CreatorMyProfile";
+import CreatorPackages from "./Page/Creator/CreatorPackages";
+import CreatorEnquiries from "./Page/Creator/CreatorEnquiries";
+import CreatorPassword from "./Page/Creator/CreatorPassword";
+import AddPackages from "./Page/Creator/AddPackages";
+import UpdatePortfolio from "./Page/Creator/UpdatePortfolio";
+import PortfolioList from "./Page/Creator/PortfolioList";
 // Brand routes
 import Brand from "./Page/Brand/Brand";
 import BrandSignup from "./Page/Brand/BrandSignup";
@@ -44,7 +44,7 @@ import BrandPassword from "./Page/Brand/BrandPassword";
 import BrandProfile from "./Page/Brand/BrandProfile";
 import ScrollToTop from "./Components/ScrollToTop";
 
-  
+
 
 function App() {
   return (
@@ -58,7 +58,7 @@ function App() {
           <Route path="/:regName" element={<CelebProfile />} />
           <Route path="/login" element={<GlobalLogin />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
-          <Route path="/ChangePassword/:id" element={<ChangePassword/>}/>
+          <Route path="/ChangePassword/:id" element={<ChangePassword />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/celebrity" element={<Celebrity />} />
@@ -74,14 +74,13 @@ function App() {
             <Route path="AddPackages" element={<AddPackages pagetitle="My Packages" />} />
             <Route path="CreatorEnquiries" element={<CreatorEnquiries pagetitle="My Enquiries" />} />
             <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
-            <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
-            <Route path="CreatorUpload" element={<CreatorUpload pagetitle="Add Portfolio" />} />
-            <Route path="PortfolioList" element={<PortfolioList pagetitle="Portfolio List"/>}/>
+            <Route path="UpdatePortfolio" element={<UpdatePortfolio pagetitle="Add to Portfolio" />} />
+            <Route path="PortfolioList" element={<PortfolioList pagetitle="Portfolio List" />} />
           </Route>
           {/* Brand Routes*/}
           <Route path="/brand" element={<Brand />} />
           <Route path="/brand-signup" element={<BrandSignup />} />
-          
+
           <Route path="/brand-dashboard" element={<BrandNavigation />}>
             <Route path="brandHome" element={<BrandHome />} />
             <Route path="brandBooking" element={<BrandBooking />} />

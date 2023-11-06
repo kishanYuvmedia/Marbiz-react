@@ -27,7 +27,7 @@ function NavBar() {
     setIsLoggedIn(false);
 
     Swal.fire({
-      title: "Logout Your account",
+      title: "Logout Your Account?",
       width: 600,
       padding: "3em",
       customClass: {
