@@ -105,10 +105,12 @@ const CreatorMyProfile = ({ pagetitle }) => {
         if (!isEmpty(result)) {
           Swal.fire(
             "Upload successfully",
-            "profile Page Images added successfully",
+            "Profile Image updated successfully",
             "success"
           )
-          window.location.reload(true);
+          // window.location.reload(true);
+          // Update the profile image in the state
+          setProfileImage(profileImage);
         }
       })
     } else {
@@ -213,7 +215,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
     return false // Return false if there's no file to upload
   }
 
-  const handleUpload = async () => {
+  const handleUploadGalleryImages = async () => {
     const promises = [
       uploadfile(selectedfile1, setSelectedImage1),
       uploadfile(selectedfile2, setSelectedImage2),
@@ -240,6 +242,7 @@ const CreatorMyProfile = ({ pagetitle }) => {
             "success"
           )
           window.location.reload(true);
+
         }
       })
     } else {
@@ -257,36 +260,75 @@ const CreatorMyProfile = ({ pagetitle }) => {
     // console.log("updated bio", bio)
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted successfully');
+    // console.log('Form submitted successfully');
 
     const bioData = {
       ...profileData,
       bio: bio,
     };
-    console.log('New Bio Data to update:', bioData);
+    // console.log('New Bio Data to update:', bioData);
 
-    UpdateProfile(bioData).then((result) => {
+    try {
+      const result = await UpdateProfile(bioData);
 
       if (!isEmpty(result)) {
         Swal.fire(
           "Congratulations",
-          "Your Bio was successfully updated!",
+          "Your Description is successfully updated!",
           "success"
-        )
-        window.location.reload(true);
-
+        );
+        // window.location.reload(true);
       } else {
-
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Bio changes failed!",
         });
       }
-    });
-  }
+    } catch (error) {
+      // Handle any errors that occur during the submission
+      console.error("Error updating bio:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "An error occurred while updating your bio.",
+      });
+    }
+  };
+
+
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log('Form submitted successfully');
+
+  //   const bioData = {
+  //     ...profileData,
+  //     bio: bio,
+  //   };
+  //   console.log('New Bio Data to update:', bioData);
+
+  //   UpdateProfile(bioData).then((result) => {
+
+  //     if (!isEmpty(result)) {
+  //       Swal.fire(
+  //         "Congratulations",
+  //         "Your Bio was successfully updated!",
+  //         "success"
+  //       )
+  //       window.location.reload(true);
+
+  //     } else {
+
+  //       Swal.fire({
+  //         icon: "error",
+  //         title: "Oops...",
+  //         text: "Bio changes failed!",
+  //       });
+  //     }
+  //   });
+  // }
 
   return (
     <>
@@ -517,8 +559,8 @@ const CreatorMyProfile = ({ pagetitle }) => {
         </Row>
         <button
           type="submit"
-          onClick={handleUpload}
-          className='btn-global px-3 mt-3 text-center'
+          onClick={handleUploadGalleryImages}
+          className='btn-global fs-6 px-3 mt-3 text-center'
         >
           Update Gallery
         </button>
@@ -558,8 +600,8 @@ const CreatorMyProfile = ({ pagetitle }) => {
 
                 <div>
 
-                  <button className="btn-global px-3 mt-3" type="submit">
-                    Update Bio
+                  <button className="btn-global fs-6 px-3 mt-3" type="submit">
+                    Update
                   </button>
                 </div>
               </form>
