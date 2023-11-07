@@ -299,37 +299,6 @@ const CreatorMyProfile = ({ pagetitle }) => {
   };
 
 
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log('Form submitted successfully');
-
-  //   const bioData = {
-  //     ...profileData,
-  //     bio: bio,
-  //   };
-  //   console.log('New Bio Data to update:', bioData);
-
-  //   UpdateProfile(bioData).then((result) => {
-
-  //     if (!isEmpty(result)) {
-  //       Swal.fire(
-  //         "Congratulations",
-  //         "Your Bio was successfully updated!",
-  //         "success"
-  //       )
-  //       window.location.reload(true);
-
-  //     } else {
-
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Oops...",
-  //         text: "Bio changes failed!",
-  //       });
-  //     }
-  //   });
-  // }
-
   return (
     <>
       {/* profile section */}

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-import { BsInstagram, BsYoutube } from "react-icons/bs";
 import PackageCard from "./PackageCard";
 import ugcIcon from "../Images/ugc_icon.png"
 import instaIcon from "../Images/youtube_icon.png"
@@ -25,7 +23,7 @@ const PackagesTabs = ({ userId, regName }) => {
       PackageById(user).then(result => {
         if (!isEmpty(result)) {
           setList(result);
-          // console.log("package by id", result)
+          console.log("package by id", result.id)
         }
       }).catch((e) => {
         setList([]);

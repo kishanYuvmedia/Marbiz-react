@@ -1,7 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const PackageCard = ({ title, cost, icon, details, regName, packageId }) => {
+
+    const navigate = useNavigate();
+
+    const handleEditClick = () => {
+        if (packageId) {
+            navigate(`/creatorDashboard/EditPackage?packageId=${packageId}`);
+        }
+    };
 
     return (
         <div className='mb-3'>
@@ -33,13 +41,15 @@ const PackageCard = ({ title, cost, icon, details, regName, packageId }) => {
                     </div>
 
                     {/* edit packages */}
-                    {regName == "self" &&
+                    {regName === "self" &&
                         <div>
-                            <Link to={`/creatorDashboard/EditPackage/`} >
-                                <button className="btn-global px-3 ">
+                            {/* <Link to={`/creatorDashboard/EditPackage/`} > */}
+                                <button className="btn-global fs-6 px-3 "
+                                onClick={handleEditClick}
+                                >
                                     Edit
                                 </button>
-                            </Link>
+                            {/* </Link> */}
                         </div>
                     }
                 </div>

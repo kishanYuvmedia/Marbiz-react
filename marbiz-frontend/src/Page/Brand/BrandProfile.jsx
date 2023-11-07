@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Card, CardTitle, Row, Button, CardHeader, CardBody, Col, FormGroup, Label, Input } from 'reactstrap';
+import { Row, Col, FormGroup, Label, Input } from 'reactstrap';
 import { UpdateMtUser } from '../../services/api/api-service';
 import { isEmpty } from 'lodash';
 import Swal from "sweetalert2";
 
 const BrandProfile = () => {
   const [formData, setFormData] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -15,7 +16,7 @@ const BrandProfile = () => {
   };
 
   const handleSubmit = () => {
-    console.log(formData)
+    // console.log(formData)
     const data = [];
     data.push({
 

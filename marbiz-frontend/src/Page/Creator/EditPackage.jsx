@@ -1,51 +1,47 @@
-import { isEmpty, result } from 'lodash';
+import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
-import { createPackage, getPublicList, getPackageById  } from '../../services/api/api-service';
+import { getPublicList, PackageById, updatePackage, PackageByIdAndType } from '../../services/api/api-service';
+import { useLocation } from 'react-router-dom';
 
-const EditPackage = ({ pagetitle, packageId  }) => {
-
+const EditPackage = ({ pagetitle }) => {
     const [platformlist, setPlatform] = useState([]);
     const [contentTypelist, setContentType] = useState([]);
-    const [formData, setFormData] = useState({
-        title: '',
-        platform: '',
-        contentType: '',
-        contentQuantity: 1,
-        Description: '',
-        mtUserId: '',
-        profileId: '',
-        price: '',
-
-
-
-    });
-
-    console.log("Initial qty inside form data :", formData);
+    const [formData, setFormData] = useState([]);
+    const [AllPackages, setAllPackages] = useState([]);
+    const [packageId, setPackageId] = useState(null); // State to store packageId
+    const location = useLocation();
 
     const handleContentQuantityChange = (event) => {
-        const value = parseInt(event.target.value, 10); // Parse the value as an integer
-        console.log("Initial qty inside handleContentQuantityChange:", formData.contentQuantity)
+        const value = parseInt(event.target.value, 10);
         setFormData({
             ...formData,
-            contentQuantity: value, // Ensure it's defined as a number
+            contentQuantity: value,
         });
-
     };
 
     const handleInputChange = (e) => {
+        console.log("handleInputChange working")
+
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value,
         });
+        console.log("changes", formData)
+
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // You can access the form data in the `formData` state and submit it as needed.
-        // console.log(formData);
-        createPackage(formData).then(result => {
+
+        const data = [];
+        data.push({
+
+        })
+        console.log("final", formData);
+
+        updatePackage(formData).then(result => {
             if (!isEmpty(result)) {
                 Swal.fire(
                     "Congratulations",
@@ -53,52 +49,75 @@ const EditPackage = ({ pagetitle, packageId  }) => {
                     "success"
                 );
                 window.location.reload(true);
-            }
-            else {
+            } else {
                 Swal.fire(
                     "Oops !",
                     "Package not uploaded successfully !",
-                    "success"
+                    "error"
                 );
             }
-        })
+        });
     };
 
-    useEffect(() => {
-        if (localStorage.getItem("authUser")) {
-            const obj = JSON.parse(localStorage.getItem("authUser"));
-            setFormData({ mtUserId: obj.id, profileId: obj.registerName });
+    function getPackage(type) {
+        setAllPackages([]);
+        if (type == null) {
+            PackageById().then(result => {
+                if (!isEmpty(result)) {
+                    setAllPackages(result);
+                }
+            }).catch((e) => {
+                setAllPackages([]);
+            });
+        } else {
+            PackageByIdAndType(type).then(result => {
+                if (!isEmpty(result)) {
+                    setAllPackages(result);
+                }
+            }).catch((e) => {
+                setAllPackages([]);
+            });
         }
+    }
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const queryPackageId = searchParams.get('packageId');
+
+        if (queryPackageId) {
+            setPackageId(queryPackageId);
+        }
+
+        getPackage();
         getPublicList("Platform").then((result) => {
             setPlatform(result);
         });
+
         getPublicList("Content Type").then((result) => {
             setContentType(result);
         });
-    }, [])
+    }, [location]);
 
     useEffect(() => {
         if (packageId) {
-            getPackageById(packageId)
-                .then((packageData) => {
-                    // Populate the form fields with the retrieved data
-                    setFormData({
-                        title: packageData.title,
-                        platform: packageData.platform,
-                        contentType: packageData.contentType,
-                        contentQuantity: packageData.contentQuantity,
-                        Description: packageData.Description,
-                        mtUserId: packageData.mtUserId,
-                        profileId: packageData.profileId,
-                        price: packageData.price,
-                    });
-                })
-                .catch((error) => {
-                    console.error("Error fetching package data:", error);
-                    // Handle the error
+            const selectedPackage = AllPackages.find(pkg => pkg.id === packageId);
+            console.log("selectedPackage:", selectedPackage); // Add this line
+            if (selectedPackage) {
+                setFormData({
+                    id: selectedPackage.id,
+                    title: selectedPackage.title,
+                    platform: selectedPackage.platform,
+                    contentType: selectedPackage.contentType,
+                    contentQuantity: selectedPackage.contentQuantity,
+                    Description: selectedPackage.Description,
+                    price: selectedPackage.price,
                 });
+            } else {
+                console.error("Package not found with id:", packageId);
+            }
         }
-    }, [packageId]);
+    }, [packageId, AllPackages]);
+
 
     return (
         <>
@@ -136,7 +155,12 @@ const EditPackage = ({ pagetitle, packageId  }) => {
                         >
                             <option value="">Select an option</option>
                             {platformlist.map(item =>
-                                <option key={item.value} value={item.value}>{item.label}</option>
+                                <option
+                                    key={item.value}
+                                    value={item.value}
+                                >
+                                    {item.label}
+                                </option>
                             )}
                         </select>
                     </div>
@@ -212,7 +236,7 @@ const EditPackage = ({ pagetitle, packageId  }) => {
                             required
                             value={formData.Description}
                             onChange={handleInputChange}
-                        ></textarea>
+                        />
                     </div>
                     <button type="submit" className="btn-global px-3">
                         Submit

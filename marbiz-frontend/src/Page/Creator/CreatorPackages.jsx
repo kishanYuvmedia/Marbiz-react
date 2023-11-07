@@ -10,10 +10,7 @@ const CreatorPackages = ({ pagetitle }) => {
                     <div className='d-inline-flex justify-content-between my-2'>
                         <h1 className="text-center">{pagetitle}</h1>
                         <Link to="/creatorDashboard/AddPackages">
-                            <button className="btn-global px-3" type="button">Add Package</button>
-                        </Link>
-                        <Link to="/creatorDashboard/EditPackage">
-                            <button className="btn-global px-3" type="button">Edit Package</button>
+                            <button className="btn-global px-3" type="button">Add New Package</button>
                         </Link>
                     </div>
                     <hr className="hr hr-blurry border border-danger border-2" />
