@@ -1086,7 +1086,6 @@ body {
   cursor: pointer;
   color: #fff;
   font-size: 12px;
-
 }
 
 .gallery-container-one:hover .gallery-overlay,
@@ -1108,7 +1107,6 @@ body {
 .gallery-container-three {
   height: 250px;
   position: relative;
-
 }
 
 .gallery-container-three img {
@@ -1571,6 +1569,59 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   margin-bottom: 0.2rem;
 }
 
+.reel-card .portfolio-images {
+  position: relative;
+}
+
+.reel-card .portfolio-images .img-close-btn,
+.reel-card .youtube-container .video-close-btn {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  
+}
+
+.reel-card .portfolio-images:hover .image-overlay {
+  opacity: 1;
+}
+
+.reel-card:hover .portfolio-images .img-close-btn,
+.reel-card:hover .youtube-container .video-close-btn {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  /* transition: opacity 0.4s, visibility 0.4s; */
+}
+
+.reel-card,
+.portfolio-images {
+  height: 100%;
+  width: 100%;
+}
+
 .youtube-card .play_icon,
 .reel-card .play_icon {
   width: 30px;
@@ -1625,7 +1676,6 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   -ms-touch-action: pan-y;
   touch-action: pan-y;
   /* -webkit-tap-highlight-color: transparent; */
-
 }
 
 .slick-slider .slick-list,
@@ -1724,7 +1774,6 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   cursor: pointer;
 }
 
-
 .bio-container {
   padding: 20px;
   border: 2px dashed gray;
@@ -1737,5 +1786,4 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   border-radius: 10px;
   background-color: rgb(39, 39, 39);
   padding: 20px;
-
 }

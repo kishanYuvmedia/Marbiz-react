@@ -9,6 +9,10 @@ const Portfolio = ({ userId }) => {
     const [list, setList] = useState([]);
     const [show, setShow] = useState(false);
     const [videoSrc, setVideoSrc] = useState("");
+
+    // Get the current URL pathname
+    const currentPathname = window.location.pathname;
+
     const handleShow = (src) => {
         setVideoSrc(src);
         setShow(true);
@@ -43,7 +47,7 @@ const Portfolio = ({ userId }) => {
                 .then(result => {
                     if (!isEmpty(result)) {
                         setList(result);
-                        // console.log("Content Types:", userId);
+                        console.log("Content result:", list);
 
                     } else {
                         console.error("API Response is empty or not as expected.");
@@ -62,7 +66,7 @@ const Portfolio = ({ userId }) => {
                 {contentType?.map((item, index) =>
                     <li className="nav-item" key={index}>
                         <button
-                            className={`nav-link px-2 ${Category == item.value ? 'active' : ''}`}
+                            className={`nav-link px-2 ${Category === item.value ? 'active' : ''}`}
                             id={`all-${item.value}`}
                             onClick={() => getPackage(item.value)}
                         >
@@ -85,19 +89,36 @@ const Portfolio = ({ userId }) => {
                                 <div className='col-md-3 col-6 mb-3 ' key={index}>
                                     <div className="reel-card">
                                         {item.caption === "Image" &&
-                                            <img
-                                                className="rounded-3 img-fluid"
-                                                src={item.src}
-                                                alt={item.caption}
-                                                style={{
-                                                    objectFit: 'cover',
-                                                    height: '100%',
-                                                    width: '100%'
-                                                }}
-                                            />
-                                        } {item.caption != "Image" &&
-                                            <div className="position-relative ">
-                                                <a onClick={() => handleShow(item.sourceUrl)}>
+                                            <div className="position-relative portfolio-images ">
+                                                <img className="rounded-3"
+                                                    src={item.src}
+                                                    alt={item.caption}
+                                                    style={{
+                                                        objectFit: 'cover',
+                                                        height: '100%',
+                                                        width: '100%'
+                                                    }}
+                                                />
+                                                {currentPathname.includes("/creatorDashboard/PortfolioList") &&
+                                                    <div className="image-overlay  ">
+                                                        <div className="d-flex">
+
+                                                            <button className="px-3  btn border me-2">Delete</button>
+
+                                                            <button className="px-3 btn border">Edit</button>
+                                                        </div>
+                                                        {/* <span className="bg-white p-2 rounded-3 btn-close img-close-btn"></span> */}
+                                                    </div>
+
+                                                }
+                                            </div>
+                                        }
+
+                                        {item.caption !== "Image" &&
+                                            <div className="position-relative youtube-container">
+                                                <a onClick={() => handleShow(item.sourceUrl)}
+                                                    style={{ cursor: "pointer" }}
+                                                >
                                                     <img
                                                         src={item.src}
                                                         alt={item.caption}
@@ -105,6 +126,9 @@ const Portfolio = ({ userId }) => {
                                                     />
                                                     <span className="play_icon"></span>
                                                 </a>
+                                                {currentPathname.includes("/creatorDashboard/PortfolioList") &&
+                                                    <span className="bg-white p-2 rounded-3 btn-close video-close-btn"></span>
+                                                }
                                             </div>
                                         }
                                     </div>
@@ -132,7 +156,7 @@ const Portfolio = ({ userId }) => {
                         onClick={handleClose}>
                     </Button>
                     <div className="ratio ratio-16x9">
-                        <iframe
+                        <iframe key={videoSrc} title={videoSrc}
                             className="embed-responsive-item"
                             src={`https://www.youtube.com/embed/${videoSrc}?si=2jZjY79pliCugrnY`}
                             allowFullScreen

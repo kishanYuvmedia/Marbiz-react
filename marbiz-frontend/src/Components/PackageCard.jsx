@@ -31,7 +31,7 @@ const PackageCard = ({ title, cost, icon, details, regName, packageId }) => {
 
                     {/* inquiry form */}
                     <div>
-                        {regName != "self" &&
+                        {regName !== "self" &&
                             <Link to={`/inquiryform/${regName}`} >
                                 <button className="btn-global px-3 ">
                                     Start

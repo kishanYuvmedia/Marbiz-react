@@ -243,21 +243,6 @@ export const PackageByIdAndType = (type, id) => {
   })
 }
 
-// api-service.js
-
-// export const getPackageById = async (packageId) => {
-//   try {
-//       const response = await fetch(`/api/packages/${packageId}`); // Replace with your actual API endpoint
-//       if (!response.ok) {
-//           throw new Error(`Request failed with status: ${response.status}`);
-//       }
-//       const data = await response.json();
-//       return data;
-//   } catch (error) {
-//       throw new Error(`Error fetching package data: ${error.message}`);
-//   }
-// };
-
 export const getImagesList = id => {
   return find(`MtProfiles/${id}/Images`, {
     where: { status: "A" },
@@ -273,3 +258,6 @@ export const getImagesListType = (id, type) => {
 export const UploadImages = data => {
   return create("Images", data)
 }
+export const deleteImage = (id) => {
+  return deleteById(`Images/${id}`);
+};
