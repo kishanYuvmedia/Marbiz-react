@@ -1,4 +1,4 @@
-import { create, find, upsertPatch, findOne, count, deleteById } from "./core-service";
+import { create, find, upsertPatch, findOne, count, deleteById, findById } from "./core-service";
 import { storeLocalData, getLocalData, removeLocalData } from "../global-storage";
 import apiKit from "./axios-base";
 
@@ -260,5 +260,8 @@ export const UploadImages = data => {
 }
 export const deleteImage = (id) => {
   return deleteById("Images", id)
+}
 
-};
+export const getPortfolioByID = (id) => {
+  return findById("Images", id)
+}

@@ -78,7 +78,7 @@ function App() {
             <Route path="CreatorEnquiries" element={<CreatorEnquiries pagetitle="My Enquiries" />} />
             <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
             <Route path="UpdatePortfolio" element={<UpdatePortfolio pagetitle="Add to Portfolio" />} />
-            <Route path="EditPortfolio" element={<EditPortfolio pagetitle="Edit to Portfolio" />} />
+            <Route path="EditPortfolio" element={<EditPortfolio />} />
             <Route path="PortfolioList" element={<PortfolioList pagetitle="Portfolio List" />} />
           </Route>
           {/* Brand Routes*/}

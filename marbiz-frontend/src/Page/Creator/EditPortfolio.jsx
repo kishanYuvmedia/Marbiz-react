@@ -2,11 +2,21 @@ import { isEmpty, result } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import Imagyoutube from '../../Images/link-image.png';
-import { Modal, Button } from "react-bootstrap";
-import { getPublicList, UploadImages, getInfluencersProfilebyId } from '../../services/api/api-service';
+import { Modal, Button, Image } from "react-bootstrap";
+import { getPublicList, UploadImages, getInfluencersProfilebyId, getImagesListType, getPortfolioByID } from '../../services/api/api-service';
+import { useLocation } from 'react-router-dom';
 
 const EditPortfolio = ({ pagetitle }) => {
     const [show, setShow] = useState(false);
+    const [contentTypelist, setContentType] = useState([]);
+    const [imagestatus, setImagestatus] = useState(false);
+    const [formData, setFormData] = useState([]);
+    const location = useLocation();
+    const [currentContentID, setCurrentContentID] = useState(null);
+    const [portfolioContent, setPortfolioContent] = useState([]);
+
+
+
     const handleShow = () => {
         setShow(true);
     };
@@ -14,18 +24,6 @@ const EditPortfolio = ({ pagetitle }) => {
     const handleClose = () => {
         setShow(false);
     };
-
-    const [contentTypelist, setContentType] = useState([]);
-    const [imagestatus, setImagestatus] = useState(false);
-    const [formData, setFormData] = useState({
-        src: '',
-        original: '',
-        caption: '',
-        profileId: '',
-        status: '',
-        mtUserId: '',
-        sourceUrl: '',
-    });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -59,7 +57,7 @@ const EditPortfolio = ({ pagetitle }) => {
         const file = e.target.files[0];
         if (file) {
             Swal.fire({
-                title: "Do you upload this file !",
+                title: "Do you uploaded this file !",
                 width: 600,
                 padding: "3em",
                 customClass: {
@@ -70,14 +68,14 @@ const EditPortfolio = ({ pagetitle }) => {
                 imageHeight: 200,
                 imageAlt: 'Custom image',
                 showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
+                confirmButtonColor: "green",
+                cancelButtonColor: "gray",
                 confirmButtonText: "Yes",
                 cancelButtonText: "Cancel",
             }).then((result) => {
                 if (result.isConfirmed) {
                     uploadfile(file).then((data) => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.status) {
                             setImagestatus(true)
                             setFormData({
@@ -160,22 +158,76 @@ const EditPortfolio = ({ pagetitle }) => {
         return false // Return false if there's no file to upload
     }
 
+    function getPortfolio(contentID) {
+        // setCategory(type);
+        // console.log("Calling getPortfolio with contentID:", contentID);
+        setPortfolioContent([]);
+
+        if (contentID !== null) {
+            getPortfolioByID(contentID)
+                .then(result => {
+                    console.log("current content", result)
+                    if (!isEmpty(result)) {
+                        setPortfolioContent(result);
+                    } else {
+                        console.error("API Portfolio Response is empty or not as expected.");
+                    }
+                })
+                .catch(error => {
+                    console.error("API Error:", error);
+                });
+
+            // getImagesListType(currentContentID, type)
+            //     .then(result => {
+            //         if (!isEmpty(result)) {
+            //             setAllPortfolio(result);
+            //         } else {
+            //             console.error("API Response is empty or not as expected.");
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.error("API Error:", error);
+            //     });
+        }
+    }
+
     useEffect(() => {
         if (localStorage.getItem("authUser")) {
             const obj = JSON.parse(localStorage.getItem("authUser"));
-            getInfluencersProfilebyId(obj.id)
-                .then((result) => {
-                    console.log("loginUser", { mtUserId: obj.id, profileId: result.id })
-                    setFormData({ mtUserId: obj.id, profileId: result.id });
-                })
-                .catch((err) => {
-                    console.error("Error fetching profile data:", err);
+
+            const queryContentId = new URLSearchParams(location.search).get('contentID');
+
+            if (queryContentId) {
+                console.log("current content", queryContentId);
+                setCurrentContentID(queryContentId);
+
+                // Fetch portfolio content
+                getPortfolio(currentContentID);
+
+                // Fetch content types
+                getPublicList("Content Type").then((result) => {
+                    setContentType(result);
                 });
+            } else {
+                console.error("No contentID found in the query.");
+            }
+
+
+            // console.log("Calling getPortfolio with contentID:", currentContentID);
+
         }
-        getPublicList("Content Type").then((result) => {
-            setContentType(result);
-        });
-    }, [])
+    }, [currentContentID])
+
+    useEffect(() => {
+        if (portfolioContent) {
+            console.log("Portfolio Content:", portfolioContent);
+            setFormData(portfolioContent);
+        } else {
+            console.error("Package not found :", portfolioContent);
+        }
+    }, [portfolioContent]);
+
+    console.log("current data inside form Data", formData)
 
     return (
         <>
@@ -194,7 +246,7 @@ const EditPortfolio = ({ pagetitle }) => {
                             data-mdb-showcounter="true"
                             maxLength="20"
                             placeholder="Title"
-                            value={formData.title}
+                            value={formData.title || ''}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -207,18 +259,19 @@ const EditPortfolio = ({ pagetitle }) => {
                             name="caption"
                             aria-label="Content Type"
                             required
-                            value={formData.caption}
+                            value={formData.caption || ''}
                             onChange={handleInputChange}
                         >
                             <option value="">Select an option</option>
                             {contentTypelist.map(item =>
-                                <option value={item.value}>{item.label}</option>
+                                <option key={item.value} value={item.value}>{item.label}</option>
                             )}
                         </select>
                     </div>
+
                     <div className="mb-3">
                         <label htmlFor="filepath" className="form-label text-white">
-                            Upload {formData.contentType} Image
+                            Upload Image
                         </label>
                         <input
                             type="file"
@@ -227,24 +280,31 @@ const EditPortfolio = ({ pagetitle }) => {
                             accept="image/*"
                             onChange={handleFileUpload}
                         />
-                        <label htmlFor="filepath" className="form-label text-white">
-                            {imagestatus ? <strong style={{ color: 'red' }}>Upload File:{formData.src}</strong> : ""}
-                        </label>
+                        {formData.src && (
+                            <div className='gallery-container d-grid my-3'>
+                                <strong style={{ color: 'red' }}>Upload File: {formData.src}</strong>
+                                <img src={formData.src} alt="Uploaded Image" className='img-thumbnail img-fluid' style={{
+                                    height: "250px",
+                                    wieght: "250px",
+                                }} />
+                            </div>
+                        )}
                     </div>
+
+
                     <div className="mb-3">
                         <label htmlFor="sourceUrl" className="form-label text-white">
-                            Source Url <strong>User Youtube Video link   <a style={{ color: 'red' }}
-                                onClick={() =>
-                                    handleShow()
-                                }
-                            >Check Demo</a></strong>
+                            <strong> Youtube Video URL: <a style={{ color: 'red' }}
+                                onClick={() => handleShow()}
+                            >Refer Demo</a></strong>
                         </label>
                         <input
-                            type="text"
+                            type="url"
                             className="form-control dark-bg"
                             name="sourceUrl"
+                            id='sourceUrl'
                             placeholder="https://www.youtube.com/watch?v=VIDEO-ID or https://youtu.be/VIDEO-ID?si=SESSION-ID"
-                            value={formData.sourceUrl}
+                            value={`https://www.youtube.com/watch?v=${formData.sourceUrl || ''}`}
                             onChange={handleInputChange}
                         />
                     </div>

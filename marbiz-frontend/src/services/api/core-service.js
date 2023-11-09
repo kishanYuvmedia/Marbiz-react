@@ -3,7 +3,7 @@ import {axiosRequest} from "./axios-base";
 export const findById = (model, id, filter = {}) => {
     return axiosRequest(
         'GET',
-        [model, ':id',].join('/'),
+        [model, id].join('/'),
         filter,
         undefined,
         { id }

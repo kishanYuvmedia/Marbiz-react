@@ -42,11 +42,11 @@ const Portfolio = ({ userId }) => {
                 setContentType(result);
 
             });
-            getPackage(Category)
+            getPortfolio(Category)
         }
     }, [Category, userId])
 
-    function getPackage(type) {
+    function getPortfolio(type) {
         setCategory(type);
         setList([]);
 
@@ -74,7 +74,7 @@ const Portfolio = ({ userId }) => {
                         <button
                             className={`nav-link px-2 ${Category === item.value ? 'active' : ''}`}
                             id={`all-${item.value}`}
-                            onClick={() => getPackage(item.value)}
+                            onClick={() => getPortfolio(item.value)}
                         >
                             {item.value}
                         </button>
