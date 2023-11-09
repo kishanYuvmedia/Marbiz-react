@@ -3,15 +3,24 @@ import React, { useEffect, useState } from "react";
 import { isEmpty, result } from "lodash";
 import { Modal, Button } from "react-bootstrap";
 import { getPublicList, getImagesListType } from "../services/api/api-service"
+import { useNavigate } from 'react-router-dom'
+
 
 const Portfolio = ({ userId }) => {
-    // console.log("Current userId", userId);
+
     const [list, setList] = useState([]);
     const [show, setShow] = useState(false);
     const [videoSrc, setVideoSrc] = useState("");
+    const navigate = useNavigate();
 
     // Get the current URL pathname
     const currentPathname = window.location.pathname;
+
+    const handleEditClick = (contentID) => {
+        if (contentID) {
+            navigate(`/creatorDashboard/EditPortfolio?contentID=${contentID}`);
+        }
+    };
 
     const handleShow = (src) => {
         setVideoSrc(src);
@@ -31,7 +40,7 @@ const Portfolio = ({ userId }) => {
         if (userId !== null) {
             getPublicList("Content Type").then((result) => {
                 setContentType(result);
-                // console.log("Content type result:", result);
+
             });
             getPackage(Category)
         }
@@ -39,7 +48,6 @@ const Portfolio = ({ userId }) => {
 
     function getPackage(type) {
         setCategory(type);
-        // console.log("Content Typessss:", type);
         setList([]);
 
         if (userId !== null) {
@@ -47,8 +55,6 @@ const Portfolio = ({ userId }) => {
                 .then(result => {
                     if (!isEmpty(result)) {
                         setList(result);
-                        console.log("Content result:", list);
-
                     } else {
                         console.error("API Response is empty or not as expected.");
                     }
@@ -89,7 +95,7 @@ const Portfolio = ({ userId }) => {
                                 <div className='col-md-3 col-6 mb-3 ' key={index}>
                                     <div className="reel-card">
                                         {item.caption === "Image" &&
-                                            <div className="position-relative portfolio-images ">
+                                            <div className="portfolio-images">
                                                 <img className="rounded-3"
                                                     src={item.src}
                                                     alt={item.caption}
@@ -101,13 +107,11 @@ const Portfolio = ({ userId }) => {
                                                 />
                                                 {currentPathname.includes("/creatorDashboard/PortfolioList") &&
                                                     <div className="image-overlay  ">
-                                                        <div className="d-flex">
-
-                                                            <button className="px-3  btn border me-2">Delete</button>
-
-                                                            <button className="px-3 btn border">Edit</button>
+                                                        <div className="d-flex mb-3">
+                                                            <button className="px-3 btn me-2">Delete</button>
+                                                            <button className="px-3 btn " onClick={() => handleEditClick(item.id)}>Edit</button>
                                                         </div>
-                                                        {/* <span className="bg-white p-2 rounded-3 btn-close img-close-btn"></span> */}
+
                                                     </div>
 
                                                 }
@@ -115,7 +119,7 @@ const Portfolio = ({ userId }) => {
                                         }
 
                                         {item.caption !== "Image" &&
-                                            <div className="position-relative youtube-container">
+                                            <div className="youtube-container">
                                                 <a onClick={() => handleShow(item.sourceUrl)}
                                                     style={{ cursor: "pointer" }}
                                                 >
@@ -127,7 +131,14 @@ const Portfolio = ({ userId }) => {
                                                     <span className="play_icon"></span>
                                                 </a>
                                                 {currentPathname.includes("/creatorDashboard/PortfolioList") &&
-                                                    <span className="bg-white p-2 rounded-3 btn-close video-close-btn"></span>
+                                                    <div className="image-overlay  ">
+                                                        <div className="d-flex mb-3">
+
+                                                            <button className="px-3 btn me-2">Delete</button>
+                                                            <button className="px-3 btn " onClick={() => handleEditClick(item.id)}>Edit</button>
+                                                        </div>
+
+                                                    </div>
                                                 }
                                             </div>
                                         }

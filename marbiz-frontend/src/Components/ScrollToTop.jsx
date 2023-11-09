@@ -10,6 +10,7 @@ const ScrollToTop = () => {
         window.scrollTo(0, 0);
     }, [pathname]);
 
+    // console.log("Current path:", pathname)
     return (
         <></>
     )

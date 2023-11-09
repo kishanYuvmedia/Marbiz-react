@@ -259,5 +259,6 @@ export const UploadImages = data => {
   return create("Images", data)
 }
 export const deleteImage = (id) => {
-  return deleteById(`Images/${id}`);
+  return deleteById("Images", id)
+
 };

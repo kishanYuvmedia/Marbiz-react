@@ -33,6 +33,7 @@ import CreatorPassword from "./Page/Creator/CreatorPassword";
 import AddPackages from "./Page/Creator/AddPackages";
 import EditPackage from "./Page/Creator/EditPackage";
 import UpdatePortfolio from "./Page/Creator/UpdatePortfolio";
+import EditPortfolio from "./Page/Creator/EditPortfolio";
 import PortfolioList from "./Page/Creator/PortfolioList";
 // Brand routes
 import Brand from "./Page/Brand/Brand";
@@ -77,6 +78,7 @@ function App() {
             <Route path="CreatorEnquiries" element={<CreatorEnquiries pagetitle="My Enquiries" />} />
             <Route path="CreatorPassword" element={<CreatorPassword pagetitle="Update Password" />} />
             <Route path="UpdatePortfolio" element={<UpdatePortfolio pagetitle="Add to Portfolio" />} />
+            <Route path="EditPortfolio" element={<EditPortfolio pagetitle="Edit to Portfolio" />} />
             <Route path="PortfolioList" element={<PortfolioList pagetitle="Portfolio List" />} />
           </Route>
           {/* Brand Routes*/}

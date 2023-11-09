@@ -1569,51 +1569,46 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   margin-bottom: 0.2rem;
 }
 
-.reel-card .portfolio-images {
+.reel-card .portfolio-images,
+.reel-card .youtube-container {
   position: relative;
 }
 
-.reel-card .portfolio-images .img-close-btn,
-.reel-card .youtube-container .video-close-btn {
-  position: absolute;
-  top: 2%;
-  right: 2%;
-  cursor: pointer;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s, visibility 0.4s;
+.image-overlay button {
+  color: white;
+  border: 1px solid white;
 }
+
+.image-overlay button:hover {
+  color: rgb(255, 134, 48);
+  border-color: rgb(255, 134, 48);
+  background-color: #0000007a;
+}
+
 .image-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   text-align: center;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+
   opacity: 0;
   transition: opacity 0.3s ease;
   cursor: pointer;
   color: #fff;
   font-size: 12px;
-  
 }
 
-.reel-card .portfolio-images:hover .image-overlay {
+.reel-card .portfolio-images:hover .image-overlay,
+.reel-card .youtube-container:hover .image-overlay {
   opacity: 1;
-}
-
-.reel-card:hover .portfolio-images .img-close-btn,
-.reel-card:hover .youtube-container .video-close-btn {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  /* transition: opacity 0.4s, visibility 0.4s; */
 }
 
 .reel-card,
