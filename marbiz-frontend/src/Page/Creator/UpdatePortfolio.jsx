@@ -262,22 +262,16 @@ const UpdatePortfolio = ({ pagetitle }) => {
                         )}
                     </div>
                     <div className="mb-3">
-                        {/* <label htmlFor="sourceUrl" className="form-label text-white">
-                            Source Url <strong>User Youtube Video link   <a style={{ color: 'red' }}
-                                onClick={() =>
-                                    handleShow()
-                                }
-                            >Check Demo</a></strong>
-                        </label> */}
+                        
                         <label htmlFor="sourceUrl" className="form-label text-white">
                             {formData.caption !== "Image" ? (
                                 <span>
                                     Source URL:
                                     <strong className='ms-2'>
                                         User Youtube Video link
-                                        <a style={{ cursor: "pointer" }} className='text-danger ms-2' onClick={() => handleShow()}>
+                                        <span style={{ cursor: "pointer" }} className='text-danger ms-2' onClick={() => handleShow()}>
                                             Check Demo
-                                        </a>
+                                        </span>
                                     </strong>
                                 </span>
                             ) : 'Image Source For reference'}
@@ -302,7 +296,7 @@ const UpdatePortfolio = ({ pagetitle }) => {
                 <Modal.Body  >
                     <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>
                     <div className="ratio ratio-16x9">
-                        <img src={Imagyoutube} />
+                        <img src={Imagyoutube} alt="youtube-url-ref" />
                     </div>
                 </Modal.Body>
             </Modal>
