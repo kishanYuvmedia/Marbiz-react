@@ -65,7 +65,9 @@ const UpdatePortfolio = ({ pagetitle }) => {
                 customClass: {
                     title: 'my-swal-title',
                 },
-                imageUrl: e.target.result,
+                // imageUrl: e.target.result,
+                imageUrl: URL.createObjectURL(file),
+
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: 'Custom image',
@@ -102,8 +104,24 @@ const UpdatePortfolio = ({ pagetitle }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Check if sourceUrl is not empty before extracting videoId
-        if (formData.sourceUrl) {
-            const videoId1 = extractVideoId(formData.sourceUrl);
+        if (formData.caption !== null) {
+            let videoId1 = "";
+            if (formData.caption !== "Image") {
+                if (formData.sourceUrl) {
+                    videoId1 = extractVideoId(formData.sourceUrl);
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Source Url is empty. Please provide a valid URL.",
+                    });
+                }
+                return;
+            }
+            else {
+                videoId1 = formData.sourceUrl;
+            }
             const data = [];
             data.push({
                 ...formData,
@@ -125,7 +143,7 @@ const UpdatePortfolio = ({ pagetitle }) => {
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: "Source URL is empty. Please provide a valid URL.",
+                text: "Content Type is empty. Please provide a valid URL.",
             });
         }
     };
@@ -227,23 +245,49 @@ const UpdatePortfolio = ({ pagetitle }) => {
                             accept="image/*"
                             onChange={handleFileUpload}
                         />
-                        <label htmlFor="filepath" className="form-label text-white">
+                        {/* <label htmlFor="filepath" className="form-label text-white">
                             {imagestatus ? <strong style={{ color: 'red' }}>Upload File:{formData.src}</strong> : ""}
-                        </label>
+                        </label> */}
+                        {imagestatus && (
+                            <div className='gallery-container d-grid my-3' style={{
+                                width: "fit-content",
+                            }}>
+                                {/* <strong style={{ color: 'red' }}>Upload File: {formData.src}</strong> */}
+                                <small className='text-secondary text-center'>Preview</small>
+                                <img src={formData.src} alt="Uploaded Image" className='rounded-3 img-fluid' style={{
+                                    height: "250px",
+                                    wieght: "250px",
+                                }} />
+                            </div>
+                        )}
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="sourceUrl" className="form-label text-white">
+                        {/* <label htmlFor="sourceUrl" className="form-label text-white">
                             Source Url <strong>User Youtube Video link   <a style={{ color: 'red' }}
                                 onClick={() =>
                                     handleShow()
                                 }
                             >Check Demo</a></strong>
+                        </label> */}
+                        <label htmlFor="sourceUrl" className="form-label text-white">
+                            {formData.caption !== "Image" ? (
+                                <span>
+                                    Source URL:
+                                    <strong className='ms-2'>
+                                        User Youtube Video link
+                                        <a style={{ cursor: "pointer" }} className='text-danger ms-2' onClick={() => handleShow()}>
+                                            Check Demo
+                                        </a>
+                                    </strong>
+                                </span>
+                            ) : 'Image Source For reference'}
                         </label>
+
                         <input
                             type="text"
                             className="form-control dark-bg"
                             name="sourceUrl"
-                            placeholder="https://www.youtube.com/watch?v=VIDEO-ID or https://youtu.be/VIDEO-ID?si=SESSION-ID"
+                            placeholder={formData.caption !== "Image" ? 'https://www.youtube.com/watch?v=VIDEO-ID' : 'Image Source'}
                             value={formData.sourceUrl}
                             onChange={handleInputChange}
                         />

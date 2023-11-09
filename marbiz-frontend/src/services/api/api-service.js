@@ -258,6 +258,11 @@ export const getImagesListType = (id, type) => {
 export const UploadImages = data => {
   return create("Images", data)
 }
+
+export const updateImage = data => {
+  return upsertPatch("Images", data)
+}
+
 export const deleteImage = (id) => {
   return deleteById("Images", id)
 }

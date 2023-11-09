@@ -1574,18 +1574,18 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   position: relative;
 }
 
-.image-overlay button {
+.portfolio-images .image-overlay button {
   color: white;
   border: 1px solid white;
 }
 
-.image-overlay button:hover {
+.portfolio-images .image-overlay button:hover {
   color: rgb(255, 134, 48);
   border-color: rgb(255, 134, 48);
   background-color: #0000007a;
 }
 
-.image-overlay {
+.portfolio-images .image-overlay {
   position: absolute;
   bottom: 0;
   left: 0;

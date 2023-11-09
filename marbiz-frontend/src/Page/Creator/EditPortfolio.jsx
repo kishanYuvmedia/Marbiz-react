@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import Imagyoutube from '../../Images/link-image.png';
 import { Modal, Button, Image } from "react-bootstrap";
-import { getPublicList, UploadImages, getInfluencersProfilebyId, getImagesListType, getPortfolioByID } from '../../services/api/api-service';
+import { getPublicList, UploadImages, updateImage, getInfluencersProfilebyId, getImagesListType, getPortfolioByID } from '../../services/api/api-service';
 import { useLocation } from 'react-router-dom';
 
 const EditPortfolio = ({ pagetitle }) => {
@@ -63,7 +63,8 @@ const EditPortfolio = ({ pagetitle }) => {
                 customClass: {
                     title: 'my-swal-title',
                 },
-                imageUrl: e.target.result,
+                // imageUrl: e.target.result,
+                imageUrl: URL.createObjectURL(file),
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: 'Custom image',
@@ -83,8 +84,7 @@ const EditPortfolio = ({ pagetitle }) => {
                                 src: data.imageurl,
                                 original: data.imageurl,
                             });
-                        }
-                        else {
+                        } else {
                             Swal.fire({
                                 icon: "error",
                                 title: "Oops...",
@@ -100,15 +100,33 @@ const EditPortfolio = ({ pagetitle }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Check if sourceUrl is not empty before extracting videoId
-        if (formData.sourceUrl) {
-            const videoId1 = extractVideoId(formData.sourceUrl);
-            const data = [];
-            data.push({
+        if (formData.caption !== null) {
+            let videoId1 = "";
+            if (formData.caption !== "Image") {
+                if (formData.sourceUrl) {
+                    videoId1 = extractVideoId(formData.sourceUrl);
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Source Url is empty. Please provide a valid URL.",
+                    });
+                }
+            }
+            else {
+                videoId1 = formData.sourceUrl;
+            }
+
+            // Create the updated data object
+            const updatedData = {
                 ...formData,
                 sourceUrl: videoId1,
-            })
-            // console.log(data);
-            UploadImages(data).then(result => {
+            };
+
+            console.log("final data", updatedData);
+            // Call the updateImage function with the updated data
+            updateImage(updatedData).then(result => {
                 if (!isEmpty(result)) {
                     Swal.fire({
                         icon: "success",
@@ -117,7 +135,9 @@ const EditPortfolio = ({ pagetitle }) => {
                     })
                     window.location.reload(true)
                 }
-            })
+            }).catch(error => {
+                console.error("Update Image Error:", error);
+            });
         } else {
             // Handle the case where sourceUrl is empty
             Swal.fire({
@@ -177,17 +197,6 @@ const EditPortfolio = ({ pagetitle }) => {
                     console.error("API Error:", error);
                 });
 
-            // getImagesListType(currentContentID, type)
-            //     .then(result => {
-            //         if (!isEmpty(result)) {
-            //             setAllPortfolio(result);
-            //         } else {
-            //             console.error("API Response is empty or not as expected.");
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.error("API Error:", error);
-            //     });
         }
     }
 
@@ -281,9 +290,12 @@ const EditPortfolio = ({ pagetitle }) => {
                             onChange={handleFileUpload}
                         />
                         {formData.src && (
-                            <div className='gallery-container d-grid my-3'>
-                                <strong style={{ color: 'red' }}>Upload File: {formData.src}</strong>
-                                <img src={formData.src} alt="Uploaded Image" className='img-thumbnail img-fluid' style={{
+                            <div className='gallery-container d-grid my-3' style={{
+                                width: "fit-content",
+                            }}>
+                                {/* <strong style={{ color: 'red' }}>Upload File: {formData.src}</strong> */}
+                                <small className='text-secondary text-center'>Preview</small>
+                                <img src={formData.src} alt="Uploaded Image" className='rounded-3 img-fluid' style={{
                                     height: "250px",
                                     wieght: "250px",
                                 }} />
@@ -294,17 +306,25 @@ const EditPortfolio = ({ pagetitle }) => {
 
                     <div className="mb-3">
                         <label htmlFor="sourceUrl" className="form-label text-white">
-                            <strong> Youtube Video URL: <a style={{ color: 'red' }}
-                                onClick={() => handleShow()}
-                            >Refer Demo</a></strong>
+                            {formData.caption !== "Image" ? (
+                                <span>
+                                    Source URL:
+                                    <strong className='ms-2'>
+                                        User Youtube Video link
+                                        <a style={{ cursor: "pointer" }} className='text-danger ms-2' onClick={() => handleShow()}>
+                                            Check Demo
+                                        </a>
+                                    </strong>
+                                </span>
+                            ) : 'Image Source For reference'}
                         </label>
                         <input
                             type="url"
                             className="form-control dark-bg"
                             name="sourceUrl"
                             id='sourceUrl'
-                            placeholder="https://www.youtube.com/watch?v=VIDEO-ID or https://youtu.be/VIDEO-ID?si=SESSION-ID"
-                            value={`https://www.youtube.com/watch?v=${formData.sourceUrl || ''}`}
+                            placeholder={formData.caption !== "Image" ? 'https://www.youtube.com/watch?v=VIDEO-ID' : 'Image Source'}
+                            value={formData.caption !== "Image" ? `https://www.youtube.com/watch?v=${formData.sourceUrl || ''}` : formData.sourceUrl || ''}
                             onChange={handleInputChange}
                         />
                     </div>
