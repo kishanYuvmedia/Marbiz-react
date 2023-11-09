@@ -1,9 +1,9 @@
-import { isEmpty, result } from 'lodash';
+import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import Imagyoutube from '../../Images/link-image.png';
-import { Modal, Button, Image } from "react-bootstrap";
-import { getPublicList, UploadImages, updateImage, getInfluencersProfilebyId, getImagesListType, getPortfolioByID } from '../../services/api/api-service';
+import { Modal, Button } from "react-bootstrap";
+import { getPublicList, updateImage, getPortfolioByID } from '../../services/api/api-service';
 import { useLocation } from 'react-router-dom';
 
 const EditPortfolio = ({ pagetitle }) => {
@@ -179,8 +179,7 @@ const EditPortfolio = ({ pagetitle }) => {
     }
 
     function getPortfolio(contentID) {
-        // setCategory(type);
-        // console.log("Calling getPortfolio with contentID:", contentID);
+
         setPortfolioContent([]);
 
         if (contentID !== null) {
@@ -220,12 +219,8 @@ const EditPortfolio = ({ pagetitle }) => {
             } else {
                 console.error("No contentID found in the query.");
             }
-
-
-            // console.log("Calling getPortfolio with contentID:", currentContentID);
-
         }
-    }, [currentContentID])
+    }, [currentContentID, location.search])
 
     useEffect(() => {
         if (portfolioContent) {

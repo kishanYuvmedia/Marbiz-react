@@ -1,4 +1,4 @@
-import { isEmpty, result } from 'lodash';
+import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import Imagyoutube from '../../Images/link-image.png';
@@ -254,7 +254,7 @@ const UpdatePortfolio = ({ pagetitle }) => {
                             }}>
                                 {/* <strong style={{ color: 'red' }}>Upload File: {formData.src}</strong> */}
                                 <small className='text-secondary text-center'>Preview</small>
-                                <img src={formData.src} alt="Uploaded Image" className='rounded-3 img-fluid' style={{
+                                <img src={formData.src} alt="Uploaded Img" className='rounded-3 img-fluid' style={{
                                     height: "250px",
                                     wieght: "250px",
                                 }} />
