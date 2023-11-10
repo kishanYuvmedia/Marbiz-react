@@ -1479,10 +1479,14 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 
 .celeb-container {
   display: block;
-  /* position: -webkit-sticky; */
-  position: absolute;
-  top: 0;
-  width: 100%;
+  z-index: 1;
+  position: sticky;
+  top: 100px;
+}
+
+.form-container {
+  position: relative;
+  z-index: 1;
 }
 
 /* slider brand */
