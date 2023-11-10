@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getPublicList, getInfluencersProfile, createEnquiry } from "../services/api/api-service";
 import Swal from "sweetalert2";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { isEmpty } from "lodash";
 
 const InquiryForm = () => {
@@ -121,7 +121,7 @@ const InquiryForm = () => {
       .catch((err) => {
         console.error("Error fetching profile data:", err);
       });
-  }, []);
+  }, [regName]);
 
   if (profileData === null) {
     return null;
