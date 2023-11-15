@@ -42,9 +42,7 @@ function NavBar() {
       if (result.isConfirmed) {
         authenticationService.logout();
       }
-      //window.location.reload(true);
     });
-   
   };
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
