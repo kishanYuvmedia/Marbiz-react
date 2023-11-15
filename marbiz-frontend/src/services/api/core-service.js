@@ -3,7 +3,7 @@ import {axiosRequest} from "./axios-base";
 export const findById = (model, id, filter = {}) => {
     return axiosRequest(
         'GET',
-        [model, ':id',].join('/'),
+        [model, id].join('/'),
         filter,
         undefined,
         { id }
@@ -63,6 +63,7 @@ export const updateAttributes = (model, id, data) => {
         { id }
     )
 }
+
 export const upsertPatch = (model,data = {}) => {
     return axiosRequest(
         'PATCH',

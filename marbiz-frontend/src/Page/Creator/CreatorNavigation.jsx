@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link, Outlet, useNavigate } from "react-router-dom";
+
+
 const CreatorNavigation = () => {
 
     const [activeNavItem, setActiveNavItem] = useState('Dashboard');
@@ -27,22 +29,10 @@ const CreatorNavigation = () => {
                     <div className="creator-dashboard-nav ">
                         <div className="creator-dashboard-inner">
                             <ul data-submenu-title="Main Navigation" className="fw-bold">
-                                {/* <li className={activeNavItem === 'Dashboard' ? 'active' : ''}>
-                                    <Link to="/creatorDashboard" onClick={() => handleNavItemClick('Dashboard')}>
-                                        <i className="lni lni-dashboard me-2"></i>
-                                        Dashboard
-                                    </Link>
-                                </li> */}
                                 <li className={activeNavItem === 'Enquires' ? 'active' : ''}>
                                     <Link to="/creatorDashboard/CreatorEnquiries" onClick={() => handleNavItemClick('Enquires')}>
                                         <i className="lni lni-files me-2"></i>
                                         Enquires
-                                    </Link>
-                                </li>
-                                <li className={activeNavItem === 'CreatorUpload' ? 'active' : ''}>
-                                    <Link to="/creatorDashboard/CreatorUpload" onClick={() => handleNavItemClick('CreatorUpload')}>
-                                        <i className="lni lni-image me-2"></i>
-                                        Add Portfolio
                                     </Link>
                                 </li>
                                 <li className={activeNavItem === 'PortfolioList' ? 'active' : ''}>
@@ -89,4 +79,4 @@ const CreatorNavigation = () => {
     )
 }
 
-export default CreatorNavigation
+export default CreatorNavigation;

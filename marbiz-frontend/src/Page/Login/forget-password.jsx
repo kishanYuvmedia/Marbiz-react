@@ -28,11 +28,11 @@ const ForgetPassword = () => {
 
         }
     }
-    const VerifyOtp=()=>{
+    const VerifyOtp = () => {
         console.log(otp)
         navigate(`/ChangePassword/${formData.username}`, {
             replace: true,
-          });
+        });
     }
     return (
         <div>
@@ -50,7 +50,7 @@ const ForgetPassword = () => {
                                             className="dark-bg"
                                             type="email"
                                             name="username"
-                                            placeholder="Enter register Email Address"
+                                            placeholder="Enter Registered Email Address"
                                             value={formData.username}
                                             onChange={handleInputChange}
                                         />
@@ -78,7 +78,7 @@ const ForgetPassword = () => {
                                         onChange={setOtp}
                                         numInputs={4}
                                         renderSeparator={<span>-</span>}
-                                        renderInput={(props) => <input {...props} style={{width:'100%'}} />}
+                                        renderInput={(props) => <input {...props} style={{ width: '100%' }} />}
                                     />
                                 </Form.Group>
                                 <div className="d-flex align-items-center justify-content-between">

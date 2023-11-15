@@ -105,7 +105,7 @@ const HeroSection = (props) => {
             }}>Marketing Made Easy</h6>
           </div>
           <div className="mt-3 sub-heading text-white">
-            Find and hire top Instagram, 
+            Find and hire top Instagram,
             Facebook, YouTube, and UGC <br />influencer to
             create unique content for your brand.
           </div>
@@ -129,7 +129,7 @@ const HeroSection = (props) => {
             // duration={500}
             inputType={["touch", "mouse"]}
             moveType={["strict", { count: 4 }]}
-            // panelsPerView={4}
+          // panelsPerView={4}
           >
             {list.map((item, index) => (
               <div key={item.id}>

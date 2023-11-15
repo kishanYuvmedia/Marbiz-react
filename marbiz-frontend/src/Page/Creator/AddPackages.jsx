@@ -2,7 +2,9 @@ import { isEmpty, result } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import { createPackage, getPublicList } from '../../services/api/api-service';
-const AddPackages = () => {
+
+const AddPackages = ({ pagetitle }) => {
+
     const [platformlist, setPlatform] = useState([]);
     const [contentTypelist, setContentType] = useState([]);
     const [formData, setFormData] = useState({
@@ -13,11 +15,24 @@ const AddPackages = () => {
         Description: '',
         mtUserId: '',
         profileId: '',
-        price:'',
+        price: '',
+
+
+
     });
+
+    console.log("Initial qty inside form data :", formData);
+
     const handleContentQuantityChange = (event) => {
-        formData.contentQuantity = event.target.value;
+        const value = parseInt(event.target.value, 10); // Parse the value as an integer
+        console.log("Initial qty inside handleContentQuantityChange:", formData.contentQuantity)
+        setFormData({
+            ...formData,
+            contentQuantity: value, // Ensure it's defined as a number
+        });
+
     };
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -25,15 +40,16 @@ const AddPackages = () => {
             [name]: value,
         });
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // You can access the form data in the `formData` state and submit it as needed.
-        console.log(formData);
+        // console.log(formData);
         createPackage(formData).then(result => {
             if (!isEmpty(result)) {
                 Swal.fire(
                     "Congratulations",
-                    "Your Package successfully update !",
+                    "Your Package successfully updated !",
                     "success"
                 );
                 window.location.reload(true);
@@ -41,12 +57,13 @@ const AddPackages = () => {
             else {
                 Swal.fire(
                     "Oops !",
-                    "Package not upload successfully !",
+                    "Package not uploaded successfully !",
                     "success"
                 );
             }
         })
     };
+
     useEffect(() => {
         if (localStorage.getItem("authUser")) {
             const obj = JSON.parse(localStorage.getItem("authUser"));
@@ -59,17 +76,19 @@ const AddPackages = () => {
             setContentType(result);
         });
     }, [])
+
     return (
         <>
             <div>
-                <h2>Add Package</h2>
+                <h2>{pagetitle}</h2>
+                <hr className="hr hr-blurry border border-danger border-2" />
                 <form noValidate onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="packageName" className="form-label text-white">
                             Give a Name to Your Package
                         </label>
                         <input
-                            type=""
+                            type="text"
                             className="form-control dark-bg"
                             name="title"
                             required
@@ -93,8 +112,8 @@ const AddPackages = () => {
                             onChange={handleInputChange}
                         >
                             <option value="">Select an option</option>
-                            {platformlist.map(item => 
-                                <option value={item.value}>{item.label}</option>
+                            {platformlist.map(item =>
+                                <option key={item.value} value={item.value}>{item.label}</option>
                             )}
                         </select>
                     </div>
@@ -111,8 +130,8 @@ const AddPackages = () => {
                             onChange={handleInputChange}
                         >
                             <option value="">Select an option</option>
-                            {contentTypelist.map(item => 
-                                <option value={item.value}>{item.label}</option>
+                            {contentTypelist.map(item =>
+                                <option key={item.value} value={item.value}>{item.label}</option>
                             )}
                         </select>
                     </div>
@@ -132,6 +151,7 @@ const AddPackages = () => {
                                     id="contentQuantity"
                                     name="contentQuantity"
                                     value={formData.contentQuantity}
+                                    defaultValue={formData.contentQuantity}
                                     onChange={handleContentQuantityChange}
                                 />
                                 <span>10</span>
@@ -144,7 +164,7 @@ const AddPackages = () => {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="price" className="form-label text-white">
-                           Price*
+                            Price*
                         </label>
                         <input
                             type="text"

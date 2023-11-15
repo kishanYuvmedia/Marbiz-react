@@ -1,13 +1,11 @@
-
 import React, { useState, useEffect } from 'react'
 import { Card, CardTitle, Row, Button, CardHeader, CardBody, Col, FormGroup, Label, Input } from 'reactstrap';
 import { UpdateMtUser, loginOut } from '../../services/api/api-service';
 import { isEmpty } from 'lodash';
 import Swal from "sweetalert2";
-
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 
-const BrandPassword = ({ pagetitle }) => {
+const CreatorPassword = ({ pagetitle }) => {
 
   const [errorPassword, seterrorPassword] = useState(null)
   const [formData, setFormData] = useState({});
@@ -23,7 +21,6 @@ const BrandPassword = ({ pagetitle }) => {
       ...formDatanew,
       [name]: value,
     });
-
     if (name === 'password' || name === 'cpassword') {
       if (formDatanew.password === formDatanew.cpassword) {
         // Passwords match
@@ -66,9 +63,11 @@ const BrandPassword = ({ pagetitle }) => {
 
         }
       });
+
     } else {
       Swal.fire("Warning", "Your Password Not Match", "sarning");
     }
+
   };
 
   const handleToggle = () => {
@@ -105,68 +104,64 @@ const BrandPassword = ({ pagetitle }) => {
         </div>
         <hr className="hr hr-blurry border border-danger border-2" />
       </div>
-      <div>
-        <form>
-          <Row>
-            <Col md={4}>
-              <FormGroup className='position-relative'>
-                <Label for="exampleName" style={{ color: 'white' }}>
-                  Password:
-                </Label>
-                <Input
-                  type={type}
-                  id="password"
-                  name="password"
-                  placeholder='New Password'
-                  value={formDatanew.password}
-                  onChange={handleChange}
-                  className='form-control dark-bg'
-
-                />
-                <span className='text-white fs-4' onClick={handleToggle} style={{
-                  position: "absolute",
-                  top: "40px",
-                  right: "20px",
-                }}>
-                  {icon}
-                </span>
-              </FormGroup>
-            </Col>
-            <Col md={4}>
-              <FormGroup className='position-relative'>
-                <Label for="cpassword" style={{ color: 'white' }}>
-                  Confirm Password:
-                </Label>
-                <Input
-                  type={confirmType}
-                  id="cpassword"
-                  name="cpassword"
-                  placeholder='Retype New Password'
-                  value={formDatanew.cpassword}
-                  onChange={handleChange}
-                  className='form-control dark-bg'
-
-                />
-                <span className='text-white fs-4' onClick={handleConfirmToggle} style={{
-                  position: "absolute",
-                  top: "40px",
-                  right: "20px",
-                }}>
-                  {confirmIcon}
-                </span>
-              </FormGroup>
-              <label style={{ color: 'red' }}>{errorPassword}</label>
-            </Col>
-            <Col md={12}>
-              <button onClick={handleSubmit} className='btn-global px-3 fs-6'>
-                Update Password
-              </button>
-            </Col>
-          </Row>
-        </form>
-      </div>
+      <form>
+        <Row>
+          <Col md={4}>
+            <FormGroup className='position-relative'>
+              <Label for="exampleName" style={{ color: 'white' }}>
+                New Password:
+              </Label>
+              <Input
+                type={type}
+                id="password"
+                name="password"
+                placeholder='New Password'
+                value={formDatanew.password}
+                onChange={handleChange}
+                className='form-control dark-bg'
+              />
+              <span className='text-white fs-4' onClick={handleToggle} style={{
+                position: "absolute",
+                top: "40px",
+                right: "20px",
+              }}>
+                {icon}
+              </span>
+            </FormGroup>
+          </Col>
+          <Col md={4}>
+            <FormGroup className='position-relative'>
+              <Label for="cpassword" style={{ color: 'white' }}>
+                Confirm Password:
+              </Label>
+              <Input
+                type={confirmType}
+                id="cpassword"
+                name="cpassword"
+                placeholder='Confirm Password'
+                value={formDatanew.cpassword}
+                onChange={handleChange}
+                className='form-control dark-bg'
+              />
+              <span className='text-white fs-4' onClick={handleConfirmToggle} style={{
+                position: "absolute",
+                top: "40px",
+                right: "20px",
+              }}>
+                {confirmIcon}
+              </span>
+            </FormGroup>
+            <label style={{ color: 'red' }}>{errorPassword}</label>
+          </Col>
+          <Col md={12}>
+            <button onClick={handleSubmit} className='btn-global px-3 fs-6'>
+              Update Password
+            </button>
+          </Col>
+        </Row>
+      </form>
     </div>
   )
 }
 
-export default BrandPassword
+export default CreatorPassword

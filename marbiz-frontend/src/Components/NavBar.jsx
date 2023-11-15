@@ -23,11 +23,11 @@ function NavBar() {
 
   // Function to handle logout
   const handleLogout = () => {
-    console.log("logout");
+    // console.log("logout");
     setIsLoggedIn(false);
-    //loginOut()
+   
     Swal.fire({
-      title: "Logout Your account",
+      title: "Logout Your Account?",
       width: 600,
       padding: "3em",
       customClass: {
@@ -43,11 +43,12 @@ function NavBar() {
         authenticationService.logout();
       }
     });
+   
   };
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"));
-      console.log("login user", obj);
+      // console.log("login user", obj);
       setLoginUser(obj);
     }
   }, []);

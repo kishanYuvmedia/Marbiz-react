@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { loginUser } from "../../services/api/api-service";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+
 const GlobalLogin = () => {
   const navigate = useNavigate();
   document.title = "Login | MARBIZ ";
@@ -12,6 +15,10 @@ const GlobalLogin = () => {
     password: "",
   };
   const [formData, setFormData] = useState(initialFormData);
+
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(<BsEyeSlash />);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -69,6 +76,18 @@ const GlobalLogin = () => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(<BsEye />);
+      setType('text')
+    } else {
+      setIcon(<BsEyeSlash />)
+      setType('password')
+    }
+  }
+
+
   return (
     <div>
       <Container className="p-3 p-md-5">
@@ -92,18 +111,25 @@ const GlobalLogin = () => {
                     We'll never share your email with anyone else.
                   </Form.Text>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formPassword">
+                <Form.Group className="mb-3 position-relative" controlId="formPassword">
                   <Form.Label className="text-white">Password</Form.Label>
                   <Form.Control
                     required
                     className="dark-bg"
-                    type="password"
+                    type={type}
                     name="password"
                     minLength={6}
                     placeholder="Password"
                     value={formData.password}
                     onChange={handleInputChange}
                   />
+                  <span className='text-white fs-4' onClick={handleToggle} style={{
+                    position: "absolute",
+                    top: "40px",
+                    right: "20px",
+                  }}>
+                    {icon}
+                  </span>
                 </Form.Group>
                 <div className="d-flex align-items-center justify-content-between">
                   <button type="submit" className="btn-global px-5 w-100">

@@ -185,7 +185,7 @@ body {
     transform: scale(0.98);
     box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-    transform: translateY(-20px);
+    /* transform: translateY(-20px); */
   }
 
   .card-img-overlay {
@@ -1086,7 +1086,6 @@ body {
   cursor: pointer;
   color: #fff;
   font-size: 12px;
-
 }
 
 .gallery-container-one:hover .gallery-overlay,
@@ -1108,7 +1107,6 @@ body {
 .gallery-container-three {
   height: 250px;
   position: relative;
-
 }
 
 .gallery-container-three img {
@@ -1481,10 +1479,14 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 
 .celeb-container {
   display: block;
-  /* position: -webkit-sticky; */
-  position: absolute;
-  top: 0;
-  width: 100%;
+  z-index: 1;
+  position: sticky;
+  top: 100px;
+}
+
+.form-container {
+  position: relative;
+  z-index: 1;
 }
 
 /* slider brand */
@@ -1532,7 +1534,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   align-items: center;
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch; */
 }
 
 .new-brand-box .owl-carousel .owl-stage-outer {
@@ -1569,6 +1571,54 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 0.2rem;
+}
+
+.reel-card .portfolio-images,
+.reel-card .youtube-container {
+  position: relative;
+}
+
+.portfolio-images .image-overlay button {
+  color: white;
+  border: 1px solid white;
+}
+
+.portfolio-images .image-overlay button:hover {
+  color: rgb(255, 134, 48);
+  border-color: rgb(255, 134, 48);
+  background-color: #0000007a;
+}
+
+.portfolio-images .image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  text-align: center;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+}
+
+.reel-card .portfolio-images:hover .image-overlay,
+.reel-card .youtube-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.reel-card,
+.portfolio-images {
+  height: 100%;
+  width: 100%;
 }
 
 .youtube-card .play_icon,
@@ -1624,7 +1674,7 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   user-select: none;
   -ms-touch-action: pan-y;
   touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
+  /* -webkit-tap-highlight-color: transparent; */
 }
 
 .slick-slider .slick-list,
@@ -1721,4 +1771,18 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 .hover-vd .slick-slide:hover {
   width: 180px !important;
   cursor: pointer;
+}
+
+.bio-container {
+  padding: 20px;
+  border: 2px dashed gray;
+  border-radius: 10px;
+  background-color: rgb(39, 39, 39);
+}
+
+.gallery-container {
+  border: 2px dashed gray;
+  border-radius: 10px;
+  background-color: rgb(39, 39, 39);
+  padding: 20px;
 }

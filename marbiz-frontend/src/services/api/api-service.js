@@ -1,5 +1,5 @@
-import { create, find, upsertPatch, findOne, count,deleteById } from "./core-service";
-import { storeLocalData,getLocalData,removeLocalData } from "../global-storage";
+import { create, find, upsertPatch, findOne, count, deleteById, findById } from "./core-service";
+import { storeLocalData, getLocalData, removeLocalData } from "../global-storage";
 import apiKit from "./axios-base";
 
 export const getSystemList = (type) => {
@@ -52,7 +52,7 @@ export const getInfluencersAll = (platform, category1) => {
   let filter = {
     where: {},
     order: "id desc",
-    limit:30,
+    limit: 30,
   };
   if (platform != null && category1.length > 0) {
     filter.where.and = [
@@ -120,7 +120,7 @@ export const getInfluencersProfile = (name) => {
 };
 export const getInfluencersProfilebyId = (userId) => {
   return findOne("MtProfiles", {
-    where:{mtUserId:userId},
+    where: { mtUserId: userId },
   });
 };
 export const loginUser = (username, password) => {
@@ -143,19 +143,19 @@ export const loginUser = (username, password) => {
 export const loginOut = () => {
   return new Promise((resolve, reject) => {
     apiKit
-    .post("/MtUsers/logout?access_token=" + getLocalData("accessToken"))
-    .then(function (response) {
-      console.log("logout");
-      removeLocalData("accessToken");
-      removeLocalData("authUser");
-      removeLocalData("userId");
-      removeLocalData("auth_token");
-      resolve(response);
-    })
-    .catch(function (error) {
-      console.error(`Error:${error}`);
-      reject(error);
-    });
+      .post("/MtUsers/logout?access_token=" + getLocalData("accessToken"))
+      .then(function (response) {
+        console.log("logout");
+        removeLocalData("accessToken");
+        removeLocalData("authUser");
+        removeLocalData("userId");
+        removeLocalData("auth_token");
+        resolve(response);
+      })
+      .catch(function (error) {
+        console.error(`Error:${error}`);
+        reject(error);
+      });
   });
 };
 export const getProfile = profileid => {
@@ -173,7 +173,7 @@ export const UpdateProfile = data => {
 export const UpdateMtUser = data => {
   return upsertPatch("MtUsers", data)
 }
-export const getUserBooking= async (id)=>{
+export const getUserBooking = async (id) => {
   try {
     const data = await find("Enquiries", {
       where: { email: id },
@@ -187,11 +187,11 @@ export const getUserBooking= async (id)=>{
 export const deleteEnquiry = id => {
   return deleteById("Enquiries", id)
 }
-export const enquiryListById =()=>{
+export const enquiryListById = () => {
   const obj = JSON.parse(localStorage.getItem("authUser"));
   return new Promise((resolve, reject) => {
     find("Enquiries", {
-      where: {mtUserId:obj.id},
+      where: { mtUserId: obj.id },
     }).then(data => {
       resolve(data)
     })
@@ -199,55 +199,74 @@ export const enquiryListById =()=>{
 }
 export const createPackage = (data) => {
   return create("Packages", data);
+}
+
+export const updatePackage = (data) => {
+  return upsertPatch("Packages", data);
 };
-export const PackageById =(id)=>{
-  let userId=null;
-  let obj=null;
-  if(id===0){
-    obj= JSON.parse(localStorage.getItem("authUser"));
-    userId=obj.id;
+
+
+export const PackageById = (id) => {
+  let userId = null;
+  let obj = null;
+  if (id === 0) {
+    obj = JSON.parse(localStorage.getItem("authUser"));
+    userId = obj.id;
   }
-  else{
-    userId=id;
+  else {
+    userId = id;
   }
   return new Promise((resolve, reject) => {
     find("Packages", {
-      where: {mtUserId:userId},
+      where: { mtUserId: userId },
     }).then(data => {
       resolve(data)
     })
   })
 }
-export const PackageByIdAndType =(type,id)=>{
-  let userId=null;
-  let obj=null;
-  if(id===0){
-    obj= JSON.parse(localStorage.getItem("authUser"));
-    userId=obj.id;
+export const PackageByIdAndType = (type, id) => {
+  let userId = null;
+  let obj = null;
+  if (id === 0) {
+    obj = JSON.parse(localStorage.getItem("authUser"));
+    userId = obj.id;
   }
-  else{
-    userId=id;
+  else {
+    userId = id;
   }
   return new Promise((resolve, reject) => {
     find("Packages", {
-      where: { platform:type, and: [{ mtUserId:userId}] },
+      where: { platform: type, and: [{ mtUserId: userId }] },
     }).then(data => {
       resolve(data)
     })
   })
 }
+
 export const getImagesList = id => {
   return find(`MtProfiles/${id}/Images`, {
     where: { status: "A" },
     limit: 6,
   })
 }
-export const getImagesListType = (id,type) => {
+export const getImagesListType = (id, type) => {
   return find(`MtProfiles/${id}/Images`, {
-    where: { status: "A", and: [{ caption:type}] },
+    where: { status: "A", and: [{ caption: type }] },
     limit: 6,
   })
 }
 export const UploadImages = data => {
   return create("Images", data)
+}
+
+export const updateImage = data => {
+  return upsertPatch("Images", data)
+}
+
+export const deleteImage = (id) => {
+  return deleteById("Images", id)
+}
+
+export const getPortfolioByID = (id) => {
+  return findById("Images", id)
 }

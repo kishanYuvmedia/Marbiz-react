@@ -177,11 +177,11 @@ const CelebProfile = () => {
           {/* Packages section */}
           <div className="container">
             <div className="row">
-              <div className="my-3">
-                <span className="text-white fs-3 me-3">Packages</span>
-                <span className="text-secondary fs-6">How does it work</span>
+              <div className="my-2">
+                <h2 className=" me-3">Packages</h2>
+                {/* <span className="text-secondary fs-6">How does it work?</span> */}
               </div>
-              <PackagesTabs userId={profileData.mtUserId} regname={profileData.regName} />
+              <PackagesTabs userId={profileData.mtUserId} regName={profileData.regName} />
               <div className="my-3">
                 <Link to="/#" >
                   <span className="text-secondary fs-6">
@@ -196,7 +196,7 @@ const CelebProfile = () => {
           <div className="container">
             <div className="row">
               <div className="my-3">
-                <span className="text-white fs-3 me-3">Portfolio</span>
+                <h2 className=" me-3">Portfolio</h2>
                 {/* <span className="text-secondary fs-6">How does it work</span> */}
               </div>
               <Portfolio userId={profileData.id} />
@@ -206,6 +206,7 @@ const CelebProfile = () => {
         </>
       )}
       {regName && (
+
         <div className="text-center bg-body-tertiary hero">
           <div className="container py-3">
             <SliderList

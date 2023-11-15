@@ -1,17 +1,20 @@
-import { isEmpty, result } from 'lodash';
+import { isEmpty } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import Imagyoutube from '../../Images/link-image.png';
 import { Modal, Button } from "react-bootstrap";
 import { getPublicList, UploadImages, getInfluencersProfilebyId } from '../../services/api/api-service';
-const CreatorUpload = ({ pagetitle }) => {
+
+const UpdatePortfolio = ({ pagetitle }) => {
     const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(true);
     };
+
     const handleClose = () => {
         setShow(false);
     };
+
     const [contentTypelist, setContentType] = useState([]);
     const [imagestatus, setImagestatus] = useState(false);
     const [formData, setFormData] = useState({
@@ -23,6 +26,7 @@ const CreatorUpload = ({ pagetitle }) => {
         mtUserId: '',
         sourceUrl: '',
     });
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -30,6 +34,7 @@ const CreatorUpload = ({ pagetitle }) => {
             [name]: value,
         });
     };
+
     function extractVideoId(url) {
         // Regular expressions to match YouTube URL patterns
         const youtubeShortPattern = /youtu\.be\/([\w-]+)/;
@@ -49,6 +54,7 @@ const CreatorUpload = ({ pagetitle }) => {
         // If no match is found, return null
         return null;
     }
+
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -59,7 +65,9 @@ const CreatorUpload = ({ pagetitle }) => {
                 customClass: {
                     title: 'my-swal-title',
                 },
-                imageUrl: e.target.result,
+                // imageUrl: e.target.result,
+                imageUrl: URL.createObjectURL(file),
+
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: 'Custom image',
@@ -92,26 +100,54 @@ const CreatorUpload = ({ pagetitle }) => {
             });
         }
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const videoId1 = extractVideoId(formData.sourceUrl);
-        const data = [];
-        data.push({
-            ...formData,
-            sourceUrl: videoId1,
-        })
-        console.log(data);
-        UploadImages(data).then(result => {
-            if (!isEmpty(result)) {
-                Swal.fire({
-                    icon: "success",
-                    title: "Upload Successfully",
-                    text: "Image upload successfully uploaded !",
-                })
-                window.location.reload(true)
+        // Check if sourceUrl is not empty before extracting videoId
+        if (formData.caption !== null) {
+            let videoId1 = "";
+            if (formData.caption !== "Image") {
+                if (formData.sourceUrl) {
+                    videoId1 = extractVideoId(formData.sourceUrl);
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Source Url is empty. Please provide a valid URL.",
+                    });
+                }
+                return;
             }
-        })
+            else {
+                videoId1 = formData.sourceUrl;
+            }
+            const data = [];
+            data.push({
+                ...formData,
+                sourceUrl: videoId1,
+            })
+            // console.log(data);
+            UploadImages(data).then(result => {
+                if (!isEmpty(result)) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Upload Successfully",
+                        text: "Image upload successfully uploaded !",
+                    })
+                    window.location.reload(true)
+                }
+            })
+        } else {
+            // Handle the case where sourceUrl is empty
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Content Type is empty. Please provide a valid URL.",
+            });
+        }
     };
+
     const uploadfile = async (file) => {
 
         if (file) {
@@ -141,12 +177,13 @@ const CreatorUpload = ({ pagetitle }) => {
         }
         return false // Return false if there's no file to upload
     }
+
     useEffect(() => {
         if (localStorage.getItem("authUser")) {
             const obj = JSON.parse(localStorage.getItem("authUser"));
             getInfluencersProfilebyId(obj.id)
                 .then((result) => {
-                    console.log("loginUser",{ mtUserId: obj.id, profileId: result.id })
+                    console.log("loginUser", { mtUserId: obj.id, profileId: result.id })
                     setFormData({ mtUserId: obj.id, profileId: result.id });
                 })
                 .catch((err) => {
@@ -157,6 +194,7 @@ const CreatorUpload = ({ pagetitle }) => {
             setContentType(result);
         });
     }, [])
+
     return (
         <>
             <div>
@@ -207,23 +245,43 @@ const CreatorUpload = ({ pagetitle }) => {
                             accept="image/*"
                             onChange={handleFileUpload}
                         />
-                        <label htmlFor="filepath" className="form-label text-white">
+                        {/* <label htmlFor="filepath" className="form-label text-white">
                             {imagestatus ? <strong style={{ color: 'red' }}>Upload File:{formData.src}</strong> : ""}
-                        </label>
+                        </label> */}
+                        {imagestatus && (
+                            <div className='gallery-container d-grid my-3' style={{
+                                width: "fit-content",
+                            }}>
+                                {/* <strong style={{ color: 'red' }}>Upload File: {formData.src}</strong> */}
+                                <small className='text-secondary text-center'>Preview</small>
+                                <img src={formData.src} alt="Uploaded Img" className='rounded-3 img-fluid' style={{
+                                    height: "250px",
+                                    wieght: "250px",
+                                }} />
+                            </div>
+                        )}
                     </div>
                     <div className="mb-3">
+                        
                         <label htmlFor="sourceUrl" className="form-label text-white">
-                            Source Url <strong>User Youtube Video link   <a style={{color:'red'}}
-                                                onClick={() =>
-                                                    handleShow()
-                                                }
-                                            >Check Demo</a></strong>
+                            {formData.caption !== "Image" ? (
+                                <span>
+                                    Source URL:
+                                    <strong className='ms-2'>
+                                        User Youtube Video link
+                                        <span style={{ cursor: "pointer" }} className='text-danger ms-2' onClick={() => handleShow()}>
+                                            Check Demo
+                                        </span>
+                                    </strong>
+                                </span>
+                            ) : 'Image Source For reference'}
                         </label>
+
                         <input
                             type="text"
                             className="form-control dark-bg"
                             name="sourceUrl"
-                            placeholder="sourceUrl"
+                            placeholder={formData.caption !== "Image" ? 'https://www.youtube.com/watch?v=VIDEO-ID' : 'Image Source'}
                             value={formData.sourceUrl}
                             onChange={handleInputChange}
                         />
@@ -238,7 +296,7 @@ const CreatorUpload = ({ pagetitle }) => {
                 <Modal.Body  >
                     <Button variant="danger" className="btn-close px-2" onClick={handleClose}></Button>
                     <div className="ratio ratio-16x9">
-                        <img src={Imagyoutube}/>
+                        <img src={Imagyoutube} alt="youtube-url-ref" />
                     </div>
                 </Modal.Body>
             </Modal>
@@ -246,4 +304,4 @@ const CreatorUpload = ({ pagetitle }) => {
     );
 };
 
-export default CreatorUpload;
+export default UpdatePortfolio;

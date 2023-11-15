@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const CelebCard = (props) => {
   const [listcategory, setCategory] = useState(
     Array.isArray(props.category) ? props.category : []
   );
-  
+
+  // Add a state to track whether the content is loading
+  const [isLoading, setIsLoading] = useState(true);
+
+  // You can update the isLoading state based on your data loading logic
+  // For this example, I'm using a simple setTimeout to simulate loading
+  setTimeout(() => {
+    setIsLoading(false); // Data is loaded, set loading state to false
+  }, 2000); // Adjust the delay as needed
+
   return (
     <div
       style={{
